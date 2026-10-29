@@ -56,14 +56,3 @@ export function predictMatch(home: TeamStrength, away: TeamStrength): MatchPredi
     fairOdds: { home: odds(pHome), draw: odds(pDraw), away: odds(pAway) },
   };
 }
-
-// Kullanıcı puanlaması: tam skor 10, sonuç+averaj 5, sadece sonuç 3
-export function scorePrediction(
-  pred: { home: number; away: number },
-  actual: { home: number; away: number },
-): number {
-  if (pred.home === actual.home && pred.away === actual.away) return 10;
-  const outcome = (x: { home: number; away: number }) => Math.sign(x.home - x.away);
-  if (outcome(pred) !== outcome(actual)) return 0;
-  return pred.home - pred.away === actual.home - actual.away ? 5 : 3;
-}

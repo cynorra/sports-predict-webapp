@@ -18,6 +18,6 @@ const token = await getAccessToken(sa);
 for (const f of fixtures) {
   await upsertDoc(token, projectId, `fixtures/${f.id}`, {
     home: f.home, away: f.away, competition: f.competition, kickoff: new Date(f.kickoff), updatedAt: new Date(),
-  });
+  }, { merge: true }); // merge: keep homeGoals/awayGoals/community* written by score-predictions.mjs
 }
 console.log(`mirrored ${fixtures.length} fixtures to Firestore project ${projectId}`);

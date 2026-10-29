@@ -33,12 +33,43 @@ export function toValue(v) {
 }
 export const toFields = (obj) => Object.fromEntries(Object.entries(obj).map(([k, v]) => [k, toValue(v)]));
 
-// Creates or fully replaces one document at `path` (for example "fixtures/123").
-export async function upsertDoc(token, projectId, path, obj) {
-  const res = await fetch(`https://firestore.googleapis.com/v1/projects/${encodeURIComponent(projectId)}/databases/(default)/documents/${path}`, {
+const docsBase = (projectId) => `https://firestore.googleapis.com/v1/projects/${encodeURIComponent(projectId)}/databases/(default)/documents`;
+
+// Query-string that limits a PATCH to the given fields (merge). Without it a PATCH replaces the whole document.
+export const updateMask = (keys) => '?' + keys.map((k) => 'updateMask.fieldPaths=' + encodeURIComponent(k)).join('&');
+
+// Creates a document, or with { merge: true } updates only the given fields of an existing one (path like "fixtures/123").
+export async function upsertDoc(token, projectId, path, obj, { merge = false } = {}) {
+  const res = await fetch(`${docsBase(projectId)}/${path}${merge ? updateMask(Object.keys(obj)) : ''}`, {
     method: 'PATCH',
     headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
     body: JSON.stringify({ fields: toFields(obj) }),
   });
   if (!res.ok) throw new Error(`write ${path} failed: HTTP ${res.status}`);
+}
+
+// Firestore REST value -> plain JS value
+export function fromValue(v) {
+  if ('stringValue' in v) return v.stringValue;
+  if ('integerValue' in v) return Number(v.integerValue);
+  if ('doubleValue' in v) return v.doubleValue;
+  if ('booleanValue' in v) return v.booleanValue;
+  if ('timestampValue' in v) return new Date(v.timestampValue);
+  if ('nullValue' in v) return null;
+  return undefined;
+}
+export const fromDoc = (d) => ({ id: d.name.split('/').pop(), ...Object.fromEntries(Object.entries(d.fields || {}).map(([k, val]) => [k, fromValue(val)])) });
+
+// All documents of a collection (follows pagination).
+export async function listDocs(token, projectId, collection) {
+  const out = [];
+  let pageToken = '';
+  do {
+    const res = await fetch(`${docsBase(projectId)}/${collection}?pageSize=300${pageToken ? '&pageToken=' + encodeURIComponent(pageToken) : ''}`, { headers: { Authorization: `Bearer ${token}` } });
+    if (!res.ok) throw new Error(`list ${collection} failed: HTTP ${res.status}`);
+    const j = await res.json();
+    out.push(...(j.documents || []).map(fromDoc));
+    pageToken = j.nextPageToken || '';
+  } while (pageToken);
+  return out;
 }

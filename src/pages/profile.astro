@@ -1,8 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
+import ProfileView from '../components/ProfileView';
 ---
 
-<Base title="Your Profile" description="Your prediction history, accuracy and badges on SkorRadar." noindex>
+<Base title="Your Profile" description="Your saved predictions, results and points on SkorRadar." noindex>
   <h1 class="text-3xl font-extrabold">Your Profile</h1>
-  <p class="mt-2 text-slate-600">Prediction history and badges appear here once sign-in is live.</p>
+  <div class="mt-4"><ProfileView client:load /></div>
 </Base>

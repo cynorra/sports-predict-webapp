@@ -49,6 +49,42 @@ export async function loadPicks(uid: string): Promise<Record<string, Pick>> {
   return out;
 }
 
+export async function loadNickname(uid: string): Promise<string> {
+  const { fs, db } = await sdk();
+  const snap = await fs.getDoc(fs.doc(db, 'users', uid));
+  return snap.exists() ? String(snap.data().nickname ?? '') : '';
+}
+
+// The nickname is what appears on the public leaderboard. Nothing is shown publicly until the player chooses one.
+export async function saveNickname(uid: string, nickname: string): Promise<void> {
+  const { fs, db } = await sdk();
+  await fs.setDoc(fs.doc(db, 'users', uid), { nickname: nickname.trim(), updatedAt: fs.serverTimestamp() });
+}
+
+export interface Community { home: number; draw: number; away: number; total: number }
+// Pick counts per fixture, written by the scoring workflow. Shown only after the player has made their own pick.
+export async function loadCommunity(): Promise<Record<string, Community>> {
+  const { fs, db } = await sdk();
+  const snap = await fs.getDocs(fs.collection(db, 'fixtures'));
+  const out: Record<string, Community> = {};
+  snap.forEach((d) => { const x = d.data(); if (x.communityTotal) out[d.id] = { home: x.communityHome, draw: x.communityDraw, away: x.communityAway, total: x.communityTotal }; });
+  return out;
+}
+
+export interface HistoryRow { fixtureId: string; home: string; away: string; kickoff: number; pick: string; result: string | null; points: number | null }
+export async function loadHistory(uid: string): Promise<HistoryRow[]> {
+  const { fs, db } = await sdk();
+  const [preds, fixtures] = await Promise.all([fs.getDocs(fs.query(fs.collection(db, 'predictions'), fs.where('uid', '==', uid))), fs.getDocs(fs.collection(db, 'fixtures'))]);
+  const fx = new Map<string, any>();
+  fixtures.forEach((d) => fx.set(d.id, d.data()));
+  const rows: HistoryRow[] = [];
+  preds.forEach((d) => {
+    const p = d.data(); const f = fx.get(p.fixtureId); if (!f) return;
+    rows.push({ fixtureId: p.fixtureId, home: f.home, away: f.away, kickoff: f.kickoff?.toMillis?.() ?? 0, pick: `${p.home}-${p.away}`, result: Number.isInteger(f.homeGoals) ? `${f.homeGoals}-${f.awayGoals}` : null, points: typeof p.points === 'number' ? p.points : null });
+  });
+  return rows.sort((a, b) => b.kickoff - a.kickoff);
+}
+
 // Rules reject the write if the match has started (kickoff is read from the server-written fixtures/{id} document).
 export async function savePick(uid: string, fixtureId: string, p: Pick): Promise<void> {
   const { fs, db } = await sdk();

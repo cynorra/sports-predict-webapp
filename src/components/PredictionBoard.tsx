@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { firebaseConfigured, hadSession, loadPicks, savePick, signIn, signOutUser, watchUser, type AppUser, type Pick } from '../lib/firebase';
+import { firebaseConfigured, hadSession, loadCommunity, loadNickname, loadPicks, savePick, saveNickname, signIn, signOutUser, watchUser, type AppUser, type Community, type Pick } from '../lib/firebase';
 
 export interface Fixture {
   id: string;
@@ -14,7 +14,7 @@ type Status = 'idle' | 'saving' | 'saved' | 'error';
 const pct = (n: number) => `${Math.round(n * 100)}%`;
 const complete = (p?: Pick) => Boolean(p && p.h !== '' && p.a !== '');
 
-function Card({ f, value, status, onChange }: { f: Fixture; value: Pick; status: Status; onChange: (v: Pick) => void }) {
+function Card({ f, value, status, community, onChange }: { f: Fixture; value: Pick; status: Status; community?: Community; onChange: (v: Pick) => void }) {
   const ms = new Date(f.kickoff).getTime() - Date.now();
   const locked = ms <= 0;
   const h = Math.floor(ms / 3.6e6);
@@ -46,6 +46,11 @@ function Card({ f, value, status, onChange }: { f: Fixture; value: Pick; status:
       <p className="mt-3 text-center text-xs text-slate-600">
         Model: {f.model.home}-{f.model.away} · {pct(f.model.pHome)} / {pct(f.model.pDraw)} / {pct(f.model.pAway)}
       </p>
+      {community && community.total >= 10 && complete(value) && (
+        <p className="mt-1 text-center text-xs text-slate-600">
+          {community.total} players: {pct(community.home / community.total)} home win, {pct(community.draw / community.total)} draw, {pct(community.away / community.total)} away win
+        </p>
+      )}
       <p className="mt-1 h-4 text-center text-xs" aria-live="polite">
         {status === 'saving' && <span className="text-slate-500">Saving…</span>}
         {status === 'saved' && <span className="text-pitch">Saved to your account</span>}
@@ -65,6 +70,10 @@ export default function PredictionBoard({ fixtures }: { fixtures: Fixture[] }) {
   const [status, setStatus] = useState<Record<string, Status>>({});
   const timers = useRef<Record<string, ReturnType<typeof setTimeout>>>({});
   const watching = useRef(false);
+  const [nickname, setNickname] = useState('');
+  const [nickDraft, setNickDraft] = useState('');
+  const [nickMsg, setNickMsg] = useState('');
+  const [community, setCommunity] = useState<Record<string, Community>>({});
   const kickoff = useMemo(() => Object.fromEntries(fixtures.map((f) => [f.id, new Date(f.kickoff).getTime()])), [fixtures]);
   const filled = useMemo(() => Object.values(picks).filter(complete).length, [picks]);
 
@@ -98,6 +107,20 @@ export default function PredictionBoard({ fixtures }: { fixtures: Fixture[] }) {
     return () => { cancelled = true; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user?.uid]);
+
+  // Leaderboard name and community pick counts, loaded once the player is signed in.
+  useEffect(() => {
+    if (!user) return;
+    loadNickname(user.uid).then((n) => { setNickname(n); setNickDraft(n); }).catch(() => {});
+    loadCommunity().then(setCommunity).catch(() => {});
+  }, [user?.uid]);
+
+  const saveNick = async () => {
+    const n = nickDraft.trim();
+    if (!user || n.length < 2 || n.length > 24) { setNickMsg('Use 2 to 24 characters.'); return; }
+    try { await saveNickname(user.uid, n); setNickname(n); setNickMsg('Saved. You will appear on the leaderboard once you score points.'); }
+    catch { setNickMsg('Could not save the name.'); }
+  };
 
   const update = (id: string, v: Pick) => {
     const next = { ...picks, [id]: v };
@@ -138,11 +161,22 @@ export default function PredictionBoard({ fixtures }: { fixtures: Fixture[] }) {
           </button>
         ))}
       </div>
+      {user && (
+        <div className="mb-4 rounded-lg bg-white p-4 text-sm shadow-sm">
+          <label htmlFor="nick" className="font-semibold">Leaderboard name</label>
+          <p className="text-xs text-slate-500">Optional. Shown publicly on the leaderboard. Leave it empty to stay off the leaderboard.</p>
+          <div className="mt-2 flex gap-2">
+            <input id="nick" value={nickDraft} maxLength={24} onChange={(e) => setNickDraft(e.target.value)} className="w-56 rounded border border-slate-300 px-2 py-1" />
+            <button type="button" onClick={saveNick} className="rounded bg-pitch px-3 py-1 font-semibold text-white hover:bg-pitch-dark">{nickname ? 'Update' : 'Save'}</button>
+          </div>
+          {nickMsg && <p className="mt-1 text-xs text-slate-600" aria-live="polite">{nickMsg}</p>}
+        </div>
+      )}
       {authError && <p role="alert" className="mb-3 text-sm text-red-700">{authError}</p>}
       {!user && <p className="mb-4 text-xs text-slate-500">Without an account your picks stay on this device only.</p>}
       <ul className="grid gap-4 md:grid-cols-2">
         {fixtures.map((f) => (
-          <Card key={f.id} f={f} value={picks[f.id] ?? { h: '', a: '' }} status={status[f.id] ?? 'idle'} onChange={(v) => update(f.id, v)} />
+          <Card key={f.id} f={f} value={picks[f.id] ?? { h: '', a: '' }} status={status[f.id] ?? 'idle'} community={community[f.id]} onChange={(v) => update(f.id, v)} />
         ))}
       </ul>
     </div>

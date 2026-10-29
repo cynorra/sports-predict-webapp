@@ -1,14 +1,20 @@
 ---
 import Base from '../layouts/Base.astro';
+import LeaderboardTable from '../components/LeaderboardTable';
+
+const projectId = import.meta.env.PUBLIC_FIREBASE_PROJECT_ID;
+const apiKey = import.meta.env.PUBLIC_FIREBASE_API_KEY;
 ---
 
 <Base
   title="Prediction Leaderboard"
-  description="Weekly and all-time rankings for the SkorRadar football score prediction game, plus private leagues for you and your friends."
+  description="All-time rankings for the SkorRadar football score prediction game. Exact scores earn 10 points, so sharp predictions climb the table."
 >
   <h1 class="text-3xl font-extrabold">Leaderboard</h1>
-  <p class="mt-2 max-w-2xl text-slate-600">
-    Rankings open once sign-in is live. Points: exact score 10, correct result and goal difference 5, correct result 3.
-    Start by making your picks on the <a class="font-semibold text-pitch underline" href="/predict">prediction page</a>.
+  <p class="mt-2 mb-6 max-w-2xl text-slate-600">
+    Points are added a few hours after each match finishes. Exact score: 10 points. Correct result and goal difference: 5 points. Correct result only: 3 points.
+    Results count the score after 90 minutes plus stoppage time.
+    You appear here only after you choose a leaderboard name on the <a class="font-semibold text-pitch underline" href="/predict">prediction page</a>.
   </p>
+  <LeaderboardTable client:load projectId={projectId} apiKey={apiKey} />
 </Base>
