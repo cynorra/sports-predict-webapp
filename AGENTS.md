@@ -39,8 +39,10 @@ Rules below are adapted from `D:\android-projeler\yukle-next\universal-adsense-s
 - Audit fails on orphan posts (every post needs an inbound body link from another post), `/site-map` page, `ads.txt` stub, 404 page, accessibility statement.
 
 ## Open items
+- GitHub repo: https://github.com/cynorra/sports-predict-webapp (public). Secrets set: FIREBASE_SERVICE_ACCOUNT, FOOTBALL_DATA_TOKEN (rotate the token: it was pasted in chat). The service-account JSON was deleted locally; a copy may remain in Downloads.
 - Real domain: `SITE_URL`, `robots.txt` sitemap line, `contact@your-domain.com`, `DEPLOY_HOOK_URL` secret.
 - Author bio page for Eren Simsir (E-E-A-T) - only real facts.
 - Consent banner was tested in a fresh Chrome origin on 2026-10-29 (fresh: banner shown, 0 ad requests; reject: 0 requests across pages; accept: script injected only then). Repeat on the real domain before enabling ads, and with Funding Choices once AdSense is approved.
-- Firebase Auth/Firestore, saved predictions, real leaderboard (needs a Firebase project + config).
+- Firebase (project `mac-tahmin-website`): Google sign-in enabled, Firestore created, `firestore.rules` published and verified on 2026-10-29 (anonymous reads of predictions/users/unknown collections return 403; fixtures are public). Fixtures are mirrored by `refresh-data.yml`. NOT yet tested: the actual Google sign-in + save flow in a browser; write-denial after kickoff.
+- Still to build: scoring workflow that writes `leaderboard/*` after matches finish (service account, never the client), community percentages, `/leaderboard` and `/profile` pages, nickname.
 - Fill `public/ads.txt` after approval; submit sitemap to Search Console and Bing.
