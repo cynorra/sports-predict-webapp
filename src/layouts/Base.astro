@@ -1,0 +1,86 @@
+---
+import '../styles/global.css';
+import ConsentBanner from '../components/ConsentBanner.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogType?: 'website' | 'article';
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  noindex?: boolean;
+}
+const { title, description, canonical, ogType = 'website', jsonLd, noindex = false } = Astro.props;
+const url = canonical ?? new URL(Astro.url.pathname, Astro.site).href;
+const SITE_NAME = 'SkorRadar';
+// Append the brand only if the full <title> stays within ~60 chars (Google truncates longer titles)
+const fullTitle = title.includes(SITE_NAME) || `${title} | ${SITE_NAME}`.length > 60 ? title : `${title} | ${SITE_NAME}`;
+const ld = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+const nav = [
+  ['/predict', 'Predict'],
+  ['/analysis', 'Match Analysis'],
+  ['/news', 'News'],
+  ['/guides', 'Guides'],
+  ['/leaderboard', 'Leaderboard'],
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={url} />
+    {noindex && <meta name="robots" content="noindex,follow" />}
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={url} />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:image" content={new URL('/og-default.png', Astro.site).href} />
+    <link rel="alternate" type="application/rss+xml" title="SkorRadar" href="/rss.xml" />
+    <link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt" />
+    {ld.map((o) => <script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', ...o })} />)}
+    {import.meta.env.PUBLIC_ADSENSE_CLIENT && <meta name="google-adsense-account" content={import.meta.env.PUBLIC_ADSENSE_CLIENT} />}
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <header class="bg-pitch text-white">
+      <div class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between gap-4">
+        <a href="/" class="text-xl font-extrabold tracking-tight">Skor<span class="text-gold">Radar</span></a>
+        <nav class="flex flex-wrap gap-x-5 gap-y-1 text-sm font-medium">
+          {nav.map(([href, label]) => <a href={href} class="hover:text-gold">{label}</a>)}
+        </nav>
+      </div>
+    </header>
+    <main class="flex-1 mx-auto w-full max-w-6xl px-4 py-8"><slot /></main>
+    <footer class="bg-ink text-slate-300 text-sm">
+      <div class="mx-auto max-w-6xl px-4 py-8 grid gap-6 sm:grid-cols-3">
+        <div>
+          <p class="font-bold text-white">{SITE_NAME}</p>
+          <p class="mt-2">Data-driven match predictions, analysis and news for football and the wider sports world.</p>
+        </div>
+        <ul class="space-y-1">
+          <li><a href="/about" class="hover:text-white">About Us</a></li>
+          <li><a href="/methodology" class="hover:text-white">Prediction Methodology</a></li>
+          <li><a href="/editorial-policy" class="hover:text-white">Editorial Policy</a></li>
+          <li><a href="/contact" class="hover:text-white">Contact</a></li>
+        </ul>
+        <ul class="space-y-1">
+          <li><a href="/privacy" class="hover:text-white">Privacy Policy</a></li>
+          <li><a href="/cookies" class="hover:text-white">Cookie Policy</a></li>
+          <li><a href="/terms" class="hover:text-white">Terms of Use</a></li>
+          <li><a href="/responsible-play" class="hover:text-white">Responsible Play</a></li>
+          <li><a href="/accessibility" class="hover:text-white">Accessibility</a></li>
+          <li><a href="/site-map" class="hover:text-white">Site Map</a></li>
+          <li><button id="open-consent" type="button" class="hover:text-white underline">Cookie settings</button></li>
+        </ul>
+      </div>
+      <p class="border-t border-slate-700 py-4 text-center text-xs">© {new Date().getFullYear()} {SITE_NAME}. Not betting advice; for information and entertainment only.</p>
+    </footer>
+    <ConsentBanner />
+  </body>
+</html>

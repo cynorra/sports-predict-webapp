@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+import { allPosts } from '../lib/site';
+import { SECTIONS, type Section } from '../lib/sections';
+
+const posts = await allPosts();
+const pages = (await getCollection('pages')).sort((a, b) => a.data.title.localeCompare(b.data.title));
+---
+
+<Base title="Site Map" description="Every section, article and policy page on SkorRadar in one list: guides, match analysis, news, the prediction game and legal pages.">
+  <h1 class="text-3xl font-extrabold">Site Map</h1>
+  <div class="mt-6 grid gap-8 md:grid-cols-2">
+    <section>
+      <h2 class="text-xl font-bold">Play</h2>
+      <ul class="mt-2 list-disc pl-5 space-y-1">
+        <li><a class="text-pitch underline" href="/predict">Predict the scores</a></li>
+        <li><a class="text-pitch underline" href="/leaderboard">Leaderboard</a></li>
+      </ul>
+    </section>
+    {(Object.keys(SECTIONS) as Section[]).map((section) => (
+      <section>
+        <h2 class="text-xl font-bold"><a class="hover:underline" href={`/${section}`}>{SECTIONS[section].title}</a></h2>
+        <ul class="mt-2 list-disc pl-5 space-y-1">
+          {posts.filter((p) => p.section === section).map(({ entry }) => (
+            <li><a class="text-pitch underline" href={`/${section}/${entry.id}`}>{entry.data.title}</a></li>
+          ))}
+          {posts.filter((p) => p.section === section).length === 0 && <li class="text-slate-500">No articles published yet.</li>}
+        </ul>
+      </section>
+    ))}
+    <section>
+      <h2 class="text-xl font-bold">About and policies</h2>
+      <ul class="mt-2 list-disc pl-5 space-y-1">
+        {pages.map((p) => <li><a class="text-pitch underline" href={`/${p.id}`}>{p.data.title}</a></li>)}
+      </ul>
+    </section>
+  </div>
+</Base>

@@ -1,0 +1,38 @@
+---
+import Base from '../layouts/Base.astro';
+import PredictionBoard, { type Fixture } from '../components/PredictionBoard';
+import { predictMatch } from '../lib/model';
+
+// Real fixtures only: src/data/fixtures.json is written by `npm run fixtures` (football-data.org + ClubElo).
+// If it does not exist we show an honest empty state instead of invented matches or ratings.
+const files = import.meta.glob('../data/fixtures.json', { eager: true }) as Record<string, any>;
+const data = Object.values(files)[0]?.default ?? Object.values(files)[0];
+const raw: any[] = (data?.fixtures ?? []).filter((f: any) => new Date(f.kickoff).getTime() > Date.now());
+const fixtures: Fixture[] = raw.map((r) => {
+  const p = predictMatch({ elo: r.homeElo }, { elo: r.awayElo });
+  return {
+    id: r.id, competition: r.competition, home: r.home, away: r.away, kickoff: r.kickoff,
+    model: { home: p.mostLikely.home, away: p.mostLikely.away, pHome: p.pHome, pDraw: p.pDraw, pAway: p.pAway },
+  };
+});
+const updated = data?.generatedAt ? new Date(data.generatedAt).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' }) : null;
+---
+
+<Base
+  title="Football Score Predictor Game"
+  description="Predict upcoming football match scores, compare with our statistical model and earn points on the leaderboard."
+>
+  <h1 class="text-3xl font-extrabold">Predict the Scores</h1>
+  <p class="mt-2 mb-6 text-slate-600">Pick a scoreline for each match before kickoff. Predictions lock when the match starts.</p>
+  {fixtures.length > 0 ? (
+    <>
+      <PredictionBoard client:load fixtures={fixtures} />
+      <p class="mt-6 text-xs text-slate-500">Fixtures and results from football-data.org, ratings calculated by us from those results{updated && `, updated ${updated}`}. Model output is an estimate, not betting advice. See the <a class="underline" href="/methodology">methodology</a>.</p>
+    </>
+  ) : (
+    <div class="rounded-lg bg-white p-6 shadow-sm">
+      <p class="font-semibold">No upcoming fixtures are loaded right now.</p>
+      <p class="mt-1 text-slate-600">New matches appear here when the fixture list is refreshed. In the meantime, read how our <a class="text-pitch underline" href="/methodology">prediction model</a> works.</p>
+    </div>
+  )}
+</Base>

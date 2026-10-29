@@ -1,0 +1,29 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { SECTIONS, isLive, type Section } from '../../lib/sections';
+
+export function getStaticPaths() {
+  return (Object.keys(SECTIONS) as Section[]).map((section) => ({ params: { section }, props: SECTIONS[section] }));
+}
+const section = Astro.params.section as Section;
+const { title, blurb } = Astro.props;
+const entries = (await getCollection(section, isLive)).sort(
+  (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime(),
+);
+---
+
+<Base title={title} description={blurb}>
+  <h1 class="text-3xl font-extrabold">{title}</h1>
+  <p class="mt-2 text-slate-600">{blurb}</p>
+  <ul class="mt-6 grid gap-4 sm:grid-cols-2">
+    {entries.map((e) => (
+      <li class="rounded-lg bg-white p-5 shadow-sm hover:shadow">
+        <a href={`/${section}/${e.id}`}>
+          <h2 class="font-bold">{e.data.title}</h2>
+          <p class="mt-1 text-sm text-slate-600">{e.data.description}</p>
+        </a>
+      </li>
+    ))}
+  </ul>
+</Base>

@@ -1,0 +1,2 @@
+# ads.txt - fill in after AdSense approval (publisher ID only exists once the account is approved).
+# Format: google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0

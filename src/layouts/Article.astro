@@ -1,0 +1,93 @@
+---
+import Base from './Base.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  answer: string;
+  publishedAt: Date;
+  updatedAt?: Date;
+  author: string;
+  section: 'analysis' | 'news' | 'guides';
+  faq?: { q: string; a: string }[];
+  headings?: { depth: number; slug: string; text: string }[];
+}
+const { title, description, answer, publishedAt, updatedAt, author, section, faq = [], headings = [] } = Astro.props;
+const toc = headings.filter((h) => h.depth === 2);
+const fmt = (d: Date) => d.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
+const url = new URL(Astro.url.pathname, Astro.site).href;
+
+const jsonLd: Record<string, unknown>[] = [
+  {
+    '@type': section === 'news' ? 'NewsArticle' : 'Article',
+    headline: title,
+    description,
+    datePublished: publishedAt.toISOString(),
+    dateModified: (updatedAt ?? publishedAt).toISOString(),
+    author: { '@type': 'Person', name: author },
+    publisher: { '@type': 'Organization', name: 'SkorRadar' },
+    mainEntityOfPage: url,
+    inLanguage: 'en',
+  },
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: new URL('/', Astro.site).href },
+      { '@type': 'ListItem', position: 2, name: section, item: new URL(`/${section}`, Astro.site).href },
+      { '@type': 'ListItem', position: 3, name: title, item: url },
+    ],
+  },
+];
+if (faq.length) {
+  jsonLd.push({
+    '@type': 'FAQPage',
+    mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+  });
+}
+---
+
+<Base title={title} description={description} ogType="article" jsonLd={jsonLd}>
+  <div class="grid gap-8 lg:grid-cols-[1fr_300px]">
+    <article>
+      <h1 class="text-3xl font-extrabold leading-tight">{title}</h1>
+      <p class="mt-2 text-sm text-slate-500">
+        {author} · Published: <time datetime={publishedAt.toISOString()}>{fmt(publishedAt)}</time>
+        · Last reviewed: <time datetime={(updatedAt ?? publishedAt).toISOString()}>{fmt(updatedAt ?? publishedAt)}</time>
+      </p>
+      <!-- Short answer: clear answer up top for AI overviews / featured snippets -->
+      <aside class="mt-5 rounded-lg border-l-4 border-pitch bg-white p-4 shadow-sm">
+        <p class="text-xs font-bold uppercase tracking-wide text-pitch">In short</p>
+        <p class="mt-1">{answer}</p>
+      </aside>
+      {toc.length >= 3 && (
+        <nav aria-label="Table of contents" class="mt-5 rounded-lg bg-white p-4 shadow-sm">
+          <p class="text-xs font-bold uppercase tracking-wide text-slate-500">In this article</p>
+          <ol class="mt-2 list-decimal space-y-1 pl-5 text-sm">
+            {toc.map((h) => <li><a class="text-pitch underline" href={`#${h.slug}`}>{h.text}</a></li>)}
+          </ol>
+        </nav>
+      )}
+      <div class="prose prose-slate mt-6 max-w-none prose-headings:scroll-mt-20"><slot /></div>
+      {faq.length > 0 && (
+        <section class="mt-10">
+          <h2 class="text-2xl font-bold">Frequently Asked Questions</h2>
+          <div class="mt-3 space-y-4">
+            {faq.map((f) => (
+              <div class="rounded-lg bg-white p-4 shadow-sm">
+                <h3 class="font-semibold">{f.q}</h3>
+                <p class="mt-1 text-slate-700">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+    </article>
+    <aside class="space-y-4">
+      <a href="/predict" class="block rounded-lg bg-pitch p-5 text-white shadow hover:bg-pitch-dark">
+        <p class="font-bold text-lg">Make your own prediction</p>
+        <p class="text-sm opacity-90">Enter your score, earn points, beat your friends.</p>
+      </a>
+      <!-- Ad slot: after approval put <ins class="adsbygoogle"> here -->
+    </aside>
+  </div>
+</Base>

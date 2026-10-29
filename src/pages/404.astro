@@ -1,0 +1,17 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Page Not Found" description="The page you asked for does not exist. Browse our football guides, match analysis and the score prediction game." noindex>
+  <section class="mx-auto max-w-xl py-12 text-center">
+    <p class="text-sm font-bold uppercase tracking-wide text-pitch">Error 404</p>
+    <h1 class="mt-2 text-3xl font-extrabold">We could not find that page</h1>
+    <p class="mt-3 text-slate-600">It may have moved or may not be published yet. Try one of these instead:</p>
+    <ul class="mt-5 space-y-2 font-semibold text-pitch">
+      <li><a class="underline" href="/guides">Guides</a></li>
+      <li><a class="underline" href="/analysis">Match analysis</a></li>
+      <li><a class="underline" href="/predict">Score prediction game</a></li>
+      <li><a class="underline" href="/">Home page</a></li>
+    </ul>
+  </section>
+</Base>

@@ -1,0 +1,33 @@
+---
+import { getCollection, render } from 'astro:content';
+import Article from '../../layouts/Article.astro';
+import { isLive } from '../../lib/sections';
+
+export async function getStaticPaths() {
+  const sections = ['analysis', 'news', 'guides'] as const;
+  const paths = [];
+  for (const section of sections) {
+    const entries = await getCollection(section, isLive);
+    for (const entry of entries) paths.push({ params: { section, slug: entry.id }, props: { entry, section } });
+  }
+  return paths;
+}
+
+const { entry, section } = Astro.props;
+const { Content, headings } = await render(entry);
+const d = entry.data;
+---
+
+<Article
+  title={d.title}
+  description={d.description}
+  answer={d.answer}
+  publishedAt={d.publishedAt}
+  updatedAt={d.updatedAt}
+  author={d.author}
+  section={section}
+  faq={d.faq}
+  headings={headings}
+>
+  <Content />
+</Article>

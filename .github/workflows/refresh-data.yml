@@ -1,0 +1,81 @@
+# Keeps src/data/fixtures.json fresh. Fixtures and the Elo ratings behind /predict go stale within days, so this runs
+# three times a day and commits ONLY when the data actually changed. The host redeploys on push.
+#
+# Security model
+#  - The football-data.org token exists only as the repository secret FOOTBALL_DATA_TOKEN and is handed to ONE step.
+#  - The scripts use only Node built-ins, so this workflow installs no npm packages (no supply-chain surface).
+#  - Actions are pinned to commit SHAs; the workflow token is limited to contents:write for this job only.
+#
+# Setup: Settings -> Secrets and variables -> Actions -> New repository secret: FOOTBALL_DATA_TOKEN.
+# Optional secret FIREBASE_SERVICE_ACCOUNT (full service-account JSON) mirrors fixtures to Firestore for the prediction lock.
+# Optional secret DEPLOY_HOOK_URL (Vercel/Netlify/Cloudflare deploy hook) if the host is not connected to git pushes.
+name: refresh-data
+on:
+  schedule:
+    - cron: '23 4,12,18 * * *'
+  workflow_dispatch: {}
+
+permissions: {}
+
+concurrency:
+  group: refresh-data
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    # Guard against forks/mirrors running this with the wrong secrets. Replace cynorra/sports-predict-webapp with the real repository.
+    if: github.repository == 'cynorra/sports-predict-webapp' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 22
+
+      # Past seasons never change, so cache the raw API responses; only the current season is re-downloaded.
+      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: scripts/.cache
+          key: fd-cache-${{ github.run_id }}
+          restore-keys: fd-cache-
+
+      - name: Self-test the gates and scan for leaked secrets
+        run: |
+          node --test scripts/lib/*.test.mjs
+          node scripts/check-secrets.mjs
+
+      - name: Sync fixtures and ratings
+        env:
+          FOOTBALL_DATA_TOKEN: ${{ secrets.FOOTBALL_DATA_TOKEN }}
+        run: node scripts/sync-fixtures.mjs
+
+      # Server-trusted copy of the fixtures so Firestore rules can lock predictions at the real kickoff.
+      # The service account (full admin access to Firestore) is handed to this one step only. Skipped if the secret is unset.
+      - name: Mirror fixtures to Firestore
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: node scripts/push-fixtures.mjs
+
+      - name: Commit if the data changed
+        id: commit
+        run: |
+          if git diff --quiet -- src/data/fixtures.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"; echo "fixtures unchanged"; exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/fixtures.json
+          git commit -m "data: refresh fixtures and ratings"
+          git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      # Only for hosts that do not redeploy on git push. Skipped silently when the secret is not set.
+      - name: Trigger deploy hook
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          HOOK: ${{ secrets.DEPLOY_HOOK_URL }}
+        run: |
+          if [ -n "$HOOK" ]; then curl --fail --silent --show-error -X POST "$HOOK" > /dev/null; else echo "no DEPLOY_HOOK_URL, relying on push-triggered deploy"; fi

@@ -1,0 +1,117 @@
+{
+  "generatedAt": "2026-10-29T12:33:21.823Z",
+  "sources": [
+    "football-data.org (results and fixtures)"
+  ],
+  "ratingMatches": 5730,
+  "fixtures": [
+    {
+      "id": "575377",
+      "competition": "UEFA Champions League",
+      "home": "Shaktar",
+      "away": "Sporting CP",
+      "kickoff": "2026-11-03T17:45:00Z",
+      "homeElo": 1484,
+      "awayElo": 1739
+    },
+    {
+      "id": "575378",
+      "competition": "UEFA Champions League",
+      "home": "Galatasaray",
+      "away": "Stuttgart",
+      "kickoff": "2026-11-03T17:45:00Z",
+      "homeElo": 1558,
+      "awayElo": 1601
+    },
+    {
+      "id": "575379",
+      "competition": "UEFA Champions League",
+      "home": "Feyenoord",
+      "away": "Inter",
+      "kickoff": "2026-11-03T20:00:00Z",
+      "homeElo": 1680,
+      "awayElo": 1737
+    },
+    {
+      "id": "575380",
+      "competition": "UEFA Champions League",
+      "home": "Barça",
+      "away": "Aston Villa",
+      "kickoff": "2026-11-03T20:00:00Z",
+      "homeElo": 1821,
+      "awayElo": 1654
+    },
+    {
+      "id": "575381",
+      "competition": "UEFA Champions League",
+      "home": "Atleti",
+      "away": "Bayern",
+      "kickoff": "2026-11-03T20:00:00Z",
+      "homeElo": 1680,
+      "awayElo": 1880
+    },
+    {
+      "id": "575382",
+      "competition": "UEFA Champions League",
+      "home": "Villarreal",
+      "away": "PSG",
+      "kickoff": "2026-11-03T20:00:00Z",
+      "homeElo": 1568,
+      "awayElo": 1884
+    },
+    {
+      "id": "575383",
+      "competition": "UEFA Champions League",
+      "home": "Man United",
+      "away": "Roma",
+      "kickoff": "2026-11-03T20:00:00Z",
+      "homeElo": 1567,
+      "awayElo": 1690
+    },
+    {
+      "id": "575384",
+      "competition": "UEFA Champions League",
+      "home": "Bodø/Glimt",
+      "away": "Lille",
+      "kickoff": "2026-11-03T20:00:00Z",
+      "homeElo": 1598,
+      "awayElo": 1570
+    },
+    {
+      "id": "575388",
+      "competition": "UEFA Champions League",
+      "home": "RB Leipzig",
+      "away": "Man City",
+      "kickoff": "2026-11-04T20:00:00Z",
+      "homeElo": 1587,
+      "awayElo": 1750
+    },
+    {
+      "id": "575389",
+      "competition": "UEFA Champions League",
+      "home": "Slavia Praha",
+      "away": "Arsenal",
+      "kickoff": "2026-11-04T20:00:00Z",
+      "homeElo": 1418,
+      "awayElo": 1850
+    },
+    {
+      "id": "575390",
+      "competition": "UEFA Champions League",
+      "home": "PSV",
+      "away": "Club Brugge",
+      "kickoff": "2026-11-04T20:00:00Z",
+      "homeElo": 1721,
+      "awayElo": 1577
+    },
+    {
+      "id": "575391",
+      "competition": "UEFA Champions League",
+      "home": "Dortmund",
+      "away": "Real Betis",
+      "kickoff": "2026-11-04T20:00:00Z",
+      "homeElo": 1689,
+      "awayElo": 1645
+    }
+  ]
+}

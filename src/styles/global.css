@@ -1,0 +1,15 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@theme {
+  --color-pitch: #0b6e4f;
+  --color-pitch-dark: #084c38;
+  --color-ink: #0f172a;
+  --color-gold: #f5b700;
+}
+
+body {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: var(--color-ink);
+  background: #f8fafc;
+}

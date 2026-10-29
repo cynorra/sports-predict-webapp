@@ -1,0 +1,28 @@
+# build output and generated types
+dist/
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# secrets - NEVER commit. Real values live in GitHub Actions secrets / the host's environment settings.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+service-account*.json
+firebase-adminsdk*.json
+
+# local caches
+scripts/.cache/
+
+# OS / editor
+.DS_Store
+.idea/

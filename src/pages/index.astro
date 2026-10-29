@@ -1,0 +1,52 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { isLive } from '../lib/sections';
+
+const byDate = (a: any, b: any) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime();
+const latest = async (c: 'analysis' | 'news' | 'guides') =>
+  (await getCollection(c, isLive)).sort(byDate).slice(0, 4);
+const blocks = [
+  { label: 'Match Analysis', href: '/analysis', sec: 'analysis', items: await latest('analysis') },
+  { label: 'Latest News', href: '/news', sec: 'news', items: await latest('news') },
+  { label: 'Guides', href: '/guides', sec: 'guides', items: await latest('guides') },
+];
+const site = [
+  { '@type': 'WebSite', name: 'SkorRadar', url: Astro.site?.href, inLanguage: 'en' },
+  { '@type': 'Organization', name: 'SkorRadar', url: Astro.site?.href, logo: new URL('/logo.png', Astro.site).href },
+];
+---
+
+<Base
+  title="SkorRadar | Football Predictions, Match Analysis & Sports News"
+  description="Data-driven football predictions, Champions League analysis and sports news. Predict scores, earn points and compete with friends."
+  jsonLd={site}
+>
+  <section class="rounded-2xl bg-gradient-to-br from-pitch to-pitch-dark p-8 text-white">
+    <h1 class="text-3xl sm:text-4xl font-extrabold">Call the score. Beat our model.</h1>
+    <p class="mt-3 max-w-2xl text-lg opacity-95">
+      See the scoreline and win probabilities our statistical model produces for every match, make your own pick and see how it compares.
+    </p>
+    <a href="/predict" class="mt-5 inline-block rounded-lg bg-gold px-6 py-3 font-bold text-ink hover:brightness-95">Make Your Predictions</a>
+  </section>
+
+  {blocks.map((b) => (
+    <section class="mt-10">
+      <div class="flex items-baseline justify-between">
+        <h2 class="text-2xl font-bold">{b.label}</h2>
+        <a href={b.href} class="text-sm font-semibold text-pitch hover:underline">View all →</a>
+      </div>
+      <ul class="mt-3 grid gap-4 sm:grid-cols-2">
+        {b.items.length === 0 && <li class="text-slate-500">Coming soon.</li>}
+        {b.items.map((e) => (
+          <li class="rounded-lg bg-white p-5 shadow-sm hover:shadow">
+            <a href={`/${b.sec}/${e.id}`}>
+              <h3 class="font-bold">{e.data.title}</h3>
+              <p class="mt-1 text-sm text-slate-600">{e.data.description}</p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))}
+</Base>

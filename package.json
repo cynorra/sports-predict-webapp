@@ -1,0 +1,31 @@
+{
+  "name": "skorradar",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "node --test scripts/lib/*.test.mjs && node scripts/check-secrets.mjs && node scripts/audit-content.mjs && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "audit": "node scripts/audit-content.mjs",
+    "secrets": "node scripts/check-secrets.mjs",
+    "test": "node --test scripts/lib/*.test.mjs",
+    "fixtures": "node scripts/sync-fixtures.mjs",
+    "freshness": "node scripts/audit-content.mjs --freshness",
+    "schedule": "node scripts/schedule-posts.mjs"
+  },
+  "dependencies": {
+    "@astrojs/node": "9.5.4",
+    "@astrojs/react": "4.4.2",
+    "@astrojs/sitemap": "3.6.0",
+    "@tailwindcss/typography": "0.5.16",
+    "@tailwindcss/vite": "4.1.18",
+    "@types/react": "18.3.18",
+    "@types/react-dom": "18.3.5",
+    "astro": "5.18.2",
+    "firebase": "11.10.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "tailwindcss": "4.1.18"
+  }
+}

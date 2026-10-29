@@ -1,0 +1,56 @@
+---
+// Cookie consent. Nothing that sets cookies or contacts an ad server is loaded until the visitor presses "Accept".
+// "Reject" (or no choice) = zero ad/tracking requests. The choice is stored in localStorage and can be changed from the footer.
+// Standard 3.3: the ad script is NOT in <head> or any layout; this is the only place that injects it.
+// NOTE: for EEA/UK/Swiss traffic Google requires a certified CMP (e.g. Funding Choices) once AdSense is approved; use that
+// instead of this banner for those regions.
+const client = import.meta.env.PUBLIC_ADSENSE_CLIENT ?? '';
+---
+
+<div id="consent" role="dialog" aria-labelledby="consent-title" aria-live="polite" hidden class="fixed inset-x-0 bottom-0 z-50 border-t border-slate-300 bg-white p-4 shadow-lg">
+  <div class="mx-auto flex max-w-6xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+    <div class="text-sm">
+      <p id="consent-title" class="font-bold">Cookies and advertising</p>
+      <p class="mt-1 text-slate-700">
+        We use cookies to show ads and understand how the site is used. Essential features work without them.
+        Read our <a class="underline" href="/cookies">cookie policy</a> and <a class="underline" href="/privacy">privacy policy</a>.
+      </p>
+    </div>
+    <div class="flex shrink-0 gap-2">
+      <button id="consent-reject" type="button" class="rounded border border-slate-400 px-4 py-2 text-sm font-semibold hover:bg-slate-100">Reject</button>
+      <button id="consent-accept" type="button" class="rounded bg-pitch px-4 py-2 text-sm font-semibold text-white hover:bg-pitch-dark">Accept</button>
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ client }}>
+  (function () {
+    var KEY = 'skorradar-consent';
+    var box = document.getElementById('consent');
+    function read() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+    function write(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
+    function loadAds() {
+      if (!client || window.__adsLoaded) return;
+      window.__adsLoaded = true;
+      var s = document.createElement('script');
+      s.async = true;
+      s.crossOrigin = 'anonymous';
+      s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + encodeURIComponent(client);
+      document.head.appendChild(s);
+    }
+    function show() { box.hidden = false; document.getElementById('consent-accept').focus(); }
+    var current = read();
+    if (current === 'accepted') loadAds();
+    else if (current !== 'rejected') show();
+
+    document.getElementById('consent-accept').addEventListener('click', function () { write('accepted'); box.hidden = true; loadAds(); });
+    document.getElementById('consent-reject').addEventListener('click', function () {
+      var wasAccepted = read() === 'accepted';
+      write('rejected'); box.hidden = true;
+      if (wasAccepted) location.reload(); // drop the already-loaded ad script
+    });
+    document.addEventListener('click', function (e) {
+      if (e.target && e.target.id === 'open-consent') show();
+    });
+  })();
+</script>
