@@ -29,3 +29,4 @@ SkorRadar is governed by strict editorial transparency:
 - **Project Code**: You can inspect the public codebase and scoring algorithms on [GitHub](https://github.com/cynorra/sports-predict-webapp).
 - **Editorial Standards**: Read our full [Editorial Policy](/editorial-policy) and [Prediction Methodology](/methodology).
 - **Contact**: For questions, suggestions, or corrections, reach out directly via the [Contact Page](/contact).
+
