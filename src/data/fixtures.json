@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-29T12:33:21.823Z",
+  "generatedAt": "2026-10-31T10:28:57.436Z",
   "sources": [
     "football-data.org (results and fixtures)"
   ],
-  "ratingMatches": 5730,
+  "ratingMatches": 5738,
   "fixtures": [
     {
       "id": "575377",
@@ -12,7 +12,7 @@
       "away": "Sporting CP",
       "kickoff": "2026-11-03T17:45:00Z",
       "homeElo": 1484,
-      "awayElo": 1739
+      "awayElo": 1744
     },
     {
       "id": "575378",
@@ -56,8 +56,8 @@
       "home": "Villarreal",
       "away": "PSG",
       "kickoff": "2026-11-03T20:00:00Z",
-      "homeElo": 1568,
-      "awayElo": 1884
+      "homeElo": 1553,
+      "awayElo": 1887
     },
     {
       "id": "575383",
@@ -75,7 +75,7 @@
       "away": "Lille",
       "kickoff": "2026-11-03T20:00:00Z",
       "homeElo": 1598,
-      "awayElo": 1570
+      "awayElo": 1579
     },
     {
       "id": "575388",
