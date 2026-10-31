@@ -4,6 +4,9 @@ description: "How big is home advantage in football? See typical home win rates,
 answer: "Home advantage in football is real but modest: hosts win clearly more often than visitors in top leagues. It is worth roughly a third of a goal per game and varies by league, club and era."
 publishedAt: 2026-11-02T15:07:00.000Z
 sport: football
+image:
+  src: "/images/home-advantage-in-football-how-big-is-it.svg"
+  alt: "SkorRadar cover with three bars showing typical top-league results: home win 45%, draw 25% and away win 30%"
 keywords: ["home advantage in football", "home field advantage soccer", "home win percentage", "empty stadium home advantage"]
 faq:
   - q: "How often do home teams win in football?"
@@ -21,6 +24,11 @@ Every fan knows the feeling: a visiting team looks nervous in a loud stadium, a 
 ## How big is it?
 
 Across the major European leagues, home teams have historically won roughly 45% of matches, drawn about 25% and lost about 30%. Put in goals, hosts score around 0.3 to 0.5 goals more per match than they would on neutral ground, which is why the average home team scores about 1.5 and the average visitor about 1.2.
+
+<figure>
+<img src="/images/home-advantage-in-football-how-big-is-it-split.svg" alt="Stacked bar of typical top-league results: home win 45%, draw 25%, away win 30%" width="1200" height="402" loading="lazy" decoding="async">
+<figcaption>Roughly how matches in the major European leagues have ended over the long run.</figcaption>
+</figure>
 
 Two cautions apply. First, the size of the advantage has been slowly shrinking in many leagues over several decades, probably because of better travel, more uniform pitches and the use of video review. Second, the numbers differ from league to league and season to season, so check a recent sample for the competition you care about before assuming a fixed value.
 
@@ -52,7 +60,12 @@ Some stadiums are more intimidating, some clubs travel across several time zones
 
 ## Example: how the bonus changes a forecast
 
-Take two evenly matched clubs. On a neutral pitch each would be expected to score about 1.3 goals, and the most likely result would be a 1-1 draw. Give the hosts an extra third of a goal and shave the visitors' total by a tenth. The hosts now average about 1.6 and the visitors about 1.2. A home win becomes the single most likely outcome at roughly 45%, a draw falls to about a quarter and an away win to the remaining 30% or so. The bonus did not make the home side a certainty. It moved the balance of probabilities by a few points each way, and that is the right way to think about it.
+Take two evenly matched clubs. On a neutral pitch each would be expected to score about 1.3 goals, and the most likely result would be a 1-1 draw. Give the hosts an extra third of a goal and shave the visitors' total by a tenth. The hosts now average about 1.6 and the visitors about 1.2. A home win becomes the single most likely outcome at about 47%, a draw stays near 25% and an away win falls to about 29%. The bonus did not make the home side a certainty. It moved the balance of probabilities by a few points each way, and that is the right way to think about it.
+
+<figure>
+<img src="/images/home-advantage-in-football-how-big-is-it-example.svg" alt="Two stacked bars: on a neutral pitch the result chances are 37% home, 26% draw, 37% away; with a home bonus 47%, 25% and 29%" width="1200" height="542" loading="lazy" decoding="async">
+<figcaption>The same two clubs with and without the home bonus, calculated with independent Poisson goals.</figcaption>
+</figure>
 
 ## How to use it in predictions
 

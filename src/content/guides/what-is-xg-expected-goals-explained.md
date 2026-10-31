@@ -4,6 +4,9 @@ description: "What is xG in football? Expected goals explained: how xG is calcul
 answer: "Expected goals explained: xG estimates how likely a shot is to become a goal, from 0 to 1, based on factors like distance and angle. Adding a team's shot values shows how many goals it should have scored."
 publishedAt: 2026-11-05T19:20:00.000Z
 sport: football
+image:
+  src: "/images/what-is-xg-expected-goals-explained.svg"
+  alt: "SkorRadar cover with a penalty area diagram where larger gold circles mark shots that are more likely to become goals"
 keywords: ["expected goals explained", "what is xg in football", "xg stats", "xg vs actual goals"]
 faq:
   - q: "What does an xG of 0.5 mean for a single shot?"
@@ -25,6 +28,11 @@ Expected goals, or xG, is one of the few football statistics that has travelled 
 Imagine a striker alone in the penalty area, ten metres out, with only the goalkeeper to beat. Across thousands of similar shots, perhaps one in three has ended in a goal. That shot is therefore worth about 0.33 xG. Now imagine a speculative effort from 35 metres through a crowd of defenders. Very few of those score, so it might be worth 0.02.
 
 Add up the values of every shot a team takes and you get its xG for the match. If a side finishes with 1.8 xG, an average finisher given the same chances would score between one and two goals. That is the number the commentator is quoting.
+
+<figure>
+<img src="/images/what-is-xg-expected-goals-explained-pitch.svg" alt="Half pitch with three shots: about 0.33 xG from ten metres, about 0.02 xG from 35 metres and about 0.76 xG for a penalty" width="1200" height="882" loading="lazy" decoding="async">
+<figcaption>Three illustrative shots: the closer and more central the shot, the higher its xG.</figcaption>
+</figure>
 
 ## What goes into the calculation
 
@@ -66,6 +74,11 @@ Each answers a slightly different question, so make sure you know which one a gr
 
 Picture a game that ends 1-0. The winners took eight shots worth a total of 0.9 xG, and the losers took fifteen shots worth 2.1 xG, mostly from range and tight angles. The scoreline says the winners were better. The chance data says the losers created far more danger, but the winners converted their one clear opening. Over a season, the losers' pattern tends to produce more points than the winners', and the gap between result and xG is exactly what analysts watch for when they ask which results are likely to repeat.
 
+<figure>
+<img src="/images/what-is-xg-expected-goals-explained-match.svg" alt="Bar chart of a 1-0 match: the winning side created 0.9 xG from 8 shots, the losing side 2.1 xG from 15 shots" width="1200" height="472" loading="lazy" decoding="async">
+<figcaption>Result and chances can disagree: the side that lost created more than twice the xG.</figcaption>
+</figure>
+
 ## Common misconceptions
 
 **"xG tells you who should have won."** It does not. It tells you how many goals an average finisher would have expected from the chances created. Football is not decided by an auditor.
@@ -76,7 +89,7 @@ Picture a game that ends 1-0. The winners took eight shots worth a total of 0.9 
 
 ## How we use xG in predictions
 
-Our model starts from team strength and estimates the expected goals for each side, then converts those figures into scoreline probabilities using a Poisson distribution, as set out on our [methodology page](/methodology). We treat recent xG for and against as a check on form: if a team's results are far ahead of its chance creation, we are cautious about trusting that form to continue. For a step-by-step routine that puts these numbers to work, see how to [predict football scores](/guides/how-to-predict-football-scores).
+Our model starts from team strength and estimates the expected goals for each side, then converts those figures into scoreline probabilities using a Poisson distribution, as set out on our [methodology page](/methodology). The model itself does not take xG as an input; its expected goals come from team ratings. xG is still a useful sanity check on form: if a team's results are far ahead of its chance creation, be cautious about expecting them to continue. For a step-by-step routine that puts these numbers to work, see how to [predict football scores](/guides/how-to-predict-football-scores).
 
 ## A quick checklist before you quote xG
 

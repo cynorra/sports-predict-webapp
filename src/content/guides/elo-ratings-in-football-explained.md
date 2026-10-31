@@ -4,6 +4,9 @@ description: "Elo ratings in football explained: the formula, how ratings change
 answer: "Elo ratings in football give every team a number that rises after wins and falls after losses. The size of the change depends on the opponent's rating, so beating a strong team earns more than beating a weak one."
 publishedAt: 2026-10-29T18:01:00.000Z
 sport: football
+image:
+  src: "/images/elo-ratings-in-football-explained.svg"
+  alt: "SkorRadar cover with an Elo curve: expected score rises from 50% at equal ratings to 76% at a 200-point gap"
 keywords: ["elo ratings in football", "football elo rating system", "elo rating formula", "team strength rating"]
 faq:
   - q: "What does a 100-point Elo gap mean in football?"
@@ -37,6 +40,11 @@ Here R is a team's rating. A win counts as 1, a draw as 0.5 and a loss as 0, so 
 | 200 | 76% |
 | 400 | 91% |
 
+<figure>
+<img src="/images/elo-ratings-in-football-explained-curve.svg" alt="Line chart of expected score against rating gap: 50% at equal ratings, 64% at +100, 76% at +200 and 91% at +400 points" width="1200" height="712" loading="lazy" decoding="async">
+<figcaption>The Elo expected-score curve: a rating gap turns into an expected score between 0 and 100%.</figcaption>
+</figure>
+
 ## How a rating changes after a match
 
 After the game, each team's rating moves by:
@@ -54,6 +62,11 @@ Take a home side rated 1900 against a visitor rated 1800, with a 65-point home b
 - **Home loss:** it scores 0, so it loses 30 × 0.72, about 22 points.
 
 The visitor's rating moves by the same amount in the opposite direction. Notice that a draw already counts as a small setback for the favourite. That is the system doing its job: the favourite was expected to do better than a draw.
+
+<figure>
+<img src="/images/elo-ratings-in-football-explained-example.svg" alt="Bar chart of the home side rating change: plus 8 points for a win, minus 7 for a draw and minus 22 for a loss" width="1200" height="602" loading="lazy" decoding="async">
+<figcaption>The same match, three outcomes: the more surprising the result, the bigger the rating move.</figcaption>
+</figure>
 
 ## The K-factor
 
@@ -83,8 +96,8 @@ Every team needs a number on day one. Common choices are to give all teams the s
 - **Different leagues are hard to compare.** Unless clubs play each other often, a rating of 1800 in one country may not equal 1800 in another.
 - **It ignores how the result happened.** A lucky win counts the same as a dominant one unless goal margins or chance quality are added.
 
-For these reasons we use Elo as a base and then check it against chance quality and team news, as covered in our guide to [expected goals](/guides/what-is-xg-expected-goals-explained).
+For these reasons Elo is a starting point, not the whole story. Our model does not read injuries or chance quality, so those belong in the written analysis; our guide to [expected goals](/guides/what-is-xg-expected-goals-explained) covers the chance-quality side.
 
 ## Using ratings yourself
 
-If you want to see Elo in action, public sites such as [ClubElo](http://clubelo.com) publish up-to-date club ratings you can compare with the league table. Look for clubs whose rating is far above or below their position: they are often the teams the table is about to correct.
+If you want to see Elo in action, public sites such as [ClubElo](https://clubelo.com) publish up-to-date club ratings you can compare with the league table. Look for clubs whose rating is far above or below their position: they are often the teams the table is about to correct.

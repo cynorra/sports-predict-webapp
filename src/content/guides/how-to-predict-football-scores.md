@@ -4,6 +4,9 @@ description: "A practical method to predict football scores: start with base rat
 answer: "To predict football scores, start with average goals and home advantage, adjust for each team's attack and defence, then check injuries and motivation. Pick the likeliest scoreline, not the biggest win."
 publishedAt: 2026-11-03T17:34:00.000Z
 sport: football
+image:
+  src: "/images/how-to-predict-football-scores.svg"
+  alt: "SkorRadar cover with a grid of scoreline probabilities in which the single most likely result is highlighted in gold"
 keywords: ["predict football scores", "how to predict football scores", "football score prediction tips", "score predictor method", "predict match results"]
 faq:
   - q: "What is the most common football score?"
@@ -18,7 +21,7 @@ faq:
     a: "No. Even the best models get the exact score right in a minority of matches, so judge a method over hundreds of predictions rather than a few."
 ---
 
-Predicting a football score is harder than predicting a winner, because you must name two numbers instead of one. It is also more fun, and with a clear method you can make steadily better guesses than someone who just picks a favourite and adds a goal. This guide gives the process we follow ourselves before a prediction goes on the [prediction page](/predict).
+Predicting a football score is harder than predicting a winner, because you must name two numbers instead of one. It is also more fun, and with a clear method you can make steadily better guesses than someone who just picks a favourite and adds a goal. This guide gives a process you can follow before you enter a pick on the [prediction page](/predict).
 
 ## Step 1: start from the base rate
 
@@ -68,6 +71,11 @@ Suppose the analysis gives Team A 1.9 expected goals and Team B 0.8. Running tho
 | 3-0 to Team A | 7.7% |
 
 Add them up and Team A wins about 63% of the time, the match is drawn about 22% of the time, and Team B wins about 15% of the time. The "crush" prediction of 3-0 is only the fifth most likely single scoreline. The most likely exact result, 1-0, still happens barely one time in eight. That is why exact-score games are hard, and why a clear method beats a confident story.
+
+<figure>
+<img src="/images/how-to-predict-football-scores-scorelines.svg" alt="Grid of exact-score probabilities for 1.9 against 0.8 expected goals: 1-0 at 12.8% is the most likely, then 2-0 at 12.1%" width="1200" height="912" loading="lazy" decoding="async">
+<figcaption>Every exact score has a probability; even the favourite among them happens only about one match in eight.</figcaption>
+</figure>
 
 ## Step 7: match your pick to the scoring system
 

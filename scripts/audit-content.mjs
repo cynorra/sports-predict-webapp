@@ -1,8 +1,9 @@
 // Content quality gate: run `npm run audit` before every deploy. Exit code 1 = at least one post fails.
 // Checks SEO lengths, AEO/GEO structure, keyword placement, thin content, leftover template text and cross-post similarity.
-import { readdirSync, readFileSync, existsSync } from 'node:fs';
+import { readdirSync, readFileSync, existsSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { validateArticle } from './lib/article-quality.mjs';
+import { checkImages } from './lib/image-quality.mjs';
 
 const ROOT = new URL('../src/content/', import.meta.url).pathname.replace(/^\/([A-Z]:)/, '$1');
 const RULES = {
@@ -10,6 +11,9 @@ const RULES = {
   analysis: { minWords: 500, minH2: 5, minFaq: 3 },
   news: { minWords: 400, minH2: 3, minFaq: 2 },
 };
+const PUBLIC = new URL('../public', import.meta.url).pathname.replace(/^\/([A-Z]:)/, '$1');
+const fileSize = (p) => { try { return statSync(join(PUBLIC, p)).size; } catch { return null; } };
+const MIN_FIGURES = { guides: 1, analysis: 1, news: 0 };
 const LIMITS = { title: [30, 60], description: [120, 158], answer: [120, 300], faqAnswer: [40, 320] };
 const BANNED = [/editor'?s note/i, /lorem ipsum/i, /\bTODO\b/, /\bTBD\b/, /draft template/i, /\[team ?[ab]\]/i, /\{\{.*?\}\}/, /insert .* here/i, /as an ai/i];
 const SIM_MAX = 0.12; // max 5-word-shingle Jaccard overlap between two posts
@@ -22,7 +26,8 @@ function parse(raw) {
   const kw = (/^keywords:\s*\[(.*)\]/m.exec(fm) || [])[1] ?? '';
   const keywords = [...kw.matchAll(/"([^"]+)"/g)].map((x) => x[1]);
   const faq = [...fm.matchAll(/- q: "(.*)"\r?\n\s+a: "(.*)"/g)].map((x) => ({ q: x[1], a: x[2] }));
-  return { fm, body: m[2], title: str('title'), description: str('description'), answer: str('answer'), keywords, faq, draft: /^draft:\s*true/m.test(fm) };
+  // body = readable text (HTML tags of figures stripped so word counts and similarity ignore markup); raw keeps the markup for image checks
+  return { fm, raw: m[2], body: m[2].replace(/<[^>]+>/g, ' '), title: str('title'), description: str('description'), answer: str('answer'), keywords, faq, draft: /^draft:\s*true/m.test(fm) };
 }
 const words = (t) => t.replace(/[#>*|`_\-]/g, ' ').split(/\s+/).filter(Boolean);
 const shingles = (t, n = 5) => {
@@ -65,6 +70,7 @@ for (const p of posts) {
   p.faq.forEach((q) => { if (q.a.length < LIMITS.faqAnswer[0] || q.a.length > LIMITS.faqAnswer[1]) fail(p.id, `FAQ answer "${q.q}" is ${q.a.length} chars`); if (!q.q.endsWith('?')) fail(p.id, `FAQ question must end with "?": ${q.q}`); });
   // Truthfulness gates (ported from yukle-next): fabricated claims, hype, betting advice, false precision, years in titles
   validateArticle({ title: p.title, excerpt: p.answer, meta_description: p.description, content: p.body }).forEach((msg) => fail(p.id, msg));
+  checkImages({ fm: p.fm, raw: p.raw, minFigures: MIN_FIGURES[p.section], fileSize }).forEach((msg) => fail(p.id, msg));
   BANNED.forEach((re) => { if (re.test(p.fm + p.body)) fail(p.id, `leftover template text matches ${re}`); });
   if (p.keywords.length < 3) fail(p.id, 'need at least 3 keywords (first = primary)');
   const primary = (p.keywords[0] || '').toLowerCase();

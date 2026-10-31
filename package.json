@@ -12,7 +12,8 @@
     "test": "node --test scripts/lib/*.test.mjs",
     "fixtures": "node scripts/sync-fixtures.mjs",
     "freshness": "node scripts/audit-content.mjs --freshness",
-    "schedule": "node scripts/schedule-posts.mjs"
+    "schedule": "node scripts/schedule-posts.mjs",
+    "images": "node scripts/images/build-images.mjs"
   },
   "dependencies": {
     "@astrojs/node": "9.5.4",

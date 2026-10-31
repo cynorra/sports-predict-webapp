@@ -4,6 +4,9 @@ description: "The new Champions League format explained: 36 clubs in one table, 
 answer: "The new Champions League format puts 36 clubs in one league table. Each plays eight different opponents; the top eight reach the last 16, 9th-24th enter a two-leg play-off, and the rest are out."
 publishedAt: 2026-11-02T19:27:00.000Z
 sport: football
+image:
+  src: "/images/how-the-new-champions-league-format-works.svg"
+  alt: "SkorRadar cover with a grid of 36 squares: eight highlighted for the round of 16, sixteen for the play-offs, twelve eliminated"
 keywords: ["new champions league format", "league phase explained", "champions league play-off", "champions league tiebreakers"]
 faq:
   - q: "How many teams are in the Champions League league phase?"
@@ -28,6 +31,11 @@ A single table means a late-season result in Madrid can still change the fate of
 
 The 36 clubs are split into four pots of nine according to their UEFA club coefficient. Each club is then drawn against **two opponents from every pot**: one at home and one away. That makes eight matches, with four at home and four away, spread over eight matchdays between September and January.
 
+<figure>
+<img src="/images/how-the-new-champions-league-format-works-pots.svg" alt="Diagram: one club plays two opponents from each of four pots, one at home and one away, for eight matches in total" width="1200" height="592" loading="lazy" decoding="async">
+<figcaption>Four pots of nine clubs, two opponents from each pot: eight matches, four at home and four away.</figcaption>
+</figure>
+
 Two details matter when you predict results:
 
 - Clubs from the same national association cannot meet in the league phase, and a club can face at most two opponents from one other association.
@@ -46,6 +54,11 @@ Points are the familiar 3 for a win, 1 for a draw and 0 for a defeat. After eigh
 | 25th-36th | Eliminated from European competition |
 
 The prize for the top eight is bigger than it looks. Those clubs skip two extra high-pressure matches in February, which matters in a season where the domestic calendar is already crowded.
+
+<figure>
+<img src="/images/how-the-new-champions-league-format-works-bands.svg" alt="Row of 36 squares split into three bands: positions 1 to 8 go to the round of 16, 9 to 24 to a play-off, 25 to 36 are eliminated" width="1200" height="446" loading="lazy" decoding="async">
+<figcaption>Where each final position leads after the eight league-phase matchdays.</figcaption>
+</figure>
 
 ## How the play-offs work
 
@@ -75,7 +88,7 @@ Notice that **goals scored** matters before away goals, and that a club's own re
 Fans new to the system tend to make the same errors, and they lead to bad predictions:
 
 - **Comparing clubs on different schedules.** After matchday four, two clubs on seven points may have played completely different opponents. Look at who they have faced, not just the points.
-- **Assuming a fixed points target is safe.** In the first season of the format, 16 points was enough for the top eight, but the cut-off moves every season. Treat any target as a rough guide rather than a rule.
+- **Assuming a fixed points target is safe.** The points needed for the top eight differ from one season to the next. Check the final table of the last completed season on UEFA.com and treat any target as a rough guide rather than a rule.
 - **Ignoring goal difference until the last night.** Because it is the first tiebreaker, a heavy win in October can be worth a place in the top eight in January.
 - **Forgetting the home leg.** In the play-off the higher-ranked club hosts the second leg, which is the more valuable of the two ties to control.
 

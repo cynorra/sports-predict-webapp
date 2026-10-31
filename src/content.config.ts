@@ -8,6 +8,11 @@ const base = z.object({
   answer: z.string().min(120).max(300), // Short-answer box: for AI overviews and featured snippets
   publishedAt: z.coerce.date(), // full ISO datetime; posts dated in the future stay hidden until then
   updatedAt: z.coerce.date().optional(),
+  // Cover image: our own generated SVG (scripts/images). The PNG twin with the same name is used for og:image.
+  image: z.object({
+    src: z.string().regex(/^\/images\/[a-z0-9-]+\.svg$/),
+    alt: z.string().min(30).max(160),
+  }),
   author: z.string().default('Eren Şimşir'),
   sport: z.enum(['football', 'basketball', 'tennis', 'f1', 'general']).default('football'),
   keywords: z.array(z.string()).default([]),

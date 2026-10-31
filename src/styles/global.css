@@ -13,3 +13,8 @@ body {
   color: var(--color-ink);
   background: #f8fafc;
 }
+
+/* Article figures (own SVG diagrams): keep them in the reading column, with a quiet caption */
+.prose figure { margin: 2rem 0; }
+.prose figure img { width: 100%; height: auto; margin: 0; border-radius: 0.75rem; border: 1px solid #e2e8f0; background: #fff; }
+.prose figcaption { margin-top: 0.5rem; font-size: 0.875rem; color: #64748b; text-align: center; }

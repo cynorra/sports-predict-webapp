@@ -8,6 +8,7 @@ interface Props {
   publishedAt: Date;
   updatedAt?: Date;
   author: string;
+  image: { src: string; alt: string };
   section: 'analysis' | 'news' | 'guides';
   faq?: { q: string; a: string }[];
   headings?: { depth: number; slug: string; text: string }[];
@@ -25,16 +26,18 @@ interface Props {
     };
   };
 }
-const { title, description, answer, publishedAt, updatedAt, author, section, faq = [], headings = [], match } = Astro.props;
+const { title, description, answer, publishedAt, updatedAt, author, image, section, faq = [], headings = [], match } = Astro.props;
 const toc = headings.filter((h) => h.depth === 2);
 const fmt = (d: Date) => d.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
 const url = new URL(Astro.url.pathname, Astro.site).href;
+const ogPng = image.src.replace(/\.svg$/, '.png'); // generated twin: social networks do not render SVG
 
 const jsonLd: Record<string, unknown>[] = [
   {
     '@type': section === 'news' ? 'NewsArticle' : 'Article',
     headline: title,
     description,
+    image: [new URL(ogPng, Astro.site).href],
     datePublished: publishedAt.toISOString(),
     dateModified: (updatedAt ?? publishedAt).toISOString(),
     author: {
@@ -63,7 +66,7 @@ if (faq.length) {
 }
 ---
 
-<Base title={title} description={description} ogType="article" jsonLd={jsonLd}>
+<Base title={title} description={description} ogType="article" jsonLd={jsonLd} image={{ url: ogPng, alt: image.alt }}>
   <div class="grid gap-8 lg:grid-cols-[1fr_300px]">
     <article>
       <h1 class="text-3xl font-extrabold leading-tight">{title}</h1>
@@ -71,6 +74,8 @@ if (faq.length) {
         By <a href="/author" class="font-medium text-slate-700 hover:text-pitch hover:underline">{author}</a> · Published: <time datetime={publishedAt.toISOString()}>{fmt(publishedAt)}</time>
         · Last reviewed: <time datetime={(updatedAt ?? publishedAt).toISOString()}>{fmt(updatedAt ?? publishedAt)}</time>
       </p>
+
+      <img src={image.src} alt={image.alt} width="1200" height="630" fetchpriority="high" decoding="async" class="mt-5 w-full rounded-xl border border-slate-200 shadow-sm" />
 
       {match && (
         <div class="mt-5 overflow-hidden rounded-xl border border-slate-200 bg-gradient-to-br from-slate-900 to-slate-800 p-5 text-white shadow-md">
