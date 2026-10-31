@@ -15,7 +15,14 @@ export async function getStaticPaths() {
 
 const { entry, section } = Astro.props;
 const { Content, headings } = await render(entry);
-const d = entry.data;
+const d = entry.data as any;
+const match = section === 'analysis' && d.homeTeam ? {
+  homeTeam: d.homeTeam,
+  awayTeam: d.awayTeam,
+  competition: d.competition,
+  kickoff: d.kickoff,
+  prediction: d.prediction,
+} : undefined;
 ---
 
 <Article
@@ -28,6 +35,7 @@ const d = entry.data;
   section={section}
   faq={d.faq}
   headings={headings}
+  match={match}
 >
   <Content />
 </Article>

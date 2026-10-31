@@ -1,14 +1,18 @@
 ---
 title: "About SkorRadar"
 description: "SkorRadar publishes data-driven football predictions, match analysis and sports news, and runs a free score-prediction game for fans."
-updatedAt: 2026-10-29
+updatedAt: 2026-10-31
 ---
 
 SkorRadar is an independent football and sports website with two jobs: explain matches with data, and let fans test their own judgement against a statistical model.
 
+## Who we are
+
+SkorRadar was founded and is maintained by software engineer and editor [Eren Şimşir](/author). We combine mathematical forecasting models with clear sports journalism, completely free of betting operator promotions or tips.
+
 ## What we publish
 
-- **Match analysis and predictions** for the biggest fixtures, including form, availability, head-to-head record and a model-based scoreline with win probabilities.
+- **Match analysis and predictions** for the biggest fixtures, including form, head-to-head record and a model-based scoreline with win probabilities.
 - **Guides** on competition formats, rules and how to read football statistics.
 - **News** with context, so you understand why a result or transfer matters.
 - **A prediction game** where you enter scores before kickoff, earn points and compare yourself with other fans on the leaderboard.

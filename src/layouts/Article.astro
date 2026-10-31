@@ -11,8 +11,21 @@ interface Props {
   section: 'analysis' | 'news' | 'guides';
   faq?: { q: string; a: string }[];
   headings?: { depth: number; slug: string; text: string }[];
+  match?: {
+    homeTeam: string;
+    awayTeam: string;
+    competition: string;
+    kickoff: Date;
+    prediction: {
+      home: number;
+      away: number;
+      pHome: number;
+      pDraw: number;
+      pAway: number;
+    };
+  };
 }
-const { title, description, answer, publishedAt, updatedAt, author, section, faq = [], headings = [] } = Astro.props;
+const { title, description, answer, publishedAt, updatedAt, author, section, faq = [], headings = [], match } = Astro.props;
 const toc = headings.filter((h) => h.depth === 2);
 const fmt = (d: Date) => d.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
 const url = new URL(Astro.url.pathname, Astro.site).href;
@@ -24,7 +37,11 @@ const jsonLd: Record<string, unknown>[] = [
     description,
     datePublished: publishedAt.toISOString(),
     dateModified: (updatedAt ?? publishedAt).toISOString(),
-    author: { '@type': 'Person', name: author },
+    author: {
+      '@type': 'Person',
+      name: author,
+      url: new URL('/author', Astro.site).href,
+    },
     publisher: { '@type': 'Organization', name: 'SkorRadar' },
     mainEntityOfPage: url,
     inLanguage: 'en',
@@ -51,9 +68,57 @@ if (faq.length) {
     <article>
       <h1 class="text-3xl font-extrabold leading-tight">{title}</h1>
       <p class="mt-2 text-sm text-slate-500">
-        {author} · Published: <time datetime={publishedAt.toISOString()}>{fmt(publishedAt)}</time>
+        By <a href="/author" class="font-medium text-slate-700 hover:text-pitch hover:underline">{author}</a> · Published: <time datetime={publishedAt.toISOString()}>{fmt(publishedAt)}</time>
         · Last reviewed: <time datetime={(updatedAt ?? publishedAt).toISOString()}>{fmt(updatedAt ?? publishedAt)}</time>
       </p>
+
+      {match && (
+        <div class="mt-5 overflow-hidden rounded-xl border border-slate-200 bg-gradient-to-br from-slate-900 to-slate-800 p-5 text-white shadow-md">
+          <div class="flex flex-wrap items-center justify-between text-xs font-semibold uppercase tracking-wider text-slate-300">
+            <span>{match.competition}</span>
+            <span>Kickoff: {match.kickoff.toLocaleDateString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', timeZone: 'UTC' })} UTC</span>
+          </div>
+          <div class="mt-4 flex items-center justify-around text-center">
+            <div class="flex-1">
+              <p class="text-lg font-bold sm:text-xl">{match.homeTeam}</p>
+              <span class="text-xs text-slate-400">Home</span>
+            </div>
+            <div class="mx-3 flex flex-col items-center">
+              <div class="rounded bg-pitch px-3 py-1 text-2xl font-black tracking-widest text-white shadow">
+                {match.prediction.home} - {match.prediction.away}
+              </div>
+              <span class="mt-1 text-[11px] font-semibold uppercase tracking-wider text-gold">Model Scoreline</span>
+            </div>
+            <div class="flex-1">
+              <p class="text-lg font-bold sm:text-xl">{match.awayTeam}</p>
+              <span class="text-xs text-slate-400">Away</span>
+            </div>
+          </div>
+          <div class="mt-4 border-t border-slate-700/80 pt-3">
+            <p class="mb-2 text-center text-xs font-medium text-slate-400">Model Outcome Probabilities (Elo + Poisson)</p>
+            <div class="grid grid-cols-3 gap-2 text-center text-xs">
+              <div class="rounded bg-slate-800/80 p-2">
+                <p class="text-slate-400">{match.homeTeam} Win</p>
+                <p class="text-base font-bold text-white">{Math.round(match.prediction.pHome * 100)}%</p>
+              </div>
+              <div class="rounded bg-slate-800/80 p-2">
+                <p class="text-slate-400">Draw</p>
+                <p class="text-base font-bold text-white">{Math.round(match.prediction.pDraw * 100)}%</p>
+              </div>
+              <div class="rounded bg-slate-800/80 p-2">
+                <p class="text-slate-400">{match.awayTeam} Win</p>
+                <p class="text-base font-bold text-white">{Math.round(match.prediction.pAway * 100)}%</p>
+              </div>
+            </div>
+          </div>
+          <div class="mt-4 text-center">
+            <a href="/predict" class="inline-block rounded-lg bg-gold px-4 py-2 text-xs font-bold uppercase tracking-wider text-ink transition hover:bg-yellow-400">
+              Submit Your Own Prediction →
+            </a>
+          </div>
+        </div>
+      )}
+
       <!-- Short answer: clear answer up top for AI overviews / featured snippets -->
       <aside class="mt-5 rounded-lg border-l-4 border-pitch bg-white p-4 shadow-sm">
         <p class="text-xs font-bold uppercase tracking-wide text-pitch">In short</p>

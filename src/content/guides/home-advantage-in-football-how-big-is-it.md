@@ -59,7 +59,7 @@ Take two evenly matched clubs. On a neutral pitch each would be expected to scor
 1. Start from the quality gap between the two teams, using a rating system such as [Elo](/guides/elo-ratings-in-football-explained).
 2. Add a home bonus, equal to about a third of a goal in expected goals or about 65 to 100 rating points.
 3. Reduce the bonus for neutral venues, such as many cup finals, and consider an increase for clubs with an unusually strong record.
-4. Keep draws in mind: even with a home boost, the single most likely result between close teams is often a one-goal margin or a draw.
+4. Keep draws in mind: even with a home boost, the single most likely result between close teams is often a one-goal margin or a draw. See our [Barcelona vs Aston Villa prediction](/analysis/barcelona-vs-aston-villa-prediction) for how this applies in upcoming European fixtures.
 
 ## Data to check
 

@@ -28,28 +28,45 @@ export default function LeaderboardTable({ projectId, apiKey }: { projectId?: st
 
   let rank = 0, prev = '';
   return (
-    <div className="overflow-x-auto rounded-lg bg-white shadow-sm">
-      <table className="w-full text-left text-sm">
-        <caption className="sr-only">Leaderboard of the top 50 players</caption>
-        <thead className="border-b bg-slate-50 text-xs uppercase text-slate-500">
-          <tr><th className="px-4 py-2">#</th><th className="px-4 py-2">Player</th><th className="px-4 py-2 text-right">Points</th><th className="px-4 py-2 text-right">Matches</th><th className="px-4 py-2 text-right">Exact scores</th></tr>
-        </thead>
-        <tbody>
-          {rows.map((r, i) => {
-            const key = `${r.points}-${r.exact}`;
-            if (key !== prev) { rank = i + 1; prev = key; }
-            return (
-              <tr key={i} className="border-b last:border-0">
-                <td className="px-4 py-2 font-semibold">{rank}</td>
-                <td className="px-4 py-2">{r.nickname}</td>
-                <td className="px-4 py-2 text-right font-bold">{r.points}</td>
-                <td className="px-4 py-2 text-right">{r.played}</td>
-                <td className="px-4 py-2 text-right">{r.exact}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+    <div className="space-y-3">
+      <div className="overflow-x-auto rounded-lg bg-white shadow-sm">
+        <table className="w-full text-left text-sm">
+          <caption className="sr-only">Leaderboard of the top 50 players</caption>
+          <thead className="border-b bg-slate-50 text-xs uppercase text-slate-500">
+            <tr>
+              <th className="px-4 py-3">#</th>
+              <th className="px-4 py-3">Player</th>
+              <th className="px-4 py-3 text-right">Points</th>
+              <th className="px-4 py-3 text-right">Matches</th>
+              <th className="px-4 py-3 text-right">Exact scores</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((r, i) => {
+              const key = `${r.points}-${r.exact}`;
+              if (key !== prev) { rank = i + 1; prev = key; }
+              const isTop = rank === 1 ? 'bg-amber-100 text-amber-900' : rank === 2 ? 'bg-slate-200 text-slate-800' : rank === 3 ? 'bg-amber-700/10 text-amber-900' : 'text-slate-600';
+              return (
+                <tr key={i} className="border-b last:border-0 hover:bg-slate-50/50">
+                  <td className="px-4 py-3 font-semibold">
+                    <span className={`inline-flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold ${isTop}`}>
+                      {rank}
+                    </span>
+                  </td>
+                  <td className="px-4 py-3 font-medium text-slate-900">{r.nickname}</td>
+                  <td className="px-4 py-3 text-right font-extrabold text-pitch">{r.points}</td>
+                  <td className="px-4 py-3 text-right text-slate-600">{r.played}</td>
+                  <td className="px-4 py-3 text-right text-slate-600">{r.exact}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+      <div className="flex flex-wrap items-center justify-between text-xs text-slate-500 px-1">
+        <span>Updated after match settlements. Exact score = 10 pts, goal difference = 5 pts, result = 3 pts.</span>
+        <a href="/profile" className="font-semibold text-pitch underline hover:text-pitch-dark">View your personal picks & score</a>
+      </div>
     </div>
   );
 }

@@ -151,8 +151,9 @@ export default function PredictionBoard({ fixtures }: { fixtures: Fixture[] }) {
           {filled}/{fixtures.length} predictions entered. Scoring: exact score 10 pts, correct result and goal difference 5 pts, correct result 3 pts.
         </p>
         {firebaseConfigured && (user ? (
-          <div className="flex items-center gap-3 text-sm">
+          <div className="flex flex-wrap items-center gap-3 text-sm">
             <span>Signed in as <strong>{user.name}</strong></span>
+            <a href="/profile" className="rounded border border-pitch bg-pitch/5 px-3 py-1 font-semibold text-pitch hover:bg-pitch/10">My Profile</a>
             <button type="button" onClick={() => { void signOutUser(); setUser(null); }} className="rounded border border-slate-400 px-3 py-1 font-semibold hover:bg-slate-100">Sign out</button>
           </div>
         ) : (
