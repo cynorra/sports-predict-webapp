@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-31T10:28:57.436Z",
+  "generatedAt": "2026-11-01T11:23:35.046Z",
   "sources": [
     "football-data.org (results and fixtures)"
   ],
-  "ratingMatches": 5738,
+  "ratingMatches": 5767,
   "fixtures": [
     {
       "id": "575377",
@@ -21,7 +21,7 @@
       "away": "Stuttgart",
       "kickoff": "2026-11-03T17:45:00Z",
       "homeElo": 1558,
-      "awayElo": 1601
+      "awayElo": 1620
     },
     {
       "id": "575379",
@@ -29,8 +29,8 @@
       "home": "Feyenoord",
       "away": "Inter",
       "kickoff": "2026-11-03T20:00:00Z",
-      "homeElo": 1680,
-      "awayElo": 1737
+      "homeElo": 1673,
+      "awayElo": 1720
     },
     {
       "id": "575380",
@@ -38,8 +38,8 @@
       "home": "Barça",
       "away": "Aston Villa",
       "kickoff": "2026-11-03T20:00:00Z",
-      "homeElo": 1821,
-      "awayElo": 1654
+      "homeElo": 1824,
+      "awayElo": 1649
     },
     {
       "id": "575381",
@@ -47,8 +47,8 @@
       "home": "Atleti",
       "away": "Bayern",
       "kickoff": "2026-11-03T20:00:00Z",
-      "homeElo": 1680,
-      "awayElo": 1880
+      "homeElo": 1689,
+      "awayElo": 1873
     },
     {
       "id": "575382",
@@ -65,8 +65,8 @@
       "home": "Man United",
       "away": "Roma",
       "kickoff": "2026-11-03T20:00:00Z",
-      "homeElo": 1567,
-      "awayElo": 1690
+      "homeElo": 1555,
+      "awayElo": 1699
     },
     {
       "id": "575384",
@@ -83,8 +83,8 @@
       "home": "RB Leipzig",
       "away": "Man City",
       "kickoff": "2026-11-04T20:00:00Z",
-      "homeElo": 1587,
-      "awayElo": 1750
+      "homeElo": 1600,
+      "awayElo": 1736
     },
     {
       "id": "575389",
@@ -101,7 +101,7 @@
       "home": "PSV",
       "away": "Club Brugge",
       "kickoff": "2026-11-04T20:00:00Z",
-      "homeElo": 1721,
+      "homeElo": 1724,
       "awayElo": 1577
     },
     {
@@ -110,8 +110,8 @@
       "home": "Dortmund",
       "away": "Real Betis",
       "kickoff": "2026-11-04T20:00:00Z",
-      "homeElo": 1689,
-      "awayElo": 1645
+      "homeElo": 1695,
+      "awayElo": 1648
     }
   ]
 }
