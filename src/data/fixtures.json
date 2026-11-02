@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-11-01T11:23:35.046Z",
+  "generatedAt": "2026-11-02T12:39:47.942Z",
   "sources": [
     "football-data.org (results and fixtures)"
   ],
-  "ratingMatches": 5767,
+  "ratingMatches": 5791,
   "fixtures": [
     {
       "id": "575377",
@@ -93,7 +93,7 @@
       "away": "Arsenal",
       "kickoff": "2026-11-04T20:00:00Z",
       "homeElo": 1418,
-      "awayElo": 1850
+      "awayElo": 1857
     },
     {
       "id": "575390",
