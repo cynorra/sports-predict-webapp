@@ -1,28 +1,10 @@
 {
-  "generatedAt": "2026-11-02T12:39:47.942Z",
+  "generatedAt": "2026-11-03T19:39:47.806Z",
   "sources": [
     "football-data.org (results and fixtures)"
   ],
-  "ratingMatches": 5791,
+  "ratingMatches": 5798,
   "fixtures": [
-    {
-      "id": "575377",
-      "competition": "UEFA Champions League",
-      "home": "Shaktar",
-      "away": "Sporting CP",
-      "kickoff": "2026-11-03T17:45:00Z",
-      "homeElo": 1484,
-      "awayElo": 1744
-    },
-    {
-      "id": "575378",
-      "competition": "UEFA Champions League",
-      "home": "Galatasaray",
-      "away": "Stuttgart",
-      "kickoff": "2026-11-03T17:45:00Z",
-      "homeElo": 1558,
-      "awayElo": 1620
-    },
     {
       "id": "575379",
       "competition": "UEFA Champions League",
@@ -112,6 +94,24 @@
       "kickoff": "2026-11-04T20:00:00Z",
       "homeElo": 1695,
       "awayElo": 1648
+    },
+    {
+      "id": "575392",
+      "competition": "UEFA Champions League",
+      "home": "Porto",
+      "away": "Napoli",
+      "kickoff": "2026-11-04T20:00:00Z",
+      "homeElo": 1723,
+      "awayElo": 1598
+    },
+    {
+      "id": "575393",
+      "competition": "UEFA Champions League",
+      "home": "RC Lens",
+      "away": "Como 1907",
+      "kickoff": "2026-11-04T20:00:00Z",
+      "homeElo": 1590,
+      "awayElo": 1696
     }
   ]
 }
