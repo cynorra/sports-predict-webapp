@@ -1,64 +1,10 @@
 {
-  "generatedAt": "2026-11-04T12:19:22.384Z",
+  "generatedAt": "2026-11-05T12:33:46.497Z",
   "sources": [
     "football-data.org (results and fixtures)"
   ],
-  "ratingMatches": 5807,
+  "ratingMatches": 5816,
   "fixtures": [
-    {
-      "id": "575388",
-      "competition": "UEFA Champions League",
-      "home": "RB Leipzig",
-      "away": "Man City",
-      "kickoff": "2026-11-04T20:00:00Z",
-      "homeElo": 1600,
-      "awayElo": 1736
-    },
-    {
-      "id": "575389",
-      "competition": "UEFA Champions League",
-      "home": "Slavia Praha",
-      "away": "Arsenal",
-      "kickoff": "2026-11-04T20:00:00Z",
-      "homeElo": 1418,
-      "awayElo": 1857
-    },
-    {
-      "id": "575390",
-      "competition": "UEFA Champions League",
-      "home": "PSV",
-      "away": "Club Brugge",
-      "kickoff": "2026-11-04T20:00:00Z",
-      "homeElo": 1724,
-      "awayElo": 1577
-    },
-    {
-      "id": "575391",
-      "competition": "UEFA Champions League",
-      "home": "Dortmund",
-      "away": "Real Betis",
-      "kickoff": "2026-11-04T20:00:00Z",
-      "homeElo": 1695,
-      "awayElo": 1648
-    },
-    {
-      "id": "575392",
-      "competition": "UEFA Champions League",
-      "home": "Porto",
-      "away": "Napoli",
-      "kickoff": "2026-11-04T20:00:00Z",
-      "homeElo": 1723,
-      "awayElo": 1598
-    },
-    {
-      "id": "575393",
-      "competition": "UEFA Champions League",
-      "home": "RC Lens",
-      "away": "Como 1907",
-      "kickoff": "2026-11-04T20:00:00Z",
-      "homeElo": 1590,
-      "awayElo": 1696
-    },
     {
       "id": "575395",
       "competition": "UEFA Champions League",
@@ -74,8 +20,8 @@
       "home": "Real Madrid",
       "away": "PSV",
       "kickoff": "2026-11-24T20:00:00Z",
-      "homeElo": 1807,
-      "awayElo": 1724
+      "homeElo": 1812,
+      "awayElo": 1700
     },
     {
       "id": "575398",
@@ -83,8 +29,8 @@
       "home": "Man City",
       "away": "Napoli",
       "kickoff": "2026-11-24T20:00:00Z",
-      "homeElo": 1736,
-      "awayElo": 1598
+      "homeElo": 1748,
+      "awayElo": 1585
     },
     {
       "id": "575399",
@@ -92,8 +38,8 @@
       "home": "Arsenal",
       "away": "Dortmund",
       "kickoff": "2026-11-24T20:00:00Z",
-      "homeElo": 1857,
-      "awayElo": 1695
+      "homeElo": 1860,
+      "awayElo": 1706
     },
     {
       "id": "575400",
@@ -102,7 +48,7 @@
       "away": "Porto",
       "kickoff": "2026-11-24T20:00:00Z",
       "homeElo": 1646,
-      "awayElo": 1723
+      "awayElo": 1736
     },
     {
       "id": "575401",
@@ -111,7 +57,61 @@
       "away": "Real Betis",
       "kickoff": "2026-11-24T20:00:00Z",
       "homeElo": 1330,
-      "awayElo": 1648
+      "awayElo": 1638
+    },
+    {
+      "id": "575402",
+      "competition": "UEFA Champions League",
+      "home": "RB Leipzig",
+      "away": "RC Lens",
+      "kickoff": "2026-11-24T20:00:00Z",
+      "homeElo": 1588,
+      "awayElo": 1559
+    },
+    {
+      "id": "575405",
+      "competition": "UEFA Champions League",
+      "home": "Slavia Praha",
+      "away": "Villarreal",
+      "kickoff": "2026-11-25T17:45:00Z",
+      "homeElo": 1415,
+      "awayElo": 1542
+    },
+    {
+      "id": "575406",
+      "competition": "UEFA Champions League",
+      "home": "Inter",
+      "away": "Stuttgart",
+      "kickoff": "2026-11-25T20:00:00Z",
+      "homeElo": 1747,
+      "awayElo": 1597
+    },
+    {
+      "id": "575408",
+      "competition": "UEFA Champions League",
+      "home": "PSG",
+      "away": "Roma",
+      "kickoff": "2026-11-25T20:00:00Z",
+      "homeElo": 1898,
+      "awayElo": 1681
+    },
+    {
+      "id": "575409",
+      "competition": "UEFA Champions League",
+      "home": "Club Brugge",
+      "away": "Liverpool",
+      "kickoff": "2026-11-25T20:00:00Z",
+      "homeElo": 1600,
+      "awayElo": 1661
+    },
+    {
+      "id": "575410",
+      "competition": "UEFA Champions League",
+      "home": "Lille",
+      "away": "Bayern",
+      "kickoff": "2026-11-25T20:00:00Z",
+      "homeElo": 1583,
+      "awayElo": 1888
     }
   ]
 }
