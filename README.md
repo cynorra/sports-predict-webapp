@@ -1,43 +1,25 @@
-# Astro Starter Kit: Minimal
+# SkorRadar
 
-```sh
-npm create astro@latest -- --template minimal
-```
+A free English-language football score prediction game with an editorial section (guides and match analysis).
+Built with Astro 5 (static output) and a React island for `/predict`, `/leaderboard` and `/profile`.
+Firebase handles sign-in and picks; scoring runs in GitHub Actions.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Project rules, editorial gates and open items are in [AGENTS.md](AGENTS.md).
 
-## 🚀 Project Structure
+## Commands
 
-Inside of your Astro project, you'll see the following folders and files:
+| Command | What it does |
+| --- | --- |
+| `npm run dev` | Start the dev server |
+| `npm test` | Unit tests for the editorial and scoring gates |
+| `npm run audit` | Content audit (SEO lengths, truthfulness gates, images, orphan pages) |
+| `npm run images` | Regenerate cover images and figures from data |
+| `npm run schedule` | Assign publish times to posts marked `queued: true` |
+| `npm run freshness` | List posts not reviewed for 60+ days |
+| `npm run build` | Tests, secret scan, audit, then `astro build` |
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## Publishing a post
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+1. Write the post by hand in `src/content/guides` (or `analysis`), with real facts and a named source.
+2. Add its cover and at least one figure to `scripts/images/build-images.mjs`, then run `npm run images`.
+3. Set `queued: true`, run `npm run audit`, then `npm run schedule`.

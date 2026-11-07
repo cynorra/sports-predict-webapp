@@ -19,7 +19,7 @@ SkorRadar was founded and is maintained by software engineer and editor [Eren Ş
 
 ## How we work
 
-Every prediction on the site comes from the model described on our [methodology page](/methodology), and we publish how it performs, including the misses. Our sourcing, correction and AI-use rules are set out in the [editorial policy](/editorial-policy).
+Every prediction on the site comes from the model described on our [methodology page](/methodology), and we publish how it performs, including the misses. Our sourcing and correction rules are set out in the [editorial policy](/editorial-policy).
 
 ## Contact
 

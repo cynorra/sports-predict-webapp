@@ -101,3 +101,9 @@ For these reasons Elo is a starting point, not the whole story. Our model does n
 ## Using ratings yourself
 
 If you want to see Elo in action, public sites such as [ClubElo](https://clubelo.com) publish up-to-date club ratings you can compare with the league table. Look for clubs whose rating is far above or below their position: they are often the teams the table is about to correct.
+
+## Sources
+
+- [World Football Elo Ratings, "About"](https://www.eloratings.net/about), eloratings.net. The Elo adaptation used for national teams, including the goal-margin multiplier.
+- [Hvattum and Arntzen (2010), "Using ELO ratings for match result prediction in association football"](https://doi.org/10.1016/j.ijforecast.2009.10.002), International Journal of Forecasting. Evidence on how well Elo ratings predict football results.
+- [Elo rating system, Wikipedia](https://en.wikipedia.org/wiki/Elo_rating_system), Wikipedia. The expected-score formula and the origin of the method in chess; the source book is Arpad Elo, The Rating of Chessplayers, Past and Present (1978).

@@ -226,6 +226,224 @@ function heatFigure({ xgH, xgA, homeName, awayName, title, sub, note }) {
   return frame(w, h, { title, sub, note }, g);
 }
 
+// ---------- figures for the evergreen guides ----------
+function figPoissonBars() {
+  const w = 1200, lam = 1.4, note = 'Poisson probabilities for a team expected to score 1.4 goals: P(k) = e^(-1.4) x 1.4^k / k!. Computed, not observed data. Six or more goals is shown as 6.';
+  const h = 470 + noteH(note);
+  const ps = [0, 1, 2, 3, 4, 5, 6].map((k) => poisson(k, lam));
+  const base = 380, scale = 800; let g = `<line x1="80" x2="1120" y1="${base}" y2="${base}" stroke="${SLATE}" stroke-width="3"/>`;
+  ps.forEach((p, k) => {
+    const cx = 170 + k * 150, hh = p * scale, top = k === 1;
+    g += `<rect x="${cx - 48}" y="${base - hh}" width="96" height="${hh}" rx="6" fill="${top ? GOLD : PITCH}"/>`;
+    g += t(cx, base - hh - 14, `${(p * 100).toFixed(1)}%`, { size: 26, weight: 700, anchor: 'middle' }) + t(cx, base + 36, k === 6 ? '6+' : `${k}`, { size: 26, anchor: 'middle', fill: SLATE });
+  });
+  g += t(600, base + 74, 'Goals scored by the team', { size: 22, anchor: 'middle', fill: INK });
+  return frame(w, h, { title: 'Chance of each goal count at 1.4 expected goals', sub: 'One goal is the most common outcome; a blank is almost as likely as two goals', note }, g);
+}
+
+function figOffsideLine() {
+  const w = 1200, note = 'Simplified diagram, attacking left to right. Attacker A is level with the second-last defender (onside). Attacker B is nearer the goal line than the ball and the second-last defender (offside position).';
+  const h = 500 + noteH(note);
+  const gx = 1100, line = 820;
+  let g = `<rect x="60" y="130" width="1060" height="260" rx="10" fill="#eef7f2" stroke="${PITCH}" stroke-width="3"/>`;
+  g += `<line x1="${gx}" x2="${gx}" y1="130" y2="390" stroke="${PITCH}" stroke-width="6"/>` + t(gx - 8, 122, 'Goal line', { size: 20, fill: SLATE, anchor: 'end' });
+  g += `<line x1="${line}" x2="${line}" y1="112" y2="408" stroke="${RED}" stroke-width="3" stroke-dasharray="10 8"/>` + t(line, 436, 'Offside line: second-last defender', { size: 22, weight: 700, fill: RED, anchor: 'middle' });
+  const dot = (x, y, c, label, tc = '#fff') => `<circle cx="${x}" cy="${y}" r="24" fill="${c}" stroke="${INK}" stroke-width="3"/>` + t(x, y + 8, label, { size: 22, weight: 700, fill: tc, anchor: 'middle' });
+  g += dot(1050, 260, INK, 'GK') + dot(line, 200, INK, 'D') + dot(line, 330, GOLD, 'A', INK) + dot(960, 190, GOLD, 'B', INK);
+  g += `<circle cx="560" cy="270" r="14" fill="#fff" stroke="${INK}" stroke-width="4"/>` + t(560, 312, 'Ball played', { size: 20, anchor: 'middle', fill: SLATE });
+  g += t(line, 100, 'Level = onside', { size: 20, anchor: 'middle', fill: SLATE }) + t(960, 160, 'Ahead of the line', { size: 20, anchor: 'middle', fill: SLATE });
+  return frame(w, h, { title: 'Where the offside line sits', sub: 'Compare each attacker with the ball and the second-last opponent', note }, g);
+}
+
+function figTieOrder() {
+  const w = 1200, note = 'Simplified. Each competition publishes the complete list, which continues beyond these steps, and it can change between seasons. Read the current regulations.';
+  const h = 520 + noteH(note);
+  const cols = [
+    ['Overall record first', 'Premier League and Bundesliga style', ['Points', 'Goal difference', 'Goals scored', 'Head-to-head record'], PITCH, '#fff'],
+    ['Head-to-head first', 'La Liga style', ['Points', 'Head-to-head points', 'Head-to-head goal difference', 'Overall goal difference'], GOLD, INK],
+  ];
+  let g = '';
+  cols.forEach(([name, sub, steps, c, tc], ci) => {
+    const x = 40 + ci * 570;
+    g += `<rect x="${x}" y="130" width="540" height="64" rx="12" fill="${c}"/>` + t(x + 270, 160, name, { size: 28, weight: 700, fill: tc, anchor: 'middle' }) + t(x + 270, 184, sub, { size: 18, fill: tc, anchor: 'middle' });
+    steps.forEach((s, i) => {
+      const y = 214 + i * 66;
+      g += `<rect x="${x}" y="${y}" width="540" height="54" rx="10" fill="#f1f5f9" stroke="${LIGHT}" stroke-width="2"/>` + `<circle cx="${x + 34}" cy="${y + 27}" r="16" fill="${c}"/>` + t(x + 34, y + 34, `${i + 1}`, { size: 20, weight: 700, fill: tc, anchor: 'middle' }) + t(x + 66, y + 35, s, { size: 24 });
+    });
+  });
+  return frame(w, h, { title: 'Two ways to order the tiebreakers', sub: 'Same measures, different order, sometimes a different table', note }, g);
+}
+
+function figFormBand() {
+  const w = 1200, note = 'One standard error of a goal average for a team whose true rate is 1.4 goals per match: the square root of (1.4 / matches). Computed from the Poisson distribution, not observed data.';
+  const h = 430 + noteH(note);
+  const X = (v) => 140 + ((v - 0.5) / 2) * 960;
+  let g = '';
+  for (const v of [0.5, 1, 1.5, 2, 2.5]) g += `<line x1="${X(v)}" x2="${X(v)}" y1="130" y2="360" stroke="${LIGHT}" stroke-width="2"/>` + t(X(v), 392, v.toFixed(1), { size: 22, fill: SLATE, anchor: 'middle' });
+  g += `<line x1="${X(1.4)}" x2="${X(1.4)}" y1="136" y2="360" stroke="${INK}" stroke-width="3" stroke-dasharray="8 8"/>` + t(X(1.4), 130, 'True rate 1.4', { size: 22, weight: 700, anchor: 'middle' });
+  [[5, PITCH], [10, '#d97706'], [38, SLATE]].forEach(([n, c], i) => {
+    const se = Math.sqrt(1.4 / n), y = 160 + i * 66;
+    g += `<rect x="${X(1.4 - se)}" y="${y}" width="${X(1.4 + se) - X(1.4 - se)}" height="46" rx="8" fill="${c}"/>` + t(24, y + 31, `${n} matches`, { size: 22, weight: 700 }) + t(X(1.4 + se) + 14, y + 31, `${(1.4 - se).toFixed(1)} to ${(1.4 + se).toFixed(1)}`, { size: 22 });
+  });
+  return frame(w, h, { title: 'How far a goal average can drift by chance', sub: 'The more matches, the narrower the typical swing', note }, g);
+}
+
+function figDrawCurve() {
+  const w = 1200, note = 'Two equally matched teams, each expected to score the stated number of goals, with independent Poisson goals. Computed, not observed data. Real leagues also show slightly more low-scoring draws than this simple model.';
+  const h = 600 + noteH(note);
+  const drawP = (l) => { let d = 0; for (let i = 0; i <= 20; i++) d += poisson(i, l) ** 2; return d; };
+  const X = (l) => 150 + ((l - 0.5) / 2) * 940, Y = (p) => 470 - ((p - 0.1) / 0.4) * 300;
+  let g = '';
+  for (const p of [0.1, 0.2, 0.3, 0.4, 0.5]) g += `<line x1="150" x2="1090" y1="${Y(p)}" y2="${Y(p)}" stroke="${LIGHT}" stroke-width="2"/>` + t(130, Y(p) + 8, `${Math.round(p * 100)}%`, { size: 22, fill: SLATE, anchor: 'end' });
+  for (const l of [0.5, 1, 1.5, 2, 2.5]) g += t(X(l), 510, l.toFixed(1), { size: 22, fill: SLATE, anchor: 'middle' });
+  const pts = []; for (let l = 0.5; l <= 2.501; l += 0.05) pts.push(`${r1(X(l))},${r1(Y(drawP(l)))}`);
+  g += `<polyline points="${pts.join(' ')}" fill="none" stroke="${PITCH}" stroke-width="6" stroke-linejoin="round"/>`;
+  for (const l of [0.8, 1.3, 1.8]) g += `<circle cx="${X(l)}" cy="${Y(drawP(l))}" r="11" fill="${GOLD}" stroke="${INK}" stroke-width="3"/>` + t(X(l) + 16, Y(drawP(l)) - 18, `${Math.round(drawP(l) * 100)}%`, { size: 26, weight: 700 });
+  g += t(620, 556, "Expected goals for each team", { size: 22, anchor: 'middle' });
+  return frame(w, h, { title: 'Chance of a draw between equal teams', sub: 'More expected goals means fewer level finishes', note }, g);
+}
+
+function figLadder() {
+  const w = 1200, note = 'Typical single-match knockout. Some competitions skip extra time, and two-leg ties apply the steps after the second leg. Check the regulations of the tournament.';
+  const h = 380 + noteH(note);
+  const boxes = [['90 minutes', 'plus stoppage time', PITCH, '#fff'], ['Extra time', '2 x 15 minutes', '#d97706', '#fff'], ['Penalty shootout', '5 kicks each, then sudden death', GOLD, INK]];
+  let g = '';
+  boxes.forEach(([a, b, c, tc], i) => {
+    const x = 40 + i * 400;
+    g += `<rect x="${x}" y="150" width="340" height="150" rx="16" fill="${c}"/>` + t(x + 170, 212, a, { size: 32, weight: 700, fill: tc, anchor: 'middle' });
+    wrap(b, 300, 22).forEach((ln, k) => { g += t(x + 170, 252 + k * 28, ln, { size: 22, fill: tc, anchor: 'middle' }); });
+    if (i < 2) g += `<path d="M${x + 350} 225 H${x + 390}" stroke="${INK}" stroke-width="4" marker-end="none"/><path d="M${x + 378} 211 L${x + 392} 225 L${x + 378} 239" fill="none" stroke="${INK}" stroke-width="4"/>` + t(x + 370, 190, 'level?', { size: 18, fill: SLATE, anchor: 'middle' });
+  });
+  return frame(w, h, { title: 'How a level knockout match is settled', sub: 'Each step happens only if the previous one ends level', note }, g);
+}
+
+function figTiers() {
+  const w = 1200, note = 'SkorRadar scoring: exact score 10, correct result and goal difference 5, correct result 3. Scored on the result after 90 minutes plus stoppage time.';
+  const h = 480 + noteH(note);
+  const rows = [['Exact score', 10, GOLD, INK], ['Right result + goal difference', 5, PITCH, '#fff'], ['Right result only', 3, '#64748b', '#fff']];
+  let g = '';
+  rows.forEach(([name, pts, c, tc], i) => {
+    const y = 130 + i * 100, bw = pts * 80;
+    g += `<rect x="40" y="${y}" width="${bw}" height="72" rx="10" fill="${c}"/>` + t(40 + bw - 20, y + 49, `${pts}`, { size: 38, weight: 700, fill: tc, anchor: 'end' });
+    g += t(40 + bw + 20, y + 47, name, { size: 26, weight: 700 });
+  });
+  g += t(40, 436, 'Example: you pick 2-0.   2-0 = 10 points   3-1 = 5 points   1-0 = 3 points   1-1 = 0 points', { size: 22, fill: SLATE });
+  return frame(w, h, { title: 'The three scoring tiers', sub: 'Points per prediction, highest tier only', note }, g);
+}
+
+// ---------- figures, second batch of guides ----------
+function figWcFunnel() {
+  const w = 1200, note = 'Format of the 48-team men\'s World Cup as set out in the FIFA regulations: 12 groups of four, the top two plus the eight best third-placed teams advance.';
+  const h = 540 + noteH(note);
+  const stages = [['Group stage', 48], ['Round of 32', 32], ['Round of 16', 16], ['Quarter-finals', 8], ['Semi-finals', 4], ['Final', 2], ['Champion', 1]];
+  let g = '';
+  stages.forEach(([n, v], i) => {
+    const y = 124 + i * 56, bw = 40 + (v / 48) * 760;
+    g += `<rect x="${40}" y="${y}" width="${bw}" height="42" rx="8" fill="${i === 6 ? GOLD : i === 0 ? DARK : PITCH}"/>` + t(56, y + 29, n, { size: 24, weight: 700, fill: i === 6 ? INK : '#fff' }) + t(40 + bw + 16, y + 30, `${v} ${v === 1 ? 'team' : 'teams'}`, { size: 24, fill: INK });
+  });
+  return frame(w, h, { title: 'How 48 teams become one champion', sub: 'Teams remaining at the start of each stage', note }, g);
+}
+
+function figRankCompare() {
+  const w = 1200, note = 'Simplified comparison of the shared structure. The exact formulas, weights and treatment of goal margins are set by FIFA and by each independent Elo site; check their documentation.';
+  const h = 500 + noteH(note);
+  const rows = [['Result of the match', 'Yes', 'Yes'], ['Importance of the match', 'Yes', 'Yes'], ['Strength of the opponent', 'Yes', 'Yes'], ['Goal margin', 'Handled differently', 'Often scales the change']];
+  let g = t(560, 140, 'FIFA ranking', { size: 26, weight: 700, anchor: 'middle', fill: PITCH }) + t(910, 140, 'Independent Elo ratings', { size: 26, weight: 700, anchor: 'middle', fill: '#b45309' });
+  rows.forEach(([a, b, c], i) => {
+    const y = 160 + i * 74;
+    g += `<rect x="40" y="${y}" width="1120" height="60" rx="10" fill="${i % 2 ? '#fff' : '#f1f5f9'}" stroke="${LIGHT}" stroke-width="2"/>` + t(64, y + 39, a, { size: 24, weight: 700 }) + t(560, y + 39, b, { size: 24, anchor: 'middle' }) + t(910, y + 39, c, { size: 24, anchor: 'middle' });
+  });
+  return frame(w, h, { title: 'What both rating systems have in common', sub: 'Points move after every match, depending on what was expected', note }, g);
+}
+
+function figXptsBars() {
+  const w = 1200, note = 'Example match: expected goals 1.6 for the hosts and 1.2 for the visitors, independent Poisson goals. xPts = 3 x P(win) + 1 x P(draw).';
+  const h = 500 + noteH(note);
+  const { h: ph, d: pd, a: pa } = scoreGrid(1.6, 1.2);
+  const xh = 3 * ph + pd, xa = 3 * pa + pd;
+  let g = '';
+  [['Home side: expected points', xh, PITCH], ['Away side: expected points', xa, GOLD]].forEach(([n, v, c], i) => {
+    const y = 140 + i * 90, bw = v * 260;
+    g += t(40, y + 40, n, { size: 24, weight: 700 }) + `<rect x="420" y="${y}" width="${bw}" height="56" rx="8" fill="${c}"/>` + t(420 + bw + 14, y + 38, v.toFixed(2), { size: 30, weight: 700 });
+  });
+  g += t(40, 360, 'Points that can actually be earned in one match:', { size: 24, weight: 700 });
+  [['Win', 3, PITCH, '#fff'], ['Draw', 1, SLATE, '#fff'], ['Defeat', 0, '#cbd5e1', INK]].forEach(([n, v, c, tc], i) => {
+    const x = 40 + i * 200;
+    g += `<rect x="${x}" y="384" width="170" height="64" rx="10" fill="${c}"/>` + t(x + 85, 424, `${n}: ${v}`, { size: 26, weight: 700, fill: tc, anchor: 'middle' });
+  });
+  return frame(w, h, { title: 'Expected points for one match', sub: 'An average over many identical matches, not a number anyone can score', note }, g);
+}
+
+function figCleanCurve() {
+  const w = 1200, note = 'Chance that the opponent scores zero = e^(-m), where m is the opponent\'s expected goals (Poisson). Computed, not observed data.';
+  const h = 560 + noteH(note);
+  const X = (m) => 150 + ((m - 0.5) / 1.6) * 940, Y = (p) => 450 - ((p - 0.1) / 0.5) * 300;
+  let g = '';
+  for (const p of [0.1, 0.2, 0.3, 0.4, 0.5, 0.6]) g += `<line x1="150" x2="1090" y1="${Y(p)}" y2="${Y(p)}" stroke="${LIGHT}" stroke-width="2"/>` + t(130, Y(p) + 8, `${Math.round(p * 100)}%`, { size: 22, fill: SLATE, anchor: 'end' });
+  for (const m of [0.5, 1, 1.5, 2]) g += t(X(m), 488, m.toFixed(1), { size: 22, fill: SLATE, anchor: 'middle' });
+  const pts = []; for (let m = 0.5; m <= 2.001; m += 0.05) pts.push(`${r1(X(m))},${r1(Y(Math.exp(-m)))}`);
+  g += `<polyline points="${pts.join(' ')}" fill="none" stroke="${PITCH}" stroke-width="6" stroke-linejoin="round"/>`;
+  for (const m of [0.8, 1.2, 2]) g += `<circle cx="${X(m)}" cy="${Y(Math.exp(-m))}" r="11" fill="${GOLD}" stroke="${INK}" stroke-width="3"/>` + t(X(m) + 16, Y(Math.exp(-m)) - 16, `${Math.round(Math.exp(-m) * 100)}%`, { size: 26, weight: 700 });
+  g += t(620, 530, "Opponent's expected goals", { size: 22, anchor: 'middle' });
+  return frame(w, h, { title: 'Chance of a clean sheet', sub: 'Weaker attacks leave far more room for zero', note }, g);
+}
+
+function figFormations() {
+  const w = 1200, note = 'Schematic only: players move constantly, and the same formation can be played in very different ways. The goalkeeper is shown at the bottom of each pitch.';
+  const h = 540 + noteH(note);
+  const shapes = [['4-4-2', [4, 4, 2]], ['4-3-3', [4, 3, 3]], ['3-5-2', [3, 5, 2]]];
+  let g = '';
+  shapes.forEach(([name, rows], i) => {
+    const x = 40 + i * 380, px = x, pw = 340, py = 150, ph = 340;
+    g += `<rect x="${px}" y="${py}" width="${pw}" height="${ph}" rx="10" fill="#eef7f2" stroke="${PITCH}" stroke-width="3"/><line x1="${px}" x2="${px + pw}" y1="${py + 40}" y2="${py + 40}" stroke="${PITCH}" stroke-opacity=".35" stroke-width="2"/>`;
+    g += `<circle cx="${px + pw / 2}" cy="${py + ph - 28}" r="14" fill="${INK}"/>`;
+    const ys = [py + ph - 100, py + ph - 190, py + ph - 270];
+    rows.forEach((n, r) => { for (let k = 0; k < n; k++) g += `<circle cx="${px + (pw * (k + 1)) / (n + 1)}" cy="${ys[r]}" r="14" fill="${r === 2 ? GOLD : PITCH}" stroke="${INK}" stroke-width="2"/>`; });
+    g += t(px + pw / 2, 138, name, { size: 30, weight: 700, anchor: 'middle' });
+  });
+  return frame(w, h, { title: 'Three classic formations', sub: 'Defenders, midfielders and forwards, counted from the back', note }, g);
+}
+
+function figVarFlow() {
+  const w = 1200, note = 'Simplified from the IFAB video assistant referee protocol. The on-field referee always makes the final decision.';
+  const h = 520 + noteH(note);
+  const chips = ['Goals', 'Penalties', 'Direct red cards', 'Mistaken identity'];
+  let g = '';
+  chips.forEach((c, i) => { g += `<rect x="${40 + i * 280}" y="124" width="260" height="52" rx="26" fill="${GOLD}"/>` + t(170 + i * 280, 158, c, { size: 22, weight: 700, fill: INK, anchor: 'middle' }); });
+  const steps = [['VAR checks', 'silently, in the background'], ['Possible clear error?', 'recommends a review'], ['Referee decides', 'by signal or on-field review']];
+  steps.forEach(([a, b], i) => {
+    const x = 40 + i * 400;
+    g += `<rect x="${x}" y="240" width="340" height="140" rx="16" fill="${i === 2 ? PITCH : '#f1f5f9'}" stroke="${LIGHT}" stroke-width="2"/>` + t(x + 170, 300, a, { size: 28, weight: 700, fill: i === 2 ? '#fff' : INK, anchor: 'middle' }) + t(x + 170, 338, b, { size: 21, fill: i === 2 ? '#fff' : SLATE, anchor: 'middle' });
+    if (i < 2) g += `<path d="M${x + 350} 310 H${x + 390}" stroke="${INK}" stroke-width="4"/><path d="M${x + 378} 296 L${x + 392} 310 L${x + 378} 324" fill="none" stroke="${INK}" stroke-width="4"/>`;
+  });
+  g += t(40, 218, 'Only these four situations can be reviewed', { size: 22, fill: SLATE });
+  return frame(w, h, { title: 'How a video review runs', sub: 'The assistant advises; the referee decides', note }, g);
+}
+
+function figCardsLadder() {
+  const w = 1200, note = 'Based on Law 12 of the Laws of the Game (IFAB). Suspensions after a card are set by each competition.';
+  const h = 430 + noteH(note);
+  const card = (x, c, line1, line2, tc) => `<rect x="${x}" y="150" width="340" height="190" rx="16" fill="${c}"/><rect x="${x + 130}" y="172" width="80" height="108" rx="8" fill="${c === GOLD ? '#fff' : '#fff'}" fill-opacity=".22" stroke="${tc}" stroke-width="3"/>` + t(x + 170, 312, line1, { size: 26, weight: 700, fill: tc, anchor: 'middle' }) + t(x + 170, 335, line2, { size: 18, fill: tc, anchor: 'middle' });
+  let g = card(40, GOLD, 'Yellow card', 'a caution', INK) + t(410, 255, '+', { size: 48, weight: 700, anchor: 'middle' }) + card(440, GOLD, 'Second yellow', 'same match', INK) + t(810, 255, '=', { size: 48, weight: 700, anchor: 'middle' }) + card(840, RED, 'Red card', 'sent off', '#fff');
+  g += t(40, 380, 'A direct red card for serious offences skips the yellow stage. The team plays on with one fewer player.', { size: 22, fill: SLATE });
+  return frame(w, h, { title: 'How a sending-off happens', sub: 'Two cautions or one serious offence', note }, g);
+}
+
+function figEloConverge() {
+  const w = 1200, note = 'Expected rating path for a team of true strength 1700 facing 1500-rated opponents on neutral ground, with update constant 20 and no goal-margin weighting. Illustrative calculation, not real data.';
+  const h = 600 + noteH(note);
+  const E = (g2) => 1 / (1 + Math.pow(10, -g2 / 400)), et = E(200);
+  const X = (n) => 150 + (n / 60) * 940, Y = (r) => 480 - ((r - 1500) / 220) * 320;
+  let g = '';
+  for (const r of [1500, 1550, 1600, 1650, 1700]) g += `<line x1="150" x2="1090" y1="${Y(r)}" y2="${Y(r)}" stroke="${r === 1700 ? GOLD : LIGHT}" stroke-width="${r === 1700 ? 4 : 2}"${r === 1700 ? ' stroke-dasharray="10 8"' : ''}/>` + t(130, Y(r) + 8, `${r}`, { size: 22, fill: SLATE, anchor: 'end' });
+  for (const n of [0, 10, 20, 30, 40, 50, 60]) g += t(X(n), 520, `${n}`, { size: 22, fill: SLATE, anchor: 'middle' });
+  let r = 1500; const pts = [`${X(0)},${Y(r)}`];
+  for (let n = 1; n <= 60; n++) { r += 20 * (et - E(r - 1500)); pts.push(`${r1(X(n))},${r1(Y(r))}`); }
+  g += `<polyline points="${pts.join(' ')}" fill="none" stroke="${PITCH}" stroke-width="6" stroke-linejoin="round"/>` + t(1090, Y(1700) - 12, 'true strength 1700', { size: 22, weight: 700, anchor: 'end', fill: '#b45309' });
+  g += t(620, 560, 'Matches played', { size: 22, anchor: 'middle' });
+  return frame(w, h, { title: 'A new rating learns slowly', sub: 'Even a clearly stronger team needs many matches to be rated fairly', note }, g);
+}
+
 // ---------- cover images ----------
 function cover({ kicker, title, motif }) {
   const lines = wrap(title, 590, 54, 0.57);
@@ -266,6 +484,36 @@ const motifs = {
     for (const c of cells) if (c.i < 5 && c.j < 5) g += `<rect x="${758 + c.j * 70}" y="${108 + c.i * 70}" width="64" height="64" rx="8" fill="${c.p === top ? GOLD : W}" fill-opacity="${c.p === top ? 1 : r1((0.1 + 0.8 * c.p / top) * 100) / 100}"/>`;
     return g + t(926, 520, 'Every scoreline has a chance', { size: 26, weight: 700, fill: W, anchor: 'middle' });
   },
+  poisson: () => [0, 1, 2, 3, 4, 5].map((k) => { const p = poisson(k, 1.4), hh = p * 800; return `<rect x="${752 + k * 62}" y="${470 - hh}" width="50" height="${hh}" rx="6" fill="${k === 1 ? GOLD : W}" fill-opacity="${k === 1 ? 1 : 0.85}"/>` + t(777 + k * 62, 506, `${k}`, { size: 22, fill: W, anchor: 'middle' }); }).join('') + t(926, 140, 'Goals scored · avg 1.4', { size: 26, weight: 700, fill: W, anchor: 'middle' }),
+  offside: () => `<rect x="740" y="130" width="372" height="330" rx="10" fill="none" stroke="${W}" stroke-opacity="0.6" stroke-width="4"/><line x1="1100" x2="1100" y1="130" y2="460" stroke="${W}" stroke-width="8"/><line x1="960" x2="960" y1="110" y2="480" stroke="${GOLD}" stroke-width="4" stroke-dasharray="10 8"/><circle cx="960" cy="360" r="20" fill="${W}"/><circle cx="1030" cy="230" r="20" fill="${GOLD}"/><circle cx="960" cy="230" r="20" fill="#0f172a"/>` + t(926, 520, 'Level is onside', { size: 26, weight: 700, fill: W, anchor: 'middle' }),
+  table: () => [['1', 'Points'], ['2', 'Goal difference'], ['3', 'Goals scored'], ['4', 'Head-to-head']].map(([n, s], i) => `<rect x="750" y="${130 + i * 86}" width="352" height="68" rx="12" fill="${i === 1 ? GOLD : W}" fill-opacity="${i === 1 ? 1 : 0.85}"/>` + t(780, 174 + i * 86, n, { size: 30, weight: 700, fill: INK }) + t(826, 174 + i * 86, s, { size: 28, fill: INK })).join(''),
+  band: () => [[5, 330], [10, 250], [38, 130]].map(([n, wd], i) => `<rect x="${926 - wd / 2}" y="${150 + i * 100}" width="${wd}" height="56" rx="10" fill="${i === 0 ? GOLD : W}" fill-opacity="${i === 0 ? 1 : 0.8}"/>` + t(926, 235 + i * 100, `${n} matches`, { size: 22, fill: W, anchor: 'middle' })).join('') + `<line x1="926" x2="926" y1="120" y2="470" stroke="${W}" stroke-opacity="0.6" stroke-width="3" stroke-dasharray="8 8"/>`,
+  draws: () => {
+    const dp = (l) => { let d = 0; for (let i = 0; i <= 20; i++) d += poisson(i, l) ** 2; return d; };
+    const X = (l) => 760 + ((l - 0.5) / 2) * 340, Y = (p) => 460 - ((p - 0.15) / 0.35) * 300;
+    const pts = []; for (let l = 0.5; l <= 2.501; l += 0.1) pts.push(`${r1(X(l))},${r1(Y(dp(l)))}`);
+    return `<polyline points="${pts.join(' ')}" fill="none" stroke="${W}" stroke-width="8" stroke-linejoin="round"/><circle cx="${X(0.8)}" cy="${Y(dp(0.8))}" r="13" fill="${GOLD}"/><circle cx="${X(1.8)}" cy="${Y(dp(1.8))}" r="13" fill="${GOLD}"/>` + t(926, 520, 'More goals, fewer draws', { size: 26, weight: 700, fill: W, anchor: 'middle' });
+  },
+  ladder: () => [['90 min', W], ['Extra time', '#e2e8f0'], ['Penalties', GOLD]].map(([s, c], i) => `<rect x="752" y="${130 + i * 120}" width="348" height="92" rx="14" fill="${c}"/>` + t(926, 187 + i * 120, s, { size: 34, weight: 700, fill: INK, anchor: 'middle' })).join(''),
+  tiers: () => [[10, GOLD], [5, W], [3, '#cbd5e1']].map(([p, c], i) => `<rect x="752" y="${130 + i * 120}" width="${p * 34}" height="92" rx="14" fill="${c}"/>` + t(752 + p * 34 - 18, 190 + i * 120, `${p}`, { size: 44, weight: 700, fill: INK, anchor: 'end' })).join('') + t(926, 520, 'Points per pick', { size: 26, weight: 700, fill: W, anchor: 'middle' }),
+  wc: () => [48, 32, 16, 8, 4, 2, 1].map((v, i) => `<rect x="${926 - (30 + v * 6.4) / 2}" y="${112 + i * 56}" width="${30 + v * 6.4}" height="42" rx="8" fill="${i === 6 ? GOLD : W}" fill-opacity="${i === 6 ? 1 : 0.85}"/>` + t(926, 142 + i * 56, `${v}`, { size: 24, weight: 700, fill: INK, anchor: 'middle' })).join('') + t(926, 530, '48 teams to one champion', { size: 24, weight: 700, fill: W, anchor: 'middle' }),
+  rank: () => [[1650, 'FIFA'], [1450, 'Elo']].map(([h, n], i) => `<rect x="${770 + i * 190}" y="${480 - h / 4}" width="150" height="${h / 4}" rx="10" fill="${i ? GOLD : W}"/>` + t(845 + i * 190, 520, n, { size: 28, weight: 700, fill: W, anchor: 'middle' })).join('') + t(926, 120, 'Two ways to rate teams', { size: 26, weight: 700, fill: W, anchor: 'middle' }),
+  xpts: () => [[1.65, W], [1.11, GOLD]].map(([v, c], i) => `<rect x="760" y="${180 + i * 130}" width="${v * 190}" height="86" rx="12" fill="${c}"/>` + t(760 + v * 190 + 14, 238 + i * 130, v.toFixed(2), { size: 40, weight: 700, fill: W })).join('') + t(926, 130, 'Expected points', { size: 28, weight: 700, fill: W, anchor: 'middle' }),
+  clean: () => {
+    const X = (m) => 756 + ((m - 0.5) / 1.6) * 360, Y = (p) => 470 - ((p - 0.1) / 0.5) * 300;
+    const pts = []; for (let m = 0.5; m <= 2.001; m += 0.1) pts.push(`${r1(X(m))},${r1(Y(Math.exp(-m)))}`);
+    return `<polyline points="${pts.join(' ')}" fill="none" stroke="${W}" stroke-width="8" stroke-linejoin="round"/><circle cx="${X(1.2)}" cy="${Y(Math.exp(-1.2))}" r="14" fill="${GOLD}"/>` + t(926, 520, 'Chance opponent scores zero', { size: 24, weight: 700, fill: W, anchor: 'middle' });
+  },
+  formation: () => [[4, 4, 2]].map((rows) => { let g = `<rect x="756" y="110" width="340" height="400" rx="12" fill="none" stroke="${W}" stroke-opacity=".6" stroke-width="4"/>`; const ys = [440, 340, 230]; rows.forEach((n, r) => { for (let k = 0; k < n; k++) g += `<circle cx="${756 + (340 * (k + 1)) / (n + 1)}" cy="${ys[r]}" r="16" fill="${r === 2 ? GOLD : W}"/>`; }); return g + `<circle cx="926" cy="486" r="14" fill="${INK}"/>`; })[0],
+  var: () => `<rect x="770" y="150" width="320" height="200" rx="16" fill="none" stroke="${W}" stroke-width="8"/><rect x="900" y="360" width="60" height="30" fill="${W}"/><rect x="850" y="390" width="160" height="14" rx="7" fill="${W}"/><polygon points="890,205 890,295 970,250" fill="${GOLD}"/>` + t(926, 520, 'The referee decides', { size: 26, weight: 700, fill: W, anchor: 'middle' }),
+  cards: () => `<rect x="780" y="150" width="130" height="190" rx="14" fill="${GOLD}" transform="rotate(-8 845 245)"/><rect x="930" y="150" width="130" height="190" rx="14" fill="${RED}" transform="rotate(8 995 245)"/>` + t(926, 440, 'Caution or sending-off', { size: 26, weight: 700, fill: W, anchor: 'middle' }),
+  newelo: () => {
+    const E = (g2) => 1 / (1 + Math.pow(10, -g2 / 400)), et = E(200);
+    const X = (n) => 756 + (n / 60) * 340, Y = (r) => 470 - ((r - 1500) / 220) * 300;
+    let r = 1500; const pts = [`${X(0)},${Y(r)}`];
+    for (let n = 1; n <= 60; n++) { r += 20 * (et - E(r - 1500)); pts.push(`${r1(X(n))},${r1(Y(r))}`); }
+    return `<line x1="756" x2="1096" y1="${Y(1700)}" y2="${Y(1700)}" stroke="${GOLD}" stroke-width="4" stroke-dasharray="10 8"/><polyline points="${pts.join(' ')}" fill="none" stroke="${W}" stroke-width="8" stroke-linejoin="round"/>` + t(926, 520, 'Learning takes matches', { size: 26, weight: 700, fill: W, anchor: 'middle' });
+  },
   analysis: (d) => {
     const bars = [[d.pHome, GOLD, `${d.home} win`], [d.pDraw, '#cbd5e1', 'Draw'], [d.pAway, W, `${d.away} win`]];
     let x = 756, g = t(926, 252, `${d.ph} – ${d.pa}`, { size: 120, weight: 700, fill: W, anchor: 'middle' }) + t(926, 312, 'Model scoreline', { size: 26, fill: GOLD, weight: 700, anchor: 'middle' });
@@ -289,6 +537,21 @@ const POSTS = [
     section: 'guides', slug: 'how-to-predict-football-scores', kicker: 'Guide · Predictions', motif: 'predict',
     figs: { scorelines: () => heatFigure({ xgH: 1.9, xgA: 0.8, homeName: 'Team A', awayName: 'Team B', title: 'Chance of every scoreline', sub: 'Team A expected to score 1.9 goals, Team B 0.8 (Poisson model)', note: 'Each square is the probability of that exact score. The gold outline marks the single most likely result, which still happens only about one match in eight.' }) },
   },
+  { section: 'guides', slug: 'poisson-distribution-football-goals-explained', kicker: 'Guide · Modelling', motif: 'poisson', figs: { bars: figPoissonBars } },
+  { section: 'guides', slug: 'offside-rule-in-football-explained-simply', kicker: 'Guide · Rules', motif: 'offside', figs: { line: figOffsideLine } },
+  { section: 'guides', slug: 'football-league-table-tiebreakers-explained', kicker: 'Guide · Rules', motif: 'table', figs: { order: figTieOrder } },
+  { section: 'guides', slug: 'small-samples-and-football-form-luck-or-skill', kicker: 'Guide · Form', motif: 'band', figs: { band: figFormBand } },
+  { section: 'guides', slug: 'why-football-draws-happen-and-how-often', kicker: 'Guide · Results', motif: 'draws', figs: { curve: figDrawCurve } },
+  { section: 'guides', slug: 'extra-time-and-penalty-shootouts-explained', kicker: 'Guide · Rules', motif: 'ladder', figs: { ladder: figLadder } },
+  { section: 'guides', slug: 'how-points-work-in-the-skorradar-prediction-game', kicker: 'Guide · The game', motif: 'tiers', figs: { tiers: figTiers } },
+  { section: 'guides', slug: 'how-the-48-team-world-cup-format-works', kicker: 'Guide · World Cup', motif: 'wc', figs: { funnel: figWcFunnel } },
+  { section: 'guides', slug: 'fifa-world-ranking-vs-elo-ratings-difference', kicker: 'Guide · Ratings', motif: 'rank', figs: { compare: figRankCompare } },
+  { section: 'guides', slug: 'expected-points-xpts-football-explained', kicker: 'Guide · Expected points', motif: 'xpts', figs: { bars: figXptsBars } },
+  { section: 'guides', slug: 'clean-sheets-in-football-how-often-teams-keep-one', kicker: 'Guide · Defence', motif: 'clean', figs: { curve: figCleanCurve } },
+  { section: 'guides', slug: 'football-formations-explained-442-433-352', kicker: 'Guide · Tactics', motif: 'formation', figs: { pitches: figFormations } },
+  { section: 'guides', slug: 'var-in-football-explained-what-it-can-review', kicker: 'Guide · Rules', motif: 'var', figs: { flow: figVarFlow } },
+  { section: 'guides', slug: 'yellow-and-red-cards-in-football-rules-and-suspensions', kicker: 'Guide · Rules', motif: 'cards', figs: { ladder: figCardsLadder } },
+  { section: 'guides', slug: 'elo-ratings-for-new-teams-why-few-matches-mean-doubt', kicker: 'Guide · Ratings', motif: 'newelo', figs: { curve: figEloConverge } },
   {
     section: 'analysis', slug: 'barcelona-vs-aston-villa-prediction', kicker: 'Match analysis · Champions League', motif: 'analysis',
     motifData: (fm) => ({ home: field(fm, 'homeTeam'), away: field(fm, 'awayTeam'), ph: barca.mostLikely.home, pa: barca.mostLikely.away, pHome: barca.pHome, pDraw: barca.pDraw, pAway: barca.pAway }),

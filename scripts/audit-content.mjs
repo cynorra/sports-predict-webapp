@@ -4,6 +4,7 @@ import { readdirSync, readFileSync, existsSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { validateArticle } from './lib/article-quality.mjs';
 import { checkImages } from './lib/image-quality.mjs';
+import { checkSources } from './lib/source-quality.mjs';
 
 const ROOT = new URL('../src/content/', import.meta.url).pathname.replace(/^\/([A-Z]:)/, '$1');
 const RULES = {
@@ -86,6 +87,7 @@ for (const p of posts) {
   const links = (p.body.match(/\]\(\/[^)]+\)/g) || []).length;
   if (links < 2) warn.push(`${p.id}: only ${links} internal links (want 2+)`);
   if (!/\]\(https?:\/\//.test(p.body)) warn.push(`${p.id}: no external source link (cite UEFA/league/data provider)`);
+  if (p.section !== 'news') checkSources(p.raw).forEach((msg) => fail(p.id, msg));
   const lens = p.body.split(/\n\n/).filter((x) => !/^(#|\||- |\d+\. )/.test(x)).map((x) => words(x).length);
   if (Math.max(...lens) > 120) warn.push(`${p.id}: a paragraph exceeds 120 words (hurts readability and AI extraction)`);
 }

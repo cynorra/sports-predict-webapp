@@ -103,3 +103,9 @@ A statistical model applies steps one to three consistently and without emotion,
 ## Further reading
 
 For league-by-league scoring averages you can verify yourself, [FBref](https://fbref.com) lists goals per match and expected goals for the major competitions.
+
+## Sources
+
+- [Dixon and Coles (1997), "Modelling association football scores and inefficiencies in the football betting market"](https://doi.org/10.1111/1467-9876.00065), Journal of the Royal Statistical Society Series C. Method for turning team strengths into scoreline probabilities and the correction for low scores.
+- [Maher (1982), "Modelling association football scores"](https://doi.org/10.1111/j.1467-9574.1982.tb00782.x), Statistica Neerlandica. The independent Poisson model of football scores that the grid in this guide uses.
+- [Hvattum and Arntzen (2010), "Using ELO ratings for match result prediction in association football"](https://doi.org/10.1016/j.ijforecast.2009.10.002), International Journal of Forecasting. Using rating gaps as the starting point for a forecast.

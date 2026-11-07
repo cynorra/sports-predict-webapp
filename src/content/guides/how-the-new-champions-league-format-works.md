@@ -100,4 +100,7 @@ You can try this yourself on the [prediction page](/predict): enter an exact sco
 
 ## Sources
 
-Format and tiebreaker details are taken from UEFA's published competition regulations at [UEFA.com](https://www.uefa.com/uefachampionsleague/). Regulations can change between seasons, so check the current edition before relying on a specific rule.
+- [2024-25 UEFA Champions League league phase, Wikipedia](https://en.wikipedia.org/wiki/2024%E2%80%9325_UEFA_Champions_League_league_phase), Wikipedia. The 36-club league table, pots, eight matches per club and the play-off round.
+- [UEFA Champions League, Wikipedia](https://en.wikipedia.org/wiki/UEFA_Champions_League), Wikipedia. History of the competition and the format change from the group stage.
+- [UEFA, Champions League pages](https://www.uefa.com/uefachampionsleague/), UEFA. The official source for the current regulations, which can change between seasons.
+

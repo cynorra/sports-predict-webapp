@@ -13,13 +13,15 @@ Rules below are adapted from `D:\android-projeler\yukle-next\universal-adsense-s
 
 ## Enforcement (code, not prompts)
 - `npm test` - unit tests for the gates (`scripts/lib/article-quality.test.mjs`).
-- `npm run audit` - runs on every post: SEO lengths, word counts, FAQ/H2 minimums, keyword placement and stuffing, leftover template text, cross-post similarity (max 12% 5-gram overlap), H2 skeleton variety (max 3 identical per section), plus `validateArticle()` truthfulness gates.
+- `npm run audit` - runs on every post (guides and analysis also need a `## Sources` section: 3+ named, deep-linked references incl. a non-Wikipedia primary source; `scripts/lib/source-quality.mjs`): SEO lengths, word counts, FAQ/H2 minimums, keyword placement and stuffing, leftover template text, cross-post similarity (max 12% 5-gram overlap), H2 skeleton variety (max 3 identical per section), plus `validateArticle()` truthfulness gates.
 - `npm run build` runs tests -> audit -> astro build; a failing post blocks the build.
 - `npm run freshness` - lists posts not reviewed for 60+ days. Report only. Only set `updatedAt` after a real content change.
 
 ## Publishing
 - New post: write it by hand with real facts, add `queued: true`, run `npm run schedule`. Queued/future-dated posts are hidden from pages, sitemap, `llms.txt`, RSS.
 - Rhythm: Mon-Fri only, 4-day blocks shuffled from [1,1,2,0], 09:00-17:00 US Eastern, >=3h apart. `PUBLISH_WEEKENDS=true` turns weekends on (football previews).
+- `POSTS_PER_DAY=1 npm run schedule` gives exactly one post per publishing day. Links to posts that are queued or dated in the future are rendered as plain text at build time (`scripts/lib/hide-unpublished-links.mjs`) and become links when the post goes live.
+- Every post must be read by the author (Eren Şimşir) before its go-live date, because the editorial policy says the author is responsible for what is published. AI-drafted posts are not exempt.
 - `publishedAt` is the real go-live time. Never back-date. `.github/workflows/publish-scheduled.yml` redeploys when a post goes live.
 - Every post: unique structure, 3-8 FAQ items (vary), short answer box, at least 2 internal links and 1 external source link.
 - Match analysis / news need real data (fixtures, form, injuries from a named API/source). Do not invent them.

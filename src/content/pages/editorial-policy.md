@@ -1,29 +1,29 @@
 ---
 title: "Editorial Policy"
-description: "How SkorRadar sources facts, labels opinion, uses AI tools and corrects mistakes in match analysis, news and guides."
-updatedAt: 2026-10-29
+description: "How SkorRadar sources facts, labels predictions and corrects mistakes in its guides and match analysis."
+updatedAt: 2026-11-07
 ---
 
-## Accuracy and sourcing
+## Who writes SkorRadar
 
-Facts such as results, lineups, injuries and rules come from primary sources first: league and federation websites, club announcements and official competition regulations. We link to the source where it helps the reader.
+Every guide and match analysis on SkorRadar is published under the name of its author, [Eren Şimşir](/author), who is responsible for what appears on the site. If something is wrong, it is the author's job to fix it.
 
-## Opinion and prediction
+## Where the facts come from
 
-Predictions and tactical views are labelled as such. We separate what has happened from what we expect to happen.
+Rules come from the Laws of the Game published by IFAB and from official competition regulations. Results and fixtures come from football-data.org. Where a figure or a claim needs support, the article ends with a Sources section that links to it. When a rule differs between competitions, the article says so and points to the official document.
 
-## Use of AI tools
+## Predictions and opinion
 
-We may use AI tools to help with research, data processing or drafting. Every published article is checked, edited and approved by a human editor who is responsible for its accuracy. We do not publish unreviewed machine-generated text, and we do not reuse the same text across articles.
+The scores and probabilities on the site come from the model described on the [methodology page](/methodology). They are estimates, not promises, and they are labelled that way. Opinion is kept apart from fact, and nothing on the site is betting advice.
 
 ## Originality
 
-Each article must add something of its own: analysis, data or explanation. We do not copy other sites.
+Each article should explain something clearly or add a calculation, figure or example of its own. Text is not copied from other sites, and the same wording is not reused across articles.
 
 ## Corrections
 
-If we get something wrong we correct it and note the change at the top of the article with the date. To report an error, use the [contact page](/contact).
+If we get something wrong, we correct it and note the change at the top of the article with the date. To report an error, use the [contact page](/contact).
 
 ## Independence and advertising
 
-Advertising does not influence what we write. We do not accept payment for favourable predictions and we do not link to betting operators.
+Advertising does not influence what is written. SkorRadar does not accept payment for predictions and does not link to betting operators.

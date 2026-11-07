@@ -104,3 +104,9 @@ If you can answer yes to these, xG is one of the most useful tools a fan has for
 ## Where to learn more
 
 For raw numbers, public pages such as [FBref](https://fbref.com) publish team and player expected-goals figures with an explanation of their data provider's method.
+
+## Sources
+
+- [Expected goals, Wikipedia](https://en.wikipedia.org/wiki/Expected_goals), Wikipedia. Definition, how shot values are built and the limits of the metric.
+- [Maher (1982), "Modelling association football scores"](https://doi.org/10.1111/j.1467-9574.1982.tb00782.x), Statistica Neerlandica. The Poisson basis for converting scoring rates into result probabilities.
+- [FBref, expected goals model explained](https://fbref.com/en/expected-goals-model-explained/), FBref. A data provider's own description of how its xG values are produced.

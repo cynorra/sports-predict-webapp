@@ -16,7 +16,8 @@ import { join } from 'node:path';
 
 const ROOT = decodeURIComponent(new URL('../src/content/', import.meta.url).pathname).replace(/^\/([A-Z]:)/, '$1');
 const SECTIONS = ['guides', 'analysis', 'news'];
-const BASE = [1, 1, 2, 0];
+const DAILY = process.env.POSTS_PER_DAY === '1'; // exactly one post per publishing day (no empty days, no double days)
+const BASE = DAILY ? [1, 1, 1, 1] : [1, 1, 2, 0];
 const TZ = 'America/New_York';
 const WINDOW = [9, 16.75]; // local hours; latest start 16:45 so the post is live before 17:00
 const MIN_GAP_H = 3;
@@ -43,7 +44,7 @@ function block(start, prevZero) {
     const a = [...BASE];
     for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
     const z = a.indexOf(0);
-    if (z === prevZero) continue;
+    if (!DAILY && z === prevZero) continue;
     if (prevZero === 3 && z === 0) continue; // never two empty publishing days in a row
     return a;
   }
@@ -115,7 +116,7 @@ if (import.meta.url === `file://${process.argv[1].replace(/\\/g, '/').replace(/^
     process.exit(0);
   }
 
-  const queued = posts.filter((p) => p.queued).sort((a, b) => a.path.localeCompare(b.path));
+  const queued = posts.filter((p) => p.queued).sort((a, b) => (a.date?.getTime() ?? 0) - (b.date?.getTime() ?? 0) || a.path.localeCompare(b.path));
   if (!queued.length) { console.log('no queued posts'); process.exit(0); }
   const taken = posts.filter((p) => !p.queued && p.date).map((p) => p.date.getTime());
   const lastTaken = taken.length ? Math.max(...taken) : 0;

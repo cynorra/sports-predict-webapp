@@ -65,3 +65,11 @@ Under the 36-team format, every point and goal across the eight league-phase mat
 ## Summary and community prediction
 
 The model clearly favours Barcelona, but a 74% chance still leaves roughly one match in four for a draw or an Aston Villa win. If you think the numbers are too generous or too cautious, enter your own scoreline on our [free prediction board](/predict) before kickoff and see how it scores against the model.
+
+## Sources
+
+- [SkorRadar methodology](/methodology), SkorRadar. How the ratings, expected goals and Poisson probabilities in this preview are computed.
+- [football-data.org API documentation](https://www.football-data.org/documentation/quickstart), football-data.org. The match results used to compute the club ratings.
+- [Maher (1982), "Modelling association football scores"](https://doi.org/10.1111/j.1467-9574.1982.tb00782.x), Statistica Neerlandica. The Poisson model of scores.
+- [UEFA, Champions League pages](https://www.uefa.com/uefachampionsleague/), UEFA. Official fixtures, standings and team news to check before kickoff.
+- [2024-25 UEFA Champions League league phase, Wikipedia](https://en.wikipedia.org/wiki/2024%E2%80%9325_UEFA_Champions_League_league_phase), Wikipedia. Format of the league phase referred to in this preview.

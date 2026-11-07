@@ -81,3 +81,9 @@ For a current view, [FBref](https://fbref.com) shows home and away results, goal
 ## The bottom line
 
 Home advantage is a modest but dependable edge, worth giving to the host each time but not worth overpaying for. Treat it as one adjustment among several, and let team quality, lineups and context decide the rest.
+
+## Sources
+
+- [Pollard (2006), "Worldwide regional variations in home advantage in association football"](https://doi.org/10.1080/02640410500141836), Journal of Sports Sciences. Size and regional variation of home advantage across football leagues.
+- [Bryson, Dolton, Reade, Schreyer and Singleton (2021), "Causal effects of an absent crowd on performances and refereeing decisions during Covid-19"](https://doi.org/10.1016/j.econlet.2020.109664), Economics Letters. The change in home advantage and refereeing when matches were played without crowds.
+- [Sutter and Kocher (2004), "Favoritism of agents: the case of referees' home bias"](https://doi.org/10.1016/s0167-4870(03)00013-8), Journal of Economic Psychology. Evidence of referee bias towards the home side in front of a crowd.
