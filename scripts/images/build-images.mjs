@@ -514,6 +514,40 @@ function figPlSeasons() {
   return frame(1200, h, { title: 'Most goals in a Premier League season', sub: 'Eight highest single-season totals', note }, g);
 }
 
+function figClScorers() {
+  const note = "Goals in the UEFA Champions League, qualifiers excluded, as listed by the Opta Analyst on 4 November 2026. UEFA's own table counts a few totals differently.";
+  const rows = [
+    { name: 'Cristiano Ronaldo', v: 140 }, { name: 'Lionel Messi', v: 129 }, { name: 'Robert Lewandowski', v: 109 }, { name: 'Karim Benzema', v: 90 },
+    { name: 'Kylian Mbappé', v: 74 }, { name: 'Raúl', v: 71 }, { name: 'Erling Haaland', v: 62 }, { name: 'Harry Kane', v: 58 },
+    { name: 'Thomas Müller', v: 57 }, { name: 'Ruud van Nistelrooy', v: 56 },
+  ];
+  const h = 140 + rows.length * 56 + 50 + noteH(note);
+  const g = hbars(rows, { x0: 360, max: 140, fillFor: (r, i) => (i === 0 ? GOLD : PITCH) });
+  return frame(1200, h, { title: 'Champions League all-time top scorers', sub: 'Top 10 by goals', note }, g);
+}
+
+function tiles(items, { y0 = 140, cols = 3, w = 340, h = 170, gap = 20 }) {
+  let g = '';
+  items.forEach((it, i) => {
+    const x = 40 + (i % cols) * (w + gap), y = y0 + Math.floor(i / cols) * (h + gap);
+    g += `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="4" fill="#f1f5f9" stroke="${LIGHT}" stroke-width="2"/>`;
+    g += t(x + 20, y + 76, it.n, { size: 64, weight: 800, fill: PITCH });
+    g += t(x + 20, y + 114, it.label, { size: 22, weight: 700 });
+    g += t(x + 20, y + 144, it.who, { size: 20, fill: SLATE });
+  });
+  return g;
+}
+
+function figPlRecords() {
+  const note = "Records from the Premier League's own records table, which covers seasons up to 2025/26. Seconds are shown to two decimals as the league publishes them.";
+  const items = [
+    { n: '260', label: 'Career goals', who: 'Alan Shearer' }, { n: '213', label: 'Goals at one club', who: 'Harry Kane, Tottenham' }, { n: '36', label: 'Goals in a season', who: 'Erling Haaland, 2022/23' },
+    { n: '12', label: 'Hat-tricks', who: 'Sergio Agüero' }, { n: '7.69s', label: 'Fastest goal', who: 'Shane Long, 2019' }, { n: '10', label: 'Own goals', who: 'Richard Dunne' },
+  ];
+  const h = 140 + 2 * 190 + 30 + noteH(note);
+  return frame(1200, h, { title: 'Premier League scoring records', sub: 'Who holds six of the headline marks', note }, tiles(items, {}));
+}
+
 // ---------- cover images ----------
 function cover({ kicker, title, motif }) {
   // Headline: biggest size (84 -> 52) at which the uppercase title fits the left column in at most four lines.
@@ -585,6 +619,12 @@ const motifs = {
     t(752, 124 + i * 78, n, { size: 24, weight: 700, fill: W }) + `<rect x="752" y="${134 + i * 78}" width="${r1(v / 22 * 300)}" height="30" rx="4" fill="${i === 0 ? GOLD : W}" fill-opacity="${i === 0 ? 1 : 0.85}"/>` + t(752 + v / 22 * 300 + 12, 158 + i * 78, String(v), { size: 26, weight: 700, fill: W })).join('') + t(926, 540, 'World Cup goals, all time', { size: 24, weight: 700, fill: W, anchor: 'middle' }),
   plrecord: () => [['Haaland', 36, 1], ['Shearer', 34, 0], ['Cole', 34, 0], ['Salah', 32, 1]].map(([n, v, a], i) =>
     t(752, 130 + i * 98, n, { size: 24, weight: 700, fill: W }) + `<rect x="752" y="${142 + i * 98}" width="${r1(v / 36 * 300)}" height="38" rx="4" fill="${i === 0 ? GOLD : W}" fill-opacity="${i === 0 ? 1 : 0.85}"/>` + t(752 + v / 36 * 300 + 12, 172 + i * 98, String(v), { size: 28, weight: 700, fill: W })).join('') + t(926, 540, 'Most goals in a season', { size: 24, weight: 700, fill: W, anchor: 'middle' }),
+  clscorers: () => [['Ronaldo', 140], ['Messi', 129], ['Lewandowski', 109], ['Benzema', 90], ['Mbappé', 74]].map(([n, v], i) =>
+    t(752, 124 + i * 78, n, { size: 24, weight: 700, fill: W }) + `<rect x="752" y="${134 + i * 78}" width="${r1(v / 140 * 300)}" height="30" rx="4" fill="${i === 0 ? GOLD : W}" fill-opacity="${i === 0 ? 1 : 0.85}"/>` + t(752 + v / 140 * 300 + 12, 158 + i * 78, String(v), { size: 26, weight: 700, fill: W })).join('') + t(926, 540, 'Champions League goals', { size: 24, weight: 700, fill: W, anchor: 'middle' }),
+  pltiles: () => [['260', 'Career goals'], ['213', 'At one club'], ['36', 'In a season'], ['7.69s', 'Fastest goal']].map(([n, l], i) => {
+    const x = 752 + (i % 2) * 176, y = 120 + Math.floor(i / 2) * 190;
+    return `<rect x="${x}" y="${y}" width="164" height="170" rx="4" fill="#fff" fill-opacity="${i === 0 ? 0.18 : 0.1}"/>` + t(x + 14, y + 80, n, { size: 56, weight: 800, fill: i === 0 ? GOLD : W }) + t(x + 14, y + 128, l, { size: 20, weight: 700, fill: W });
+  }).join('') + t(926, 540, 'Premier League records', { size: 24, weight: 700, fill: W, anchor: 'middle' }),
   newelo: () => {
     const E = (g2) => 1 / (1 + Math.pow(10, -g2 / 400)), et = E(200);
     const X = (n) => 756 + (n / 60) * 340, Y = (r) => 470 - ((r - 1500) / 220) * 300;
@@ -624,6 +664,8 @@ const POSTS = [
   { section: 'guides', slug: 'how-points-work-in-the-scoreradar-prediction-game', kicker: 'Guide · The game', motif: 'tiers', figs: { tiers: figTiers } },
   { section: 'guides', slug: 'world-cup-all-time-top-scorers', kicker: 'Guide · World Cup', motif: 'scorers', figs: { list: figWcScorers } },
   { section: 'guides', slug: 'most-goals-in-a-premier-league-season', kicker: 'Guide · Records', motif: 'plrecord', figs: { seasons: figPlSeasons } },
+  { section: 'guides', slug: 'champions-league-all-time-top-scorers', kicker: 'Guide · Champions League', motif: 'clscorers', figs: { list: figClScorers } },
+  { section: 'guides', slug: 'premier-league-scoring-records', kicker: 'Guide · Records', motif: 'pltiles', figs: { records: figPlRecords } },
   { section: 'guides', slug: 'how-the-48-team-world-cup-format-works', kicker: 'Guide · World Cup', motif: 'wc', figs: { funnel: figWcFunnel } },
   { section: 'guides', slug: 'fifa-world-ranking-vs-elo-ratings-difference', kicker: 'Guide · Ratings', motif: 'rank', figs: { compare: figRankCompare } },
   { section: 'guides', slug: 'expected-points-xpts-football-explained', kicker: 'Guide · Expected points', motif: 'xpts', figs: { bars: figXptsBars } },

@@ -3,6 +3,7 @@ title: "How the New Champions League Format Works (36 Teams)"
 description: "The new Champions League format explained: 36 clubs in one table, eight matches each, top eight into the last 16, play-offs for 9th-24th and tiebreakers."
 answer: "The new Champions League format puts 36 clubs in one league table. Each plays eight different opponents; the top eight reach the last 16, 9th-24th enter a two-leg play-off, and the rest are out."
 publishedAt: 2026-11-02T19:27:00.000Z
+updatedAt: 2026-11-07T22:00:00.000Z
 sport: football
 image:
   src: "/images/how-the-new-champions-league-format-works.svg"
@@ -96,7 +97,7 @@ Fans new to the system tend to make the same errors, and they lead to bad predic
 
 The format rewards teams that win big against weaker sides, because goal difference is the first tiebreaker. Our model estimates expected goals for both teams rather than just picking a winner, so you can see how likely a big margin is. When a side needs a margin of victory to climb into the top eight, treat the match as higher variance: a motivated favourite chasing goal difference can score late, while a team already safe may rotate.
 
-You can try this yourself on the [prediction page](/predict): enter an exact score and compare it with the model's most likely scoreline and win probabilities.
+You can try this yourself on the [prediction page](/predict): enter an exact score and compare it with the model's most likely scoreline and win probabilities. If you are curious who has scored the most goals in the competition itself, our list of [Champions League top scorers](/guides/champions-league-all-time-top-scorers) sets out the all-time table and the records behind it.
 
 ## Sources
 

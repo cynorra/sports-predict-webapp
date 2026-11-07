@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import SectionList from '../../components/SectionList.astro';
+import GuidesHub from '../../components/GuidesHub.astro';
 import { SECTIONS, isLive, type Section } from '../../lib/sections';
 import { PAGE_SIZE } from '../../lib/site';
 
@@ -10,11 +11,13 @@ export async function getStaticPaths() {
   for (const section of Object.keys(SECTIONS) as Section[]) {
     const entries = (await getCollection(section, isLive)).sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
     if (!entries.length) continue;
-    paths.push({ params: { section }, props: { ...SECTIONS[section], section, entries: entries.slice(0, PAGE_SIZE), totalPages: Math.ceil(entries.length / PAGE_SIZE) } });
+    // Guides are one topic-grouped hub with every guide on a single page, so they are not paginated.
+    const hub = section === 'guides';
+    paths.push({ params: { section }, props: { ...SECTIONS[section], section, entries: hub ? entries : entries.slice(0, PAGE_SIZE), totalPages: hub ? 1 : Math.ceil(entries.length / PAGE_SIZE) } });
   }
   return paths;
 }
 const props = Astro.props;
 ---
 
-<SectionList {...props} page={1} />
+{props.section === 'guides' ? <GuidesHub entries={props.entries} /> : <SectionList {...props} page={1} />}

@@ -63,7 +63,7 @@ The Premier League's records page also lists the most goals scored at home in a 
 
 ## The career record: Alan Shearer's 260
 
-The league's all-time top scorer is Alan Shearer with 260 goals for Blackburn Rovers and Newcastle United between 1992/93 and 2005/06, according to the Premier League's records page. That page lists only the leader. Career totals for active players change every weekend, so check the Premier League's [records page](https://www.premierleague.com/en/stats/records) for the current list rather than relying on a fixed table.
+The league's all-time top scorer is Alan Shearer with 260 goals for Blackburn Rovers and Newcastle United between 1992/93 and 2005/06, according to the Premier League's records page. That page lists only the leader. Career totals for active players change every weekend, so check the Premier League's [records page](https://www.premierleague.com/en/stats/records) for the current list rather than relying on a fixed table. Our guide to [Premier League scoring records](/guides/premier-league-scoring-records) collects the other scoring marks from that page, from the fastest goal to the most own goals.
 
 ## What a record season says about scoring
 

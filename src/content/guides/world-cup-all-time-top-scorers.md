@@ -2,7 +2,7 @@
 title: "World Cup Top Scorers: The All-Time Goals List"
 description: "World Cup top scorers of all time: Mbappé leads with 22 goals, ahead of Messi on 21 and Klose on 16. See the full list, the single-edition record and history."
 answer: "The World Cup top scorers list is led by Kylian Mbappé with 22 goals, ahead of Lionel Messi with 21 and Miroslav Klose with 16. Just Fontaine's 13 goals at the 1958 tournament remain the record for a single edition."
-publishedAt: 2026-12-01T14:58:00.000Z
+publishedAt: 2026-12-01T19:37:00.000Z
 sport: football
 image:
   src: "/images/world-cup-all-time-top-scorers.svg"

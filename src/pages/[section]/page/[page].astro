@@ -8,6 +8,7 @@ import { PAGE_SIZE } from '../../../lib/site';
 export async function getStaticPaths() {
   const paths = [];
   for (const section of Object.keys(SECTIONS) as Section[]) {
+    if (section === 'guides') continue; // the guides hub lists every guide on one page
     const entries = (await getCollection(section, isLive)).sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
     const totalPages = Math.ceil(entries.length / PAGE_SIZE);
     for (let n = 2; n <= totalPages; n++) {

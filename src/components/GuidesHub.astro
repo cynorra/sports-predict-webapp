@@ -1,0 +1,89 @@
+---
+import Base from '../layouts/Base.astro';
+import { groupGuides, START_HERE } from '../lib/guide-topics';
+
+interface Props { entries: any[] }
+const { entries } = Astro.props;
+const groups = groupGuides(entries);
+// Only mention the records guides once at least one of them is live.
+const hasRecords = groups.some((g) => g.id === 'records');
+const start = START_HERE.map((s) => entries.find((e) => e.id === s)).filter(Boolean);
+const fmt = (d: Date) => d.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
+
+const jsonLd = [
+  {
+    '@type': 'CollectionPage',
+    name: 'Football Guides',
+    url: new URL('/guides', Astro.site).href,
+    description: 'Football guides on score predictions, Elo ratings, expected goals, rules, tournament formats and records.',
+    inLanguage: 'en',
+  },
+  {
+    '@type': 'ItemList',
+    itemListElement: entries
+      .slice()
+      .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())
+      .map((e, i) => ({ '@type': 'ListItem', position: i + 1, name: e.data.title, url: new URL(`/guides/${e.id}`, Astro.site).href })),
+  },
+];
+---
+
+<Base
+  title="Football Guides: Score Predictions, Ratings and Records"
+  description="Football guides on score predictions, Elo ratings, xG, rules and formats, plus records such as World Cup and Premier League top scorers."
+  jsonLd={jsonLd}
+>
+  <p class="kicker">ScoreRadar</p>
+  <h1 class="mt-1 max-w-4xl text-6xl font-extrabold uppercase">Football <span class="hl">guides</span></h1>
+  <p class="mt-4 max-w-3xl text-lg leading-relaxed text-slate-700">
+    Plain-language guides for anyone who wants to understand the game with numbers: how to make a football score prediction, how Elo ratings and expected goals (xG) work, why home advantage and draws matter, and the rules and formats behind the biggest tournaments.
+    {hasRecords && <>The records guides on top scorers and season totals trace every figure to a named source. </>}Everything here supports the free <a class="font-semibold text-pitch underline underline-offset-4" href="/predict">soccer score predictor</a>, and the method is set out on the <a class="font-semibold text-pitch underline underline-offset-4" href="/methodology">methodology page</a>.
+  </p>
+
+  <nav aria-label="Guide topics" class="mt-6 flex flex-wrap gap-2">
+    {groups.map((g) => <a href={`#${g.id}`} class="border border-ink px-3 py-1 text-sm font-semibold hover:bg-ink hover:text-white">{g.title} <span class="text-slate-500">{g.items.length}</span></a>)}
+  </nav>
+
+  {start.length > 0 && (
+    <section class="mt-10">
+      <div class="rule-title"><h2 class="text-4xl font-extrabold uppercase">Start here</h2></div>
+      <ul class="mt-5 grid gap-5 md:grid-cols-3">
+        {start.map((e: any) => (
+          <li class="card card-link overflow-hidden">
+            <a href={`/guides/${e.id}`} class="block">
+              <img src={e.data.image.src} alt="" width="1200" height="630" loading="lazy" decoding="async" class="aspect-[1200/630] w-full border-b border-line" />
+              <div class="p-5">
+                <h3 class="card-title display text-[1.65rem] font-bold leading-tight">{e.data.title}</h3>
+                <p class="mt-2 text-sm leading-relaxed text-slate-600">{e.data.description}</p>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {groups.map((g) => (
+    <section class="mt-14" id={g.id} aria-labelledby={`${g.id}-h`}>
+      <div class="rule-title">
+        <h2 id={`${g.id}-h`} class="text-4xl font-extrabold uppercase">{g.title}</h2>
+        <span class="text-sm text-slate-500">{g.items.length} {g.items.length === 1 ? 'guide' : 'guides'}</span>
+      </div>
+      <p class="mt-2 max-w-3xl text-slate-600">{g.blurb}</p>
+      <ul class="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {g.items.map((e: any) => (
+          <li class="card card-link overflow-hidden">
+            <a href={`/guides/${e.id}`} class="block">
+              <img src={e.data.image.src} alt="" width="1200" height="630" loading="lazy" decoding="async" class="aspect-[1200/630] w-full border-b border-line" />
+              <div class="p-5">
+                <p class="kicker !text-xs">{fmt(e.data.publishedAt)}</p>
+                <h3 class="card-title display mt-1 text-[1.5rem] font-bold leading-tight">{e.data.title}</h3>
+                <p class="mt-2 text-sm leading-relaxed text-slate-600">{e.data.description}</p>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))}
+</Base>
