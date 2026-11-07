@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-07T18:28:41.571Z",
+  "generatedAt": "2026-11-07T22:00:44.768Z",
   "source": "SportAPI (sportapi.ai)",
   "days": 5,
   "matches": [
@@ -48,6 +48,17 @@
       "status": "FT"
     },
     {
+      "id": 16096640,
+      "date": "2026-11-07",
+      "kickoff": "2026-11-07T17:30:00Z",
+      "league": "German Bundesliga",
+      "home": "Stuttgart",
+      "away": "Bremen",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "FT"
+    },
+    {
       "id": 16096641,
       "date": "2026-11-07",
       "kickoff": "2026-11-07T14:00:00Z",
@@ -67,6 +78,50 @@
       "away": "Lecce",
       "homeScore": 1,
       "awayScore": 1,
+      "status": "FT"
+    },
+    {
+      "id": 16096643,
+      "date": "2026-11-07",
+      "kickoff": "2026-11-07T17:00:00Z",
+      "league": "Italian Serie A",
+      "home": "Parma",
+      "away": "Bologna",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "FT"
+    },
+    {
+      "id": 16096644,
+      "date": "2026-11-07",
+      "kickoff": "2026-11-07T19:45:00Z",
+      "league": "Italian Serie A",
+      "home": "Roma",
+      "away": "Sassuolo",
+      "homeScore": 3,
+      "awayScore": 0,
+      "status": "FT"
+    },
+    {
+      "id": 16096645,
+      "date": "2026-11-07",
+      "kickoff": "2026-11-07T18:00:00Z",
+      "league": "French Ligue 1",
+      "home": "Auxerre",
+      "away": "Paris FC",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "FT"
+    },
+    {
+      "id": 16096646,
+      "date": "2026-11-07",
+      "kickoff": "2026-11-07T20:05:00Z",
+      "league": "French Ligue 1",
+      "home": "PSG",
+      "away": "Troyes",
+      "homeScore": 1,
+      "awayScore": 0,
       "status": "FT"
     },
     {
@@ -103,6 +158,17 @@
       "status": "FT"
     },
     {
+      "id": 16096709,
+      "date": "2026-11-07",
+      "kickoff": "2026-11-07T17:30:00Z",
+      "league": "Premier League",
+      "home": "Nottm Forest",
+      "away": "Man City",
+      "homeScore": 3,
+      "awayScore": 1,
+      "status": "FT"
+    },
+    {
       "id": 16122907,
       "date": "2026-11-07",
       "kickoff": "2026-11-07T15:15:00Z",
@@ -122,6 +188,28 @@
       "away": "Santander",
       "homeScore": 1,
       "awayScore": 2,
+      "status": "FT"
+    },
+    {
+      "id": 16122909,
+      "date": "2026-11-07",
+      "kickoff": "2026-11-07T17:30:00Z",
+      "league": "Spanish La Liga",
+      "home": "Osasuna",
+      "away": "Athletic",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "FT"
+    },
+    {
+      "id": 16122912,
+      "date": "2026-11-07",
+      "kickoff": "2026-11-07T20:00:00Z",
+      "league": "Spanish La Liga",
+      "home": "Valencia",
+      "away": "Real Madrid",
+      "homeScore": 0,
+      "awayScore": 3,
       "status": "FT"
     },
     {
