@@ -18,14 +18,13 @@ const pages = (await getCollection('pages')).sort((a, b) => a.data.title.localeC
         <li><a class="text-pitch underline" href="/leaderboard">Leaderboard</a></li>
       </ul>
     </section>
-    {(Object.keys(SECTIONS) as Section[]).map((section) => (
+    {(Object.keys(SECTIONS) as Section[]).filter((s) => posts.some((p) => p.section === s)).map((section) => (
       <section>
         <h2 class="text-xl font-bold"><a class="hover:underline" href={`/${section}`}>{SECTIONS[section].title}</a></h2>
         <ul class="mt-2 list-disc pl-5 space-y-1">
           {posts.filter((p) => p.section === section).map(({ entry }) => (
             <li><a class="text-pitch underline" href={`/${section}/${entry.id}`}>{entry.data.title}</a></li>
           ))}
-          {posts.filter((p) => p.section === section).length === 0 && <li class="text-slate-500">No articles published yet.</li>}
         </ul>
       </section>
     ))}

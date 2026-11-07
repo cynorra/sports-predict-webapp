@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import ConsentBanner from '../components/ConsentBanner.astro';
+import { liveSections } from '../lib/site';
 
 interface Props {
   title: string;
@@ -18,13 +19,13 @@ const SITE_NAME = 'SkorRadar';
 // Append the brand only if the full <title> stays within ~60 chars (Google truncates longer titles)
 const fullTitle = title.includes(SITE_NAME) || `${title} | ${SITE_NAME}`.length > 60 ? title : `${title} | ${SITE_NAME}`;
 const ld = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+const live = new Set(await liveSections());
 const nav = [
   ['/predict', 'Predict'],
-  ['/analysis', 'Match Analysis'],
-  ['/news', 'News'],
-  ['/guides', 'Guides'],
+  ...[['analysis', 'Match Analysis'], ['news', 'News'], ['guides', 'Guides']].filter(([k]) => live.has(k as any)).map(([k, l]) => ['/' + k, l]),
   ['/leaderboard', 'Leaderboard'],
 ];
+const here = Astro.url.pathname.replace(/\/$/, '');
 ---
 
 <!doctype html>
@@ -35,6 +36,10 @@ const nav = [
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={url} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="apple-touch-icon" href="/logo.png" />
+    <meta name="theme-color" content="#0b6e4f" />
     {noindex && <meta name="robots" content="noindex,follow" />}
     <meta property="og:site_name" content={SITE_NAME} />
     <meta property="og:type" content={ogType} />
@@ -54,20 +59,21 @@ const nav = [
     {import.meta.env.PUBLIC_ADSENSE_CLIENT && <meta name="google-adsense-account" content={import.meta.env.PUBLIC_ADSENSE_CLIENT} />}
   </head>
   <body class="min-h-screen flex flex-col">
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:rounded focus:bg-white focus:px-3 focus:py-2 focus:text-ink">Skip to content</a>
     <header class="bg-pitch text-white">
       <div class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between gap-4">
         <a href="/" class="text-xl font-extrabold tracking-tight">Skor<span class="text-gold">Radar</span></a>
-        <nav class="flex flex-wrap gap-x-5 gap-y-1 text-sm font-medium">
-          {nav.map(([href, label]) => <a href={href} class="hover:text-gold">{label}</a>)}
+        <nav aria-label="Main" class="flex flex-wrap gap-x-5 gap-y-1 text-sm font-medium">
+          {nav.map(([href, label]) => <a href={href} class={`hover:text-gold ${here === href || here.startsWith(href + '/') ? 'text-gold' : ''}`} aria-current={here === href || here.startsWith(href + '/') ? 'page' : undefined}>{label}</a>)}
         </nav>
       </div>
     </header>
-    <main class="flex-1 mx-auto w-full max-w-6xl px-4 py-8"><slot /></main>
+    <main id="main" class="flex-1 mx-auto w-full max-w-6xl px-4 py-8"><slot /></main>
     <footer class="bg-ink text-slate-300 text-sm">
       <div class="mx-auto max-w-6xl px-4 py-8 grid gap-6 sm:grid-cols-3">
         <div>
           <p class="font-bold text-white">{SITE_NAME}</p>
-          <p class="mt-2">Data-driven match predictions, analysis and news for football and the wider sports world.</p>
+          <p class="mt-2">Data-driven football predictions, match analysis and guides, plus a free score-prediction game.</p>
         </div>
         <ul class="space-y-1">
           <li><a href="/about" class="hover:text-white">About Us</a></li>

@@ -15,10 +15,10 @@ export const GET: APIRoute = async ({ site }) => {
   ];
   for (const section of Object.keys(SECTIONS) as Section[]) {
     const items = posts.filter((p) => p.section === section);
+    if (!items.length) continue;
     lines.push('', `## ${SECTIONS[section].title}`, '');
     for (const { entry } of items) lines.push(`- [${entry.data.title}](${base}/${section}/${entry.id}): ${entry.data.answer}`);
-    if (!items.length) lines.push('- (no posts yet)');
   }
-  lines.push('', '## Optional', '', `- [Methodology](${base}/methodology): how predictions are produced and graded`, `- [Editorial policy](${base}/editorial-policy): sourcing, corrections and AI-use disclosure`, `- [Full content for LLMs](${base}/llms-full.txt)`);
+  lines.push('', '## Optional', '', `- [Methodology](${base}/methodology): how predictions are produced and graded`, `- [Editorial policy](${base}/editorial-policy): sourcing and corrections`, `- [Full content for LLMs](${base}/llms-full.txt)`);
   return new Response(lines.join('\n') + '\n', { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
 };

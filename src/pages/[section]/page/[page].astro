@@ -1,0 +1,22 @@
+---
+import { getCollection } from 'astro:content';
+import SectionList from '../../../components/SectionList.astro';
+import { SECTIONS, isLive, type Section } from '../../../lib/sections';
+import { PAGE_SIZE } from '../../../lib/site';
+
+// Pages 2 and up. Page 1 is the section index itself, so /guides/page/1 does not exist (no duplicate URL).
+export async function getStaticPaths() {
+  const paths = [];
+  for (const section of Object.keys(SECTIONS) as Section[]) {
+    const entries = (await getCollection(section, isLive)).sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+    const totalPages = Math.ceil(entries.length / PAGE_SIZE);
+    for (let n = 2; n <= totalPages; n++) {
+      paths.push({ params: { section, page: String(n) }, props: { ...SECTIONS[section], section, entries: entries.slice((n - 1) * PAGE_SIZE, n * PAGE_SIZE), page: n, totalPages } });
+    }
+  }
+  return paths;
+}
+const props = Astro.props;
+---
+
+<SectionList {...props} />

@@ -1,30 +1,20 @@
 ---
 import { getCollection } from 'astro:content';
-import Base from '../../layouts/Base.astro';
+import SectionList from '../../components/SectionList.astro';
 import { SECTIONS, isLive, type Section } from '../../lib/sections';
+import { PAGE_SIZE } from '../../lib/site';
 
-export function getStaticPaths() {
-  return (Object.keys(SECTIONS) as Section[]).map((section) => ({ params: { section }, props: SECTIONS[section] }));
+// Sections without a live post get no page at all (an empty listing is thin content and a dead end).
+export async function getStaticPaths() {
+  const paths = [];
+  for (const section of Object.keys(SECTIONS) as Section[]) {
+    const entries = (await getCollection(section, isLive)).sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+    if (!entries.length) continue;
+    paths.push({ params: { section }, props: { ...SECTIONS[section], section, entries: entries.slice(0, PAGE_SIZE), totalPages: Math.ceil(entries.length / PAGE_SIZE) } });
+  }
+  return paths;
 }
-const section = Astro.params.section as Section;
-const { title, blurb } = Astro.props;
-const entries = (await getCollection(section, isLive)).sort(
-  (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime(),
-);
+const props = Astro.props;
 ---
 
-<Base title={title} description={blurb}>
-  <h1 class="text-3xl font-extrabold">{title}</h1>
-  <p class="mt-2 text-slate-600">{blurb}</p>
-  <ul class="mt-6 grid gap-4 sm:grid-cols-2">
-    {entries.map((e) => (
-      <li class="rounded-lg bg-white p-5 shadow-sm hover:shadow">
-        <a href={`/${section}/${e.id}`}>
-          <img src={e.data.image.src} alt="" width="1200" height="630" loading="lazy" decoding="async" class="mb-3 aspect-[1200/630] w-full rounded-md border border-slate-200" />
-          <h2 class="font-bold">{e.data.title}</h2>
-          <p class="mt-1 text-sm text-slate-600">{e.data.description}</p>
-        </a>
-      </li>
-    ))}
-  </ul>
-</Base>
+<SectionList {...props} page={1} />

@@ -18,8 +18,8 @@ const site = [
 ---
 
 <Base
-  title="SkorRadar | Football Predictions, Match Analysis & Sports News"
-  description="Data-driven football predictions, Champions League analysis and sports news. Predict scores, earn points and compete with friends."
+  title="SkorRadar | Football Predictions, Match Analysis & Guides"
+  description="Data-driven football predictions, match analysis and guides. Predict scores, earn points and compete with friends."
   jsonLd={site}
 >
   <section class="rounded-2xl bg-gradient-to-br from-pitch to-pitch-dark p-8 text-white">
@@ -30,14 +30,13 @@ const site = [
     <a href="/predict" class="mt-5 inline-block rounded-lg bg-gold px-6 py-3 font-bold text-ink hover:brightness-95">Make Your Predictions</a>
   </section>
 
-  {blocks.map((b) => (
+  {blocks.filter((b) => b.items.length > 0).map((b) => (
     <section class="mt-10">
       <div class="flex items-baseline justify-between">
         <h2 class="text-2xl font-bold">{b.label}</h2>
         <a href={b.href} class="text-sm font-semibold text-pitch hover:underline">View all →</a>
       </div>
       <ul class="mt-3 grid gap-4 sm:grid-cols-2">
-        {b.items.length === 0 && <li class="text-slate-500">Coming soon.</li>}
         {b.items.map((e) => (
           <li class="rounded-lg bg-white p-5 shadow-sm hover:shadow">
             <a href={`/${b.sec}/${e.id}`}>

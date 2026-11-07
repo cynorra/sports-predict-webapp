@@ -46,3 +46,14 @@ jobs:
         env:
           HOOK: ${{ secrets.DEPLOY_HOOK_URL }}
         run: curl --fail --silent --show-error -X POST "$HOOK" > /dev/null
+      # Tell IndexNow search engines (Bing, Yandex and others) about the post that just went live. Needs the repository
+      # variable SITE_URL (the real domain). With the placeholder domain the script sends nothing. A failure here must
+      # never fail the deploy, hence continue-on-error.
+      - name: Notify IndexNow
+        if: steps.due.outputs.due == 'true' && vars.SITE_URL != ''
+        continue-on-error: true
+        env:
+          SITE_URL: ${{ vars.SITE_URL }}
+        run: |
+          sleep 150
+          node scripts/indexnow.mjs --since-hours 3

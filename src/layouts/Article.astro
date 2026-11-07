@@ -1,5 +1,7 @@
 ---
 import Base from './Base.astro';
+import { SECTIONS } from '../lib/sections';
+import { relatedPosts } from '../lib/site';
 
 interface Props {
   title: string;
@@ -12,6 +14,7 @@ interface Props {
   section: 'analysis' | 'news' | 'guides';
   faq?: { q: string; a: string }[];
   headings?: { depth: number; slug: string; text: string }[];
+  slug?: string;
   match?: {
     homeTeam: string;
     awayTeam: string;
@@ -26,7 +29,9 @@ interface Props {
     };
   };
 }
-const { title, description, answer, publishedAt, updatedAt, author, image, section, faq = [], headings = [], match } = Astro.props;
+const { title, description, answer, publishedAt, updatedAt, author, image, section, faq = [], headings = [], match, slug = '' } = Astro.props;
+const related = await relatedPosts(section, slug, 3);
+const sectionTitle = SECTIONS[section].title;
 const toc = headings.filter((h) => h.depth === 2);
 const fmt = (d: Date) => d.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
 const url = new URL(Astro.url.pathname, Astro.site).href;
@@ -45,7 +50,7 @@ const jsonLd: Record<string, unknown>[] = [
       name: author,
       url: new URL('/author', Astro.site).href,
     },
-    publisher: { '@type': 'Organization', name: 'SkorRadar' },
+    publisher: { '@type': 'Organization', name: 'SkorRadar', logo: { '@type': 'ImageObject', url: new URL('/logo.png', Astro.site).href } },
     mainEntityOfPage: url,
     inLanguage: 'en',
   },
@@ -53,7 +58,7 @@ const jsonLd: Record<string, unknown>[] = [
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: new URL('/', Astro.site).href },
-      { '@type': 'ListItem', position: 2, name: section, item: new URL(`/${section}`, Astro.site).href },
+      { '@type': 'ListItem', position: 2, name: sectionTitle, item: new URL(`/${section}`, Astro.site).href },
       { '@type': 'ListItem', position: 3, name: title, item: url },
     ],
   },
@@ -69,10 +74,13 @@ if (faq.length) {
 <Base title={title} description={description} ogType="article" jsonLd={jsonLd} image={{ url: ogPng, alt: image.alt }}>
   <div class="grid gap-8 lg:grid-cols-[1fr_300px]">
     <article>
+      <nav aria-label="Breadcrumb" class="mb-3 text-sm text-slate-500">
+        <a href="/" class="hover:underline">Home</a> <span aria-hidden="true">/</span> <a href={`/${section}`} class="hover:underline">{sectionTitle}</a>
+      </nav>
       <h1 class="text-3xl font-extrabold leading-tight">{title}</h1>
       <p class="mt-2 text-sm text-slate-500">
         By <a href="/author" class="font-medium text-slate-700 hover:text-pitch hover:underline">{author}</a> · Published: <time datetime={publishedAt.toISOString()}>{fmt(publishedAt)}</time>
-        · Last reviewed: <time datetime={(updatedAt ?? publishedAt).toISOString()}>{fmt(updatedAt ?? publishedAt)}</time>
+        {updatedAt && <>· Updated: <time datetime={updatedAt.toISOString()}>{fmt(updatedAt)}</time></>}
       </p>
 
       <img src={image.src} alt={image.alt} width="1200" height="630" fetchpriority="high" decoding="async" class="mt-5 w-full rounded-xl border border-slate-200 shadow-sm" />
@@ -149,6 +157,21 @@ if (faq.length) {
               </div>
             ))}
           </div>
+        </section>
+      )}
+      {related.length > 0 && (
+        <section class="mt-10" aria-labelledby="related">
+          <h2 id="related" class="text-2xl font-bold">Keep reading</h2>
+          <ul class="mt-3 grid gap-4 sm:grid-cols-3">
+            {related.map(({ section: s, entry }) => (
+              <li class="rounded-lg bg-white p-4 shadow-sm hover:shadow">
+                <a href={`/${s}/${entry.id}`}>
+                  <p class="text-xs font-bold uppercase tracking-wide text-pitch">{SECTIONS[s].title}</p>
+                  <p class="mt-1 font-semibold leading-snug">{entry.data.title}</p>
+                </a>
+              </li>
+            ))}
+          </ul>
         </section>
       )}
     </article>
