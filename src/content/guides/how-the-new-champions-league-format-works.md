@@ -6,7 +6,7 @@ publishedAt: 2026-11-02T19:27:00.000Z
 sport: football
 image:
   src: "/images/how-the-new-champions-league-format-works.svg"
-  alt: "SkorRadar cover with a grid of 36 squares: eight highlighted for the round of 16, sixteen for the play-offs, twelve eliminated"
+  alt: "ScoreRadar cover with a grid of 36 squares: eight highlighted for the round of 16, sixteen for the play-offs, twelve eliminated"
 keywords: ["new champions league format", "league phase explained", "champions league play-off", "champions league tiebreakers"]
 faq:
   - q: "How many teams are in the Champions League league phase?"

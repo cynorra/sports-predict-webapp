@@ -6,7 +6,7 @@ publishedAt: 2026-11-23T19:33:00.000Z
 sport: football
 image:
   src: "/images/fifa-world-ranking-vs-elo-ratings-difference.svg"
-  alt: "SkorRadar cover comparing two rating ladders of national teams, one labelled FIFA ranking and one labelled Elo rating"
+  alt: "ScoreRadar cover comparing two rating ladders of national teams, one labelled FIFA ranking and one labelled Elo rating"
 keywords: ["fifa world ranking vs elo", "fifa ranking explained", "national team ratings", "elo for national teams"]
 faq:
   - q: "Does the FIFA ranking use Elo?"
@@ -78,7 +78,7 @@ Competitive tournaments carry the most weight, so a deep run at a major tourname
 
 ## How this site rates teams
 
-For clubs, SkorRadar computes its own Elo ratings from published results, as described on the [methodology page](/methodology). National teams are not part of the current predictor, so the FIFA ranking and independent Elo tables are mentioned here as background, not as inputs to the site's numbers.
+For clubs, ScoreRadar computes its own Elo ratings from published results, as described on the [methodology page](/methodology). National teams are not part of the current predictor, so the FIFA ranking and independent Elo tables are mentioned here as background, not as inputs to the site's numbers.
 
 ## Sources
 

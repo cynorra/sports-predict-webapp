@@ -6,7 +6,7 @@ publishedAt: 2026-11-09T21:43:00.000Z
 sport: football
 image:
   src: "/images/poisson-distribution-football-goals-explained.svg"
-  alt: "SkorRadar cover with a bar chart of goal probabilities for a team that averages 1.4 goals, with one goal and zero goals the most likely counts"
+  alt: "ScoreRadar cover with a bar chart of goal probabilities for a team that averages 1.4 goals, with one goal and zero goals the most likely counts"
 keywords: ["poisson distribution in football", "poisson model football goals", "football goal probability", "expected goals to scoreline"]
 faq:
   - q: "Why is the Poisson distribution used for football goals?"
@@ -83,7 +83,7 @@ Pick two numbers, such as 1.5 and 1.0, and compute the chance of each team scori
 
 ## Why a modest model is still worth having
 
-A Poisson grid will not spot a hidden injury or a manager's tactical plan. What it does is keep your expectations honest. It reminds you that a heavy favourite still fails to score in a noticeable share of matches, and that no single scoreline is very likely. That discipline is what separates a considered pick on the [prediction page](/predict) from wishful thinking.
+A Poisson grid will not spot a hidden injury or a manager's tactical plan. What it does is keep your expectations honest. It reminds you that a heavy favourite still fails to score in a noticeable share of matches, and that no single scoreline is very likely. That discipline is what separates a considered pick on the [prediction page](/predict) from wishful thinking. Even extreme feats, such as the [most goals in a Premier League season](/guides/most-goals-in-a-premier-league-season), sit far in the tail of what a scoring model expects from one player in a match.
 
 ## Sources
 

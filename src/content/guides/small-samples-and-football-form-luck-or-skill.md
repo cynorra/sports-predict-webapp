@@ -6,7 +6,7 @@ publishedAt: 2026-11-11T18:51:00.000Z
 sport: football
 image:
   src: "/images/small-samples-and-football-form-luck-or-skill.svg"
-  alt: "SkorRadar cover with a wide band showing how far a five-match goal average can drift from the true average of a team scoring 1.4 goals"
+  alt: "ScoreRadar cover with a wide band showing how far a five-match goal average can drift from the true average of a team scoring 1.4 goals"
 keywords: ["football form and luck", "small sample size football", "regression to the mean football", "recent form predictions"]
 faq:
   - q: "How many matches of form should I use?"

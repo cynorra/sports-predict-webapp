@@ -1,14 +1,14 @@
 ---
-title: "About SkorRadar"
-description: "SkorRadar publishes data-driven football predictions, match analysis and guides, and runs a free score-prediction game for fans."
+title: "About ScoreRadar"
+description: "ScoreRadar publishes data-driven football predictions, match analysis and guides, and runs a free score-prediction game for fans."
 updatedAt: 2026-10-31
 ---
 
-SkorRadar is an independent football and sports website with two jobs: explain matches with data, and let fans test their own judgement against a statistical model.
+ScoreRadar is an independent football and sports website with two jobs: explain matches with data, and let fans test their own judgement against a statistical model.
 
 ## Who we are
 
-SkorRadar was founded and is maintained by software engineer and editor [Eren Şimşir](/author). The site combines mathematical forecasting models with plain explanations, and it carries no betting promotions or tips.
+ScoreRadar was founded and is maintained by software engineer and editor [Eren Şimşir](/author). The site combines mathematical forecasting models with plain explanations, and it carries no betting promotions or tips.
 
 ## What we publish
 

@@ -24,15 +24,28 @@ export default function LeaderboardTable({ projectId, apiKey }: { projectId?: st
   if (!projectId || !apiKey) return <p className="text-slate-600">The leaderboard is not connected yet.</p>;
   if (error) return <p role="alert" className="text-red-700">Could not load the leaderboard. Please try again later.</p>;
   if (!rows) return <p className="text-slate-500">Loading…</p>;
-  if (!rows.length) return <p className="rounded-lg bg-white p-5 shadow-sm text-slate-700">No one is ranked yet. Points are added a few hours after each match finishes.</p>;
+  if (!rows.length) return <p className="card p-5 text-slate-700">No one is ranked yet. Points are added a few hours after each match finishes.</p>;
 
+  const podium = rows.slice(0, 3);
   let rank = 0, prev = '';
   return (
-    <div className="space-y-3">
-      <div className="overflow-x-auto rounded-lg bg-white shadow-sm">
+    <div className="space-y-5">
+      <ol className="grid gap-4 sm:grid-cols-3" aria-label="Top three players">
+        {podium.map((r, i) => (
+          <li key={i} className={`card flex items-center gap-4 p-4 ${i === 0 ? 'border-t-4 !border-t-gold' : ''}`}>
+            <span className="display text-6xl font-extrabold leading-none text-ink">{i + 1}</span>
+            <div className="min-w-0">
+              <p className="truncate font-bold">{r.nickname}</p>
+              <p className="display text-4xl font-bold leading-none text-pitch">{r.points}<span className="ml-1 text-sm font-semibold uppercase tracking-wider text-slate-500">pts</span></p>
+              <p className="mt-1 text-xs text-slate-500">{r.exact} exact · {r.played} matches</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+<div className="card overflow-x-auto">
         <table className="w-full text-left text-sm">
           <caption className="sr-only">Leaderboard of the top 50 players</caption>
-          <thead className="border-b bg-slate-50 text-xs uppercase text-slate-500">
+          <thead className="border-b border-line bg-paper text-xs uppercase tracking-wider text-slate-600">
             <tr>
               <th className="px-4 py-3">#</th>
               <th className="px-4 py-3">Player</th>
@@ -47,7 +60,7 @@ export default function LeaderboardTable({ projectId, apiKey }: { projectId?: st
               if (key !== prev) { rank = i + 1; prev = key; }
               const isTop = rank === 1 ? 'bg-amber-100 text-amber-900' : rank === 2 ? 'bg-slate-200 text-slate-800' : rank === 3 ? 'bg-amber-700/10 text-amber-900' : 'text-slate-600';
               return (
-                <tr key={i} className="border-b last:border-0 hover:bg-slate-50/50">
+                <tr key={i} className="border-b last:border-0 transition hover:bg-pitch/5">
                   <td className="px-4 py-3 font-semibold">
                     <span className={`inline-flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold ${isTop}`}>
                       {rank}

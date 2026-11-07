@@ -1,10 +1,10 @@
 ---
 title: "Responsible Play"
-description: "SkorRadar is a free prediction game and information site, not a gambling service. Read how to keep sports predictions fun and where to find help."
+description: "ScoreRadar is a free prediction game and information site, not a gambling service. Read how to keep sports predictions fun and where to find help."
 updatedAt: 2026-10-29
 ---
 
-SkorRadar is a free game and information site. You cannot stake money here and you cannot win money here.
+ScoreRadar is a free game and information site. You cannot stake money here and you cannot win money here.
 
 ## Our position on betting
 

@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { motion, useReducedMotion } from 'motion/react';
 import { firebaseConfigured, hadSession, loadCommunity, loadNickname, loadPicks, savePick, saveNickname, signIn, signOutUser, watchUser, type AppUser, type Community, type Pick } from '../lib/firebase';
 
 export interface Fixture {
@@ -7,11 +8,37 @@ export interface Fixture {
   home: string;
   away: string;
   kickoff: string; // ISO
+  homeCrest?: string;
+  awayCrest?: string;
   model: { home: number; away: number; pHome: number; pDraw: number; pAway: number };
 }
 
 type Status = 'idle' | 'saving' | 'saved' | 'error';
 const pct = (n: number) => `${Math.round(n * 100)}%`;
+
+function Crest({ src, name }: { src?: string; name: string }) {
+  const [bad, setBad] = useState(false);
+  if (!src || bad) {
+    return <span aria-hidden="true" className="display flex h-12 w-12 items-center justify-center border border-line bg-paper text-lg font-bold">{name.slice(0, 3).toUpperCase()}</span>;
+  }
+  return <img src={src} alt="" width={48} height={48} loading="lazy" decoding="async" referrerPolicy="no-referrer" onError={() => setBad(true)} className="h-12 w-12 object-contain" />;
+}
+
+function ProbBar({ h, d, a }: { h: number; d: number; a: number }) {
+  const reduce = useReducedMotion();
+  const seg = (v: number, cls: string) => (
+    <motion.div initial={reduce ? false : { width: 0 }} whileInView={{ width: `${v * 100}%` }} viewport={{ once: true }} transition={{ duration: 0.7, ease: 'easeOut' }} className={`h-full ${cls}`} />
+  );
+  return (
+    <div role="img" aria-label={`Model: home win ${pct(h)}, draw ${pct(d)}, away win ${pct(a)}`}>
+      <div className="flex h-1.5 w-full overflow-hidden bg-line">{seg(h, 'bg-ink')}{seg(d, 'bg-slate-400')}{seg(a, 'bg-gold')}</div>
+      <div className="mt-1.5 grid grid-cols-3 text-[11px] font-semibold uppercase tracking-wider text-slate-600">
+        <span>Home {pct(h)}</span><span className="text-center">Draw {pct(d)}</span><span className="text-right">Away {pct(a)}</span>
+      </div>
+    </div>
+  );
+}
+
 const complete = (p?: Pick) => Boolean(p && p.h !== '' && p.a !== '');
 
 function Card({ f, value, status, community, onChange }: { f: Fixture; value: Pick; status: Status; community?: Community; onChange: (v: Pick) => void }) {
@@ -19,43 +46,44 @@ function Card({ f, value, status, community, onChange }: { f: Fixture; value: Pi
   const locked = ms <= 0;
   const h = Math.floor(ms / 3.6e6);
   const left = locked ? 'Locked' : h >= 24 ? `${Math.floor(h / 24)}d ${h % 24}h` : `${h}h ${Math.floor((ms % 3.6e6) / 6e4)}m`;
+  const kick = new Date(f.kickoff).toLocaleString('en-US', { weekday: 'short', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', timeZone: 'UTC' });
   const input = (key: 'h' | 'a') => (
     <input
       inputMode="numeric"
       maxLength={2}
       disabled={locked}
       value={value[key]}
+      placeholder="–"
       onChange={(e) => onChange({ ...value, [key]: e.target.value.replace(/\D/g, '') })}
       aria-label={`${key === 'h' ? f.home : f.away} goals`}
-      className="h-12 w-12 rounded border border-slate-300 text-center text-xl font-bold disabled:bg-slate-100"
+      className="digit h-14 w-12 text-center text-4xl outline-none placeholder:text-white/30 focus:ring-4 focus:ring-gold disabled:opacity-50"
     />
   );
   return (
-    <li className="rounded-lg bg-white p-4 shadow-sm">
-      <div className="flex justify-between text-xs text-slate-500">
-        <span>{f.competition}</span>
-        <span>{locked ? 'Locked' : `Locks in ${left}`}</span>
+    <li className="card">
+      <div className="flex justify-between border-b border-line px-4 py-2 text-[11px] font-semibold uppercase tracking-wider text-slate-600">
+        <span>{f.competition} · {kick} UTC</span>
+        <span className={locked ? '' : 'text-pitch'}>{locked ? 'Locked' : `Locks in ${left}`}</span>
       </div>
-      <div className="mt-3 flex items-center justify-between gap-2">
-        <span className="flex-1 text-right font-semibold">{f.home}</span>
-        {input('h')}
-        <span className="text-slate-400">-</span>
-        {input('a')}
-        <span className="flex-1 font-semibold">{f.away}</span>
+      <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 px-4 py-5">
+        <div className="flex flex-col items-center gap-2 text-center"><Crest src={f.homeCrest} name={f.home} /><span className="display text-[1.4rem] font-bold leading-none">{f.home}</span></div>
+        <div className="flex items-center gap-1.5">{input('h')}<span className="display text-2xl text-slate-400">:</span>{input('a')}</div>
+        <div className="flex flex-col items-center gap-2 text-center"><Crest src={f.awayCrest} name={f.away} /><span className="display text-[1.4rem] font-bold leading-none">{f.away}</span></div>
       </div>
-      <p className="mt-3 text-center text-xs text-slate-600">
-        Model: {f.model.home}-{f.model.away} · {pct(f.model.pHome)} / {pct(f.model.pDraw)} / {pct(f.model.pAway)}
-      </p>
-      {community && community.total >= 10 && complete(value) && (
-        <p className="mt-1 text-center text-xs text-slate-600">
-          {community.total} players: {pct(community.home / community.total)} home win, {pct(community.draw / community.total)} draw, {pct(community.away / community.total)} away win
+      <div className="border-t border-line bg-paper/60 px-4 py-3">
+        <ProbBar h={f.model.pHome} d={f.model.pDraw} a={f.model.pAway} />
+        <p className="mt-2 text-xs text-slate-600">Model scoreline <strong className="digit px-1.5 py-0.5 text-sm">{f.model.home}–{f.model.away}</strong></p>
+        {community && community.total >= 10 && complete(value) && (
+          <p className="mt-1 text-xs text-slate-600">
+            {community.total} players: {pct(community.home / community.total)} home win, {pct(community.draw / community.total)} draw, {pct(community.away / community.total)} away win
+          </p>
+        )}
+        <p className="mt-1 h-4 text-xs" aria-live="polite">
+          {status === 'saving' && <span className="text-slate-500">Saving…</span>}
+          {status === 'saved' && <span className="font-semibold text-pitch">Saved to your account</span>}
+          {status === 'error' && <span className="text-red-700">Could not save. The match may have started.</span>}
         </p>
-      )}
-      <p className="mt-1 h-4 text-center text-xs" aria-live="polite">
-        {status === 'saving' && <span className="text-slate-500">Saving…</span>}
-        {status === 'saved' && <span className="text-pitch">Saved to your account</span>}
-        {status === 'error' && <span className="text-red-700">Could not save. The match may have started.</span>}
-      </p>
+      </div>
     </li>
   );
 }
@@ -146,7 +174,7 @@ export default function PredictionBoard({ fixtures }: { fixtures: Fixture[] }) {
 
   return (
     <div>
-      <div className="mb-4 flex flex-wrap items-center justify-between gap-3 rounded-lg bg-white p-4 shadow-sm">
+      <div className="card mb-5 flex flex-wrap items-center justify-between gap-3 p-4">
         <p className="text-sm text-slate-600">
           {filled}/{fixtures.length} predictions entered. Scoring: exact score 10 pts, correct result and goal difference 5 pts, correct result 3 pts.
         </p>
@@ -157,13 +185,13 @@ export default function PredictionBoard({ fixtures }: { fixtures: Fixture[] }) {
             <button type="button" onClick={() => { void signOutUser(); setUser(null); }} className="rounded border border-slate-400 px-3 py-1 font-semibold hover:bg-slate-100">Sign out</button>
           </div>
         ) : (
-          <button type="button" onClick={doSignIn} disabled={authBusy} className="rounded bg-pitch px-4 py-2 text-sm font-semibold text-white hover:bg-pitch-dark disabled:opacity-60">
+          <button type="button" onClick={doSignIn} disabled={authBusy} className="display bg-ink px-5 py-2 text-lg font-bold uppercase tracking-wider text-white hover:bg-pitch disabled:opacity-60">
             {authBusy ? 'Opening…' : 'Sign in with Google to save'}
           </button>
         ))}
       </div>
       {user && (
-        <div className="mb-4 rounded-lg bg-white p-4 text-sm shadow-sm">
+        <div className="card mb-5 p-4 text-sm">
           <label htmlFor="nick" className="font-semibold">Leaderboard name</label>
           <p className="text-xs text-slate-500">Optional. Shown publicly on the leaderboard. Leave it empty to stay off the leaderboard.</p>
           <div className="mt-2 flex gap-2">
@@ -175,7 +203,7 @@ export default function PredictionBoard({ fixtures }: { fixtures: Fixture[] }) {
       )}
       {authError && <p role="alert" className="mb-3 text-sm text-red-700">{authError}</p>}
       {!user && <p className="mb-4 text-xs text-slate-500">Without an account your picks stay on this device only.</p>}
-      <ul className="grid gap-4 md:grid-cols-2">
+      <ul className="grid gap-5 md:grid-cols-2">
         {fixtures.map((f) => (
           <Card key={f.id} f={f} value={picks[f.id] ?? { h: '', a: '' }} status={status[f.id] ?? 'idle'} community={community[f.id]} onChange={(v) => update(f.id, v)} />
         ))}

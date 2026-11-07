@@ -9,15 +9,19 @@ const heading = page > 1 ? `${title}, page ${page}` : title;
 ---
 
 <Base title={heading} description={blurb}>
-  <h1 class="text-3xl font-extrabold">{heading}</h1>
-  <p class="mt-2 text-slate-600">{blurb}</p>
-  <ul class="mt-6 grid gap-4 sm:grid-cols-2">
+  <p class="kicker">ScoreRadar</p>
+  <h1 class="mt-1 text-6xl font-extrabold uppercase">{heading}</h1>
+  <p class="mt-3 max-w-2xl text-lg text-slate-700">{blurb}</p>
+  <div class="mt-6 border-t-[3px] border-ink"></div>
+  <ul class="mt-6 grid gap-5 sm:grid-cols-2">
     {entries.map((e) => (
-      <li class="rounded-lg bg-white p-5 shadow-sm hover:shadow">
-        <a href={`/${section}/${e.id}`}>
-          <img src={e.data.image.src} alt="" width="1200" height="630" loading="lazy" decoding="async" class="mb-3 aspect-[1200/630] w-full rounded-md border border-slate-200" />
-          <h2 class="font-bold">{e.data.title}</h2>
-          <p class="mt-1 text-sm text-slate-600">{e.data.description}</p>
+      <li class="card card-link overflow-hidden">
+        <a href={`/${section}/${e.id}`} class="block">
+          <img src={e.data.image.src} alt="" width="1200" height="630" loading="lazy" decoding="async" class="aspect-[1200/630] w-full border-b border-line" />
+          <div class="p-5">
+            <h2 class="card-title display text-[1.65rem] font-bold leading-tight">{e.data.title}</h2>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">{e.data.description}</p>
+          </div>
         </a>
       </li>
     ))}

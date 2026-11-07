@@ -1,14 +1,14 @@
 ---
 title: "Terms of Use"
-description: "The rules for using SkorRadar: content ownership, the free prediction game, no betting advice, user conduct and limits of liability."
+description: "The rules for using ScoreRadar: content ownership, the free prediction game, no betting advice, user conduct and limits of liability."
 updatedAt: 2026-10-29
 ---
 
-By using SkorRadar you agree to these terms.
+By using ScoreRadar you agree to these terms.
 
 ## Content
 
-Articles, predictions and graphics are owned by SkorRadar or its licensors. You may quote short extracts with a link back to the source. You may not copy whole articles or scrape the site for republication.
+Articles, predictions and graphics are owned by ScoreRadar or its licensors. You may quote short extracts with a link back to the source. You may not copy whole articles or scrape the site for republication.
 
 ## The prediction game
 

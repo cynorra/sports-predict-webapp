@@ -1,10 +1,10 @@
 ---
 title: "Privacy Policy"
-description: "What data SkorRadar collects, how Google AdSense and Firebase use it, your choices and how to contact us about your personal data."
+description: "What data ScoreRadar collects, how Google AdSense and Firebase use it, your choices and how to contact us about your personal data."
 updatedAt: 2026-10-29
 ---
 
-This policy explains what information SkorRadar collects when you use the site and the prediction game.
+This policy explains what information ScoreRadar collects when you use the site and the prediction game.
 
 ## Information we collect
 

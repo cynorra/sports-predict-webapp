@@ -11,7 +11,7 @@ const raw: any[] = (data?.fixtures ?? []).filter((f: any) => new Date(f.kickoff)
 const fixtures: Fixture[] = raw.map((r) => {
   const p = predictMatch({ elo: r.homeElo }, { elo: r.awayElo });
   return {
-    id: r.id, competition: r.competition, home: r.home, away: r.away, kickoff: r.kickoff,
+    id: r.id, competition: r.competition, home: r.home, away: r.away, kickoff: r.kickoff, homeCrest: r.homeCrest, awayCrest: r.awayCrest,
     model: { home: p.mostLikely.home, away: p.mostLikely.away, pHome: p.pHome, pDraw: p.pDraw, pAway: p.pAway },
   };
 });
@@ -20,17 +20,18 @@ const updated = data?.generatedAt ? new Date(data.generatedAt).toLocaleDateStrin
 
 <Base
   title="Football Score Predictor Game"
-  description="Predict upcoming football match scores, compare with our statistical model and earn points on the leaderboard."
+  description="Free football (soccer) score predictor: predict upcoming match scores, compare with our statistical model and earn points on the leaderboard."
 >
-  <h1 class="text-3xl font-extrabold">Predict the Scores</h1>
-  <p class="mt-2 mb-6 text-slate-600">Pick a scoreline for each match before kickoff. Predictions lock when the match starts.</p>
+  <p class="kicker">Free game</p>
+  <h1 class="mt-1 text-6xl font-extrabold uppercase">Predict the <span class="hl">scores</span></h1>
+  <p class="mb-6 mt-3 max-w-2xl text-lg text-slate-700">A free football (soccer) score predictor: see the scoreline our model expects for each upcoming match, then pick your own before kickoff. Predictions lock when the match starts.</p>
   {fixtures.length > 0 ? (
     <>
       <PredictionBoard client:load fixtures={fixtures} />
       <p class="mt-6 text-xs text-slate-500">Fixtures and results from football-data.org, ratings calculated by us from those results{updated && `, updated ${updated}`}. Model output is an estimate, not betting advice. See the <a class="underline" href="/methodology">methodology</a>.</p>
     </>
   ) : (
-    <div class="rounded-lg bg-white p-6 shadow-sm">
+    <div class="card p-6">
       <p class="font-semibold">No upcoming fixtures are loaded right now.</p>
       <p class="mt-1 text-slate-600">New matches appear here when the fixture list is refreshed. In the meantime, read how our <a class="text-pitch underline" href="/methodology">prediction model</a> works.</p>
     </div>

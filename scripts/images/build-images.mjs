@@ -6,6 +6,7 @@
 // article itself. Illustrative examples are labelled as such inside the image.
 // Run: npm run images   (output is committed; the build only verifies it via `npm run audit`).
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import opentype from 'opentype.js';
 import { fileURLToPath } from 'node:url';
 import { join, dirname } from 'node:path';
 import sharp from 'sharp';
@@ -16,35 +17,62 @@ const OUT = join(ROOT, 'public', 'images');
 mkdirSync(OUT, { recursive: true });
 
 const PITCH = '#0b6e4f', DARK = '#084c38', GOLD = '#f5b700', INK = '#0f172a', SLATE = '#64748b', LIGHT = '#e2e8f0', RED = '#b91c1c';
-const FONT = 'font-family="Arial, Helvetica, sans-serif"';
+// Text is converted to outlines with the site's own display face (Barlow Condensed), so every image looks the same on any machine
+// and no system font is needed by the PNG renderer.
+const FONT_DIR = join(ROOT, 'node_modules', '@fontsource', 'barlow-condensed', 'files');
+const loadFont = (w) => { const b = readFileSync(join(FONT_DIR, `barlow-condensed-latin-${w}-normal.woff`)); return opentype.parse(b.buffer.slice(b.byteOffset, b.byteOffset + b.byteLength)); };
+const FONTS = { 600: loadFont(600), 700: loadFont(700), 800: loadFont(800) };
+const fontFor = (weight) => FONTS[weight >= 800 ? 800 : weight >= 600 ? 700 : 600];
+const SCALE = 1.12; // the condensed face is narrow: scale sizes so text keeps its visual weight
+const textWidth = (s, size, weight = 400) => fontFor(weight).getAdvanceWidth(s, size * SCALE);
 
 // ---------- helpers ----------
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const r1 = (n) => Math.round(n * 10) / 10;
+// Each distinct glyph is written once per SVG (<defs>) and referenced with <use>, which keeps the files small.
+const GLYPHS = new Map(); // "fontKey:glyphIndex" -> { id, d }
+const glyphOf = (f, glyph) => {
+  const key = `${Object.values(FONTS).indexOf(f)}:${glyph.index}`;
+  if (!GLYPHS.has(key)) GLYPHS.set(key, { id: `g${GLYPHS.size}`, d: glyph.getPath(0, 0, f.unitsPerEm).toPathData(1) });
+  return GLYPHS.get(key).id;
+};
+const defsFor = (body) => {
+  const ids = new Set([...body.matchAll(/href="#(g\d+)"/g)].map((m) => m[1]));
+  const d = [...GLYPHS.values()].filter((g) => ids.has(g.id)).map((g) => `<path id="${g.id}" d="${g.d}"/>`).join('');
+  return d ? `<defs>${d}</defs>` : '';
+};
 function t(x, y, s, { size = 24, weight = 400, fill = INK, anchor = 'start', opacity = 1, rotate } = {}) {
-  const tr = rotate ? ` transform="rotate(${rotate} ${x} ${y})"` : '';
+  const f = fontFor(weight), sz = size * SCALE, w = f.getAdvanceWidth(s, sz);
+  const x0 = anchor === 'middle' ? x - w / 2 : anchor === 'end' ? x - w : x;
+  const k = sz / f.unitsPerEm;
+  let uses = '';
+  f.forEachGlyph(s, x0, y, sz, undefined, (glyph, gx) => {
+    if (glyph.path.commands.length) uses += `<use href="#${glyphOf(f, glyph)}" x="${Math.round((gx - x0) / k)}"/>`;
+  });
+  const rot = rotate ? `rotate(${rotate} ${r1(x)} ${r1(y)}) ` : '';
   const op = opacity < 1 ? ` opacity="${opacity}"` : '';
-  return `<text x="${r1(x)}" y="${r1(y)}" ${FONT} font-size="${size}" font-weight="${weight}" fill="${fill}" text-anchor="${anchor}"${op}${tr}>${esc(s)}</text>`;
+  return `<g fill="${fill}"${op} transform="${rot}translate(${r1(x0)} ${r1(y)}) scale(${Math.round(k * 10000) / 10000})">${uses}</g>`;
 }
-function wrap(s, maxPx, size, widthEm = 0.5) {
-  const cw = size * widthEm, lines = [];
+// Greedy word wrap using real glyph widths (maxPx is the available width, size/weight as passed to t()).
+function wrap(s, maxPx, size, _widthEm, weight = 400) {
+  const lines = [];
   let cur = '';
   for (const word of s.split(' ')) {
     const next = cur ? `${cur} ${word}` : word;
-    if (next.length * cw > maxPx && cur) { lines.push(cur); cur = word; } else cur = next;
+    if (textWidth(next, size, weight) > maxPx && cur) { lines.push(cur); cur = word; } else cur = next;
   }
   if (cur) lines.push(cur);
   return lines;
 }
 const svgDoc = (w, h, title, body) =>
-  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" role="img" aria-label="${esc(title)}"><title>${esc(title)}</title>${body}</svg>\n`;
+  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" role="img" aria-label="${esc(title)}"><title>${esc(title)}</title>${defsFor(body)}${body}</svg>\n`;
 
 /** White card with title, subtitle and a wrapped source/explanation note at the bottom. */
 function frame(w, h, { title, sub, note }, inner) {
   const noteLines = note ? wrap(note, w - 80, 20, 0.5) : [];
   const noteSvg = noteLines.map((l, i) => t(40, h - 20 - (noteLines.length - 1 - i) * 26, l, { size: 20, fill: SLATE })).join('');
   return svgDoc(w, h, title,
-    `<rect x="1" y="1" width="${w - 2}" height="${h - 2}" rx="18" fill="#fff" stroke="${LIGHT}" stroke-width="2"/>` +
+    `<rect x="1" y="1" width="${w - 2}" height="${h - 2}" rx="4" fill="#fff" stroke="${LIGHT}" stroke-width="2"/>` +
     t(40, 58, title, { size: 34, weight: 700 }) + (sub ? t(40, 94, sub, { size: 23, fill: SLATE }) : '') + inner + noteSvg);
 }
 /** Height needed so the note never collides with the figure body. */
@@ -78,7 +106,7 @@ function figEloCurve() {
     const e = eloExpected(gap), px = X(gap), py = Y(e);
     g += `<line x1="${px}" x2="${px}" y1="${py}" y2="520" stroke="${GOLD}" stroke-width="2" stroke-dasharray="4 6"/><circle cx="${px}" cy="${py}" r="11" fill="${GOLD}" stroke="${INK}" stroke-width="3"/>`;
     const label = gap === 0 ? 'Equal ratings: 50%' : `+${gap} points: ${Math.round(e * 100)}%`;
-    g += gap === 400 ? t(px + 10, py - 28, label, { size: 24, weight: 700, anchor: 'end' }) : t(px + 18, py + 40, label, { size: 24, weight: 700 });
+    g += gap === 400 ? t(px + 10, py - 28, label, { size: 24, weight: 700, anchor: 'end' }) : gap < 200 ? t(px - 16, py - 20, label, { size: 24, weight: 700, anchor: 'end' }) : t(px + 18, py + 40, label, { size: 24, weight: 700 });
   }
   g += t(630, 604, "Rating gap (team's rating minus opponent's rating)", { size: 22, fill: INK, anchor: 'middle' });
   return frame(w, h, { title: 'Elo: expected score by rating gap', sub: 'The bigger the gap, the more the stronger team is expected to score', note }, g);
@@ -318,7 +346,7 @@ function figLadder() {
 }
 
 function figTiers() {
-  const w = 1200, note = 'SkorRadar scoring: exact score 10, correct result and goal difference 5, correct result 3. Scored on the result after 90 minutes plus stoppage time.';
+  const w = 1200, note = 'ScoreRadar scoring: exact score 10, correct result and goal difference 5, correct result 3. Scored on the result after 90 minutes plus stoppage time.';
   const h = 480 + noteH(note);
   const rows = [['Exact score', 10, GOLD, INK], ['Right result + goal difference', 5, PITCH, '#fff'], ['Right result only', 3, '#64748b', '#fff']];
   let g = '';
@@ -444,16 +472,62 @@ function figEloConverge() {
   return frame(w, h, { title: 'A new rating learns slowly', sub: 'Even a clearly stronger team needs many matches to be rated fairly', note }, g);
 }
 
+// ---------- records figures (numbers: FIFA, Opta Analyst, Premier League, ESPN; see the guides' Sources) ----------
+function hbars(rows, { x0 = 330, rowH = 56, barH = 34, max, top = 140, hi = 0, fillFor }) {
+  const sc = (1200 - 80 - x0 - 70) / max;
+  let g = '';
+  rows.forEach((r, i) => {
+    const y = top + i * rowH, bw = r.v * sc;
+    g += t(x0 - 16, y + barH - 8, r.name, { size: 24, weight: 700, anchor: 'end' });
+    g += `<rect x="${x0}" y="${y}" width="${r2(bw)}" height="${barH}" rx="4" fill="${fillFor(r, i)}"/>`;
+    g += t(x0 + bw + 12, y + barH - 8, String(r.v), { size: 26, weight: 700 });
+    if (r.sub) g += t(x0 + 12, y + barH - 9, r.sub, { size: 17, weight: 600, fill: '#fff' });
+  });
+  return g;
+}
+const r2 = (n) => Math.round(n * 100) / 100;
+
+function figWcScorers() {
+  const note = "Goals at men's FIFA World Cup final tournaments after the 2026 edition, as listed by FIFA and the Opta Analyst. Ronaldo is the Brazilian forward; Cristiano Ronaldo has 11.";
+  const rows = [
+    { name: 'Kylian Mbappé', v: 22, sub: 'France' }, { name: 'Lionel Messi', v: 21, sub: 'Argentina' }, { name: 'Miroslav Klose', v: 16, sub: 'Germany' },
+    { name: 'Ronaldo', v: 15, sub: 'Brazil' }, { name: 'Gerd Müller', v: 14, sub: 'West Germany' }, { name: 'Harry Kane', v: 14, sub: 'England' },
+    { name: 'Just Fontaine', v: 13, sub: 'France' }, { name: 'Pelé', v: 12, sub: 'Brazil' },
+  ];
+  const h = 140 + rows.length * 56 + 50 + noteH(note);
+  const g = hbars(rows, { max: 22, fillFor: (r, i) => (i === 0 ? GOLD : PITCH) });
+  return frame(1200, h, { title: 'World Cup all-time top scorers', sub: 'Goals at World Cup final tournaments', note }, g);
+}
+
+function figPlSeasons() {
+  const note = 'Most goals by one player in a Premier League season. Seasons marked 42 games were played when the league had 22 clubs; the league has had 38-game seasons since 1995-96. Source: ESPN, Premier League records.';
+  const rows = [
+    { name: 'Haaland 2022-23', v: 36, g: 38 }, { name: 'Shearer 1994-95', v: 34, g: 42 }, { name: 'Cole 1993-94', v: 34, g: 42 },
+    { name: 'Salah 2017-18', v: 32, g: 38 }, { name: 'Suárez 2013-14', v: 31, g: 38 }, { name: 'C. Ronaldo 2007-08', v: 31, g: 38 },
+    { name: 'Shearer 1995-96', v: 31, g: 38 }, { name: 'Shearer 1993-94', v: 31, g: 42 },
+  ];
+  const h = 140 + rows.length * 56 + 90 + noteH(note);
+  let g = hbars(rows, { x0: 350, max: 36, fillFor: (r) => (r.g === 42 ? '#94a3b8' : PITCH) });
+  const ly = 140 + rows.length * 56 + 20;
+  g += `<rect x="350" y="${ly}" width="26" height="22" rx="4" fill="${PITCH}"/>` + t(386, ly + 18, '38-game season', { size: 22 });
+  g += `<rect x="620" y="${ly}" width="26" height="22" rx="4" fill="#94a3b8"/>` + t(656, ly + 18, '42-game season', { size: 22 });
+  return frame(1200, h, { title: 'Most goals in a Premier League season', sub: 'Eight highest single-season totals', note }, g);
+}
+
 // ---------- cover images ----------
 function cover({ kicker, title, motif }) {
-  const lines = wrap(title, 590, 54, 0.57);
-  let g = `<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${DARK}"/><stop offset="1" stop-color="${PITCH}"/></linearGradient></defs>`;
-  g += `<rect width="1200" height="630" fill="url(#bg)"/>`;
-  g += `<g fill="none" stroke="#fff" stroke-opacity="0.07" stroke-width="4"><circle cx="1010" cy="315" r="210"/><line x1="1010" y1="0" x2="1010" y2="630"/><rect x="-40" y="195" width="170" height="240"/></g>`;
-  g += `<rect x="66" y="92" width="${kicker.length * 14 + 36}" height="40" rx="20" fill="${GOLD}"/>` + t(84, 120, kicker.toUpperCase(), { size: 20, weight: 700, fill: INK });
-  lines.forEach((l, i) => { g += t(66, 215 + i * 66, l, { size: 54, weight: 700, fill: '#fff' }); });
-  g += `<text x="66" y="566" ${FONT} font-size="34" font-weight="700" fill="#fff">Skor<tspan fill="${GOLD}">Radar</tspan></text>`;
-  g += `<rect x="716" y="66" width="420" height="498" rx="28" fill="#fff" fill-opacity="0.09"/>`;
+  // Headline: biggest size (84 -> 52) at which the uppercase title fits the left column in at most four lines.
+  const head = title.toUpperCase();
+  let size = 84, lines = wrap(head, 600, size, 0, 800);
+  while ((lines.length > 4 || lines.some((l) => textWidth(l, size, 800) > 600)) && size > 52) { size -= 4; lines = wrap(head, 600, size, 0, 800); }
+  const lh = Math.round(size * 1.0);
+  let g = `<rect width="1200" height="630" fill="#0e1512"/>`;
+  g += `<g fill="none" stroke="#fff" stroke-opacity="0.06" stroke-width="3"><circle cx="1010" cy="315" r="210"/><line x1="1010" y1="0" x2="1010" y2="630"/><rect x="-40" y="195" width="170" height="240"/></g>`;
+  g += `<rect x="66" y="78" width="56" height="8" fill="${GOLD}"/>` + t(66, 128, kicker.toUpperCase(), { size: 26, weight: 700, fill: GOLD });
+  lines.forEach((l, i) => { g += t(66, 128 + 30 + size * 0.86 + i * lh, l, { size, weight: 800, fill: '#fff' }); });
+  g += `<rect x="66" y="506" width="590" height="2" fill="#fff" fill-opacity="0.25"/>`;
+  g += t(66, 560, 'SCORE', { size: 40, weight: 800, fill: '#fff' }) + t(66 + textWidth('SCORE', 40, 800) + 2, 560, 'RADAR', { size: 40, weight: 800, fill: GOLD });
+  g += `<rect x="716" y="66" width="420" height="498" fill="#fff" fill-opacity="0.07" stroke="#fff" stroke-opacity="0.16" stroke-width="2"/><rect x="716" y="66" width="420" height="8" fill="${GOLD}"/>`;
   g += motif;
   return svgDoc(1200, 630, title, g);
 }
@@ -507,6 +581,10 @@ const motifs = {
   formation: () => [[4, 4, 2]].map((rows) => { let g = `<rect x="756" y="110" width="340" height="400" rx="12" fill="none" stroke="${W}" stroke-opacity=".6" stroke-width="4"/>`; const ys = [440, 340, 230]; rows.forEach((n, r) => { for (let k = 0; k < n; k++) g += `<circle cx="${756 + (340 * (k + 1)) / (n + 1)}" cy="${ys[r]}" r="16" fill="${r === 2 ? GOLD : W}"/>`; }); return g + `<circle cx="926" cy="486" r="14" fill="${INK}"/>`; })[0],
   var: () => `<rect x="770" y="150" width="320" height="200" rx="16" fill="none" stroke="${W}" stroke-width="8"/><rect x="900" y="360" width="60" height="30" fill="${W}"/><rect x="850" y="390" width="160" height="14" rx="7" fill="${W}"/><polygon points="890,205 890,295 970,250" fill="${GOLD}"/>` + t(926, 520, 'The referee decides', { size: 26, weight: 700, fill: W, anchor: 'middle' }),
   cards: () => `<rect x="780" y="150" width="130" height="190" rx="14" fill="${GOLD}" transform="rotate(-8 845 245)"/><rect x="930" y="150" width="130" height="190" rx="14" fill="${RED}" transform="rotate(8 995 245)"/>` + t(926, 440, 'Caution or sending-off', { size: 26, weight: 700, fill: W, anchor: 'middle' }),
+  scorers: () => [['Mbappé', 22], ['Messi', 21], ['Klose', 16], ['Ronaldo', 15], ['Müller', 14]].map(([n, v], i) =>
+    t(752, 124 + i * 78, n, { size: 24, weight: 700, fill: W }) + `<rect x="752" y="${134 + i * 78}" width="${r1(v / 22 * 300)}" height="30" rx="4" fill="${i === 0 ? GOLD : W}" fill-opacity="${i === 0 ? 1 : 0.85}"/>` + t(752 + v / 22 * 300 + 12, 158 + i * 78, String(v), { size: 26, weight: 700, fill: W })).join('') + t(926, 540, 'World Cup goals, all time', { size: 24, weight: 700, fill: W, anchor: 'middle' }),
+  plrecord: () => [['Haaland', 36, 1], ['Shearer', 34, 0], ['Cole', 34, 0], ['Salah', 32, 1]].map(([n, v, a], i) =>
+    t(752, 130 + i * 98, n, { size: 24, weight: 700, fill: W }) + `<rect x="752" y="${142 + i * 98}" width="${r1(v / 36 * 300)}" height="38" rx="4" fill="${i === 0 ? GOLD : W}" fill-opacity="${i === 0 ? 1 : 0.85}"/>` + t(752 + v / 36 * 300 + 12, 172 + i * 98, String(v), { size: 28, weight: 700, fill: W })).join('') + t(926, 540, 'Most goals in a season', { size: 24, weight: 700, fill: W, anchor: 'middle' }),
   newelo: () => {
     const E = (g2) => 1 / (1 + Math.pow(10, -g2 / 400)), et = E(200);
     const X = (n) => 756 + (n / 60) * 340, Y = (r) => 470 - ((r - 1500) / 220) * 300;
@@ -543,7 +621,9 @@ const POSTS = [
   { section: 'guides', slug: 'small-samples-and-football-form-luck-or-skill', kicker: 'Guide · Form', motif: 'band', figs: { band: figFormBand } },
   { section: 'guides', slug: 'why-football-draws-happen-and-how-often', kicker: 'Guide · Results', motif: 'draws', figs: { curve: figDrawCurve } },
   { section: 'guides', slug: 'extra-time-and-penalty-shootouts-explained', kicker: 'Guide · Rules', motif: 'ladder', figs: { ladder: figLadder } },
-  { section: 'guides', slug: 'how-points-work-in-the-skorradar-prediction-game', kicker: 'Guide · The game', motif: 'tiers', figs: { tiers: figTiers } },
+  { section: 'guides', slug: 'how-points-work-in-the-scoreradar-prediction-game', kicker: 'Guide · The game', motif: 'tiers', figs: { tiers: figTiers } },
+  { section: 'guides', slug: 'world-cup-all-time-top-scorers', kicker: 'Guide · World Cup', motif: 'scorers', figs: { list: figWcScorers } },
+  { section: 'guides', slug: 'most-goals-in-a-premier-league-season', kicker: 'Guide · Records', motif: 'plrecord', figs: { seasons: figPlSeasons } },
   { section: 'guides', slug: 'how-the-48-team-world-cup-format-works', kicker: 'Guide · World Cup', motif: 'wc', figs: { funnel: figWcFunnel } },
   { section: 'guides', slug: 'fifa-world-ranking-vs-elo-ratings-difference', kicker: 'Guide · Ratings', motif: 'rank', figs: { compare: figRankCompare } },
   { section: 'guides', slug: 'expected-points-xpts-football-explained', kicker: 'Guide · Expected points', motif: 'xpts', figs: { bars: figXptsBars } },
@@ -573,4 +653,17 @@ for (const p of POSTS) {
     console.log(`${p.slug}-${name}.svg  ${m[1]}x${m[2]}`);
   }
   console.log(`${p.slug}.svg/.png`);
+}
+
+// ---------- default social card (og-default.png) ----------
+{
+  let g = `<rect width="1200" height="630" fill="#0e1512"/>`;
+  g += `<g fill="none" stroke="#fff" stroke-opacity="0.06" stroke-width="3"><circle cx="900" cy="315" r="230"/><line x1="900" y1="0" x2="900" y2="630"/><rect x="-40" y="195" width="170" height="240"/></g>`;
+  g += `<rect x="80" y="150" width="64" height="10" fill="${GOLD}"/>`;
+  g += t(80, 300, 'SCORE', { size: 150, weight: 800, fill: '#fff' }) + t(80 + textWidth('SCORE', 150, 800) + 6, 300, 'RADAR', { size: 150, weight: 800, fill: GOLD });
+  g += t(80, 380, 'Football predictions, match analysis and guides', { size: 42, weight: 700, fill: '#d6dbd8' });
+  g += t(80, 540, 'FREE SCORE PREDICTOR  ·  ELO + POISSON MODEL', { size: 28, weight: 700, fill: GOLD });
+  const svg = svgDoc(1200, 630, 'ScoreRadar', g);
+  await sharp(Buffer.from(svg), { density: 96 }).resize(1200, 630).png({ compressionLevel: 9 }).toFile(join(ROOT, 'public', 'og-default.png'));
+  console.log('og-default.png');
 }

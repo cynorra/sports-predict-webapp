@@ -6,7 +6,7 @@ publishedAt: 2026-11-26T17:51:00.000Z
 sport: football
 image:
   src: "/images/how-the-48-team-world-cup-format-works.svg"
-  alt: "SkorRadar cover with a funnel narrowing from 48 teams to 32, 16, 8, 4, 2 and one champion"
+  alt: "ScoreRadar cover with a funnel narrowing from 48 teams to 32, 16, 8, 4, 2 and one champion"
 keywords: ["world cup format", "world cup round of 32", "best third-placed teams world cup", "world cup group stage explained"]
 faq:
   - q: "How many teams play in the expanded World Cup?"
@@ -66,6 +66,7 @@ A bigger field and a softer group stage change the rhythm of the tournament in a
 - **More mismatches early.** With 48 teams, some group matches pair established sides with much weaker teams. Where the rating gap, explained in the [Elo guide](/guides/elo-ratings-in-football-explained), is large, lopsided results become more likely.
 - **Fewer dead matches.** With eight third-placed teams going through, more teams may stay alive until the final group round, which can mean more motivated matches.
 - **Draws matter in the table.** A draw earns one point, and the [tiebreaker rules](/guides/football-league-table-tiebreakers-explained) rank third-placed teams, so a goalless draw can decide who advances.
+- **More matches for deep runs.** A team that reaches the final stages can now play more games, which also helps individual records: FIFA noted that Kylian Mbappé benefited from eight matches at the 48-team tournament, as the [list of World Cup top scorers](/guides/world-cup-all-time-top-scorers) shows.
 - **Neutral venues.** Most matches are not at a team's home, so the [home advantage](/guides/home-advantage-in-football-how-big-is-it) adjustment usually applies only to the host nations.
 
 ## How the draw keeps strong teams apart

@@ -6,7 +6,7 @@ publishedAt: 2026-11-19T18:31:00.000Z
 sport: football
 image:
   src: "/images/clean-sheets-in-football-how-often-teams-keep-one.svg"
-  alt: "SkorRadar cover with a falling curve showing the chance of a clean sheet shrinking as the opponent's expected goals rises"
+  alt: "ScoreRadar cover with a falling curve showing the chance of a clean sheet shrinking as the opponent's expected goals rises"
 keywords: ["clean sheets in football", "clean sheet probability", "how often clean sheets happen", "goalkeeper clean sheet stat"]
 faq:
   - q: "What counts as a clean sheet?"

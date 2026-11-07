@@ -25,7 +25,7 @@ const client = import.meta.env.PUBLIC_ADSENSE_CLIENT ?? '';
 
 <script define:vars={{ client }}>
   (function () {
-    var KEY = 'skorradar-consent';
+    var KEY = 'scoreradar-consent';
     var box = document.getElementById('consent');
     function read() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
     function write(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }

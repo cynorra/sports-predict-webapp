@@ -52,3 +52,11 @@ test('buildFixtures: future, drawn, well-rated clubs only', () => {
   assert.equal(fixtures[0].homeElo, 1700);
   assert.deepEqual(skipped, ['Thin FC']);
 });
+
+test('buildFixtures passes crest URLs through when the API provides them', () => {
+  const ratings = new Map([[1, { elo: 1600, games: 40 }], [2, { elo: 1500, games: 40 }]]);
+  const upcoming = [{ id: 7, utcDate: '2099-01-01T20:00:00Z', homeTeam: { id: 1, name: 'A FC', shortName: 'A', crest: 'https://crests.football-data.org/1.png' }, awayTeam: { id: 2, name: 'B FC', shortName: 'B' } }];
+  const { fixtures } = buildFixtures(upcoming, ratings, { now: 0 });
+  assert.equal(fixtures[0].homeCrest, 'https://crests.football-data.org/1.png');
+  assert.equal('awayCrest' in fixtures[0], false);
+});

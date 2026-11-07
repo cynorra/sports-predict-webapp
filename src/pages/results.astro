@@ -1,0 +1,74 @@
+---
+import Base from '../layouts/Base.astro';
+import { groupByDate } from '../../scripts/lib/results.mjs';
+
+// Real results only: src/data/results.json is written by `node scripts/sync-results.mjs` (SportAPI). No file = honest empty state.
+const files = import.meta.glob('../data/results.json', { eager: true }) as Record<string, any>;
+const data = Object.values(files)[0]?.default ?? Object.values(files)[0];
+const days = data?.matches?.length ? groupByDate(data.matches) : [];
+const updated = data?.generatedAt
+  ? new Date(data.generatedAt).toLocaleString('en-US', { day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit', timeZone: 'UTC' }) + ' UTC'
+  : null;
+const heading = (d: string) => new Date(`${d}T12:00:00Z`).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', timeZone: 'UTC' });
+const note = (m: any) => (m.status === 'PENS' ? `Pens ${m.penHome ?? '?'}–${m.penAway ?? '?'}` : m.status === 'AET' ? 'AET' : 'FT');
+const byLeague = (matches: any[]) => {
+  const out: [string, any[]][] = [];
+  for (const m of matches) {
+    const last = out[out.length - 1];
+    if (last && last[0] === m.league) last[1].push(m); else out.push([m.league, [m]]);
+  }
+  return out;
+};
+---
+
+<Base
+  title="Football Results: Latest Scores from Europe's Top Leagues"
+  description="Latest football results from the Premier League, Champions League, Europa League, La Liga, Bundesliga, Serie A and Ligue 1, refreshed several times a day."
+  noindex={days.length === 0}
+>
+  <p class="kicker">Latest scores</p>
+  <h1 class="mt-1 text-6xl font-extrabold uppercase">Football <span class="hl">results</span></h1>
+  <p class="mt-3 max-w-2xl text-lg text-slate-700">
+    Final scores from the Premier League, Champions League, Europa League, La Liga, Bundesliga, Serie A and Ligue 1 for the last few days. This is a results page, not a live scoreboard: it is refreshed a few times a day{updated && <>, last on {updated}</>}.
+  </p>
+
+  {days.length === 0 ? (
+    <div class="card mt-8 p-6">
+      <p class="font-semibold">No results are loaded right now.</p>
+      <p class="mt-1 text-slate-600">New scores appear here when the data is refreshed. In the meantime, try the <a class="text-pitch underline" href="/predict">score predictor</a> or read our <a class="text-pitch underline" href="/guides">guides</a>.</p>
+    </div>
+  ) : (
+    days.map((d) => (
+      <section class="mt-10">
+        <div class="rule-title"><h2 class="text-4xl font-extrabold uppercase">{heading(d.date)}</h2><span class="text-sm text-slate-500">{d.matches.length} matches</span></div>
+        {byLeague(d.matches).map(([league, ms]) => (
+          <div class="mt-5">
+            <h3 class="kicker">{league}</h3>
+            <ul class="card mt-2 max-w-3xl divide-y divide-line">
+              {ms.map((m) => (
+                <li class="grid grid-cols-[1fr_auto_1fr_auto] items-center gap-3 px-4 py-3">
+                  <span class="text-right text-sm font-semibold sm:text-base">{m.home}</span>
+                  <span class="digit px-2.5 py-0.5 text-xl" aria-label={`${m.home} ${m.homeScore}, ${m.away} ${m.awayScore}`}>{m.homeScore}–{m.awayScore}</span>
+                  <span class="text-sm font-semibold sm:text-base">{m.away}</span>
+                  <span class="w-16 text-right text-[11px] font-semibold uppercase tracking-wider text-slate-500">{note(m)}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </section>
+    ))
+  )}
+
+  <section class="mt-14 max-w-3xl">
+    <h2 class="rule-title text-4xl font-extrabold uppercase">About these results</h2>
+    <ul class="mt-4 list-disc space-y-2 pl-5 text-slate-700">
+      <li>Scores are the result when the match ended. <strong>FT</strong> is full time, <strong>AET</strong> means the match went to extra time and <strong>Pens</strong> shows the penalty shoot-out score.</li>
+      <li>Matches are grouped by calendar date in Central European Time, so a late kickoff in the Americas can appear under the next date.</li>
+      <li>Data comes from <a class="underline" href="https://sportapi.ai/">SportAPI</a>, which collects it from public sources. It can occasionally arrive late or contain mistakes, so check the competition's own site if a score matters to you.</li>
+    </ul>
+    <p class="mt-5 text-slate-700">
+      Want to call the next round yourself? The free <a class="font-semibold text-pitch underline" href="/predict">score predictor</a> lists upcoming matches with the scoreline our model expects, and our <a class="font-semibold text-pitch underline" href="/guides">guides</a> explain how that model works.
+    </p>
+  </section>
+</Base>

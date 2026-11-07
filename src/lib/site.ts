@@ -1,7 +1,7 @@
 import { getCollection } from 'astro:content';
 import { SECTIONS, isLive, type Section } from './sections';
 
-export const SITE_NAME = 'SkorRadar';
+export const SITE_NAME = 'ScoreRadar';
 export const SITE_TAGLINE = 'Data-driven football predictions, match analysis and guides';
 
 export async function allPosts() {

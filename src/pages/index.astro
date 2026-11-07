@@ -1,52 +1,122 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
-import { isLive } from '../lib/sections';
+import { isLive, SECTIONS } from '../lib/sections';
+import { allPosts } from '../lib/site';
+import { predictMatch } from '../lib/model';
+
+// Editorial first: the newest article is featured, the rest of the newest posts sit beside it, then one block per section.
+const posts = await allPosts();
+const [featured, ...rest] = posts;
+const more = rest.slice(0, 4);
+
+const fxFiles = import.meta.glob('../data/fixtures.json', { eager: true }) as Record<string, any>;
+const fxData = Object.values(fxFiles)[0]?.default ?? Object.values(fxFiles)[0];
+const next = ((fxData?.fixtures ?? []) as any[])
+  .filter((f) => new Date(f.kickoff).getTime() > Date.now())
+  .slice(0, 4)
+  .map((f) => ({ ...f, p: predictMatch({ elo: f.homeElo }, { elo: f.awayElo }) }));
+const when = (iso: string) => new Date(iso).toLocaleString('en-US', { weekday: 'short', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', timeZone: 'UTC' }) + ' UTC';
+const fmt = (d: Date) => d.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
+const label = { guides: 'Guide', analysis: 'Match analysis', news: 'News' } as const;
 
 const byDate = (a: any, b: any) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime();
-const latest = async (c: 'analysis' | 'news' | 'guides') =>
-  (await getCollection(c, isLive)).sort(byDate).slice(0, 4);
+const latest = async (c: 'analysis' | 'news' | 'guides', n: number) => (await getCollection(c, isLive)).sort(byDate).slice(0, n);
 const blocks = [
-  { label: 'Match Analysis', href: '/analysis', sec: 'analysis', items: await latest('analysis') },
-  { label: 'Latest News', href: '/news', sec: 'news', items: await latest('news') },
-  { label: 'Guides', href: '/guides', sec: 'guides', items: await latest('guides') },
+  { label: 'Guides', href: '/guides', sec: 'guides', blurb: SECTIONS.guides.blurb, items: await latest('guides', 6) },
+  { label: 'Match Analysis', href: '/analysis', sec: 'analysis', blurb: 'Model-based previews with scoreline and win probabilities.', items: await latest('analysis', 3) },
+  { label: 'News', href: '/news', sec: 'news', blurb: SECTIONS.news.blurb, items: await latest('news', 3) },
 ];
 const site = [
-  { '@type': 'WebSite', name: 'SkorRadar', url: Astro.site?.href, inLanguage: 'en' },
-  { '@type': 'Organization', name: 'SkorRadar', url: Astro.site?.href, logo: new URL('/logo.png', Astro.site).href },
+  { '@type': 'WebSite', name: 'ScoreRadar', url: Astro.site?.href, inLanguage: 'en' },
+  { '@type': 'Organization', name: 'ScoreRadar', url: Astro.site?.href, logo: new URL('/logo.png', Astro.site).href },
 ];
 ---
 
 <Base
-  title="SkorRadar | Football Predictions, Match Analysis & Guides"
+  title="ScoreRadar | Football Predictions, Match Analysis & Guides"
   description="Data-driven football predictions, match analysis and guides. Predict scores, earn points and compete with friends."
   jsonLd={site}
 >
-  <section class="rounded-2xl bg-gradient-to-br from-pitch to-pitch-dark p-8 text-white">
-    <h1 class="text-3xl sm:text-4xl font-extrabold">Call the score. Beat our model.</h1>
-    <p class="mt-3 max-w-2xl text-lg opacity-95">
-      See the scoreline and win probabilities our statistical model produces for every match, make your own pick and see how it compares.
+  <section class="border-b border-line pb-10">
+    <p class="kicker">Football, explained</p>
+    <h1 class="hero-num mt-3 max-w-4xl">Football guides and match analysis, <span class="hl">built on data.</span></h1>
+    <p class="mt-5 max-w-2xl text-lg leading-relaxed text-slate-700">
+      Plain-language explainers on ratings, expected goals, rules and formats, plus model-based match previews. Every number is sourced or calculated openly, and the method is on our <a class="font-semibold underline underline-offset-4 hover:text-pitch" href="/methodology">methodology page</a>.
     </p>
-    <a href="/predict" class="mt-5 inline-block rounded-lg bg-gold px-6 py-3 font-bold text-ink hover:brightness-95">Make Your Predictions</a>
+
+    {featured && (
+      <div class="mt-9 grid gap-6 lg:grid-cols-[1.5fr_1fr]">
+        <a href={`/${featured.section}/${featured.entry.id}`} class="card card-link group block overflow-hidden">
+          <img src={featured.entry.data.image.src} alt="" width="1200" height="630" fetchpriority="high" decoding="async" class="aspect-[1200/630] w-full border-b border-line" />
+          <div class="p-6">
+            <p class="kicker">{label[featured.section]} · {fmt(featured.entry.data.publishedAt)}</p>
+            <h2 class="card-title display mt-1 text-4xl font-extrabold leading-[1.02] sm:text-5xl">{featured.entry.data.title}</h2>
+            <p class="mt-3 text-base leading-relaxed text-slate-600">{featured.entry.data.description}</p>
+            <p class="mt-4 text-sm font-bold underline underline-offset-4">Read more →</p>
+          </div>
+        </a>
+        <div class="card">
+          <p class="display border-b border-line px-5 py-3 text-xl font-bold uppercase tracking-wider">Latest</p>
+          <ul class="divide-y divide-line">
+            {more.map((p) => (
+              <li>
+                <a href={`/${p.section}/${p.entry.id}`} class="card-link block px-5 py-4 hover:bg-paper">
+                  <p class="kicker !text-xs">{label[p.section]} · {fmt(p.entry.data.publishedAt)}</p>
+                  <p class="card-title display mt-1 text-[1.45rem] font-bold leading-tight">{p.entry.data.title}</p>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    )}
   </section>
 
   {blocks.filter((b) => b.items.length > 0).map((b) => (
-    <section class="mt-10">
-      <div class="flex items-baseline justify-between">
-        <h2 class="text-2xl font-bold">{b.label}</h2>
-        <a href={b.href} class="text-sm font-semibold text-pitch hover:underline">View all →</a>
+    <section class="mt-12">
+      <div class="rule-title">
+        <h2 class="text-4xl font-extrabold uppercase">{b.label}</h2>
+        <a href={b.href} class="text-sm font-semibold underline underline-offset-4 hover:text-pitch">View all →</a>
       </div>
-      <ul class="mt-3 grid gap-4 sm:grid-cols-2">
+      <p class="mt-2 max-w-2xl text-slate-600">{b.blurb}</p>
+      <ul class={`mt-5 grid gap-5 sm:grid-cols-2 ${b.items.length > 3 ? 'lg:grid-cols-3' : ''}`}>
         {b.items.map((e) => (
-          <li class="rounded-lg bg-white p-5 shadow-sm hover:shadow">
-            <a href={`/${b.sec}/${e.id}`}>
-              <img src={e.data.image.src} alt="" width="1200" height="630" loading="lazy" decoding="async" class="mb-3 aspect-[1200/630] w-full rounded-md border border-slate-200" />
-              <h3 class="font-bold">{e.data.title}</h3>
-              <p class="mt-1 text-sm text-slate-600">{e.data.description}</p>
+          <li class="card card-link overflow-hidden">
+            <a href={`/${b.sec}/${e.id}`} class="block">
+              <img src={e.data.image.src} alt="" width="1200" height="630" loading="lazy" decoding="async" class="aspect-[1200/630] w-full border-b border-line" />
+              <div class="p-5">
+                <p class="kicker">{b.label} · {fmt(e.data.publishedAt)}</p>
+                <h3 class="card-title display mt-1 text-[1.65rem] font-bold leading-tight">{e.data.title}</h3>
+                <p class="mt-2 text-sm leading-relaxed text-slate-600">{e.data.description}</p>
+              </div>
             </a>
           </li>
         ))}
       </ul>
     </section>
   ))}
+
+  <section class="mt-14 grid gap-6 bg-ink p-6 text-white sm:p-8 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+    <div>
+      <p class="kicker !text-gold">Free game</p>
+      <h2 class="mt-1 text-5xl font-extrabold uppercase leading-none">Call the score. <span class="text-gold">Beat the model.</span></h2>
+      <p class="mt-4 max-w-md text-slate-300">Pick a scoreline before kickoff, lock it in and compare with our Elo + Poisson model. Free to play, no betting.</p>
+      <a href="/predict" class="display mt-6 inline-block bg-gold px-7 py-3 text-xl font-bold uppercase tracking-wider text-ink hover:brightness-95">Make your picks</a>
+    </div>
+    {next.length > 0 && (
+      <ul class="divide-y divide-white/15 border border-white/15">
+        {next.map((f) => (
+          <li>
+            <a href="/predict" class="grid grid-cols-[1fr_auto_1fr] items-center gap-2 px-4 py-3 hover:bg-white/5">
+              <span class="flex items-center justify-end gap-2 text-right text-sm font-semibold">{f.home}{f.homeCrest && <img src={f.homeCrest} alt="" width="24" height="24" loading="lazy" class="h-6 w-6 object-contain" />}</span>
+              <span class="digit border border-white/25 px-2 py-0.5 text-lg" title="Model scoreline">{f.p.mostLikely.home}–{f.p.mostLikely.away}</span>
+              <span class="flex items-center gap-2 text-sm font-semibold">{f.awayCrest && <img src={f.awayCrest} alt="" width="24" height="24" loading="lazy" class="h-6 w-6 object-contain" />}{f.away}</span>
+              <span class="col-span-3 -mt-1 text-center text-[11px] uppercase tracking-wider text-slate-400">{when(f.kickoff)} · model scoreline in the dark box</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    )}
+  </section>
 </Base>

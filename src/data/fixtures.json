@@ -12,7 +12,9 @@
       "away": "Aston Villa",
       "kickoff": "2026-11-24T17:45:00Z",
       "homeElo": 1580,
-      "awayElo": 1639
+      "awayElo": 1639,
+      "homeCrest": "https://crests.football-data.org/610.png",
+      "awayCrest": "https://crests.football-data.org/58.png"
     },
     {
       "id": "575397",
@@ -21,7 +23,9 @@
       "away": "PSV",
       "kickoff": "2026-11-24T20:00:00Z",
       "homeElo": 1812,
-      "awayElo": 1700
+      "awayElo": 1700,
+      "homeCrest": "https://crests.football-data.org/86.png",
+      "awayCrest": "https://crests.football-data.org/674.png"
     },
     {
       "id": "575398",
@@ -30,7 +34,9 @@
       "away": "Napoli",
       "kickoff": "2026-11-24T20:00:00Z",
       "homeElo": 1748,
-      "awayElo": 1585
+      "awayElo": 1585,
+      "homeCrest": "https://crests.football-data.org/65.png",
+      "awayCrest": "https://crests.football-data.org/113.png"
     },
     {
       "id": "575399",
@@ -39,7 +45,9 @@
       "away": "Dortmund",
       "kickoff": "2026-11-24T20:00:00Z",
       "homeElo": 1860,
-      "awayElo": 1706
+      "awayElo": 1706,
+      "homeCrest": "https://crests.football-data.org/57.png",
+      "awayCrest": "https://crests.football-data.org/4.png"
     },
     {
       "id": "575400",
@@ -48,7 +56,9 @@
       "away": "Porto",
       "kickoff": "2026-11-24T20:00:00Z",
       "homeElo": 1646,
-      "awayElo": 1736
+      "awayElo": 1736,
+      "homeCrest": "https://crests.football-data.org/675.png",
+      "awayCrest": "https://crests.football-data.org/503.png"
     },
     {
       "id": "575401",
@@ -57,7 +67,9 @@
       "away": "Real Betis",
       "kickoff": "2026-11-24T20:00:00Z",
       "homeElo": 1330,
-      "awayElo": 1638
+      "awayElo": 1638,
+      "homeCrest": "https://crests.football-data.org/7509.png",
+      "awayCrest": "https://crests.football-data.org/90.png"
     },
     {
       "id": "575402",
@@ -66,7 +78,9 @@
       "away": "RC Lens",
       "kickoff": "2026-11-24T20:00:00Z",
       "homeElo": 1588,
-      "awayElo": 1559
+      "awayElo": 1559,
+      "homeCrest": "https://crests.football-data.org/721.png",
+      "awayCrest": "https://crests.football-data.org/546.png"
     },
     {
       "id": "575405",
@@ -75,7 +89,9 @@
       "away": "Villarreal",
       "kickoff": "2026-11-25T17:45:00Z",
       "homeElo": 1415,
-      "awayElo": 1542
+      "awayElo": 1542,
+      "homeCrest": "https://crests.football-data.org/930.png",
+      "awayCrest": "https://crests.football-data.org/94.png"
     },
     {
       "id": "575406",
@@ -84,7 +100,9 @@
       "away": "Stuttgart",
       "kickoff": "2026-11-25T20:00:00Z",
       "homeElo": 1747,
-      "awayElo": 1597
+      "awayElo": 1597,
+      "homeCrest": "https://crests.football-data.org/108.png",
+      "awayCrest": "https://crests.football-data.org/10.png"
     },
     {
       "id": "575408",
@@ -93,7 +111,9 @@
       "away": "Roma",
       "kickoff": "2026-11-25T20:00:00Z",
       "homeElo": 1898,
-      "awayElo": 1681
+      "awayElo": 1681,
+      "homeCrest": "https://crests.football-data.org/524.png",
+      "awayCrest": "https://crests.football-data.org/100.png"
     },
     {
       "id": "575409",
@@ -102,7 +122,9 @@
       "away": "Liverpool",
       "kickoff": "2026-11-25T20:00:00Z",
       "homeElo": 1600,
-      "awayElo": 1661
+      "awayElo": 1661,
+      "homeCrest": "https://crests.football-data.org/851.png",
+      "awayCrest": "https://crests.football-data.org/64.png"
     },
     {
       "id": "575410",
@@ -111,7 +133,9 @@
       "away": "Bayern",
       "kickoff": "2026-11-25T20:00:00Z",
       "homeElo": 1583,
-      "awayElo": 1888
+      "awayElo": 1888,
+      "homeCrest": "https://crests.football-data.org/521.png",
+      "awayCrest": "https://crests.football-data.org/5.png"
     }
   ]
 }

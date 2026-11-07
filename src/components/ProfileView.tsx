@@ -26,9 +26,9 @@ export default function ProfileView() {
   if (!firebaseConfigured) return <p className="text-slate-600">Accounts are not connected yet.</p>;
   if (!user) {
     return (
-      <div className="rounded-lg bg-white p-6 shadow-sm">
+      <div className="card p-6">
         <p className="text-slate-700">Sign in to see your saved predictions and points.</p>
-        <button type="button" onClick={connect} className="mt-3 rounded bg-pitch px-4 py-2 text-sm font-semibold text-white hover:bg-pitch-dark">Sign in with Google</button>
+        <button type="button" onClick={connect} className="mt-3 display bg-ink px-5 py-2 text-lg font-bold uppercase tracking-wider text-white hover:bg-pitch">Sign in with Google</button>
         {error && <p role="alert" className="mt-2 text-sm text-red-700">{error}</p>}
       </div>
     );
@@ -44,12 +44,12 @@ export default function ProfileView() {
       </div>
       {error && <p role="alert" className="mb-3 text-sm text-red-700">{error}</p>}
       {rows === null ? <p className="text-slate-500">Loading…</p> : rows.length === 0 ? (
-        <p className="rounded-lg bg-white p-5 shadow-sm text-slate-700">You have no saved predictions yet. Make some on the <a className="text-pitch underline" href="/predict">prediction page</a>.</p>
+        <p className="card p-5 text-slate-700">You have no saved predictions yet. Make some on the <a className="text-pitch underline" href="/predict">prediction page</a>.</p>
       ) : (
-        <div className="overflow-x-auto rounded-lg bg-white shadow-sm">
+        <div className="overflow-x-auto card">
           <table className="w-full text-left text-sm">
             <caption className="sr-only">Your predictions</caption>
-            <thead className="border-b bg-slate-50 text-xs uppercase text-slate-500"><tr><th className="px-4 py-2">Match</th><th className="px-4 py-2">Your pick</th><th className="px-4 py-2">Result</th><th className="px-4 py-2 text-right">Points</th></tr></thead>
+            <thead className="border-b border-line bg-paper text-xs uppercase tracking-wider text-slate-600"><tr><th className="px-4 py-2">Match</th><th className="px-4 py-2">Your pick</th><th className="px-4 py-2">Result</th><th className="px-4 py-2 text-right">Points</th></tr></thead>
             <tbody>
               {rows.map((r) => (
                 <tr key={r.fixtureId} className="border-b last:border-0">

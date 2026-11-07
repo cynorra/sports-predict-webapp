@@ -8,10 +8,11 @@ const apiKey = import.meta.env.PUBLIC_FIREBASE_API_KEY;
 
 <Base
   title="Prediction Leaderboard"
-  description="All-time rankings for the SkorRadar football score prediction game. Exact scores earn 10 points, so sharp predictions climb the table."
+  description="All-time rankings for the ScoreRadar football score prediction game. Exact scores earn 10 points, so sharp predictions climb the table."
 >
-  <h1 class="text-3xl font-extrabold">Leaderboard</h1>
-  <p class="mt-2 mb-6 max-w-2xl text-slate-600">
+  <p class="kicker">All-time</p>
+  <h1 class="mt-1 text-6xl font-extrabold uppercase">Leader<span class="hl">board</span></h1>
+  <p class="mb-6 mt-3 max-w-2xl text-slate-700">
     Points are added a few hours after each match finishes. Exact score: 10 points. Correct result and goal difference: 5 points. Correct result only: 3 points.
     Results count the score after 90 minutes plus stoppage time.
     You appear here only after you choose a leaderboard name on the <a class="font-semibold text-pitch underline" href="/predict">prediction page</a>.

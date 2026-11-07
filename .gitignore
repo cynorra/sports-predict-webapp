@@ -29,3 +29,6 @@ scripts/.cache/
 
 # graphify knowledge graph output
 graphify-out/
+
+# keyword research exports (not site content)
+Keyword Stats*.csv

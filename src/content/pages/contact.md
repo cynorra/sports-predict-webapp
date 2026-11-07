@@ -1,6 +1,6 @@
 ---
-title: "Contact SkorRadar"
-description: "Contact the SkorRadar team about corrections, partnerships, privacy requests or general questions about our football predictions and content."
+title: "Contact ScoreRadar"
+description: "Contact the ScoreRadar team about corrections, partnerships, privacy requests or general questions about our football predictions and content."
 updatedAt: 2026-10-29
 ---
 

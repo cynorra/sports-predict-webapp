@@ -15,14 +15,19 @@ interface Props {
 const { title, description, canonical, ogType = 'website', jsonLd, noindex = false, image } = Astro.props;
 const ogImage = image ? new URL(image.url, Astro.site).href : new URL('/og-default.png', Astro.site).href;
 const url = canonical ?? new URL(Astro.url.pathname, Astro.site).href;
-const SITE_NAME = 'SkorRadar';
+const SITE_NAME = 'ScoreRadar';
 // Append the brand only if the full <title> stays within ~60 chars (Google truncates longer titles)
 const fullTitle = title.includes(SITE_NAME) || `${title} | ${SITE_NAME}`.length > 60 ? title : `${title} | ${SITE_NAME}`;
 const ld = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 const live = new Set(await liveSections());
+// Results link only when a results file exists (never link to an empty page).
+const resultFiles = import.meta.glob('../data/results.json', { eager: true }) as Record<string, any>;
+const hasResults = Object.keys(resultFiles).length > 0;
+// Articles come first (they are the core of the site), the prediction game follows.
 const nav = [
+  ...[['guides', 'Guides'], ['analysis', 'Match Analysis'], ['news', 'News']].filter(([k]) => live.has(k as any)).map(([k, l]) => ['/' + k, l]),
+  ...(hasResults ? [['/results', 'Results']] : []),
   ['/predict', 'Predict'],
-  ...[['analysis', 'Match Analysis'], ['news', 'News'], ['guides', 'Guides']].filter(([k]) => live.has(k as any)).map(([k, l]) => ['/' + k, l]),
   ['/leaderboard', 'Leaderboard'],
 ];
 const here = Astro.url.pathname.replace(/\/$/, '');
@@ -53,26 +58,32 @@ const here = Astro.url.pathname.replace(/\/$/, '');
     {image && <meta property="og:image:height" content="630" />}
     {image && <meta property="og:image:alt" content={image.alt} />}
     <meta name="twitter:image" content={ogImage} />
-    <link rel="alternate" type="application/rss+xml" title="SkorRadar" href="/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title="ScoreRadar" href="/rss.xml" />
     <link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt" />
     {ld.map((o) => <script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', ...o })} />)}
     {import.meta.env.PUBLIC_ADSENSE_CLIENT && <meta name="google-adsense-account" content={import.meta.env.PUBLIC_ADSENSE_CLIENT} />}
   </head>
   <body class="min-h-screen flex flex-col">
     <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:rounded focus:bg-white focus:px-3 focus:py-2 focus:text-ink">Skip to content</a>
-    <header class="bg-pitch text-white">
-      <div class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between gap-4">
-        <a href="/" class="text-xl font-extrabold tracking-tight">Skor<span class="text-gold">Radar</span></a>
-        <nav aria-label="Main" class="flex flex-wrap gap-x-5 gap-y-1 text-sm font-medium">
-          {nav.map(([href, label]) => <a href={href} class={`hover:text-gold ${here === href || here.startsWith(href + '/') ? 'text-gold' : ''}`} aria-current={here === href || here.startsWith(href + '/') ? 'page' : undefined}>{label}</a>)}
+    <header class="sticky top-0 z-40 bg-ink text-white">
+      <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-2.5">
+        <a href="/" class="flex items-center gap-2.5" aria-label="ScoreRadar home">
+          <img src="/logo.png" alt="" width="30" height="30" class="rounded-[5px]" />
+          <span class="display text-[1.7rem] font-extrabold uppercase leading-none tracking-wide">Score<span class="text-gold">Radar</span></span>
+        </a>
+        <nav aria-label="Main" class="display flex flex-wrap gap-x-6 gap-y-1 text-[1.1rem] font-semibold uppercase tracking-wider">
+          {nav.map(([href, label]) => {
+            const on = here === href || here.startsWith(href + '/');
+            return <a href={href} class={`border-b-[3px] py-0.5 hover:border-gold/60 ${on ? 'border-gold text-white' : 'border-transparent text-slate-300'}`} aria-current={on ? 'page' : undefined}>{label}</a>;
+          })}
         </nav>
       </div>
     </header>
     <main id="main" class="flex-1 mx-auto w-full max-w-6xl px-4 py-8"><slot /></main>
-    <footer class="bg-ink text-slate-300 text-sm">
+    <footer class="mt-8 border-t-[6px] border-gold bg-ink text-sm text-slate-300">
       <div class="mx-auto max-w-6xl px-4 py-8 grid gap-6 sm:grid-cols-3">
         <div>
-          <p class="font-bold text-white">{SITE_NAME}</p>
+          <p class="display text-2xl font-extrabold uppercase tracking-wide text-white">Score<span class="text-gold">Radar</span></p>
           <p class="mt-2">Data-driven football predictions, match analysis and guides, plus a free score-prediction game.</p>
         </div>
         <ul class="space-y-1">

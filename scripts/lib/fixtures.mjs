@@ -23,6 +23,7 @@ export function buildFixtures(upcoming, ratings, { competition = 'Champions Leag
       id: String(m.id), competition,
       home: m.homeTeam.shortName || m.homeTeam.name, away: m.awayTeam.shortName || m.awayTeam.name,
       kickoff: m.utcDate, homeElo: Math.round(h.elo), awayElo: Math.round(a.elo),
+      ...(m.homeTeam.crest && { homeCrest: m.homeTeam.crest }), ...(m.awayTeam.crest && { awayCrest: m.awayTeam.crest }),
     });
   }
   fixtures.sort((x, y) => x.kickoff.localeCompare(y.kickoff));

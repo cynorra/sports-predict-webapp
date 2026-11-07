@@ -31,6 +31,8 @@ const analysis = defineCollection({
   schema: base.extend({
     homeTeam: z.string(),
     awayTeam: z.string(),
+    homeCrest: z.string().url().optional(), // crest image URL (football-data.org), shown in the match box
+    awayCrest: z.string().url().optional(),
     competition: z.string(),
     kickoff: z.coerce.date(),
     prediction: z.object({

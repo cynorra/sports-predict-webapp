@@ -2,7 +2,7 @@
 // Principle (universal-adsense-site-standard.md, top rule): nothing untrue may be published. A prompt or a habit is not
 // enforcement, so these checks run on every post in `npm run audit` and block the build.
 //
-// SkorRadar DOES have a real prediction model (Elo + Poisson, see /methodology), so "our model" is allowed.
+// ScoreRadar DOES have a real prediction model (Elo + Poisson, see /methodology), so "our model" is allowed.
 // It has NO scouts, analysts, insiders, clients, surveys or match attendance, so claims of those are fiction.
 // Pure functions only (no I/O) so they can be unit-tested.
 
@@ -58,7 +58,7 @@ export function findHypeClaim(post) {
   return m ? `body: "${m[0]}"` : null;
 }
 
-// 4. Betting-advice / sensitive topics. SkorRadar is a prediction GAME and information site, not a tipster or bookmaker affiliate.
+// 4. Betting-advice / sensitive topics. ScoreRadar is a prediction GAME and information site, not a tipster or bookmaker affiliate.
 const YMYL = [
   /\b(?:betting (?:tips?|strategy|system|advice)|best bets?|value bets?|tipsters?|accumulator tips?|free bets?|promo codes?|sign-?up (?:bonus|offer)s?|bookmaker (?:bonus|offer|review)s?|bet365|1xbet|betway|unibet|william hill|ladbrokes|betfair|bwin)\b/i,
   /\b(?:diagnos(?:is|ed)|prognosis|rehabilitation protocol|treatment plan)\b/i,
@@ -114,7 +114,7 @@ export function validateArticle(post, now = new Date()) {
   const issues = [];
   const add = (cond, msg) => { if (cond) issues.push(msg); };
   const fpc = findFirstPartyClaim(post.title, post.excerpt, post.meta_description, post.content);
-  add(fpc, `FIRST-PARTY CLAIM ("${fpc}") - SkorRadar has a model, not scouts, analysts, insiders, surveys or hands-on testing. Attribute facts to public sources or say "the model".`);
+  add(fpc, `FIRST-PARTY CLAIM ("${fpc}") - ScoreRadar has a model, not scouts, analysts, insiders, surveys or hands-on testing. Attribute facts to public sources or say "the model".`);
   const fpe = findFirstPersonExperience(post.title, post.excerpt, post.meta_description, post.content);
   add(fpe, `INVENTED FIRST-PERSON EXPERIENCE ("${fpe}") - no "I", "my", "as a former scout". Write in the third person.`);
   const ind = findIndirectExperience(post.title, post.excerpt, post.meta_description, post.content);
@@ -122,7 +122,7 @@ export function validateArticle(post, now = new Date()) {
   const hype = findHypeClaim(post);
   add(hype, `HYPE / GUARANTEE LANGUAGE (${hype}) - no guarantees, sure tips or fixed-match talk. Say "can", "may", "the model estimates".`);
   const ymyl = findYmylTopic(post.title, post.excerpt, post.meta_description, post.content);
-  add(ymyl, `BETTING-ADVICE / SENSITIVE TOPIC ("${ymyl}") - SkorRadar is a prediction game, not a tipster or bookmaker affiliate. Medical claims about players need a named public source.`);
+  add(ymyl, `BETTING-ADVICE / SENSITIVE TOPIC ("${ymyl}") - ScoreRadar is a prediction game, not a tipster or bookmaker affiliate. Medical claims about players need a named public source.`);
   const yf = countYearFraming(post.content, now);
   add(yf > MAX_YEAR_FRAMING, `YEAR FRAMING (${yf} phrases like "in ${now.getUTCFullYear()}") - write evergreen prose; keep a year only for a real dated fact.`);
   const an = findFabricatedAnecdote(post.content);

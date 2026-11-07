@@ -1,6 +1,6 @@
 ---
 title: "Prediction Methodology"
-description: "How SkorRadar produces football score predictions: Elo ratings, expected goals, a Poisson score model and how we grade accuracy in public."
+description: "How ScoreRadar produces football score predictions: Elo ratings, expected goals, a Poisson score model and how we grade accuracy in public."
 updatedAt: 2026-10-29
 ---
 
