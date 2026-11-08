@@ -50,7 +50,7 @@ const jsonLd: Record<string, unknown>[] = [
     author: {
       '@type': 'Person',
       name: author,
-      url: new URL('/author', Astro.site).href,
+      url: new URL('/author/', Astro.site).href,
     },
     publisher: { '@type': 'Organization', name: 'Soccer Games Today', logo: { '@type': 'ImageObject', url: new URL('/logo.png', Astro.site).href } },
     mainEntityOfPage: url,

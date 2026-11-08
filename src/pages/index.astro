@@ -29,7 +29,14 @@ const blocks = [
 ];
 const site = [
   { '@type': 'WebSite', name: 'Soccer Games Today', url: Astro.site?.href, inLanguage: 'en' },
-  { '@type': 'Organization', name: 'Soccer Games Today', url: Astro.site?.href, logo: new URL('/logo.png', Astro.site).href },
+  {
+    '@type': 'Organization',
+    name: 'Soccer Games Today',
+    url: Astro.site?.href,
+    logo: new URL('/logo.png', Astro.site).href,
+    founder: { '@type': 'Person', name: 'Eren Şimşir', url: new URL('/author/', Astro.site).href },
+    contactPoint: { '@type': 'ContactPoint', contactType: 'customer support', email: 'contact@todayssoccergames.com', availableLanguage: 'English' },
+  },
 ];
 ---
 

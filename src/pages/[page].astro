@@ -8,9 +8,35 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 const d = entry.data;
+
+// Structured data for the pages that have a clear type. Only facts that are on the page or the site (no invented profiles or links).
+const site = Astro.site!.href.replace(/\/$/, '');
+const pageUrl = `${site}/${entry.id}/`;
+const authorId = `${site}/author/#person`;
+const ld: Record<string, unknown>[] = [];
+if (entry.id === 'author') {
+  ld.push({
+    '@context': 'https://schema.org',
+    '@type': 'ProfilePage',
+    url: pageUrl,
+    mainEntity: {
+      '@type': 'Person',
+      '@id': authorId,
+      name: 'Eren Şimşir',
+      url: pageUrl,
+      jobTitle: 'Founder, software developer and managing editor',
+      worksFor: { '@type': 'Organization', name: 'Soccer Games Today', url: `${site}/` },
+      sameAs: ['https://github.com/cynorra/sports-predict-webapp'],
+    },
+  });
+} else if (entry.id === 'about') {
+  ld.push({ '@context': 'https://schema.org', '@type': 'AboutPage', url: pageUrl, name: d.title, inLanguage: 'en' });
+} else if (entry.id === 'contact') {
+  ld.push({ '@context': 'https://schema.org', '@type': 'ContactPage', url: pageUrl, name: d.title, inLanguage: 'en' });
+}
 ---
 
-<Base title={d.title} description={d.description}>
+<Base title={d.title} description={d.description} jsonLd={ld.length ? ld : undefined}>
   <article class="mx-auto max-w-3xl">
     <h1 class="text-6xl font-extrabold uppercase">{d.title}</h1>
     <p class="mt-1 text-sm text-slate-500">Last updated: {d.updatedAt.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}</p>

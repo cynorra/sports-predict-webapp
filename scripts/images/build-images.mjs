@@ -560,7 +560,7 @@ function cover({ kicker, title, motif }) {
   g += `<rect x="66" y="78" width="56" height="8" fill="${GOLD}"/>` + t(66, 128, kicker.toUpperCase(), { size: 26, weight: 700, fill: GOLD });
   lines.forEach((l, i) => { g += t(66, 128 + 30 + size * 0.86 + i * lh, l, { size, weight: 800, fill: '#fff' }); });
   g += `<rect x="66" y="506" width="590" height="2" fill="#fff" fill-opacity="0.25"/>`;
-  g += t(66, 560, 'SCORE', { size: 40, weight: 800, fill: '#fff' }) + t(66 + textWidth('SCORE', 40, 800) + 2, 560, 'RADAR', { size: 40, weight: 800, fill: GOLD });
+  g += t(66, 560, 'SOCCER GAMES', { size: 40, weight: 800, fill: '#fff' }) + t(66 + textWidth('SOCCER GAMES', 40, 800) + 10, 560, 'TODAY', { size: 40, weight: 800, fill: GOLD });
   g += `<rect x="716" y="66" width="420" height="498" fill="#fff" fill-opacity="0.07" stroke="#fff" stroke-opacity="0.16" stroke-width="2"/><rect x="716" y="66" width="420" height="8" fill="${GOLD}"/>`;
   g += motif;
   return svgDoc(1200, 630, title, g);
@@ -702,8 +702,8 @@ for (const p of POSTS) {
   let g = `<rect width="1200" height="630" fill="#0e1512"/>`;
   g += `<g fill="none" stroke="#fff" stroke-opacity="0.06" stroke-width="3"><circle cx="900" cy="315" r="230"/><line x1="900" y1="0" x2="900" y2="630"/><rect x="-40" y="195" width="170" height="240"/></g>`;
   g += `<rect x="80" y="150" width="64" height="10" fill="${GOLD}"/>`;
-  g += t(80, 300, 'SCORE', { size: 150, weight: 800, fill: '#fff' }) + t(80 + textWidth('SCORE', 150, 800) + 6, 300, 'RADAR', { size: 150, weight: 800, fill: GOLD });
-  g += t(80, 380, 'Soccer predictions, match analysis and guides', { size: 42, weight: 700, fill: '#d6dbd8' });
+  g += t(80, 300, 'SOCCER GAMES', { size: 112, weight: 800, fill: '#fff' }) + t(80 + textWidth('SOCCER GAMES', 112, 800) + 18, 300, 'TODAY', { size: 112, weight: 800, fill: GOLD });
+  g += t(80, 380, 'Soccer scores, fixtures, predictions and guides', { size: 42, weight: 700, fill: '#d6dbd8' });
   g += t(80, 540, 'FREE SCORE PREDICTOR  ·  ELO + POISSON MODEL', { size: 28, weight: 700, fill: GOLD });
   const svg = svgDoc(1200, 630, 'Soccer Games Today', g);
   await sharp(Buffer.from(svg), { density: 96 }).resize(1200, 630).png({ compressionLevel: 9 }).toFile(join(ROOT, 'public', 'og-default.png'));

@@ -72,7 +72,7 @@ const here = Astro.url.pathname.replace(/\/$/, '');
       <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-2.5">
         <a href="/" class="flex items-center gap-2.5" aria-label="Soccer Games Today home">
           <img src="/logo.png" alt="" width="30" height="30" class="rounded-[5px]" />
-          <span class="display text-[1.7rem] font-extrabold uppercase leading-none tracking-wide">Score<span class="text-gold">Radar</span></span>
+          <span class="display text-[1.7rem] font-extrabold uppercase leading-none tracking-wide">Soccer Games <span class="text-gold">Today</span></span>
         </a>
         <nav aria-label="Main" class="display flex flex-wrap gap-x-6 gap-y-1 text-[1.1rem] font-semibold uppercase tracking-wider">
           {nav.map(([href, label]) => {
@@ -86,7 +86,7 @@ const here = Astro.url.pathname.replace(/\/$/, '');
     <footer class="mt-8 border-t-[6px] border-gold bg-ink text-sm text-slate-300">
       <div class="mx-auto max-w-6xl px-4 py-8 grid gap-6 sm:grid-cols-3">
         <div>
-          <p class="display text-2xl font-extrabold uppercase tracking-wide text-white">Score<span class="text-gold">Radar</span></p>
+          <p class="display text-2xl font-extrabold uppercase tracking-wide text-white">Soccer Games <span class="text-gold">Today</span></p>
           <p class="mt-2">Soccer scores and results, data-driven predictions, match analysis and guides, plus a free score-prediction game.</p>
         </div>
         <ul class="space-y-1">
