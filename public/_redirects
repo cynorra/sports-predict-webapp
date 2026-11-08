@@ -1,0 +1,5 @@
+# Cloudflare Pages redirects (static host). One canonical host and the conventional sitemap address.
+# www -> apex, so every page exists on one address only.
+https://www.todayssoccergames.com/* https://todayssoccergames.com/:splat 301
+# Crawlers and tools look for /sitemap.xml first; Astro writes sitemap-index.xml.
+/sitemap.xml /sitemap-index.xml 301

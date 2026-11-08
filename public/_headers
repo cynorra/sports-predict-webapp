@@ -10,3 +10,11 @@
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
   Cross-Origin-Opener-Policy: same-origin-allow-popups
   Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' 'unsafe-inline' https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.google.com https://*.gstatic.com https://fundingchoicesmessages.google.com https://*.doubleclick.net https://*.adtrafficquality.google https://apis.google.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; frame-src https://*.firebaseapp.com https://accounts.google.com https://*.googlesyndication.com https://*.google.com https://*.doubleclick.net; connect-src 'self' https://*.googlesyndication.com https://*.google.com https://*.doubleclick.net https://*.googleapis.com https://*.firebaseio.com; font-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'
+
+# The *.pages.dev address is a copy of the site: keep it out of search results (the real domain stays indexable).
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+# Hashed build files never change under the same name.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
