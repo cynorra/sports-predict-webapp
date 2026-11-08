@@ -1,6 +1,6 @@
 ---
 title: "Prediction Methodology"
-description: "How Soccer Games Today produces football score predictions: Elo ratings, expected goals, a Poisson score model and how we grade accuracy in public."
+description: "How Soccer Games Today produces soccer score predictions: Elo ratings, expected goals, a Poisson score model and how we grade accuracy in public."
 updatedAt: 2026-10-29
 ---
 
@@ -22,7 +22,7 @@ Goals are modelled with a Poisson distribution. We calculate the probability of 
 
 ## What the numbers mean
 
-A 55% home-win probability means the model expects the home side to win about 55 times in 100 identical matches. It does not mean the home side will win this one. The most likely single scoreline is usually only 10-15% likely, because football has many plausible results.
+A 55% home-win probability means the model expects the home side to win about 55 times in 100 identical matches. It does not mean the home side will win this one. The most likely single scoreline is usually only 10-15% likely, because soccer has many plausible results.
 
 ## What the model ignores
 

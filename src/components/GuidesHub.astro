@@ -13,9 +13,9 @@ const fmt = (d: Date) => d.toLocaleDateString('en-US', { day: 'numeric', month: 
 const jsonLd = [
   {
     '@type': 'CollectionPage',
-    name: 'Football Guides',
+    name: 'Soccer Guides',
     url: new URL('/guides', Astro.site).href,
-    description: 'Football guides on score predictions, Elo ratings, expected goals, rules, tournament formats and records.',
+    description: 'Soccer guides on score predictions, Elo ratings, expected goals, rules, tournament formats and records.',
     inLanguage: 'en',
   },
   {
@@ -29,14 +29,14 @@ const jsonLd = [
 ---
 
 <Base
-  title="Football Guides: Score Predictions, Ratings and Records"
-  description="Football guides on score predictions, Elo ratings, xG, rules and formats, plus records such as World Cup and Premier League top scorers."
+  title="Soccer Guides: Score Predictions, Ratings and Records"
+  description="Soccer guides on score predictions, Elo ratings, xG, rules and formats, plus records such as World Cup and Premier League top scorers."
   jsonLd={jsonLd}
 >
   <p class="kicker">Soccer Games Today</p>
-  <h1 class="mt-1 max-w-4xl text-6xl font-extrabold uppercase">Football <span class="hl">guides</span></h1>
+  <h1 class="mt-1 max-w-4xl text-6xl font-extrabold uppercase">Soccer <span class="hl">guides</span></h1>
   <p class="mt-4 max-w-3xl text-lg leading-relaxed text-slate-700">
-    Plain-language guides for anyone who wants to understand the game with numbers: how to make a football score prediction, how Elo ratings and expected goals (xG) work, why home advantage and draws matter, and the rules and formats behind the biggest tournaments.
+    Plain-language guides for anyone who wants to understand the game with numbers: how to make a soccer score prediction, how Elo ratings and expected goals (xG) work, why home advantage and draws matter, and the rules and formats behind the biggest tournaments.
     {hasRecords && <>The records guides on top scorers and season totals trace every figure to a named source. </>}Everything here supports the free <a class="font-semibold text-pitch underline underline-offset-4" href="/predict">soccer score predictor</a>, and the method is set out on the <a class="font-semibold text-pitch underline underline-offset-4" href="/methodology">methodology page</a>.
   </p>
 

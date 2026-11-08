@@ -7,9 +7,9 @@ sport: football
 image:
   src: "/images/extra-time-and-penalty-shootouts-explained.svg"
   alt: "Soccer Games Today cover with a timeline showing 90 minutes, then 30 minutes of extra time, then a penalty shootout to decide a knockout tie"
-keywords: ["extra time and penalty shootouts", "how penalty shootouts work", "extra time rules football", "knockout tie breakers"]
+keywords: ["extra time and penalty shootouts", "how penalty shootouts work", "extra time rules soccer", "knockout tie breakers"]
 faq:
-  - q: "How long is extra time in football?"
+  - q: "How long is extra time in soccer?"
     a: "Extra time is two periods of 15 minutes, with a short change of ends between them. Competitions can choose to skip it and go straight to penalties."
   - q: "How many penalties does each team take?"
     a: "Five each, taken alternately. If the shootout is level after five kicks each, it continues in pairs of kicks until one team is ahead after both have taken the same number."
@@ -19,7 +19,7 @@ faq:
     a: "UEFA scrapped it in its club competitions from the 2021-22 season, so level two-leg ties now go to extra time and then penalties."
 ---
 
-Knockout football has a rule that league football does not need: someone must advance. When 90 minutes end level, competitions use a ladder of extra steps to find a winner. The details come from the Laws of the Game and the rules of each tournament, and they matter for predictions because the "result" of a match can mean different things depending on which stage you count. This guide lays the sequence out in order.
+Knockout soccer has a rule that league soccer does not need: someone must advance. When 90 minutes end level, competitions use a ladder of extra steps to find a winner. The details come from the Laws of the Game and the rules of each tournament, and they matter for predictions because the "result" of a match can mean different things depending on which stage you count. This guide lays the sequence out in order.
 
 ## Step one: 90 minutes plus stoppage time
 
@@ -69,7 +69,7 @@ On this site's [prediction page](/predict), picks are scored on the result after
 
 ## What shootouts tell us about prediction
 
-Penalty shootouts feel like pure drama, but they follow the same logic as the rest of football: small samples, big noise. A penalty kick is scored far more often than not, so a shootout is usually decided by narrow margins and a little luck. Reading too much into one shootout is a classic small-sample mistake. For a deeper look at why, see the guide on [form, luck and small samples](/guides/small-samples-and-football-form-luck-or-skill).
+Penalty shootouts feel like pure drama, but they follow the same logic as the rest of soccer: small samples, big noise. A penalty kick is scored far more often than not, so a shootout is usually decided by narrow margins and a little luck. Reading too much into one shootout is a classic small-sample mistake. For a deeper look at why, see the guide on [form, luck and small samples](/guides/small-samples-and-football-form-luck-or-skill).
 
 ## Where to read the exact rules
 

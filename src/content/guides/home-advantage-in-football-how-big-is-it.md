@@ -1,15 +1,15 @@
 ---
-title: "Home Advantage in Football: How Big Is It Really?"
-description: "How big is home advantage in football? See typical home win rates, why playing at home helps, what happened in empty stadiums and how to use it."
-answer: "Home advantage in football is real but modest: hosts win clearly more often than visitors in top leagues. It is worth roughly a third of a goal per game and varies by league, club and era."
+title: "Home Advantage in Soccer: How Big Is It Really?"
+description: "How big is home advantage in soccer? See typical home win rates, why playing at home helps, what happened in empty stadiums and how to use it."
+answer: "Home advantage in soccer is real but modest: hosts win clearly more often than visitors in top leagues. It is worth roughly a third of a goal per game and varies by league, club and era."
 publishedAt: 2026-11-02T15:07:00.000Z
 sport: football
 image:
   src: "/images/home-advantage-in-football-how-big-is-it.svg"
   alt: "Soccer Games Today cover with three bars showing typical top-league results: home win 45%, draw 25% and away win 30%"
-keywords: ["home advantage in football", "home field advantage soccer", "home win percentage", "empty stadium home advantage"]
+keywords: ["home advantage in soccer", "home field advantage soccer", "home win percentage", "empty stadium home advantage"]
 faq:
-  - q: "How often do home teams win in football?"
+  - q: "How often do home teams win in soccer?"
     a: "In most top European leagues home teams win somewhere around 43% to 47% of matches, draws make up about a quarter, and away teams win the rest. Exact figures vary by season."
   - q: "Why do home teams win more often?"
     a: "Studies point to a mix of crowd influence on referees, familiarity with the pitch, absence of travel fatigue, tactical choices and team psychology. No single cause explains it all."
@@ -19,7 +19,7 @@ faq:
     a: "No. Home advantage tilts the odds but a strong visitor still beats a weak host. Add it as an adjustment to team quality rather than as a rule."
 ---
 
-Every fan knows the feeling: a visiting team looks nervous in a loud stadium, a decision goes the hosts' way, and the home side wins a game it was not expected to. Home advantage in football is one of the most consistent patterns in the sport, and it matters when you build a [score prediction](/predict). Here is how large the effect is, what drives it and how to use it sensibly.
+Every fan knows the feeling: a visiting team looks nervous in a loud stadium, a decision goes the hosts' way, and the home side wins a game it was not expected to. Home advantage in soccer is one of the most consistent patterns in the sport, and it matters when you build a [score prediction](/predict). Here is how large the effect is, what drives it and how to use it sensibly.
 
 ## How big is it?
 

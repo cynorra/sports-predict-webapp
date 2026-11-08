@@ -1,29 +1,29 @@
 ---
-title: "Why Football Draws Happen and How Often to Expect Them"
-description: "Why football draws happen: low scoring, close teams and simple maths. Learn how often matches end level and when a draw is a smart score prediction."
-answer: "Why football draws happen is simple: few goals are scored, so the two sides often finish level. Roughly one match in four ends in a draw, and the rate rises when both teams are evenly matched and expected to score little."
+title: "Why Soccer Draws Happen and How Often to Expect Them"
+description: "Why soccer draws happen: low scoring, close teams and simple maths. Learn how often matches end level and when a draw is a smart score prediction."
+answer: "Why soccer draws happen is simple: few goals are scored, so the two sides often finish level. Roughly one match in four ends in a draw, and the rate rises when both teams are evenly matched and expected to score little."
 publishedAt: 2026-11-25T14:40:00.000Z
 sport: football
 image:
   src: "/images/why-football-draws-happen-and-how-often.svg"
   alt: "Soccer Games Today cover with a rising curve showing that the chance of a draw falls as two evenly matched teams are expected to score more goals"
-keywords: ["why football draws happen", "how often do football matches end in a draw", "draw probability football", "predicting draws"]
+keywords: ["why soccer draws happen", "how often do soccer matches end in a draw", "draw probability soccer", "predicting draws"]
 faq:
-  - q: "How often do football matches end in a draw?"
+  - q: "How often do soccer matches end in a draw?"
     a: "In most top leagues about a quarter of matches end level, though the exact share changes by league and season."
   - q: "Why are there fewer draws in basketball?"
-    a: "Basketball produces many points, so a tie after regulation is much rarer. Football's low scores make level finishes far more likely."
+    a: "Basketball produces many points, so a tie after regulation is much rarer. Soccer's low scores make level finishes far more likely."
   - q: "When is a draw a good prediction?"
     a: "When two evenly matched sides are expected to score little. Even then a draw is rarely the single most likely result, so pick it sparingly."
   - q: "Do draws favour the home team or the visitors?"
     a: "Neither by definition. A draw is more likely when teams are close in quality and the expected total of goals is low."
 ---
 
-A draw can feel like the least satisfying result, yet football produces them constantly. Understanding why helps you make better picks, because the instinct to ignore draws in a prediction game is one of the most common mistakes. This guide explains the mathematics behind level finishes, how the chance changes with team strength and scoring, and when a draw is the sensible forecast.
+A draw can feel like the least satisfying result, yet soccer produces them constantly. Understanding why helps you make better picks, because the instinct to ignore draws in a prediction game is one of the most common mistakes. This guide explains the mathematics behind level finishes, how the chance changes with team strength and scoring, and when a draw is the sensible forecast.
 
 ## Low scoring is the main cause
 
-The simplest explanation is the number of goals. A typical match has two to three goals in total, which leaves little room for the scores to drift apart. Compare that with a sport where teams score a hundred points: the gap between the sides grows quickly and a tie at the end is rare. In football a single goal often decides the match, and many matches end with no winner at all.
+The simplest explanation is the number of goals. A typical match has two to three goals in total, which leaves little room for the scores to drift apart. Compare that with a sport where teams score a hundred points: the gap between the sides grows quickly and a tie at the end is rare. In soccer a single goal often decides the match, and many matches end with no winner at all.
 
 You can see this directly in the [Poisson model](/guides/poisson-distribution-football-goals-explained). If two equal teams are each expected to score 0.8 goals, about 35% of their matches finish level. Raise each team's expectation to 1.8 goals and the draw chance falls to about 22%. The teams are equally matched in both cases. Only the number of goals changed.
 

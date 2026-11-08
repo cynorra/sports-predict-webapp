@@ -1,17 +1,17 @@
 ---
-title: "Poisson Distribution in Football: How Goals Are Modelled"
-description: "The Poisson distribution in football turns average goals into scoreline odds. See a worked example, the formula, its known weaknesses and how to use it."
-answer: "The Poisson distribution in football gives the chance of exactly 0, 1, 2 or more goals when you know the average number of goals a team scores. Football models use it to turn two goal averages into a table of scoreline probabilities."
+title: "Poisson Distribution in Soccer: How Goals Are Modelled"
+description: "The Poisson distribution in soccer turns average goals into scoreline odds. See a worked example, the formula, its known weaknesses and how to use it."
+answer: "The Poisson distribution in soccer gives the chance of exactly 0, 1, 2 or more goals when you know the average number of goals a team scores. Soccer models use it to turn two goal averages into a table of scoreline probabilities."
 publishedAt: 2026-11-09T21:43:00.000Z
 sport: football
 image:
   src: "/images/poisson-distribution-football-goals-explained.svg"
   alt: "Soccer Games Today cover with a bar chart of goal probabilities for a team that averages 1.4 goals, with one goal and zero goals the most likely counts"
-keywords: ["poisson distribution in football", "poisson model football goals", "football goal probability", "expected goals to scoreline"]
+keywords: ["poisson distribution in soccer", "poisson model soccer goals", "soccer goal probability", "expected goals to scoreline"]
 faq:
-  - q: "Why is the Poisson distribution used for football goals?"
+  - q: "Why is the Poisson distribution used for soccer goals?"
     a: "Goals are rare, countable events that arrive more or less independently over 90 minutes. The Poisson distribution is the standard tool for counting events like that when you only know the average rate."
-  - q: "Is the Poisson model perfectly accurate for football?"
+  - q: "Is the Poisson model perfectly accurate for soccer?"
     a: "No. It slightly misjudges how often low scores such as 0-0 and 1-1 occur, and it ignores that teams change tactics after scoring. It is a useful baseline, not a perfect description."
   - q: "What do I need to calculate it?"
     a: "Only the average number of goals each team is expected to score in the match. From those two numbers you can compute the chance of every scoreline."
@@ -23,7 +23,7 @@ When a commentator says a side is "due a goal", the claim hides a useful questio
 
 ## What the distribution actually does
 
-The Poisson distribution describes how many times a random event happens in a fixed window when you know its average rate. It is used for counting rare, scattered events such as calls reaching a switchboard, and it fits football reasonably well because goals share three traits with such events:
+The Poisson distribution describes how many times a random event happens in a fixed window when you know its average rate. It is used for counting rare, scattered events such as calls reaching a switchboard, and it fits soccer reasonably well because goals share three traits with such events:
 
 - They are rare compared with the number of attacks.
 - They can occur at any minute.

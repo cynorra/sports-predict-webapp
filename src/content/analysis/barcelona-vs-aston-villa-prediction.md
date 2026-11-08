@@ -29,7 +29,7 @@ faq:
     a: "Yes. Fans can enter their predicted scoreline before kickoff on the free prediction board to compete for leaderboard points."
 ---
 
-European football returns this week as Barcelona host Aston Villa in the league phase of the UEFA Champions League. This preview sets out what our statistical model says about the fixture: the two clubs' ratings, the expected goals, the probability of every scoreline and what the numbers cannot see.
+European soccer returns this week as Barcelona host Aston Villa in the league phase of the UEFA Champions League. This preview sets out what our statistical model says about the fixture: the two clubs' ratings, the expected goals, the probability of every scoreline and what the numbers cannot see.
 
 ## Elo ratings: how the two clubs compare
 
@@ -39,7 +39,7 @@ Ratings describe results so far, not tonight's team sheet. They do not know who 
 
 ## Expected goals and the scoreline
 
-Turning the 232-point gap into a share of the goals gives Barcelona about 2.1 expected goals and Aston Villa roughly 0.6. Converting these figures into probabilities yields a 74% win chance for Barcelona, 18% for a draw and 8% for an Aston Villa victory. For a plain-language explanation of how ratings become numbers like these, see our guide to [Elo ratings in football](/guides/elo-ratings-in-football-explained).
+Turning the 232-point gap into a share of the goals gives Barcelona about 2.1 expected goals and Aston Villa roughly 0.6. Converting these figures into probabilities yields a 74% win chance for Barcelona, 18% for a draw and 8% for an Aston Villa victory. For a plain-language explanation of how ratings become numbers like these, see our guide to [Elo ratings in soccer](/guides/elo-ratings-in-football-explained).
 
 <figure>
 <img src="/images/barcelona-vs-aston-villa-prediction-scorelines.svg" alt="Grid of exact-score probabilities for Barcelona against Aston Villa: 2-0 at 15.4% is the most likely, then 1-0 at 14.4%" width="1200" height="912" loading="lazy" decoding="async">
@@ -58,7 +58,7 @@ The model reads ratings and a home bonus, nothing else. Before kickoff, check th
 
 ## How home advantage affects this fixture
 
-As detailed in our breakdown of [home advantage in football](/guides/home-advantage-in-football-how-big-is-it), host clubs typically gain roughly a third of a goal compared with a neutral venue. Our model's 65-point bonus sits inside the range of 60 to 100 points described in that guide. It tilts the odds towards Barcelona without making the result certain.
+As detailed in our breakdown of [home advantage in soccer](/guides/home-advantage-in-football-how-big-is-it), host clubs typically gain roughly a third of a goal compared with a neutral venue. Our model's 65-point bonus sits inside the range of 60 to 100 points described in that guide. It tilts the odds towards Barcelona without making the result certain.
 
 ## Why the result matters in the league phase
 

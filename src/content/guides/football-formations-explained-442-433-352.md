@@ -1,13 +1,13 @@
 ---
-title: "Football Formations Explained: 4-4-2, 4-3-3 and 3-5-2"
-description: "Football formations explained in plain English: how to read numbers like 4-4-2, what 4-3-3 and 3-5-2 change on the pitch and why shapes shift during a match."
-answer: "Football formations explained simply: the numbers list outfield players from defence to attack, so 4-4-2 means four defenders, four midfielders and two forwards. The shape is a starting point that changes with and without the ball."
+title: "Soccer Formations Explained: 4-4-2, 4-3-3 and 3-5-2"
+description: "Soccer formations explained in plain English: how to read numbers like 4-4-2, what 4-3-3 and 3-5-2 change on the pitch and why shapes shift during a match."
+answer: "Soccer formations explained simply: the numbers list outfield players from defence to attack, so 4-4-2 means four defenders, four midfielders and two forwards. The shape is a starting point that changes with and without the ball."
 publishedAt: 2026-11-12T18:46:00.000Z
 sport: football
 image:
   src: "/images/football-formations-explained-442-433-352.svg"
   alt: "Soccer Games Today cover with three small pitch diagrams of the 4-4-2, 4-3-3 and 3-5-2 formations drawn as dots"
-keywords: ["football formations explained", "4-4-2 vs 4-3-3", "what does 4-3-3 mean", "3-5-2 formation"]
+keywords: ["soccer formations explained", "4-4-2 vs 4-3-3", "what does 4-3-3 mean", "3-5-2 formation"]
 faq:
   - q: "What do the numbers in a formation mean?"
     a: "They count the outfield players in each line, from defence to attack. The goalkeeper is not included, so the numbers add up to ten."
@@ -19,7 +19,7 @@ faq:
     a: "No. Player quality and execution matter far more. A formation changes where space appears, not which team is better."
 ---
 
-Before kickoff, broadcasters flash a graphic with numbers such as 4-2-3-1. It looks like code, but it is only a quick way to describe how a team lines up. Knowing how to read it helps you follow lineups, and it clarifies why managers talk about "changing shape" during a match. This guide covers football formations: the notation, the three classic shapes and what a shape can and cannot tell you.
+Before kickoff, broadcasters flash a graphic with numbers such as 4-2-3-1. It looks like code, but it is only a quick way to describe how a team lines up. Knowing how to read it helps you follow lineups, and it clarifies why managers talk about "changing shape" during a match. This guide covers soccer formations: the notation, the three classic shapes and what a shape can and cannot tell you.
 
 ## How to read the numbers
 
@@ -90,7 +90,7 @@ Treat these as modest adjustments. The [score prediction guide](/guides/how-to-p
 
 ## Further reading
 
-The Laws of the Game do not mention formations at all, since teams may line up as they wish within the rules. If you want a historical overview of how common shapes developed, the [Wikipedia article on formations in association football](https://en.wikipedia.org/wiki/Formation_(association_football)) summarises them and is a good place to continue.
+The Laws of the Game do not mention formations at all, since teams may line up as they wish within the rules. If you want a historical overview of how common shapes developed, the [Wikipedia article on formations in association soccer](https://en.wikipedia.org/wiki/Formation_(association_football)) summarises them and is a good place to continue.
 
 ## Sources
 

@@ -1,13 +1,13 @@
 ---
-title: "Expected Points in Football (xPts): A Worked Example"
-description: "Expected points in football turn match probabilities into a fair points tally. See how xPts is calculated, a worked example and why it beats the real table."
+title: "Expected Points in Soccer (xPts): A Worked Example"
+description: "Expected points in soccer turn match probabilities into a fair points tally. See how xPts is calculated, a worked example and why it beats the real table."
 answer: "Expected points weigh each possible result by its chance: three points times the win probability plus one point times the draw probability. Summed over a season, xPts shows what a team's chances deserved, not what luck delivered."
 publishedAt: 2026-11-13T20:22:00.000Z
 sport: football
 image:
   src: "/images/expected-points-xpts-football-explained.svg"
-  alt: "Soccer Games Today cover with two bars comparing expected points and actual points for a football match with a home-win chance near fifty percent"
-keywords: ["expected points in football", "xpts football", "expected points explained", "xpts vs actual points"]
+  alt: "Soccer Games Today cover with two bars comparing expected points and actual points for a soccer match with a home-win chance near fifty percent"
+keywords: ["expected points in soccer", "xpts soccer", "expected points explained", "xpts vs actual points"]
 faq:
   - q: "What does xPts mean?"
     a: "Expected points: the average number of league points a team would collect from a match, given the chances of a win, a draw and a defeat."

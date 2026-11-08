@@ -1,13 +1,13 @@
 ---
-title: "Football League Table Tiebreakers Explained Simply"
-description: "Football league table tiebreakers separate clubs level on points. See how goal difference, goals scored and head-to-head are ordered and why it matters."
-answer: "In a football league table, clubs level on points are separated by a fixed list of tiebreakers. Many, including the Premier League, check goal difference first, while La Liga looks at the head-to-head record between the tied clubs before anything else."
+title: "Soccer League Table Tiebreakers Explained Simply"
+description: "Soccer league table tiebreakers separate clubs level on points. See how goal difference, goals scored and head-to-head are ordered and why it matters."
+answer: "In a soccer league table, clubs level on points are separated by a fixed list of tiebreakers. Many, including the Premier League, check goal difference first, while La Liga looks at the head-to-head record between the tied clubs before anything else."
 publishedAt: 2026-11-10T18:35:00.000Z
 sport: football
 image:
   src: "/images/football-league-table-tiebreakers-explained.svg"
   alt: "Soccer Games Today cover with a league table where two teams on equal points are separated by goal difference, shown with a gold highlight"
-keywords: ["football league table tiebreakers", "goal difference vs head to head", "how football tables are decided", "league tiebreaker rules"]
+keywords: ["soccer league table tiebreakers", "goal difference vs head to head", "how soccer tables are decided", "league tiebreaker rules"]
 faq:
   - q: "What is goal difference?"
     a: "Goals scored minus goals conceded across all league matches. A team that scores 60 and concedes 40 has a goal difference of plus 20."
@@ -19,7 +19,7 @@ faq:
     a: "In the competition regulations published by the league or federation. They can change between seasons, so check the current edition."
 ---
 
-In a football league table, two clubs can finish a season on exactly the same number of points, and the order in which the table separates them can decide a title, a European place or relegation. The tiebreaker list looks like a technicality until it matters, and then every fan wants to know how it works. This guide explains the common methods, shows why the order of the list changes results, and points to where to read the rules for any competition.
+In a soccer league table, two clubs can finish a season on exactly the same number of points, and the order in which the table separates them can decide a title, a European place or relegation. The tiebreaker list looks like a technicality until it matters, and then every fan wants to know how it works. This guide explains the common methods, shows why the order of the list changes results, and points to where to read the rules for any competition.
 
 ## The basic idea
 

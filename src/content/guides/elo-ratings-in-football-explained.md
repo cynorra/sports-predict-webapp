@@ -1,29 +1,29 @@
 ---
-title: "Elo Ratings in Football: How They Work"
-description: "Elo ratings in football explained: the formula, how ratings change after a result, what home advantage and K-factor do, and where Elo falls short."
-answer: "Elo ratings in football give every team a number that rises after wins and falls after losses. The size of the change depends on the opponent's rating, so beating a strong team earns more than beating a weak one."
+title: "Elo Ratings in Soccer: How They Work"
+description: "Elo ratings in soccer explained: the formula, how ratings change after a result, what home advantage and K-factor do, and where Elo falls short."
+answer: "Elo ratings in soccer give every team a number that rises after wins and falls after losses. The size of the change depends on the opponent's rating, so beating a strong team earns more than beating a weak one."
 publishedAt: 2026-10-29T18:01:00.000Z
 sport: football
 image:
   src: "/images/elo-ratings-in-football-explained.svg"
   alt: "Soccer Games Today cover with an Elo curve: expected score rises from 50% at equal ratings to 76% at a 200-point gap"
-keywords: ["elo ratings in football", "football elo rating system", "elo rating formula", "team strength rating"]
+keywords: ["elo ratings in soccer", "soccer elo rating system", "elo rating formula", "team strength rating"]
 faq:
-  - q: "What does a 100-point Elo gap mean in football?"
+  - q: "What does a 100-point Elo gap mean in soccer?"
     a: "It gives the stronger side an expected score of about 64%, where a win counts as 1, a draw as 0.5 and a loss as 0. It is not a 64% chance of winning."
   - q: "Who invented the Elo rating system?"
-    a: "Arpad Elo, a Hungarian-American physics professor, created it for chess in the 1960s. It was later adapted for football, most visibly in the World Football Elo Ratings."
+    a: "Arpad Elo, a Hungarian-American physics professor, created it for chess in the 1960s. It was later adapted for soccer, most visibly in the World Soccer Elo Ratings."
   - q: "What is the K-factor?"
     a: "K controls how much a single result moves a rating. A higher K reacts faster to new results but is noisier, so competitive matches usually use a larger K than friendlies."
   - q: "Is Elo better than league position for judging teams?"
     a: "Usually, yes. Elo accounts for opponent strength and updates every match, while league tables mix different schedules and are slow to reflect changes in form."
 ---
 
-League tables tell you what has happened. A rating tells you how strong a team probably is, which is what you need to predict the next match. Elo ratings in football are one of the simplest and most widely used ways to get that number, and they sit at the start of the prediction model we describe on our [methodology page](/methodology). This guide explains how they work in plain terms.
+League tables tell you what has happened. A rating tells you how strong a team probably is, which is what you need to predict the next match. Elo ratings in soccer are one of the simplest and most widely used ways to get that number, and they sit at the start of the prediction model we describe on our [methodology page](/methodology). This guide explains how they work in plain terms.
 
 ## Where Elo comes from
 
-Arpad Elo designed the system to rank chess players. Each player has a rating; when two players meet, the rating gap predicts the result, and the real result then nudges both ratings. The same logic works for football clubs and national teams, with a few adjustments for draws, home advantage and goal margin.
+Arpad Elo designed the system to rank chess players. Each player has a rating; when two players meet, the rating gap predicts the result, and the real result then nudges both ratings. The same logic works for soccer clubs and national teams, with a few adjustments for draws, home advantage and goal margin.
 
 ## The core formula
 
@@ -72,11 +72,11 @@ The visitor's rating moves by the same amount in the opposite direction. Notice 
 
 K is the speed dial. A big K, such as 40 or 60, makes ratings respond quickly, which helps to track a team on a hot streak but also lets a lucky result distort the number. A small K, such as 20, produces stable ratings that react slowly. Systems often set K higher for important competitions than for friendlies.
 
-## Adjustments football needs
+## Adjustments soccer needs
 
-Chess has no home field and rarely ends in a thrashing, so football versions add two things:
+Chess has no home field and rarely ends in a thrashing, so soccer versions add two things:
 
-1. **Home advantage.** The home team receives a bonus, commonly in the range of 60 to 100 points, added to its rating only when calculating the expectation. Our model uses 65. We look at how large the effect really is in our guide to [home advantage in football](/guides/home-advantage-in-football-how-big-is-it).
+1. **Home advantage.** The home team receives a bonus, commonly in the range of 60 to 100 points, added to its rating only when calculating the expectation. Our model uses 65. We look at how large the effect really is in our guide to [home advantage in soccer](/guides/home-advantage-in-football-how-big-is-it).
 2. **Goal difference.** Some systems scale K upward for larger margins, so a 4-0 win moves ratings more than a 1-0 win.
 
 ## Why Elo is useful for predictions

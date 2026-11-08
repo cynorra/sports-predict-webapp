@@ -59,7 +59,7 @@ The update constant sets the balance:
 - **A larger constant** makes ratings react faster, but every upset moves them a lot, so they jump around.
 - **A smaller constant** gives steadier ratings, but takes longer to learn.
 
-There is no perfect value. Football rating systems usually pick a middle path and accept that new teams take time. Some systems use a larger constant for a team's first matches and a smaller one afterwards, but the version on this site keeps a single constant for simplicity.
+There is no perfect value. Soccer rating systems usually pick a middle path and accept that new teams take time. Some systems use a larger constant for a team's first matches and a smaller one afterwards, but the version on this site keeps a single constant for simplicity.
 
 ## Linking leagues makes it harder
 

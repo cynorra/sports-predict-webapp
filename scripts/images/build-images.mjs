@@ -703,7 +703,7 @@ for (const p of POSTS) {
   g += `<g fill="none" stroke="#fff" stroke-opacity="0.06" stroke-width="3"><circle cx="900" cy="315" r="230"/><line x1="900" y1="0" x2="900" y2="630"/><rect x="-40" y="195" width="170" height="240"/></g>`;
   g += `<rect x="80" y="150" width="64" height="10" fill="${GOLD}"/>`;
   g += t(80, 300, 'SCORE', { size: 150, weight: 800, fill: '#fff' }) + t(80 + textWidth('SCORE', 150, 800) + 6, 300, 'RADAR', { size: 150, weight: 800, fill: GOLD });
-  g += t(80, 380, 'Football predictions, match analysis and guides', { size: 42, weight: 700, fill: '#d6dbd8' });
+  g += t(80, 380, 'Soccer predictions, match analysis and guides', { size: 42, weight: 700, fill: '#d6dbd8' });
   g += t(80, 540, 'FREE SCORE PREDICTOR  ·  ELO + POISSON MODEL', { size: 28, weight: 700, fill: GOLD });
   const svg = svgDoc(1200, 630, 'Soccer Games Today', g);
   await sharp(Buffer.from(svg), { density: 96 }).resize(1200, 630).png({ compressionLevel: 9 }).toFile(join(ROOT, 'public', 'og-default.png'));

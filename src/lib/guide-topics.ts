@@ -5,8 +5,8 @@ export interface GuideTopic { id: string; title: string; blurb: string; slugs: s
 export const TOPICS: GuideTopic[] = [
   {
     id: 'score-predictions',
-    title: 'Football score predictions',
-    blurb: 'How to predict football scores step by step, why draws and low scores are more common than fans expect, and how the Soccer Games Today game awards points for soccer score predictions.',
+    title: 'Soccer score predictions',
+    blurb: 'How to predict soccer scores step by step, why draws and low scores are more common than fans expect, and how the Soccer Games Today game awards points for soccer score predictions.',
     slugs: [
       'how-to-predict-football-scores',
       'how-points-work-in-the-prediction-game',
@@ -19,7 +19,7 @@ export const TOPICS: GuideTopic[] = [
   {
     id: 'ratings-and-models',
     title: 'Ratings, xG and models',
-    blurb: 'The maths behind a football score forecast: Elo ratings, the Poisson distribution, expected goals (xG) and expected points, explained without jargon.',
+    blurb: 'The maths behind a soccer score forecast: Elo ratings, the Poisson distribution, expected goals (xG) and expected points, explained without jargon.',
     slugs: [
       'elo-ratings-in-football-explained',
       'poisson-distribution-football-goals-explained',

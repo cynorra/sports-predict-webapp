@@ -10,7 +10,7 @@ Eren Şimşir is the founder, software developer, and managing editor of Soccer 
 
 ### Background and Technical Focus
 
-With a background in software engineering and web technologies, Eren developed Soccer Games Today as an open, transparent football prediction game and analytical resource. His technical work focuses on:
+With a background in software engineering and web technologies, Eren developed Soccer Games Today as an open, transparent soccer prediction game and analytical resource. His technical work focuses on:
 
 - **Statistical Modeling**: Implementing rating systems such as Elo-based formulations and Poisson probability distributions to estimate match outcomes and expected goals without subjective bias.
 - **Data Engineering**: Building resilient data pipelines integrating live sports fixtures and results from providers like football-data.org.

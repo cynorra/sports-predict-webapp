@@ -1,10 +1,10 @@
 ---
 title: "About Soccer Games Today"
-description: "Soccer Games Today publishes data-driven football predictions, match analysis and guides, and runs a free score-prediction game for fans."
+description: "Soccer Games Today publishes data-driven soccer predictions, match analysis and guides, and runs a free score-prediction game for fans."
 updatedAt: 2026-10-31
 ---
 
-Soccer Games Today is an independent football and sports website with two jobs: explain matches with data, and let fans test their own judgement against a statistical model.
+Soccer Games Today is an independent soccer and sports website with two jobs: explain matches with data, and let fans test their own judgement against a statistical model.
 
 ## Who we are
 
@@ -13,7 +13,7 @@ Soccer Games Today was founded and is maintained by software engineer and editor
 ## What we publish
 
 - **Match analysis and predictions** for selected fixtures, with a model-based scoreline and win probabilities.
-- **Guides** on competition formats, rules and how to read football statistics.
+- **Guides** on competition formats, rules and how to read soccer statistics.
 - **A prediction game** where you enter scores before kickoff, earn points and compare yourself with other fans on the leaderboard.
 
 ## How we work

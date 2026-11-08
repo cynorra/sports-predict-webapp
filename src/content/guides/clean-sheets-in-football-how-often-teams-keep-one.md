@@ -1,13 +1,13 @@
 ---
-title: "Clean Sheets in Football: How Often Should a Team Keep One?"
-description: "Clean sheets in football depend on the opponent's chances as much as the defence. See how often to expect one, what the maths says and how to use it."
-answer: "Clean sheets in football mean conceding no goals. When the opponent is expected to score about 1.2 goals, the chance of keeping a clean sheet is roughly three in ten, and it rises sharply against weaker attacks."
+title: "Clean Sheets in Soccer: How Often Should a Team Keep One?"
+description: "Clean sheets in soccer depend on the opponent's chances as much as the defence. See how often to expect one, what the maths says and how to use it."
+answer: "Clean sheets in soccer mean conceding no goals. When the opponent is expected to score about 1.2 goals, the chance of keeping a clean sheet is roughly three in ten, and it rises sharply against weaker attacks."
 publishedAt: 2026-11-19T18:31:00.000Z
 sport: football
 image:
   src: "/images/clean-sheets-in-football-how-often-teams-keep-one.svg"
   alt: "Soccer Games Today cover with a falling curve showing the chance of a clean sheet shrinking as the opponent's expected goals rises"
-keywords: ["clean sheets in football", "clean sheet probability", "how often clean sheets happen", "goalkeeper clean sheet stat"]
+keywords: ["clean sheets in soccer", "clean sheet probability", "how often clean sheets happen", "goalkeeper clean sheet stat"]
 faq:
   - q: "What counts as a clean sheet?"
     a: "A clean sheet is a match in which a team concedes no goals. A 0-0 draw gives both sides one, and a 2-0 win gives one to the winners."

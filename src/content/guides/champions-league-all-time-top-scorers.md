@@ -80,7 +80,7 @@ Whether any of them reaches Ronaldo's 140 depends on how long they stay at clubs
 
 ## What the records mean for predictions
 
-A striker who scores in more than half of his appearances is rare: Opta puts Ronaldo at 51%, and these totals are the tail of the distribution rather than a template. When you pick a score, start from the competition's average and the strength gap, as explained in the guides to [how to predict football scores](/guides/how-to-predict-football-scores) and [expected goals](/guides/what-is-xg-expected-goals-explained), rather than from a star's reputation.
+A striker who scores in more than half of his appearances is rare: Opta puts Ronaldo at 51%, and these totals are the tail of the distribution rather than a template. When you pick a score, start from the competition's average and the strength gap, as explained in the guides to [how to predict soccer scores](/guides/how-to-predict-football-scores) and [expected goals](/guides/what-is-xg-expected-goals-explained), rather than from a star's reputation.
 
 You can compare your own picks with our model on upcoming Champions League fixtures in the free [score predictor](/predict).
 

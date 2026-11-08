@@ -66,7 +66,7 @@ The exact formulas and weights are different, so the two tables can disagree. A 
 
 ## What they cannot tell you
 
-National-team ratings face a particular problem: teams play few matches, often in different continents, so ratings can drift or rest on thin evidence. Friendlies are noisy because squads rotate. Rankings also ignore the selected lineup, so a squad without its best players can be far weaker than its rank suggests. The ideas in the guide on [small samples and form](/guides/small-samples-and-football-form-luck-or-skill) apply doubly to international football.
+National-team ratings face a particular problem: teams play few matches, often in different continents, so ratings can drift or rest on thin evidence. Friendlies are noisy because squads rotate. Rankings also ignore the selected lineup, so a squad without its best players can be far weaker than its rank suggests. The ideas in the guide on [small samples and form](/guides/small-samples-and-football-form-luck-or-skill) apply doubly to international soccer.
 
 ## Reading a ranking move sensibly
 

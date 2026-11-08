@@ -1,13 +1,13 @@
 ---
 title: "What Is xG? Expected Goals Explained for Fans"
-description: "What is xG in football? Expected goals explained: how xG is calculated, what a good number looks like and how to use it without being misled."
+description: "What is xG in soccer? Expected goals explained: how xG is calculated, what a good number looks like and how to use it without being misled."
 answer: "Expected goals explained: xG estimates how likely a shot is to become a goal, from 0 to 1, based on factors like distance and angle. Adding a team's shot values shows how many goals it should have scored."
 publishedAt: 2026-11-05T19:20:00.000Z
 sport: football
 image:
   src: "/images/what-is-xg-expected-goals-explained.svg"
   alt: "Soccer Games Today cover with a penalty area diagram where larger gold circles mark shots that are more likely to become goals"
-keywords: ["expected goals explained", "what is xg in football", "xg stats", "xg vs actual goals"]
+keywords: ["expected goals explained", "what is xg in soccer", "xg stats", "xg vs actual goals"]
 faq:
   - q: "What does an xG of 0.5 mean for a single shot?"
     a: "It means that, historically, shots taken in the same situation have gone in about half the time. Any one shot still either scores or does not."
@@ -21,7 +21,7 @@ faq:
     a: "It is a better guide to future scoring than past goals alone because it strips out luck, but it still needs context such as opponent quality, injuries and venue."
 ---
 
-Expected goals, or xG, is one of the few football statistics that has travelled from analyst spreadsheets to TV graphics so quickly. The idea behind it is simple, though the way it is often quoted ("Team A won the xG 2.4 to 0.6") hides how it works. This guide explains what xG measures, how it is built, where it misleads and how we use it when we produce a [match prediction](/predict).
+Expected goals, or xG, is one of the few soccer statistics that has travelled from analyst spreadsheets to TV graphics so quickly. The idea behind it is simple, though the way it is often quoted ("Team A won the xG 2.4 to 0.6") hides how it works. This guide explains what xG measures, how it is built, where it misleads and how we use it when we produce a [match prediction](/predict).
 
 ## The idea in one example
 
@@ -81,7 +81,7 @@ Picture a game that ends 1-0. The winners took eight shots worth a total of 0.9 
 
 ## Common misconceptions
 
-**"xG tells you who should have won."** It does not. It tells you how many goals an average finisher would have expected from the chances created. Football is not decided by an auditor.
+**"xG tells you who should have won."** It does not. It tells you how many goals an average finisher would have expected from the chances created. Soccer is not decided by an auditor.
 
 **"A player who beats his xG is a great finisher."** Maybe, but it takes a large sample, often several seasons, to tell skill from fortune.
 
@@ -89,7 +89,7 @@ Picture a game that ends 1-0. The winners took eight shots worth a total of 0.9 
 
 ## How we use xG in predictions
 
-Our model starts from team strength and estimates the expected goals for each side, then converts those figures into scoreline probabilities using a Poisson distribution, as set out on our [methodology page](/methodology). The model itself does not take xG as an input; its expected goals come from team ratings. xG is still a useful sanity check on form: if a team's results are far ahead of its chance creation, be cautious about expecting them to continue. For a step-by-step routine that puts these numbers to work, see how to [predict football scores](/guides/how-to-predict-football-scores).
+Our model starts from team strength and estimates the expected goals for each side, then converts those figures into scoreline probabilities using a Poisson distribution, as set out on our [methodology page](/methodology). The model itself does not take xG as an input; its expected goals come from team ratings. xG is still a useful sanity check on form: if a team's results are far ahead of its chance creation, be cautious about expecting them to continue. For a step-by-step routine that puts these numbers to work, see how to [predict soccer scores](/guides/how-to-predict-football-scores).
 
 ## A quick checklist before you quote xG
 

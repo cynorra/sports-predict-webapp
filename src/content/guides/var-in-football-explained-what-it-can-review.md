@@ -1,13 +1,13 @@
 ---
-title: "VAR in Football Explained: What It Can and Cannot Review"
-description: "VAR in football explained: the four situations the video assistant referee may review, who makes the final call and why some decisions still cause debate."
-answer: "VAR in football explained briefly: the video assistant referee may help only with four match-changing situations, goals, penalties, direct red cards and mistaken identity. The on-field referee still makes the final decision."
+title: "VAR in Soccer Explained: What It Can and Cannot Review"
+description: "VAR in soccer explained: the four situations the video assistant referee may review, who makes the final call and why some decisions still cause debate."
+answer: "VAR in soccer explained briefly: the video assistant referee may help only with four match-changing situations, goals, penalties, direct red cards and mistaken identity. The on-field referee still makes the final decision."
 publishedAt: 2026-11-18T15:21:00.000Z
 sport: football
 image:
   src: "/images/var-in-football-explained-what-it-can-review.svg"
   alt: "Soccer Games Today cover with a monitor icon and four labelled boxes for the situations a video assistant referee may review"
-keywords: ["var in football explained", "what can var review", "video assistant referee rules", "var decisions football"]
+keywords: ["var in soccer explained", "what can var review", "video assistant referee rules", "var decisions soccer"]
 faq:
   - q: "What can VAR review?"
     a: "Four things: goals and the offences leading to them, penalty decisions, direct red cards and mistaken identity in disciplinary decisions."
@@ -21,7 +21,7 @@ faq:
     a: "The International Football Association Board approved it as a permanent part of the Laws in 2018, and it was used at that year's men's World Cup."
 ---
 
-Few modern changes to football have caused as much argument as the video assistant referee. Fans see a goal disallowed after a long wait, a penalty awarded from a replay, or a close call that nobody agrees on. Much of the frustration comes from not knowing what VAR is allowed to do. The rules are narrower than many assume, and understanding them explains most of what happens on screen.
+Few modern changes to soccer have caused as much argument as the video assistant referee. Fans see a goal disallowed after a long wait, a penalty awarded from a replay, or a close call that nobody agrees on. Much of the frustration comes from not knowing what VAR is allowed to do. The rules are narrower than many assume, and understanding them explains most of what happens on screen.
 
 ## What VAR is
 

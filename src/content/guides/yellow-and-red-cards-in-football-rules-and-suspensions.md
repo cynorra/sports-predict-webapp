@@ -1,13 +1,13 @@
 ---
-title: "Yellow and Red Cards in Football: Rules and Suspensions"
-description: "Yellow and red cards in football explained: what earns a caution, which offences mean a straight red, what a sending-off costs a team and suspensions."
-answer: "Yellow and red cards in football work in a ladder: a yellow card is a caution; two yellow cards in one match become a red card. A straight red card is shown for serious offences. A player sent off cannot be replaced, so the team plays a player short."
+title: "Yellow and Red Cards in Soccer: Rules and Suspensions"
+description: "Yellow and red cards in soccer explained: what earns a caution, which offences mean a straight red, what a sending-off costs a team and suspensions."
+answer: "Yellow and red cards in soccer work in a ladder: a yellow card is a caution; two yellow cards in one match become a red card. A straight red card is shown for serious offences. A player sent off cannot be replaced, so the team plays a player short."
 publishedAt: 2026-11-20T14:00:00.000Z
 sport: football
 image:
   src: "/images/yellow-and-red-cards-in-football-rules-and-suspensions.svg"
   alt: "Soccer Games Today cover showing a yellow card and a red card side by side with a short label for each"
-keywords: ["yellow and red cards in football", "football card rules", "what is a straight red card", "football suspensions explained"]
+keywords: ["yellow and red cards in soccer", "soccer card rules", "what is a straight red card", "soccer suspensions explained"]
 faq:
   - q: "How many yellow cards equal a red card?"
     a: "Two yellow cards in the same match mean a red card and a sending-off. Yellow cards across different matches add up to suspensions only under each competition's own rules."
@@ -21,7 +21,7 @@ faq:
     a: "A red card can change a match sharply, but it cannot be forecast, so it is handled as a source of uncertainty rather than an input."
 ---
 
-Cards are football's way of signalling discipline. A yellow card warns a player, a red card ends their match. The basic idea is easy, but the details cause arguments: which offences earn which card, what a team loses after a sending-off and how suspensions carry into later matches. This guide sets out the rules, with the Laws of the Game as the source.
+Cards are soccer's way of signalling discipline. A yellow card warns a player, a red card ends their match. The basic idea is easy, but the details cause arguments: which offences earn which card, what a team loses after a sending-off and how suspensions carry into later matches. This guide sets out the rules, with the Laws of the Game as the source.
 
 ## The yellow card
 

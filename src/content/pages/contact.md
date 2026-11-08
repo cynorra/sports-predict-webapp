@@ -1,6 +1,6 @@
 ---
 title: "Contact Soccer Games Today"
-description: "Contact the Soccer Games Today team about corrections, partnerships, privacy requests or general questions about our football predictions and content."
+description: "Contact the Soccer Games Today team about corrections, partnerships, privacy requests or general questions about our soccer predictions and content."
 updatedAt: 2026-10-29
 ---
 

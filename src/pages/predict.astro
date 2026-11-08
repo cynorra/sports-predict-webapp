@@ -20,11 +20,11 @@ const updated = data?.generatedAt ? new Date(data.generatedAt).toLocaleDateStrin
 
 <Base
   title="Soccer Score Predictor Game"
-  description="Free football (soccer) score predictor: predict upcoming match scores, compare with our statistical model and earn points on the leaderboard."
+  description="Free soccer score predictor: predict upcoming match scores, compare with our statistical model and earn points on the leaderboard."
 >
   <p class="kicker">Free game</p>
   <h1 class="mt-1 text-6xl font-extrabold uppercase">Predict the <span class="hl">scores</span></h1>
-  <p class="mb-6 mt-3 max-w-2xl text-lg text-slate-700">A free football (soccer) score predictor: see the scoreline our model expects for each upcoming match, then pick your own before kickoff. Predictions lock when the match starts.</p>
+  <p class="mb-6 mt-3 max-w-2xl text-lg text-slate-700">A free soccer score predictor: see the scoreline our model expects for each upcoming match, then pick your own before kickoff. Predictions lock when the match starts.</p>
   {fixtures.length > 0 ? (
     <>
       <PredictionBoard client:load fixtures={fixtures} />

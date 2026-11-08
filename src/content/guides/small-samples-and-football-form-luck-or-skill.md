@@ -1,13 +1,13 @@
 ---
-title: "Football Form and Luck: Is a Hot Streak Just Chance?"
-description: "Football form and luck are tangled: five matches feel like a trend, but goals are noisy. See how small samples mislead and how to weigh form fairly."
-answer: "Football form and luck are hard to separate. A short run of results says less than it seems, because goals are rare and random. Even a team with a steady scoring average can look hot or cold over five matches, so blend recent form with the whole season."
+title: "Soccer Form and Luck: Is a Hot Streak Just Chance?"
+description: "Soccer form and luck are tangled: five matches feel like a trend, but goals are noisy. See how small samples mislead and how to weigh form fairly."
+answer: "Soccer form and luck are hard to separate. A short run of results says less than it seems, because goals are rare and random. Even a team with a steady scoring average can look hot or cold over five matches, so blend recent form with the whole season."
 publishedAt: 2026-11-11T18:51:00.000Z
 sport: football
 image:
   src: "/images/small-samples-and-football-form-luck-or-skill.svg"
   alt: "Soccer Games Today cover with a wide band showing how far a five-match goal average can drift from the true average of a team scoring 1.4 goals"
-keywords: ["football form and luck", "small sample size football", "regression to the mean football", "recent form predictions"]
+keywords: ["soccer form and luck", "small sample size soccer", "regression to the mean soccer", "recent form predictions"]
 faq:
   - q: "How many matches of form should I use?"
     a: "There is no magic number. Five is common but noisy, ten is steadier, and a full season is steadier still. A blend of recent and long-run numbers works better than either alone."
@@ -19,7 +19,7 @@ faq:
     a: "Often. Shot quality over many matches, such as expected goals, tends to settle faster than goals and wins."
 ---
 
-Every weekend someone declares a team "in form" after three wins or "in crisis" after two defeats. Sometimes they are right. Often they are describing noise. Football has so few goals that chance plays a large part in results, and that makes streaks much less informative than they feel. This guide explains how big the noise is and how to weigh recent form without being fooled by it.
+Every weekend someone declares a team "in form" after three wins or "in crisis" after two defeats. Sometimes they are right. Often they are describing noise. Soccer has so few goals that chance plays a large part in results, and that makes streaks much less informative than they feel. This guide explains how big the noise is and how to weigh recent form without being fooled by it.
 
 ## Goals are noisy by nature
 
@@ -77,7 +77,7 @@ This is the reasoning behind the steps in the [score prediction guide](/guides/h
 
 ## Testing yourself
 
-A good habit is to record your picks and compare them with results over dozens of matches, not a handful. The [prediction page](/predict) lets you do that. If you want to read more on how researchers think about luck and skill, a good starting point is the explanation of [regression toward the mean](https://en.wikipedia.org/wiki/Regression_toward_the_mean), which gives the general statistical idea behind the football examples above.
+A good habit is to record your picks and compare them with results over dozens of matches, not a handful. The [prediction page](/predict) lets you do that. If you want to read more on how researchers think about luck and skill, a good starting point is the explanation of [regression toward the mean](https://en.wikipedia.org/wiki/Regression_toward_the_mean), which gives the general statistical idea behind the soccer examples above.
 
 ## Sources
 

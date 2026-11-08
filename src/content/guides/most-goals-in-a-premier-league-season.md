@@ -27,7 +27,7 @@ The figures here come from the Premier League's own records page, ESPN's list of
 
 ## The record: 36 goals in a 38-game season
 
-Haaland's 36 goals came in 35 appearances, according to ESPN, in his first season in English football. He equalled the old mark of 34 at Fulham and then passed it with his 35th league goal in a 3-0 win over West Ham on 3 May 2023, a record-setting goal that Al Jazeera reported with his team-mates forming a guard of honour. At that point he still had five league matches left, and he finished on 36.
+Haaland's 36 goals came in 35 appearances, according to ESPN, in his first season in English soccer. He equalled the old mark of 34 at Fulham and then passed it with his 35th league goal in a 3-0 win over West Ham on 3 May 2023, a record-setting goal that Al Jazeera reported with his team-mates forming a guard of honour. At that point he still had five league matches left, and he finished on 36.
 
 The Premier League's records page lists the same figure twice, as the most goals in a season and as the most goals in a debut Premier League season. Nobody has scored more in their first season in the competition.
 
