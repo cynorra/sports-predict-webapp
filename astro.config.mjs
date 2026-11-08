@@ -7,7 +7,7 @@ import hideUnpublishedLinks from './scripts/lib/hide-unpublished-links.mjs';
 import { lastmodMap } from './scripts/lib/lastmod.mjs';
 
 // SITE_URL: yayına alırken gerçek alan adıyla değiştirin (canonical, sitemap, OG için şart)
-const site = process.env.SITE_URL ?? 'https://example.com';
+const site = process.env.SITE_URL ?? 'https://worldsportscores.com';
 
 const lastmod = lastmodMap(process.cwd());
 

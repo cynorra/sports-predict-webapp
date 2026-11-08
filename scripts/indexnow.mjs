@@ -1,5 +1,5 @@
 // Tells IndexNow-enabled search engines about posts that just went live.
-//   SITE_URL=https://your-domain.com node scripts/indexnow.mjs [--since-hours 3] [--dry]
+//   SITE_URL=https://worldsportscores.com node scripts/indexnow.mjs [--since-hours 3] [--dry]
 // Refuses to run against the placeholder domain. Needs the key file in public/ (see scripts/lib/indexnow.mjs).
 import { ENDPOINT, findKey, buildPayload, recentUrls } from './lib/indexnow.mjs';
 

@@ -1,12 +1,12 @@
 ---
 title: "Barcelona vs Aston Villa Prediction and Match Analysis"
 description: "Read a data-led Barcelona vs Aston Villa prediction with club Elo ratings, expected goals, tactical keys and model probability distributions."
-answer: "The ScoreRadar Barcelona vs Aston Villa prediction model projects a home victory, with a most probable scoreline of two goals to nil based on Elo ratings."
+answer: "The World Sport Scores Barcelona vs Aston Villa prediction model projects a home victory, with a most probable scoreline of two goals to nil based on Elo ratings."
 publishedAt: 2026-10-31T20:00:00.000Z
 sport: football
 image:
   src: "/images/barcelona-vs-aston-villa-prediction.svg"
-  alt: "ScoreRadar cover showing the model scoreline Barcelona 2-0 Aston Villa with win chances of 74%, 18% and 8%"
+  alt: "World Sport Scores cover showing the model scoreline Barcelona 2-0 Aston Villa with win chances of 74%, 18% and 8%"
 homeTeam: "Barça"
 awayTeam: "Aston Villa"
 homeCrest: "https://crests.football-data.org/81.png"
@@ -70,7 +70,7 @@ The model clearly favours Barcelona, but a 74% chance still leaves roughly one m
 
 ## Sources
 
-- [ScoreRadar methodology](/methodology), ScoreRadar. How the ratings, expected goals and Poisson probabilities in this preview are computed.
+- [World Sport Scores methodology](/methodology), World Sport Scores. How the ratings, expected goals and Poisson probabilities in this preview are computed.
 - [football-data.org API documentation](https://www.football-data.org/documentation/quickstart), football-data.org. The match results used to compute the club ratings.
 - [Maher (1982), "Modelling association football scores"](https://doi.org/10.1111/j.1467-9574.1982.tb00782.x), Statistica Neerlandica. The Poisson model of scores.
 - [UEFA, Champions League pages](https://www.uefa.com/uefachampionsleague/), UEFA. Official fixtures, standings and team news to check before kickoff.

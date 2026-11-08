@@ -6,7 +6,7 @@ publishedAt: 2026-11-05T19:20:00.000Z
 sport: football
 image:
   src: "/images/what-is-xg-expected-goals-explained.svg"
-  alt: "ScoreRadar cover with a penalty area diagram where larger gold circles mark shots that are more likely to become goals"
+  alt: "World Sport Scores cover with a penalty area diagram where larger gold circles mark shots that are more likely to become goals"
 keywords: ["expected goals explained", "what is xg in football", "xg stats", "xg vs actual goals"]
 faq:
   - q: "What does an xG of 0.5 mean for a single shot?"

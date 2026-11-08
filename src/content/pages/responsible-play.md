@@ -1,10 +1,10 @@
 ---
 title: "Responsible Play"
-description: "ScoreRadar is a free prediction game and information site, not a gambling service. Read how to keep sports predictions fun and where to find help."
+description: "World Sport Scores is a free prediction game and information site, not a gambling service. Read how to keep sports predictions fun and where to find help."
 updatedAt: 2026-10-29
 ---
 
-ScoreRadar is a free game and information site. You cannot stake money here and you cannot win money here.
+World Sport Scores is a free game and information site. You cannot stake money here and you cannot win money here.
 
 ## Our position on betting
 

@@ -6,7 +6,7 @@ publishedAt: 2026-12-01T19:37:00.000Z
 sport: football
 image:
   src: "/images/world-cup-all-time-top-scorers.svg"
-  alt: "ScoreRadar cover with bars for the World Cup all-time top scorers: Mbappé 22, Messi 21, Klose 16, Ronaldo 15 and Müller 14"
+  alt: "World Sport Scores cover with bars for the World Cup all-time top scorers: Mbappé 22, Messi 21, Klose 16, Ronaldo 15 and Müller 14"
 keywords: ["world cup top scorers", "world cup all-time top scorers", "most goals in fifa world cup", "highest goal scorer in world cup", "mbappe world cup goals"]
 faq:
   - q: "Who is the all-time top scorer at the World Cup?"

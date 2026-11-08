@@ -1,13 +1,13 @@
 ---
-title: "ScoreRadar Prediction Game: How the Points Work"
-description: "The ScoreRadar prediction game explained: ten points for an exact score, five for the right result and margin, three for the result, plus locks and ranking."
-answer: "In the ScoreRadar prediction game an exact score earns 10 points, the correct result with the right goal difference earns 5 and the correct result alone earns 3. Picks lock at kickoff and are scored on the 90-minute result."
+title: "World Sport Scores Prediction Game: How the Points Work"
+description: "The prediction game explained: ten points for an exact score, five for the right result and margin, three for the result, plus locks and ranking."
+answer: "In the World Sport Scores prediction game an exact score earns 10 points, the correct result with the right goal difference earns 5 and the correct result alone earns 3. Picks lock at kickoff and are scored on the 90-minute result."
 publishedAt: 2026-11-27T17:39:00.000Z
 sport: football
 image:
-  src: "/images/how-points-work-in-the-scoreradar-prediction-game.svg"
-  alt: "ScoreRadar cover with three tiers of points: ten for an exact score, five for the right result and goal difference, three for the right result"
-keywords: ["scoreradar prediction game", "score prediction game points", "football prediction game rules", "how prediction points are scored", "football score predictor", "soccer score predictions"]
+  src: "/images/how-points-work-in-the-prediction-game.svg"
+  alt: "World Sport Scores cover with three tiers of points: ten for an exact score, five for the right result and goal difference, three for the right result"
+keywords: ["world sport scores prediction game", "score prediction game points", "football prediction game rules", "how prediction points are scored", "football score predictor", "soccer score predictions"]
 faq:
   - q: "How many points is an exact score worth?"
     a: "Ten points. It is the only way to earn the top tier."
@@ -21,7 +21,7 @@ faq:
     a: "No. It is a free game for fun and bragging rights. There are no stakes, prizes paid for picks or bookmaker links."
 ---
 
-The ScoreRadar prediction game is a free football (soccer) score predictor: choose a scoreline for an upcoming match, collect points when the match is over, and climb the leaderboard. The rules are short, but a few details change how you should pick, so this page sets them out in one place. Everything here describes how the game works today.
+The World Sport Scores prediction game is a free football (soccer) score predictor: choose a scoreline for an upcoming match, collect points when the match is over, and climb the leaderboard. The rules are short, but a few details change how you should pick, so this page sets them out in one place. Everything here describes how the game works today.
 
 ## The three scoring tiers
 
@@ -44,7 +44,7 @@ The tiers are checked from the top, so a pick is only ever paid once, at the hig
 A draw pick follows the same pattern. If you pick 1-1 and the match ends 0-0, you have the right result and the same goal difference of zero, so you receive 5 points.
 
 <figure>
-<img src="/images/how-points-work-in-the-scoreradar-prediction-game-tiers.svg" alt="Three bars showing the points for an exact score, for the right result with the right goal difference, and for the right result alone: ten, five and three" width="1200" height="552" loading="lazy" decoding="async">
+<img src="/images/how-points-work-in-the-prediction-game-tiers.svg" alt="Three bars showing the points for an exact score, for the right result with the right goal difference, and for the right result alone: ten, five and three" width="1200" height="552" loading="lazy" decoding="async">
 <figcaption>The three scoring tiers. Most points come from getting the margin right, not just the winner.</figcaption>
 </figure>
 

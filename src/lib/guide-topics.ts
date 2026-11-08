@@ -6,10 +6,10 @@ export const TOPICS: GuideTopic[] = [
   {
     id: 'score-predictions',
     title: 'Football score predictions',
-    blurb: 'How to predict football scores step by step, why draws and low scores are more common than fans expect, and how the ScoreRadar game awards points for soccer score predictions.',
+    blurb: 'How to predict football scores step by step, why draws and low scores are more common than fans expect, and how the World Sport Scores game awards points for soccer score predictions.',
     slugs: [
       'how-to-predict-football-scores',
-      'how-points-work-in-the-scoreradar-prediction-game',
+      'how-points-work-in-the-prediction-game',
       'why-football-draws-happen-and-how-often',
       'home-advantage-in-football-how-big-is-it',
       'small-samples-and-football-form-luck-or-skill',
@@ -69,6 +69,6 @@ export function groupGuides<T extends { id: string; data: { publishedAt: Date } 
     return { ...t, items: items.sort(byDate) };
   });
   const rest = entries.filter((e) => !used.has(e.id)).sort(byDate);
-  if (rest.length) groups.push({ id: 'more', title: 'More guides', blurb: 'Further explainers from ScoreRadar.', slugs: [], items: rest });
+  if (rest.length) groups.push({ id: 'more', title: 'More guides', blurb: 'Further explainers from World Sport Scores.', slugs: [], items: rest });
   return groups.filter((g) => g.items.length > 0);
 }

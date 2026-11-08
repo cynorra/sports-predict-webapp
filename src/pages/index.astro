@@ -28,14 +28,14 @@ const blocks = [
   { label: 'News', href: '/news', sec: 'news', blurb: SECTIONS.news.blurb, items: await latest('news', 3) },
 ];
 const site = [
-  { '@type': 'WebSite', name: 'ScoreRadar', url: Astro.site?.href, inLanguage: 'en' },
-  { '@type': 'Organization', name: 'ScoreRadar', url: Astro.site?.href, logo: new URL('/logo.png', Astro.site).href },
+  { '@type': 'WebSite', name: 'World Sport Scores', url: Astro.site?.href, inLanguage: 'en' },
+  { '@type': 'Organization', name: 'World Sport Scores', url: Astro.site?.href, logo: new URL('/logo.png', Astro.site).href },
 ];
 ---
 
 <Base
-  title="ScoreRadar | Football Predictions, Match Analysis & Guides"
-  description="Data-driven football predictions, match analysis and guides. Predict scores, earn points and compete with friends."
+  title="World Sport Scores | Football Predictions, Match Analysis & Guides"
+  description="Football scores and results, data-driven predictions, match analysis and guides. Predict scores, earn points and compete."
   jsonLd={site}
 >
   <section class="border-b border-line pb-10">

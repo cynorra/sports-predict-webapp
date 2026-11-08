@@ -6,7 +6,7 @@ publishedAt: 2026-11-17T21:36:00.000Z
 sport: football
 image:
   src: "/images/elo-ratings-for-new-teams-why-few-matches-mean-doubt.svg"
-  alt: "ScoreRadar cover with a rating line rising slowly from 1500 toward a higher true strength as the number of matches grows"
+  alt: "World Sport Scores cover with a rating line rising slowly from 1500 toward a higher true strength as the number of matches grows"
 keywords: ["elo ratings for new teams", "elo rating starting value", "how fast elo converges", "elo rating reliability"]
 faq:
   - q: "What rating does a new team start with?"

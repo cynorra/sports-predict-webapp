@@ -1,12 +1,12 @@
 ---
 title: "Editorial Policy"
-description: "How ScoreRadar sources facts, labels predictions and corrects mistakes in its guides and match analysis."
+description: "How World Sport Scores sources facts, labels predictions and corrects mistakes in its guides and match analysis."
 updatedAt: 2026-11-07
 ---
 
-## Who writes ScoreRadar
+## Who writes World Sport Scores
 
-Every guide and match analysis on ScoreRadar is published under the name of its author, [Eren Şimşir](/author), who is responsible for what appears on the site. If something is wrong, it is the author's job to fix it.
+Every guide and match analysis on World Sport Scores is published under the name of its author, [Eren Şimşir](/author), who is responsible for what appears on the site. If something is wrong, it is the author's job to fix it.
 
 ## Where the facts come from
 
@@ -26,4 +26,4 @@ If we get something wrong, we correct it and note the change at the top of the a
 
 ## Independence and advertising
 
-Advertising does not influence what is written. ScoreRadar does not accept payment for predictions and does not link to betting operators.
+Advertising does not influence what is written. World Sport Scores does not accept payment for predictions and does not link to betting operators.

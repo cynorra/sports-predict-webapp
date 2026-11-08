@@ -346,7 +346,7 @@ function figLadder() {
 }
 
 function figTiers() {
-  const w = 1200, note = 'ScoreRadar scoring: exact score 10, correct result and goal difference 5, correct result 3. Scored on the result after 90 minutes plus stoppage time.';
+  const w = 1200, note = 'World Sport Scores scoring: exact score 10, correct result and goal difference 5, correct result 3. Scored on the result after 90 minutes plus stoppage time.';
   const h = 480 + noteH(note);
   const rows = [['Exact score', 10, GOLD, INK], ['Right result + goal difference', 5, PITCH, '#fff'], ['Right result only', 3, '#64748b', '#fff']];
   let g = '';
@@ -661,7 +661,7 @@ const POSTS = [
   { section: 'guides', slug: 'small-samples-and-football-form-luck-or-skill', kicker: 'Guide · Form', motif: 'band', figs: { band: figFormBand } },
   { section: 'guides', slug: 'why-football-draws-happen-and-how-often', kicker: 'Guide · Results', motif: 'draws', figs: { curve: figDrawCurve } },
   { section: 'guides', slug: 'extra-time-and-penalty-shootouts-explained', kicker: 'Guide · Rules', motif: 'ladder', figs: { ladder: figLadder } },
-  { section: 'guides', slug: 'how-points-work-in-the-scoreradar-prediction-game', kicker: 'Guide · The game', motif: 'tiers', figs: { tiers: figTiers } },
+  { section: 'guides', slug: 'how-points-work-in-the-prediction-game', kicker: 'Guide · The game', motif: 'tiers', figs: { tiers: figTiers } },
   { section: 'guides', slug: 'world-cup-all-time-top-scorers', kicker: 'Guide · World Cup', motif: 'scorers', figs: { list: figWcScorers } },
   { section: 'guides', slug: 'most-goals-in-a-premier-league-season', kicker: 'Guide · Records', motif: 'plrecord', figs: { seasons: figPlSeasons } },
   { section: 'guides', slug: 'champions-league-all-time-top-scorers', kicker: 'Guide · Champions League', motif: 'clscorers', figs: { list: figClScorers } },
@@ -705,7 +705,7 @@ for (const p of POSTS) {
   g += t(80, 300, 'SCORE', { size: 150, weight: 800, fill: '#fff' }) + t(80 + textWidth('SCORE', 150, 800) + 6, 300, 'RADAR', { size: 150, weight: 800, fill: GOLD });
   g += t(80, 380, 'Football predictions, match analysis and guides', { size: 42, weight: 700, fill: '#d6dbd8' });
   g += t(80, 540, 'FREE SCORE PREDICTOR  ·  ELO + POISSON MODEL', { size: 28, weight: 700, fill: GOLD });
-  const svg = svgDoc(1200, 630, 'ScoreRadar', g);
+  const svg = svgDoc(1200, 630, 'World Sport Scores', g);
   await sharp(Buffer.from(svg), { density: 96 }).resize(1200, 630).png({ compressionLevel: 9 }).toFile(join(ROOT, 'public', 'og-default.png'));
   console.log('og-default.png');
 }

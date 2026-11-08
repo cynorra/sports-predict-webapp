@@ -1,4 +1,4 @@
-# ScoreRadar
+# World Sport Scores
 
 A free English-language football score prediction game with an editorial section (guides and match analysis).
 Built with Astro 5 (static output) and a React island for `/predict`, `/leaderboard` and `/profile`.

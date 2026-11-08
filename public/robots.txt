@@ -27,5 +27,5 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-# Replace example.com with the production domain before launch
-Sitemap: https://example.com/sitemap-index.xml
+# Production domain
+Sitemap: https://worldsportscores.com/sitemap-index.xml

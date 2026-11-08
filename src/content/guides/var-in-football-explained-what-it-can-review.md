@@ -6,7 +6,7 @@ publishedAt: 2026-11-18T15:21:00.000Z
 sport: football
 image:
   src: "/images/var-in-football-explained-what-it-can-review.svg"
-  alt: "ScoreRadar cover with a monitor icon and four labelled boxes for the situations a video assistant referee may review"
+  alt: "World Sport Scores cover with a monitor icon and four labelled boxes for the situations a video assistant referee may review"
 keywords: ["var in football explained", "what can var review", "video assistant referee rules", "var decisions football"]
 faq:
   - q: "What can VAR review?"

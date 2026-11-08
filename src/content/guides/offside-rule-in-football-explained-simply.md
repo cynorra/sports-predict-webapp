@@ -6,7 +6,7 @@ publishedAt: 2026-11-16T15:47:00.000Z
 sport: football
 image:
   src: "/images/offside-rule-in-football-explained-simply.svg"
-  alt: "ScoreRadar cover with a pitch diagram showing an attacker level with the second-last defender and another attacker beyond the line"
+  alt: "World Sport Scores cover with a pitch diagram showing an attacker level with the second-last defender and another attacker beyond the line"
 keywords: ["offside rule in football", "what is offside", "offside rule explained", "offside position vs offside offence"]
 faq:
   - q: "Is a player offside if they are level with the last defender?"

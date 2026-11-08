@@ -6,7 +6,7 @@ publishedAt: 2026-11-25T14:40:00.000Z
 sport: football
 image:
   src: "/images/why-football-draws-happen-and-how-often.svg"
-  alt: "ScoreRadar cover with a rising curve showing that the chance of a draw falls as two evenly matched teams are expected to score more goals"
+  alt: "World Sport Scores cover with a rising curve showing that the chance of a draw falls as two evenly matched teams are expected to score more goals"
 keywords: ["why football draws happen", "how often do football matches end in a draw", "draw probability football", "predicting draws"]
 faq:
   - q: "How often do football matches end in a draw?"
@@ -54,7 +54,7 @@ Competition rules matter too: a team that only needs a draw in a final group mat
 
 1. **Check the expected total.** If you expect a low-scoring match, take draws seriously.
 2. **Check the quality gap.** If the sides are close in rating, the draw rises.
-3. **Do not predict a draw just to hedge.** The scoring in a prediction game, explained in [how points work in the ScoreRadar prediction game](/guides/how-points-work-in-the-scoreradar-prediction-game), rewards the exact result, so choose the specific scoreline you believe in.
+3. **Do not predict a draw just to hedge.** The scoring in a prediction game, explained in [how points work in the World Sport Scores prediction game](/guides/how-points-work-in-the-prediction-game), rewards the exact result, so choose the specific scoreline you believe in.
 4. **Remember home advantage.** It tilts a level game toward the hosts, so a home win often edges the draw. See [home advantage](/guides/home-advantage-in-football-how-big-is-it).
 
 ## What a draw is worth in the table

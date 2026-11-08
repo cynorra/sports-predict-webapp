@@ -6,7 +6,7 @@ publishedAt: 2026-11-02T15:07:00.000Z
 sport: football
 image:
   src: "/images/home-advantage-in-football-how-big-is-it.svg"
-  alt: "ScoreRadar cover with three bars showing typical top-league results: home win 45%, draw 25% and away win 30%"
+  alt: "World Sport Scores cover with three bars showing typical top-league results: home win 45%, draw 25% and away win 30%"
 keywords: ["home advantage in football", "home field advantage soccer", "home win percentage", "empty stadium home advantage"]
 faq:
   - q: "How often do home teams win in football?"
