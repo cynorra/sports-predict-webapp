@@ -1,6 +1,6 @@
 ---
 title: "Prediction Methodology"
-description: "How Soccer Scores Today produces football score predictions: Elo ratings, expected goals, a Poisson score model and how we grade accuracy in public."
+description: "How Soccer Games Today produces football score predictions: Elo ratings, expected goals, a Poisson score model and how we grade accuracy in public."
 updatedAt: 2026-10-29
 ---
 

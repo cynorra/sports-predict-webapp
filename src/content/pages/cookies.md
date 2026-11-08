@@ -1,6 +1,6 @@
 ---
 title: "Cookie Policy"
-description: "Which cookies Soccer Scores Today and its advertising partners use, why they are used and how to control or disable them in your browser."
+description: "Which cookies Soccer Games Today and its advertising partners use, why they are used and how to control or disable them in your browser."
 updatedAt: 2026-10-29
 ---
 

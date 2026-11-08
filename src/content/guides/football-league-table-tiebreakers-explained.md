@@ -6,7 +6,7 @@ publishedAt: 2026-11-10T18:35:00.000Z
 sport: football
 image:
   src: "/images/football-league-table-tiebreakers-explained.svg"
-  alt: "Soccer Scores Today cover with a league table where two teams on equal points are separated by goal difference, shown with a gold highlight"
+  alt: "Soccer Games Today cover with a league table where two teams on equal points are separated by goal difference, shown with a gold highlight"
 keywords: ["football league table tiebreakers", "goal difference vs head to head", "how football tables are decided", "league tiebreaker rules"]
 faq:
   - q: "What is goal difference?"

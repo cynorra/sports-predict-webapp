@@ -6,7 +6,7 @@ publishedAt: 2026-11-20T14:00:00.000Z
 sport: football
 image:
   src: "/images/yellow-and-red-cards-in-football-rules-and-suspensions.svg"
-  alt: "Soccer Scores Today cover showing a yellow card and a red card side by side with a short label for each"
+  alt: "Soccer Games Today cover showing a yellow card and a red card side by side with a short label for each"
 keywords: ["yellow and red cards in football", "football card rules", "what is a straight red card", "football suspensions explained"]
 faq:
   - q: "How many yellow cards equal a red card?"

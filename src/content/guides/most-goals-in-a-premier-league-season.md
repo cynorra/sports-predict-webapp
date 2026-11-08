@@ -6,7 +6,7 @@ publishedAt: 2026-11-30T16:28:00.000Z
 sport: football
 image:
   src: "/images/most-goals-in-a-premier-league-season.svg"
-  alt: "Soccer Scores Today cover with bars for the most goals in a Premier League season: Haaland 36, Shearer 34, Cole 34 and Salah 32"
+  alt: "Soccer Games Today cover with bars for the most goals in a Premier League season: Haaland 36, Shearer 34, Cole 34 and Salah 32"
 keywords: ["most goals in a premier league season", "premier league goals record", "premier league top scorers", "most premier league goals", "erling haaland premier league record"]
 faq:
   - q: "Who has scored the most goals in a Premier League season?"

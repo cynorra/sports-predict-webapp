@@ -6,7 +6,7 @@ publishedAt: 2026-11-09T21:43:00.000Z
 sport: football
 image:
   src: "/images/poisson-distribution-football-goals-explained.svg"
-  alt: "Soccer Scores Today cover with a bar chart of goal probabilities for a team that averages 1.4 goals, with one goal and zero goals the most likely counts"
+  alt: "Soccer Games Today cover with a bar chart of goal probabilities for a team that averages 1.4 goals, with one goal and zero goals the most likely counts"
 keywords: ["poisson distribution in football", "poisson model football goals", "football goal probability", "expected goals to scoreline"]
 faq:
   - q: "Why is the Poisson distribution used for football goals?"

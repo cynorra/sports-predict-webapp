@@ -28,13 +28,13 @@ const blocks = [
   { label: 'News', href: '/news', sec: 'news', blurb: SECTIONS.news.blurb, items: await latest('news', 3) },
 ];
 const site = [
-  { '@type': 'WebSite', name: 'Soccer Scores Today', url: Astro.site?.href, inLanguage: 'en' },
-  { '@type': 'Organization', name: 'Soccer Scores Today', url: Astro.site?.href, logo: new URL('/logo.png', Astro.site).href },
+  { '@type': 'WebSite', name: 'Soccer Games Today', url: Astro.site?.href, inLanguage: 'en' },
+  { '@type': 'Organization', name: 'Soccer Games Today', url: Astro.site?.href, logo: new URL('/logo.png', Astro.site).href },
 ];
 ---
 
 <Base
-  title="Soccer Scores Today: Results, Predictions & Match Analysis"
+  title="Soccer Games Today: Scores, Fixtures & Predictions"
   description="Soccer scores and results, data-driven predictions, match analysis and guides. Predict scores, earn points and compete."
   jsonLd={site}
 >

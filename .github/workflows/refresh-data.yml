@@ -61,6 +61,13 @@ jobs:
           SPORTAPI_KEY: ${{ secrets.SPORTAPI_KEY }}
         run: node scripts/sync-results.mjs
 
+      # Scheduled matches for /soccer-games-today. Same key, same rules: skipped without the secret, never fails the refresh.
+      - name: Sync upcoming matches
+        continue-on-error: true
+        env:
+          SPORTAPI_KEY: ${{ secrets.SPORTAPI_KEY }}
+        run: node scripts/sync-upcoming.mjs
+
       # Server-trusted copy of the fixtures so Firestore rules can lock predictions at the real kickoff.
       # The service account (full admin access to Firestore) is handed to this one step only. Skipped if the secret is unset.
       - name: Mirror fixtures to Firestore
@@ -71,13 +78,13 @@ jobs:
       - name: Commit if the data changed
         id: commit
         run: |
-          if git diff --quiet -- src/data/fixtures.json src/data/results.json && [ -z "$(git ls-files --others --exclude-standard src/data)" ]; then
+          if git diff --quiet -- src/data/fixtures.json src/data/results.json src/data/upcoming.json && [ -z "$(git ls-files --others --exclude-standard src/data)" ]; then
             echo "changed=false" >> "$GITHUB_OUTPUT"; echo "data unchanged"; exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/data/fixtures.json src/data/results.json
-          git commit -m "data: refresh fixtures, ratings and results"
+          git add src/data/fixtures.json src/data/results.json src/data/upcoming.json
+          git commit -m "data: refresh fixtures, ratings, results and schedule"
           git push
           echo "changed=true" >> "$GITHUB_OUTPUT"
 

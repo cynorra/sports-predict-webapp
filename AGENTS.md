@@ -1,4 +1,4 @@
-# Soccer Scores Today - project rules
+# Soccer Games Today - project rules
 
 English-language (en-US) football prediction + editorial site. Astro 5 (static) + React island for `/predict`, `/leaderboard`, and `/profile`. Firebase (Auth + client Firestore + admin Firestore REST scoring in GitHub Actions) is live and operational.
 Rules below are adapted from `D:\android-projeler\yukle-next\universal-adsense-site-standard.md` (read it for the reasoning).
@@ -8,7 +8,7 @@ Rules below are adapted from `D:\android-projeler\yukle-next\universal-adsense-s
 - It has NO scouts, analysts, insiders, surveys, hands-on testing or match attendance. Never write "we tested/analyzed/found", "our data/analysts/sources", "I've seen", "as a former scout".
 - Numbers need a named public source. Title, description and short answer contain no percentages/currency.
 - No betting advice, tipster language, bookmaker names or affiliate links. The site is a free prediction game.
-- Pages must not describe features that do not exist yet. Currently live features: free score predictor, Google sign-in pick persistence, nickname configuration, public leaderboard, personal history profile, and a football results page (`/results`, final scores of the main European competitions, refreshed ~3x/day, NOT live).
+- Pages must not describe features that do not exist yet. Currently live features: free score predictor, Google sign-in pick persistence, nickname configuration, public leaderboard, personal history profile, and a football results page (`/results`, final scores of the main European competitions, refreshed ~3x/day, NOT live) and a schedule page (`/soccer-games-today`, scheduled games for today and the next 3 days, US Eastern kickoff times, `scripts/sync-upcoming.mjs`, NOT live).
 - `methodology` / `editorial-policy` promise things (published track record, human review of every article). Keep those promises true or soften the text.
 
 ## Enforcement (code, not prompts)

@@ -6,7 +6,7 @@ publishedAt: 2026-11-12T18:46:00.000Z
 sport: football
 image:
   src: "/images/football-formations-explained-442-433-352.svg"
-  alt: "Soccer Scores Today cover with three small pitch diagrams of the 4-4-2, 4-3-3 and 3-5-2 formations drawn as dots"
+  alt: "Soccer Games Today cover with three small pitch diagrams of the 4-4-2, 4-3-3 and 3-5-2 formations drawn as dots"
 keywords: ["football formations explained", "4-4-2 vs 4-3-3", "what does 4-3-3 mean", "3-5-2 formation"]
 faq:
   - q: "What do the numbers in a formation mean?"

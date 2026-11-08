@@ -1,0 +1,67 @@
+---
+import Base from '../layouts/Base.astro';
+import { groupUpcoming } from '../../scripts/lib/results.mjs';
+
+// Real schedule only: src/data/upcoming.json is written by `node scripts/sync-upcoming.mjs` (SportAPI). No file = honest empty state.
+const files = import.meta.glob('../data/upcoming.json', { eager: true }) as Record<string, any>;
+const data = Object.values(files)[0]?.default ?? Object.values(files)[0];
+const days = data?.matches?.length ? groupUpcoming(data.matches) : [];
+const updated = data?.generatedAt
+  ? new Date(data.generatedAt).toLocaleString('en-US', { day: 'numeric', month: 'long', hour: 'numeric', minute: '2-digit', timeZone: 'America/New_York' }) + ' ET'
+  : null;
+const heading = (d: string) => new Date(`${d}T12:00:00Z`).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', timeZone: 'UTC' });
+const time = (k: string) => new Date(k).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'America/New_York' });
+const byLeague = (matches: any[]) => {
+  const out: [string, any[]][] = [];
+  for (const m of matches) {
+    const last = out[out.length - 1];
+    if (last && last[0] === m.league) last[1].push(m); else out.push([m.league, [m]]);
+  }
+  return out;
+};
+const total = days.reduce((n, d) => n + d.matches.length, 0);
+---
+
+<Base
+  title="Soccer Games Today: Schedule and Kickoff Times (ET)"
+  description="Soccer games today and over the next days: Premier League, Champions League, La Liga, Bundesliga, Serie A, Ligue 1, MLS and Liga MX, with US Eastern kickoff times."
+  noindex={days.length === 0}
+>
+  <p class="kicker">Match schedule</p>
+  <h1 class="mt-1 text-6xl font-extrabold uppercase">Soccer games <span class="hl">today</span></h1>
+  <p class="mt-3 max-w-2xl text-lg text-slate-700">
+    Scheduled soccer games from the Premier League, Champions League, Europa League, La Liga, Bundesliga, Serie A, Ligue 1, Eredivisie, Primeira Liga, MLS, Liga MX and the FA Cup for today and the next few days. Kickoff times are US Eastern Time. This is a schedule, not a live scoreboard: it is refreshed a few times a day{updated && <>, last on {updated}</>}, and kickoff times can change.
+  </p>
+
+  {days.length === 0 ? (
+    <div class="card mt-8 p-6">
+      <p class="font-semibold">No scheduled games are loaded right now.</p>
+      <p class="mt-1 text-slate-600">The schedule appears here when the data is refreshed. In the meantime, see the <a class="text-pitch underline" href="/results">latest soccer scores</a> or try the <a class="text-pitch underline" href="/predict">score predictor</a>.</p>
+    </div>
+  ) : (
+    <>
+      {days.map((d) => (
+        <section class="mt-10">
+          <div class="rule-title"><h2 class="text-4xl font-extrabold uppercase">{heading(d.date)}</h2><span class="text-sm text-slate-500">{d.matches.length} {d.matches.length === 1 ? 'game' : 'games'}</span></div>
+          {byLeague(d.matches).map(([league, ms]) => (
+            <div class="mt-5">
+              <h3 class="kicker">{league}</h3>
+              <ul class="card mt-2 max-w-3xl divide-y divide-line">
+                {ms.map((m) => (
+                  <li class="grid grid-cols-[1fr_auto_1fr] items-center gap-3 px-4 py-3">
+                    <span class="text-right text-sm font-semibold sm:text-base">{m.home}</span>
+                    <time class="digit px-2.5 py-0.5 text-lg" datetime={m.kickoff}>{time(m.kickoff)}</time>
+                    <span class="text-sm font-semibold sm:text-base">{m.away}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </section>
+      ))}
+      <p class="mt-10 max-w-2xl text-sm text-slate-600">
+        {total} scheduled {total === 1 ? 'game' : 'games'} in the window. Midweek days can be quiet during international breaks. Finished games move to the <a class="text-pitch underline" href="/results">soccer scores page</a>, and you can predict upcoming scores in the free <a class="text-pitch underline" href="/predict">score predictor game</a>. Schedule data: {data?.source}.
+      </p>
+    </>
+  )}
+</Base>

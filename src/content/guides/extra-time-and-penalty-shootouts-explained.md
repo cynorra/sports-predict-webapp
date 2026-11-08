@@ -6,7 +6,7 @@ publishedAt: 2026-11-24T21:24:00.000Z
 sport: football
 image:
   src: "/images/extra-time-and-penalty-shootouts-explained.svg"
-  alt: "Soccer Scores Today cover with a timeline showing 90 minutes, then 30 minutes of extra time, then a penalty shootout to decide a knockout tie"
+  alt: "Soccer Games Today cover with a timeline showing 90 minutes, then 30 minutes of extra time, then a penalty shootout to decide a knockout tie"
 keywords: ["extra time and penalty shootouts", "how penalty shootouts work", "extra time rules football", "knockout tie breakers"]
 faq:
   - q: "How long is extra time in football?"
