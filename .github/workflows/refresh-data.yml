@@ -9,7 +9,7 @@
 # Setup: Settings -> Secrets and variables -> Actions -> New repository secret: FOOTBALL_DATA_TOKEN.
 # Optional secret SPORTAPI_KEY (sportapi.ai) feeds the /results page.
 # Optional secret FIREBASE_SERVICE_ACCOUNT (full service-account JSON) mirrors fixtures to Firestore for the prediction lock.
-# Optional secret DEPLOY_HOOK_URL (Vercel/Netlify/Cloudflare deploy hook) if the host is not connected to git pushes.
+# Deploys go through deploy.yml (Cloudflare Pages direct upload): secret CLOUDFLARE_API_TOKEN + variables CLOUDFLARE_ACCOUNT_ID, SITE_URL.
 name: refresh-data
 on:
   schedule:
@@ -28,6 +28,8 @@ jobs:
     if: github.repository == 'cynorra/sports-predict-webapp' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
     permissions:
       contents: write
     steps:
@@ -88,10 +90,11 @@ jobs:
           git push
           echo "changed=true" >> "$GITHUB_OUTPUT"
 
-      # Only for hosts that do not redeploy on git push. Skipped silently when the secret is not set.
-      - name: Trigger deploy hook
-        if: steps.commit.outputs.changed == 'true'
-        env:
-          HOOK: ${{ secrets.DEPLOY_HOOK_URL }}
-        run: |
-          if [ -n "$HOOK" ]; then curl --fail --silent --show-error -X POST "$HOOK" > /dev/null; else echo "no DEPLOY_HOOK_URL, relying on push-triggered deploy"; fi
+  # Bot commits made with GITHUB_TOKEN do not trigger the push workflow, so a changed-data run calls the deploy workflow directly.
+  deploy:
+    needs: refresh
+    if: needs.refresh.outputs.changed == 'true'
+    permissions:
+      contents: read
+    uses: ./.github/workflows/deploy.yml
+    secrets: inherit

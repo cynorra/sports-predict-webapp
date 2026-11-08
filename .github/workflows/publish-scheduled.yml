@@ -1,9 +1,9 @@
 # Rebuilds the site when a scheduled post has just gone live. Posts are static, so a post dated in the past only
 # appears after the next build. Runs hourly Mon-Fri inside the publishing window (09:00-17:00 US Eastern = 13:00-22:00
-# UTC across daylight saving) and triggers the host's deploy hook ONLY if the schedule script says something is due.
+# UTC across daylight saving) and calls deploy.yml (Cloudflare Pages) ONLY if the schedule script says something is due.
 # (every automation step has its own "nothing to do today" guard; cron is limited to weekdays.)
 #
-# Setup: add the repository secret DEPLOY_HOOK_URL (Vercel / Netlify / Cloudflare Pages deploy hook).
+# Setup: repository secret CLOUDFLARE_API_TOKEN and variables CLOUDFLARE_ACCOUNT_ID, SITE_URL (see deploy.yml).
 # No npm install: the scripts used here need only Node built-ins. Actions are pinned to commit SHAs.
 name: publish-scheduled
 on:
@@ -23,6 +23,8 @@ jobs:
     if: github.repository == 'cynorra/sports-predict-webapp' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    outputs:
+      due: ${{ steps.due.outputs.due }}
     permissions:
       contents: read
     steps:
@@ -41,19 +43,36 @@ jobs:
       - id: due
         run: |
           if node scripts/schedule-posts.mjs --due; then echo "due=true" >> "$GITHUB_OUTPUT"; else echo "due=false" >> "$GITHUB_OUTPUT"; fi
-      - name: Trigger deploy
-        if: steps.due.outputs.due == 'true' || github.event_name == 'workflow_dispatch'
-        env:
-          HOOK: ${{ secrets.DEPLOY_HOOK_URL }}
-        run: curl --fail --silent --show-error -X POST "$HOOK" > /dev/null
-      # Tell IndexNow search engines (Bing, Yandex and others) about the post that just went live. Needs the repository
-      # variable SITE_URL (the real domain). With the placeholder domain the script sends nothing. A failure here must
-      # never fail the deploy, hence continue-on-error.
+
+  deploy:
+    needs: check
+    if: needs.check.outputs.due == 'true' || github.event_name == 'workflow_dispatch'
+    permissions:
+      contents: read
+    uses: ./.github/workflows/deploy.yml
+    secrets: inherit
+
+  # Tell IndexNow search engines (Bing, Yandex and others) about the post that just went live, once the deploy finished.
+  # Needs the repository variable SITE_URL. A failure here must never fail the run, hence continue-on-error.
+  notify:
+    needs: [check, deploy]
+    if: needs.check.outputs.due == 'true' && vars.SITE_URL != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: main
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 22
       - name: Notify IndexNow
-        if: steps.due.outputs.due == 'true' && vars.SITE_URL != ''
         continue-on-error: true
         env:
           SITE_URL: ${{ vars.SITE_URL }}
         run: |
-          sleep 150
+          sleep 60
           node scripts/indexnow.mjs --since-hours 3
