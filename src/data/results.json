@@ -1,8 +1,129 @@
 {
-  "generatedAt": "2026-11-08T11:24:46.722Z",
+  "generatedAt": "2026-11-08T17:58:48.018Z",
   "source": "SportAPI (sportapi.ai)",
   "days": 5,
   "matches": [
+    {
+      "id": 16122906,
+      "date": "2026-11-08",
+      "kickoff": "2026-11-08T13:00:00Z",
+      "league": "Spanish La Liga",
+      "home": "Elche",
+      "away": "Betis",
+      "homeScore": 0,
+      "awayScore": 2,
+      "status": "FT"
+    },
+    {
+      "id": 16122910,
+      "date": "2026-11-08",
+      "kickoff": "2026-11-08T15:15:00Z",
+      "league": "Spanish La Liga",
+      "home": "Real Sociedad",
+      "away": "Rayo",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "FT"
+    },
+    {
+      "id": 16122914,
+      "date": "2026-11-08",
+      "kickoff": "2026-11-08T14:30:00Z",
+      "league": "German Bundesliga",
+      "home": "Köln",
+      "away": "Leverkusen",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "FT"
+    },
+    {
+      "id": 16122917,
+      "date": "2026-11-08",
+      "kickoff": "2026-11-08T11:30:00Z",
+      "league": "Italian Serie A",
+      "home": "Napoli",
+      "away": "Lazio",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "FT"
+    },
+    {
+      "id": 16122918,
+      "date": "2026-11-08",
+      "kickoff": "2026-11-08T14:00:00Z",
+      "league": "Italian Serie A",
+      "home": "Genoa",
+      "away": "AC Milan",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "FT"
+    },
+    {
+      "id": 16122919,
+      "date": "2026-11-08",
+      "kickoff": "2026-11-08T14:00:00Z",
+      "league": "Italian Serie A",
+      "home": "Monza",
+      "away": "Atalanta",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "FT"
+    },
+    {
+      "id": 16122922,
+      "date": "2026-11-08",
+      "kickoff": "2026-11-08T14:00:00Z",
+      "league": "French Ligue 1",
+      "home": "Rennes",
+      "away": "Lille",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "FT"
+    },
+    {
+      "id": 16122979,
+      "date": "2026-11-08",
+      "kickoff": "2026-11-08T14:00:00Z",
+      "league": "Premier League",
+      "home": "Brighton",
+      "away": "Brentford",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "FT"
+    },
+    {
+      "id": 16122980,
+      "date": "2026-11-08",
+      "kickoff": "2026-11-08T14:00:00Z",
+      "league": "Premier League",
+      "home": "Crystal Palace",
+      "away": "Liverpool",
+      "homeScore": 1,
+      "awayScore": 3,
+      "status": "FT"
+    },
+    {
+      "id": 16122981,
+      "date": "2026-11-08",
+      "kickoff": "2026-11-08T14:00:00Z",
+      "league": "Premier League",
+      "home": "Ipswich",
+      "away": "Bournemouth",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "FT"
+    },
+    {
+      "id": 16122982,
+      "date": "2026-11-08",
+      "kickoff": "2026-11-08T14:00:00Z",
+      "league": "Premier League",
+      "home": "Sunderland",
+      "away": "Chelsea",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "FT"
+    },
     {
       "id": 16096636,
       "date": "2026-11-07",
