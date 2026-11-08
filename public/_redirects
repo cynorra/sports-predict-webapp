@@ -1,5 +1,4 @@
-# Cloudflare Pages redirects (static host). One canonical host and the conventional sitemap address.
-# www -> apex, so every page exists on one address only.
-https://www.todayssoccergames.com/* https://todayssoccergames.com/:splat 301
-# Crawlers and tools look for /sitemap.xml first; Astro writes sitemap-index.xml.
+# Cloudflare Pages redirects (static host). Crawlers and tools look for /sitemap.xml first; Astro writes sitemap-index.xml.
 /sitemap.xml /sitemap-index.xml 301
+# www -> apex cannot live here: Pages does not match on host. It is a Cloudflare zone rule instead
+# (Rules -> Redirect Rules -> "Redirect from WWW to root"). Every page's canonical already points to the apex domain.
