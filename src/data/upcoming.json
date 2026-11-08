@@ -1,64 +1,8 @@
 {
-  "generatedAt": "2026-11-08T17:49:26.197Z",
+  "generatedAt": "2026-11-08T22:16:58.231Z",
   "source": "SportAPI (sportapi.ai)",
   "days": 4,
   "matches": [
-    {
-      "id": 16122964,
-      "kickoff": "2026-11-08T18:00:00Z",
-      "league": "Portuguese Primeira Liga",
-      "home": "Vitória SC",
-      "away": "Porto"
-    },
-    {
-      "id": 16122916,
-      "kickoff": "2026-11-08T18:30:00Z",
-      "league": "German Bundesliga",
-      "home": "Hoffenheim",
-      "away": "Schalke 04"
-    },
-    {
-      "id": 16122947,
-      "kickoff": "2026-11-08T19:00:00Z",
-      "league": "Dutch Eredivisie",
-      "home": "Utrecht",
-      "away": "NEC"
-    },
-    {
-      "id": 16122921,
-      "kickoff": "2026-11-08T19:45:00Z",
-      "league": "Italian Serie A",
-      "home": "Fiorentina",
-      "away": "Juventus"
-    },
-    {
-      "id": 16122927,
-      "kickoff": "2026-11-08T19:45:00Z",
-      "league": "French Ligue 1",
-      "home": "Lens",
-      "away": "Marseille"
-    },
-    {
-      "id": 16122904,
-      "kickoff": "2026-11-08T20:00:00Z",
-      "league": "Spanish La Liga",
-      "home": "Atlético",
-      "away": "Barcelona"
-    },
-    {
-      "id": 16122965,
-      "kickoff": "2026-11-08T20:30:00Z",
-      "league": "Portuguese Primeira Liga",
-      "home": "Estrela",
-      "away": "Benfica"
-    },
-    {
-      "id": 16122966,
-      "kickoff": "2026-11-08T20:30:00Z",
-      "league": "Portuguese Primeira Liga",
-      "home": "Rio Ave",
-      "away": "Braga"
-    },
     {
       "id": 16210536,
       "kickoff": "2026-11-09T00:00:00Z",
