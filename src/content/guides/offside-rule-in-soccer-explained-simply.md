@@ -5,7 +5,7 @@ answer: "The offside rule says a player is offside when they are closer to the o
 publishedAt: 2026-11-16T15:47:00.000Z
 sport: football
 image:
-  src: "/images/offside-rule-in-football-explained-simply.svg"
+  src: "/images/offside-rule-in-soccer-explained-simply.svg"
   alt: "Soccer Games Today cover with a pitch diagram showing an attacker level with the second-last defender and another attacker beyond the line"
 keywords: ["offside rule in soccer", "what is offside", "offside rule explained", "offside position vs offside offence"]
 faq:
@@ -33,7 +33,7 @@ Being in an offside position is not a foul. A player is in an offside position w
 The goalkeeper usually counts as one of the two opponents, which is why the rule is often summed up as "level with or behind the last defender". Strictly, it is the second-last opponent that matters, and either of them can be an outfield player.
 
 <figure>
-<img src="/images/offside-rule-in-football-explained-simply-line.svg" alt="Pitch diagram with an offside line through the second-last defender: one attacker is level and onside, another is ahead of the line and in an offside position" width="1200" height="572" loading="lazy" decoding="async">
+<img src="/images/offside-rule-in-soccer-explained-simply-line.svg" alt="Pitch diagram with an offside line through the second-last defender: one attacker is level and onside, another is ahead of the line and in an offside position" width="1200" height="572" loading="lazy" decoding="async">
 <figcaption>The offside line runs through the second-last opponent. Level is onside; ahead of the line is an offside position.</figcaption>
 </figure>
 
@@ -81,7 +81,7 @@ Offside decisions are among those reviewed by the video assistant referee (VAR) 
 
 ## Why this matters for predictions
 
-Offside is mostly a matter for fans and officials, but it explains some patterns that affect scoring. Teams that defend with a high line, one of the tactical choices described in the guide to [soccer formations](/guides/football-formations-explained-442-433-352), catch more attackers offside, but they risk being beaten by a single well-timed run. How a team defends therefore shapes how many good chances it concedes, which is what [expected goals](/guides/what-is-xg-expected-goals-explained) measures. You can test your own reading of a match on the [prediction page](/predict).
+Offside is mostly a matter for fans and officials, but it explains some patterns that affect scoring. Teams that defend with a high line, one of the tactical choices described in the guide to [soccer formations](/guides/soccer-formations-explained-442-433-352), catch more attackers offside, but they risk being beaten by a single well-timed run. How a team defends therefore shapes how many good chances it concedes, which is what [expected goals](/guides/what-is-xg-expected-goals-explained) measures. You can test your own reading of a match on the [prediction page](/predict).
 
 ## Sources
 

@@ -88,7 +88,7 @@ The recent winners look different: Mbappé's ten in 2026 equals Müller's winnin
 
 ## What the list means for score predictions
 
-A scorer who finds the net in every game is rare, and the World Cup records are outliers rather than something to predict. Even Fontaine's two goals per match is far above what a team-level model expects from a single player. When you pick a scoreline, the sensible starting point is the average for the competition, as described in our guide on [how to predict soccer scores](/guides/how-to-predict-football-scores), and the spread of likely results follows the shape explained in the [Poisson guide](/guides/poisson-distribution-football-goals-explained).
+A scorer who finds the net in every game is rare, and the World Cup records are outliers rather than something to predict. Even Fontaine's two goals per match is far above what a team-level model expects from a single player. When you pick a scoreline, the sensible starting point is the average for the competition, as described in our guide on [how to predict soccer scores](/guides/how-to-predict-soccer-scores), and the spread of likely results follows the shape explained in the [Poisson guide](/guides/poisson-distribution-soccer-goals-explained).
 
 You can test those ideas on real fixtures in the free [score predictor](/predict), which shows the scoreline our model expects for each upcoming match before you enter your own.
 

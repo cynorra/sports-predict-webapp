@@ -89,7 +89,7 @@ Picture a game that ends 1-0. The winners took eight shots worth a total of 0.9 
 
 ## How we use xG in predictions
 
-Our model starts from team strength and estimates the expected goals for each side, then converts those figures into scoreline probabilities using a Poisson distribution, as set out on our [methodology page](/methodology). The model itself does not take xG as an input; its expected goals come from team ratings. xG is still a useful sanity check on form: if a team's results are far ahead of its chance creation, be cautious about expecting them to continue. For a step-by-step routine that puts these numbers to work, see how to [predict soccer scores](/guides/how-to-predict-football-scores).
+Our model starts from team strength and estimates the expected goals for each side, then converts those figures into scoreline probabilities using a Poisson distribution, as set out on our [methodology page](/methodology). The model itself does not take xG as an input; its expected goals come from team ratings. xG is still a useful sanity check on form: if a team's results are far ahead of its chance creation, be cautious about expecting them to continue. For a step-by-step routine that puts these numbers to work, see how to [predict soccer scores](/guides/how-to-predict-soccer-scores).
 
 ## A quick checklist before you quote xG
 

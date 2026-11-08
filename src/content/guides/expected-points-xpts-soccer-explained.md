@@ -5,7 +5,7 @@ answer: "Expected points weigh each possible result by its chance: three points 
 publishedAt: 2026-11-13T20:22:00.000Z
 sport: football
 image:
-  src: "/images/expected-points-xpts-football-explained.svg"
+  src: "/images/expected-points-xpts-soccer-explained.svg"
   alt: "Soccer Games Today cover with two bars comparing expected points and actual points for a soccer match with a home-win chance near fifty percent"
 keywords: ["expected points in soccer", "xpts soccer", "expected points explained", "xpts vs actual points"]
 faq:
@@ -31,7 +31,7 @@ Nothing else is needed. Add the result for each match across a season and you ha
 
 ## A worked example
 
-Take the match used elsewhere on this site: two sides where the model expects the hosts to score 1.6 goals and the visitors 1.2. Using the [Poisson model](/guides/poisson-distribution-football-goals-explained), the chances come out at about 47% for a home win, 25% for a draw and 29% for an away win.
+Take the match used elsewhere on this site: two sides where the model expects the hosts to score 1.6 goals and the visitors 1.2. Using the [Poisson model](/guides/poisson-distribution-soccer-goals-explained), the chances come out at about 47% for a home win, 25% for a draw and 29% for an away win.
 
 - Home side: 3 × 0.47 + 0.25, which is about 1.65 expected points.
 - Away side: 3 × 0.29 + 0.25, which is about 1.11 expected points.
@@ -39,13 +39,13 @@ Take the match used elsewhere on this site: two sides where the model expects th
 Notice what this says. Whichever way the match goes, one team will pick up 3 or 0 and the other 0 or 3, or both get 1. Nobody can score 1.65 points in a single match. The number is an average over many identical games, which is why xPts is most useful when summed across a season.
 
 <figure>
-<img src="/images/expected-points-xpts-football-explained-bars.svg" alt="Bars comparing expected points of 1.65 for the home side and 1.11 for the away side with the three possible actual outcomes of 3, 1 and 0 points" width="1200" height="572" loading="lazy" decoding="async">
+<img src="/images/expected-points-xpts-soccer-explained-bars.svg" alt="Bars comparing expected points of 1.65 for the home side and 1.11 for the away side with the three possible actual outcomes of 3, 1 and 0 points" width="1200" height="572" loading="lazy" decoding="async">
 <figcaption>Expected points for the example match, shown next to the points that can actually be earned.</figcaption>
 </figure>
 
 ## Two ways to get the probabilities
 
-1. **From a rating model.** A rating system such as [Elo](/guides/elo-ratings-in-football-explained) gives expected goals, and the Poisson step gives win, draw and loss chances. This is the approach on the site's [methodology page](/methodology).
+1. **From a rating model.** A rating system such as [Elo](/guides/elo-ratings-in-soccer-explained) gives expected goals, and the Poisson step gives win, draw and loss chances. This is the approach on the site's [methodology page](/methodology).
 2. **From shot quality.** Many analysts take the list of shots in a match, assign each an [expected goals](/guides/what-is-xg-expected-goals-explained) value, then simulate the match many times with those shot chances. The share of simulations each side wins gives the probabilities, and the formula gives xPts.
 
 The first method looks forward; the second looks back at what actually happened on the pitch. Both end with the same three-and-one formula.
@@ -54,7 +54,7 @@ The first method looks forward; the second looks back at what actually happened 
 
 - **Spotting luck.** A team with 10 more points than its xPts has probably had fortune in tight games. A team with 10 fewer may have been unlucky.
 - **Judging a manager or system.** If xPts rises after a change of style, the underlying performance improved even if results have not caught up.
-- **Forecasting.** Teams that have outperformed xPts often drift back toward it, a pattern known as regression to the mean. See the guide on [form and luck](/guides/small-samples-and-football-form-luck-or-skill).
+- **Forecasting.** Teams that have outperformed xPts often drift back toward it, a pattern known as regression to the mean. See the guide on [form and luck](/guides/small-samples-and-soccer-form-luck-or-skill).
 
 ## Reading a gap between xPts and points
 

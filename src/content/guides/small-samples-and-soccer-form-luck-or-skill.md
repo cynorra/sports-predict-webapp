@@ -5,7 +5,7 @@ answer: "Soccer form and luck are hard to separate. A short run of results says 
 publishedAt: 2026-11-11T18:51:00.000Z
 sport: football
 image:
-  src: "/images/small-samples-and-football-form-luck-or-skill.svg"
+  src: "/images/small-samples-and-soccer-form-luck-or-skill.svg"
   alt: "Soccer Games Today cover with a wide band showing how far a five-match goal average can drift from the true average of a team scoring 1.4 goals"
 keywords: ["soccer form and luck", "small sample size soccer", "regression to the mean soccer", "recent form predictions"]
 faq:
@@ -23,7 +23,7 @@ Every weekend someone declares a team "in form" after three wins or "in crisis" 
 
 ## Goals are noisy by nature
 
-A typical team scores about one and a half goals in a match, and the number swings widely from game to game. As the guide to the [Poisson distribution](/guides/poisson-distribution-football-goals-explained) shows, a side with a true average of 1.4 goals will draw a blank in roughly one match in four and score three or more in about one in six. None of that requires any change in the team. It is what random scoring looks like.
+A typical team scores about one and a half goals in a match, and the number swings widely from game to game. As the guide to the [Poisson distribution](/guides/poisson-distribution-soccer-goals-explained) shows, a side with a true average of 1.4 goals will draw a blank in roughly one match in four and score three or more in about one in six. None of that requires any change in the team. It is what random scoring looks like.
 
 ## How wrong can five matches be?
 
@@ -35,7 +35,7 @@ Imagine a team whose real scoring rate is exactly 1.4 goals a match and never ch
 Both runs come from the same team with the same ability. Only luck differs.
 
 <figure>
-<img src="/images/small-samples-and-football-form-luck-or-skill-band.svg" alt="Chart of the typical range of a goal average for a team that truly scores 1.4 per match, wide over 5 matches, narrower over 10 and narrow over 38" width="1200" height="502" loading="lazy" decoding="async">
+<img src="/images/small-samples-and-soccer-form-luck-or-skill-band.svg" alt="Chart of the typical range of a goal average for a team that truly scores 1.4 per match, wide over 5 matches, narrower over 10 and narrow over 38" width="1200" height="502" loading="lazy" decoding="async">
 <figcaption>The typical swing in a team's goal average shrinks as the sample grows. Computed from the Poisson distribution for a true rate of 1.4 goals.</figcaption>
 </figure>
 
@@ -60,12 +60,12 @@ Not all form is noise. These signals tend to be more durable than a few scorelin
 
 A practical approach is to build the estimate in layers:
 
-- Start with a long-run measure of team quality, such as the [Elo rating](/guides/elo-ratings-in-football-explained).
+- Start with a long-run measure of team quality, such as the [Elo rating](/guides/elo-ratings-in-soccer-explained).
 - Give recent matches a modest weight, not a majority. A rating system does this automatically, since each result moves the rating by a limited amount.
 - Adjust for known changes in personnel or tactics, which are real information.
 - Treat anything beyond that as a tiebreak between close calls.
 
-This is the reasoning behind the steps in the [score prediction guide](/guides/how-to-predict-football-scores), where recent form comes only after quality and home advantage.
+This is the reasoning behind the steps in the [score prediction guide](/guides/how-to-predict-soccer-scores), where recent form comes only after quality and home advantage.
 
 ## Common traps
 

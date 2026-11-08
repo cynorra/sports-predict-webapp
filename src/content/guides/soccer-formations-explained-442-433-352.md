@@ -5,7 +5,7 @@ answer: "Soccer formations explained simply: the numbers list outfield players f
 publishedAt: 2026-11-12T18:46:00.000Z
 sport: football
 image:
-  src: "/images/football-formations-explained-442-433-352.svg"
+  src: "/images/soccer-formations-explained-442-433-352.svg"
   alt: "Soccer Games Today cover with three small pitch diagrams of the 4-4-2, 4-3-3 and 3-5-2 formations drawn as dots"
 keywords: ["soccer formations explained", "4-4-2 vs 4-3-3", "what does 4-3-3 mean", "3-5-2 formation"]
 faq:
@@ -32,7 +32,7 @@ A formation lists outfield players in rows, starting from the defence. The goalk
 Some formations have four numbers, such as 4-2-3-1. They split the midfield into a deeper pair and an attacking trio behind a lone striker. The more numbers, the finer the description.
 
 <figure>
-<img src="/images/football-formations-explained-442-433-352-pitches.svg" alt="Three half-pitch diagrams drawing the 4-4-2, 4-3-3 and 3-5-2 formations as rows of player dots" width="1200" height="612" loading="lazy" decoding="async">
+<img src="/images/soccer-formations-explained-442-433-352-pitches.svg" alt="Three half-pitch diagrams drawing the 4-4-2, 4-3-3 and 3-5-2 formations as rows of player dots" width="1200" height="612" loading="lazy" decoding="async">
 <figcaption>Three classic shapes drawn as rows from defence to attack. Real positions move constantly during play.</figcaption>
 </figure>
 
@@ -63,7 +63,7 @@ A formation is a starting layout, not a fixed position. A team may attack in a 3
 
 ## What formations do and do not tell you
 
-**They do not decide who wins.** A team of better players usually beats a team with a smarter-looking formation. Quality gaps measured by a rating such as [Elo](/guides/elo-ratings-in-football-explained) explain much more of the result than the numbers on a graphic.
+**They do not decide who wins.** A team of better players usually beats a team with a smarter-looking formation. Quality gaps measured by a rating such as [Elo](/guides/elo-ratings-in-soccer-explained) explain much more of the result than the numbers on a graphic.
 
 **They affect how space appears.** A back three against two strikers has an extra player in defence. A midfield trio outnumbers a pair. Those small imbalances create chances, which are measured in [expected goals](/guides/what-is-xg-expected-goals-explained).
 
@@ -86,7 +86,7 @@ For a score prediction, the useful question is whether the lineup changes a team
 2. **A switch to a more cautious shape.** A team that adds a defender may score less and concede less, pushing the total goals down.
 3. **A late tactical change.** Lineups are usually confirmed about an hour before kickoff, so check them before locking a pick on the [prediction page](/predict).
 
-Treat these as modest adjustments. The [score prediction guide](/guides/how-to-predict-football-scores) places lineups after team quality and home advantage for that reason.
+Treat these as modest adjustments. The [score prediction guide](/guides/how-to-predict-soccer-scores) places lineups after team quality and home advantage for that reason.
 
 ## Further reading
 

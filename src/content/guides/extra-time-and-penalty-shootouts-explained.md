@@ -69,7 +69,7 @@ On this site's [prediction page](/predict), picks are scored on the result after
 
 ## What shootouts tell us about prediction
 
-Penalty shootouts feel like pure drama, but they follow the same logic as the rest of soccer: small samples, big noise. A penalty kick is scored far more often than not, so a shootout is usually decided by narrow margins and a little luck. Reading too much into one shootout is a classic small-sample mistake. For a deeper look at why, see the guide on [form, luck and small samples](/guides/small-samples-and-football-form-luck-or-skill).
+Penalty shootouts feel like pure drama, but they follow the same logic as the rest of soccer: small samples, big noise. A penalty kick is scored far more often than not, so a shootout is usually decided by narrow margins and a little luck. Reading too much into one shootout is a classic small-sample mistake. For a deeper look at why, see the guide on [form, luck and small samples](/guides/small-samples-and-soccer-form-luck-or-skill).
 
 ## Where to read the exact rules
 

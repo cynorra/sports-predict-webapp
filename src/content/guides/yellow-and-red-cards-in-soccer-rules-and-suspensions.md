@@ -5,7 +5,7 @@ answer: "Yellow and red cards in soccer work in a ladder: a yellow card is a cau
 publishedAt: 2026-11-20T14:00:00.000Z
 sport: football
 image:
-  src: "/images/yellow-and-red-cards-in-football-rules-and-suspensions.svg"
+  src: "/images/yellow-and-red-cards-in-soccer-rules-and-suspensions.svg"
   alt: "Soccer Games Today cover showing a yellow card and a red card side by side with a short label for each"
 keywords: ["yellow and red cards in soccer", "soccer card rules", "what is a straight red card", "soccer suspensions explained"]
 faq:
@@ -50,7 +50,7 @@ A red card means a sending-off. A player can be sent off in two ways:
    - using offensive, insulting or abusive language or gestures.
 
 <figure>
-<img src="/images/yellow-and-red-cards-in-football-rules-and-suspensions-ladder.svg" alt="Diagram showing a first yellow card as a caution, a second yellow card in the same match leading to a red card, and a direct red card for serious offences" width="1200" height="476" loading="lazy" decoding="async">
+<img src="/images/yellow-and-red-cards-in-soccer-rules-and-suspensions-ladder.svg" alt="Diagram showing a first yellow card as a caution, a second yellow card in the same match leading to a red card, and a direct red card for serious offences" width="1200" height="476" loading="lazy" decoding="async">
 <figcaption>Two routes to a sending-off: a second caution or a direct red card.</figcaption>
 </figure>
 
@@ -58,7 +58,7 @@ A player who is sent off must leave the pitch and its surroundings. The team can
 
 ## What a sending-off does to a match
 
-Playing with ten players is a real handicap, though the effect depends on timing. An early red card makes the match very different, while a late one changes little. Teams down to ten often drop deeper and defend a lead or a draw. Their expected goals tend to fall, and the opponent's tend to rise. No model can foresee a red card, so it is a source of uncertainty in every forecast, much like the random swings discussed in the guide to [form and luck](/guides/small-samples-and-football-form-luck-or-skill).
+Playing with ten players is a real handicap, though the effect depends on timing. An early red card makes the match very different, while a late one changes little. Teams down to ten often drop deeper and defend a lead or a draw. Their expected goals tend to fall, and the opponent's tend to rise. No model can foresee a red card, so it is a source of uncertainty in every forecast, much like the random swings discussed in the guide to [form and luck](/guides/small-samples-and-soccer-form-luck-or-skill).
 
 ## Suspensions
 
@@ -70,7 +70,7 @@ Substitutes, substituted players and team officials can also be cautioned or sen
 
 ## Cards and video review
 
-A direct red card is one of the four situations the video assistant referee may check, as set out in the guide to [VAR](/guides/var-in-football-explained-what-it-can-review). A second yellow card is not reviewable, which is one reason it often causes argument. The one exception is mistaken identity, when the wrong player is shown a card.
+A direct red card is one of the four situations the video assistant referee may check, as set out in the guide to [VAR](/guides/var-in-soccer-explained-what-it-can-review). A second yellow card is not reviewable, which is one reason it often causes argument. The one exception is mistaken identity, when the wrong player is shown a card.
 
 ## Misunderstandings about cards
 
@@ -84,7 +84,7 @@ A direct red card is one of the four situations the video assistant referee may 
 
 ## Why this matters for fans of prediction games
 
-Cards are one of the few sources of randomness that change a match after the lineups are known. When you lock a pick on the [prediction page](/predict), you accept that a red card in the first half can turn a 1-0 into a 3-0. That is one reason the [score prediction method](/guides/how-to-predict-football-scores) recommends modest scorelines and no overconfidence. The full text of the disciplinary rules is in the Laws of the Game on the [IFAB website](https://www.theifab.com).
+Cards are one of the few sources of randomness that change a match after the lineups are known. When you lock a pick on the [prediction page](/predict), you accept that a red card in the first half can turn a 1-0 into a 3-0. That is one reason the [score prediction method](/guides/how-to-predict-soccer-scores) recommends modest scorelines and no overconfidence. The full text of the disciplinary rules is in the Laws of the Game on the [IFAB website](https://www.theifab.com).
 
 ## Sources
 

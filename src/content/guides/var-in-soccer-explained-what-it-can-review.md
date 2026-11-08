@@ -5,7 +5,7 @@ answer: "VAR in soccer explained briefly: the video assistant referee may help o
 publishedAt: 2026-11-18T15:21:00.000Z
 sport: football
 image:
-  src: "/images/var-in-football-explained-what-it-can-review.svg"
+  src: "/images/var-in-soccer-explained-what-it-can-review.svg"
   alt: "Soccer Games Today cover with a monitor icon and four labelled boxes for the situations a video assistant referee may review"
 keywords: ["var in soccer explained", "what can var review", "video assistant referee rules", "var decisions soccer"]
 faq:
@@ -37,7 +37,7 @@ VAR may become involved only in these match-changing situations:
 4. **Mistaken identity.** When the referee cautions or sends off the wrong player.
 
 <figure>
-<img src="/images/var-in-football-explained-what-it-can-review-flow.svg" alt="Flow of a VAR check: an incident in one of four categories, the video assistant checks, recommends a review or not, and the referee makes the final decision" width="1200" height="566" loading="lazy" decoding="async">
+<img src="/images/var-in-soccer-explained-what-it-can-review-flow.svg" alt="Flow of a VAR check: an incident in one of four categories, the video assistant checks, recommends a review or not, and the referee makes the final decision" width="1200" height="566" loading="lazy" decoding="async">
 <figcaption>The usual sequence. The video assistant advises; the referee decides.</figcaption>
 </figure>
 
@@ -67,7 +67,7 @@ Competitions may adapt the details of how the system is run, so the practical ro
 
 ## Offside and technology
 
-Offside checks use camera angles and a line drawn on a frame at the moment the ball is played. Newer semi-automated systems, first used at a men's World Cup in 2022, track player positions to speed the check. The wording of the law is unchanged, as described in the [offside guide](/guides/offside-rule-in-football-explained-simply).
+Offside checks use camera angles and a line drawn on a frame at the moment the ball is played. Newer semi-automated systems, first used at a men's World Cup in 2022, track player positions to speed the check. The wording of the law is unchanged, as described in the [offside guide](/guides/offside-rule-in-soccer-explained-simply).
 
 ## Why decisions still cause debate
 
@@ -75,7 +75,7 @@ Even with replays, some decisions remain a matter of opinion. A challenge can lo
 
 ## What VAR changed for scores
 
-Video review aims to remove clear errors, and it also changes how matches flow: goals take longer to confirm and added time can be longer. Whether it changes the number of goals scored is hard to isolate, and the [Poisson model](/guides/poisson-distribution-football-goals-explained) used on this site makes no adjustment for it. When you pick scores on the [prediction page](/predict), treat a close offside or penalty call as a coin flip, not as something to build a pick on.
+Video review aims to remove clear errors, and it also changes how matches flow: goals take longer to confirm and added time can be longer. Whether it changes the number of goals scored is hard to isolate, and the [Poisson model](/guides/poisson-distribution-soccer-goals-explained) used on this site makes no adjustment for it. When you pick scores on the [prediction page](/predict), treat a close offside or penalty call as a coin flip, not as something to build a pick on.
 
 ## Where to read the protocol
 

@@ -6,7 +6,7 @@ publishedAt: 2026-11-03T17:34:00.000Z
 updatedAt: 2026-11-07T20:30:00.000Z
 sport: football
 image:
-  src: "/images/how-to-predict-football-scores.svg"
+  src: "/images/how-to-predict-soccer-scores.svg"
   alt: "Soccer Games Today cover with a grid of scoreline probabilities in which the single most likely result is highlighted in gold"
 keywords: ["predict soccer scores", "how to predict soccer scores", "soccer score prediction tips", "score predictor method", "predict match results", "soccer score predictions", "soccer match score predictions", "soccer score forecast", "premier league score predictions", "predict world cup scores"]
 faq:
@@ -78,7 +78,7 @@ Suppose the analysis gives Team A 1.9 expected goals and Team B 0.8. Running tho
 Add them up and Team A wins about 63% of the time, the match is drawn about 22% of the time, and Team B wins about 15% of the time. The "crush" prediction of 3-0 is only the fifth most likely single scoreline. The most likely exact result, 1-0, still happens barely one time in eight. That is why exact-score games are hard, and why a clear method beats a confident story.
 
 <figure>
-<img src="/images/how-to-predict-football-scores-scorelines.svg" alt="Grid of exact-score probabilities for 1.9 against 0.8 expected goals: 1-0 at 12.8% is the most likely, then 2-0 at 12.1%" width="1200" height="912" loading="lazy" decoding="async">
+<img src="/images/how-to-predict-soccer-scores-scorelines.svg" alt="Grid of exact-score probabilities for 1.9 against 0.8 expected goals: 1-0 at 12.8% is the most likely, then 2-0 at 12.1%" width="1200" height="912" loading="lazy" decoding="async">
 <figcaption>Every exact score has a probability; even the favourite among them happens only about one match in eight.</figcaption>
 </figure>
 

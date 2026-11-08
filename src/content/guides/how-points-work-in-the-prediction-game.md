@@ -69,8 +69,8 @@ You can look at the fixtures and the model's forecast without an account. To sav
 The tiers reward picks that get the margin right, not just the winner:
 
 1. **Chase the margin, not only the winner.** Five points for the right goal difference is worth far more than three for the winner alone.
-2. **Remember that exact scores are rare.** Even a strong favourite scores a specific scoreline only a minority of the time. See the grid in the [score prediction guide](/guides/how-to-predict-football-scores).
-3. **Do not ignore draws.** A draw earns the same tiers as any other result, and as the guide on [why draws happen](/guides/why-football-draws-happen-and-how-often) explains, they are common.
+2. **Remember that exact scores are rare.** Even a strong favourite scores a specific scoreline only a minority of the time. See the grid in the [score prediction guide](/guides/how-to-predict-soccer-scores).
+3. **Do not ignore draws.** A draw earns the same tiers as any other result, and as the guide on [why draws happen](/guides/why-soccer-draws-happen-and-how-often) explains, they are common.
 4. **Compare with the model.** Each fixture shows what the site's [Elo and Poisson model](/methodology) expects. Agreeing with it is not required, and beating it is the fun part.
 
 ## Frequently confused details

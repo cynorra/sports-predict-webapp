@@ -8,12 +8,12 @@ export const TOPICS: GuideTopic[] = [
     title: 'Soccer score predictions',
     blurb: 'How to predict soccer scores step by step, why draws and low scores are more common than fans expect, and how the Soccer Games Today game awards points for soccer score predictions.',
     slugs: [
-      'how-to-predict-football-scores',
+      'how-to-predict-soccer-scores',
       'how-points-work-in-the-prediction-game',
-      'why-football-draws-happen-and-how-often',
-      'home-advantage-in-football-how-big-is-it',
-      'small-samples-and-football-form-luck-or-skill',
-      'clean-sheets-in-football-how-often-teams-keep-one',
+      'why-soccer-draws-happen-and-how-often',
+      'home-advantage-in-soccer-how-big-is-it',
+      'small-samples-and-soccer-form-luck-or-skill',
+      'clean-sheets-in-soccer-how-often-teams-keep-one',
     ],
   },
   {
@@ -21,10 +21,10 @@ export const TOPICS: GuideTopic[] = [
     title: 'Ratings, xG and models',
     blurb: 'The maths behind a soccer score forecast: Elo ratings, the Poisson distribution, expected goals (xG) and expected points, explained without jargon.',
     slugs: [
-      'elo-ratings-in-football-explained',
-      'poisson-distribution-football-goals-explained',
+      'elo-ratings-in-soccer-explained',
+      'poisson-distribution-soccer-goals-explained',
       'what-is-xg-expected-goals-explained',
-      'expected-points-xpts-football-explained',
+      'expected-points-xpts-soccer-explained',
       'elo-ratings-for-new-teams-why-few-matches-mean-doubt',
       'fifa-world-ranking-vs-elo-ratings-difference',
     ],
@@ -46,18 +46,18 @@ export const TOPICS: GuideTopic[] = [
     title: 'Rules explained',
     blurb: 'Offside, VAR, cards, tiebreakers, extra time and formations in plain language.',
     slugs: [
-      'offside-rule-in-football-explained-simply',
-      'var-in-football-explained-what-it-can-review',
-      'yellow-and-red-cards-in-football-rules-and-suspensions',
-      'football-league-table-tiebreakers-explained',
+      'offside-rule-in-soccer-explained-simply',
+      'var-in-soccer-explained-what-it-can-review',
+      'yellow-and-red-cards-in-soccer-rules-and-suspensions',
+      'soccer-league-table-tiebreakers-explained',
       'extra-time-and-penalty-shootouts-explained',
-      'football-formations-explained-442-433-352',
+      'soccer-formations-explained-442-433-352',
     ],
   },
 ];
 
 /** Guides to point new readers at first, in order. Only live ones are shown. */
-export const START_HERE = ['how-to-predict-football-scores', 'elo-ratings-in-football-explained', 'what-is-xg-expected-goals-explained'];
+export const START_HERE = ['how-to-predict-soccer-scores', 'elo-ratings-in-soccer-explained', 'what-is-xg-expected-goals-explained'];
 
 /** Group live guide entries by topic (newest first inside a topic). Empty topics are dropped. */
 export function groupGuides<T extends { id: string; data: { publishedAt: Date } }>(entries: T[]) {

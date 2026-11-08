@@ -5,7 +5,7 @@ answer: "In a soccer league table, clubs level on points are separated by a fixe
 publishedAt: 2026-11-10T18:35:00.000Z
 sport: football
 image:
-  src: "/images/football-league-table-tiebreakers-explained.svg"
+  src: "/images/soccer-league-table-tiebreakers-explained.svg"
   alt: "Soccer Games Today cover with a league table where two teams on equal points are separated by goal difference, shown with a gold highlight"
 keywords: ["soccer league table tiebreakers", "goal difference vs head to head", "how soccer tables are decided", "league tiebreaker rules"]
 faq:
@@ -47,7 +47,7 @@ What differs from league to league is the order. That single choice can reverse 
 Neither approach is right in any absolute sense. They answer slightly different questions, which is why a team can finish second under one system and third under the other.
 
 <figure>
-<img src="/images/football-league-table-tiebreakers-explained-order.svg" alt="Two lists compare tiebreaker order: overall goal difference first for the Premier League style, head-to-head record first for the La Liga style" width="1200" height="592" loading="lazy" decoding="async">
+<img src="/images/soccer-league-table-tiebreakers-explained-order.svg" alt="Two lists compare tiebreaker order: overall goal difference first for the Premier League style, head-to-head record first for the La Liga style" width="1200" height="592" loading="lazy" decoding="async">
 <figcaption>The same criteria in a different order can produce a different table. Always read the current regulations for the league you follow.</figcaption>
 </figure>
 
@@ -66,7 +66,7 @@ Competitions publish a final step for the extremely rare case that every number 
 
 ## Why this matters for predictions
 
-In a prediction game, you pick scorelines rather than table positions, but the tiebreakers shape how teams play in the final weeks. A side chasing goal difference may keep attacking in a match that is already won, while a team that already holds the head-to-head edge may be happy to play safe. If you are building your own forecasts, the point of the [score prediction method](/guides/how-to-predict-football-scores) is to treat these effects as small adjustments, not headline reasons.
+In a prediction game, you pick scorelines rather than table positions, but the tiebreakers shape how teams play in the final weeks. A side chasing goal difference may keep attacking in a match that is already won, while a team that already holds the head-to-head edge may be happy to play safe. If you are building your own forecasts, the point of the [score prediction method](/guides/how-to-predict-soccer-scores) is to treat these effects as small adjustments, not headline reasons.
 
 ## Why goal difference became the standard
 

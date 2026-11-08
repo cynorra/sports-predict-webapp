@@ -67,7 +67,7 @@ The league's all-time top scorer is Alan Shearer with 260 goals for Blackburn Ro
 
 ## What a record season says about scoring
 
-A player who scores close to a goal per match across a whole season is far out in the tail of any scoring distribution. A typical team scores only one or two goals in a match, and the likeliest scorelines are narrow, as the guide to the [Poisson distribution](/guides/poisson-distribution-football-goals-explained) shows. That is why a statistical model treats a 36-goal season as an outlier to admire, not a pattern to forecast.
+A player who scores close to a goal per match across a whole season is far out in the tail of any scoring distribution. A typical team scores only one or two goals in a match, and the likeliest scorelines are narrow, as the guide to the [Poisson distribution](/guides/poisson-distribution-soccer-goals-explained) shows. That is why a statistical model treats a 36-goal season as an outlier to admire, not a pattern to forecast.
 
 One more caution for readers who compare strikers: raw goals ignore chance quality. The guide to [expected goals](/guides/what-is-xg-expected-goals-explained) explains how a scorer can run above or below the quality of his chances, and why records built on high finishing rates are hard to repeat.
 

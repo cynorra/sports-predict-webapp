@@ -25,7 +25,7 @@ When pundits argue about which national team is strongest, they often quote one 
 
 Both systems rest on a simple principle: a rating is an estimate of strength that moves after each match. Beat a strong team and your rating goes up by a lot. Beat a weak team and it barely moves. Lose to a weak team and you drop. The expected result comes from the gap between the two ratings, so the system is self-correcting: if a team keeps beating what the ratings predict, its number rises until the predictions catch up.
 
-The mechanics of that update are covered in the [Elo ratings guide](/guides/elo-ratings-in-football-explained).
+The mechanics of that update are covered in the [Elo ratings guide](/guides/elo-ratings-in-soccer-explained).
 
 ## The FIFA ranking
 
@@ -39,7 +39,7 @@ Because a team's points are updated after each match rather than recalculated fr
 
 ## Elo ratings for national teams
 
-The World Football Elo Ratings, run by an independent site, apply Arpad Elo's chess method to national teams. They also weigh match importance, and they scale the change by goal margin, so a 4-0 win moves the rating more than a 1-0 win. They include a home-advantage term. Because the rating itself is the whole output, you can compute an expected score for any pairing from the gap, as the [Elo guide](/guides/elo-ratings-in-football-explained) shows.
+The World Football Elo Ratings, run by an independent site, apply Arpad Elo's chess method to national teams. They also weigh match importance, and they scale the change by goal margin, so a 4-0 win moves the rating more than a 1-0 win. They include a home-advantage term. Because the rating itself is the whole output, you can compute an expected score for any pairing from the gap, as the [Elo guide](/guides/elo-ratings-in-soccer-explained) shows.
 
 <figure>
 <img src="/images/fifa-world-ranking-vs-elo-ratings-difference-compare.svg" alt="Two columns comparing the FIFA ranking and Elo ratings by inputs: results, match importance and opponent strength in both, goal margin and home bonus handled differently" width="1200" height="572" loading="lazy" decoding="async">
@@ -62,11 +62,11 @@ The exact formulas and weights are different, so the two tables can disagree. A 
 
 - **A quick sense of strength.** A gap of many places usually means a real gap in quality.
 - **Seeding.** Draws for tournaments use rankings or pots so that top teams do not meet early. The same logic applies to club competitions, as in the [Champions League format](/guides/how-the-new-champions-league-format-works).
-- **A prior for a model.** A rating gap converts to expected goals, and the [Poisson step](/guides/poisson-distribution-football-goals-explained) turns that into scoreline chances.
+- **A prior for a model.** A rating gap converts to expected goals, and the [Poisson step](/guides/poisson-distribution-soccer-goals-explained) turns that into scoreline chances.
 
 ## What they cannot tell you
 
-National-team ratings face a particular problem: teams play few matches, often in different continents, so ratings can drift or rest on thin evidence. Friendlies are noisy because squads rotate. Rankings also ignore the selected lineup, so a squad without its best players can be far weaker than its rank suggests. The ideas in the guide on [small samples and form](/guides/small-samples-and-football-form-luck-or-skill) apply doubly to international soccer.
+National-team ratings face a particular problem: teams play few matches, often in different continents, so ratings can drift or rest on thin evidence. Friendlies are noisy because squads rotate. Rankings also ignore the selected lineup, so a squad without its best players can be far weaker than its rank suggests. The ideas in the guide on [small samples and form](/guides/small-samples-and-soccer-form-luck-or-skill) apply doubly to international soccer.
 
 ## Reading a ranking move sensibly
 

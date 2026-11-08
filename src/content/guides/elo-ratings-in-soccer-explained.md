@@ -5,7 +5,7 @@ answer: "Elo ratings in soccer give every team a number that rises after wins an
 publishedAt: 2026-10-29T18:01:00.000Z
 sport: football
 image:
-  src: "/images/elo-ratings-in-football-explained.svg"
+  src: "/images/elo-ratings-in-soccer-explained.svg"
   alt: "Soccer Games Today cover with an Elo curve: expected score rises from 50% at equal ratings to 76% at a 200-point gap"
 keywords: ["elo ratings in soccer", "soccer elo rating system", "elo rating formula", "team strength rating"]
 faq:
@@ -41,7 +41,7 @@ Here R is a team's rating. A win counts as 1, a draw as 0.5 and a loss as 0, so 
 | 400 | 91% |
 
 <figure>
-<img src="/images/elo-ratings-in-football-explained-curve.svg" alt="Line chart of expected score against rating gap: 50% at equal ratings, 64% at +100, 76% at +200 and 91% at +400 points" width="1200" height="712" loading="lazy" decoding="async">
+<img src="/images/elo-ratings-in-soccer-explained-curve.svg" alt="Line chart of expected score against rating gap: 50% at equal ratings, 64% at +100, 76% at +200 and 91% at +400 points" width="1200" height="712" loading="lazy" decoding="async">
 <figcaption>The Elo expected-score curve: a rating gap turns into an expected score between 0 and 100%.</figcaption>
 </figure>
 
@@ -64,7 +64,7 @@ Take a home side rated 1900 against a visitor rated 1800, with a 65-point home b
 The visitor's rating moves by the same amount in the opposite direction. Notice that a draw already counts as a small setback for the favourite. That is the system doing its job: the favourite was expected to do better than a draw.
 
 <figure>
-<img src="/images/elo-ratings-in-football-explained-example.svg" alt="Bar chart of the home side rating change: plus 8 points for a win, minus 7 for a draw and minus 22 for a loss" width="1200" height="602" loading="lazy" decoding="async">
+<img src="/images/elo-ratings-in-soccer-explained-example.svg" alt="Bar chart of the home side rating change: plus 8 points for a win, minus 7 for a draw and minus 22 for a loss" width="1200" height="602" loading="lazy" decoding="async">
 <figcaption>The same match, three outcomes: the more surprising the result, the bigger the rating move.</figcaption>
 </figure>
 
@@ -76,7 +76,7 @@ K is the speed dial. A big K, such as 40 or 60, makes ratings respond quickly, w
 
 Chess has no home field and rarely ends in a thrashing, so soccer versions add two things:
 
-1. **Home advantage.** The home team receives a bonus, commonly in the range of 60 to 100 points, added to its rating only when calculating the expectation. Our model uses 65. We look at how large the effect really is in our guide to [home advantage in soccer](/guides/home-advantage-in-football-how-big-is-it).
+1. **Home advantage.** The home team receives a bonus, commonly in the range of 60 to 100 points, added to its rating only when calculating the expectation. Our model uses 65. We look at how large the effect really is in our guide to [home advantage in soccer](/guides/home-advantage-in-soccer-how-big-is-it).
 2. **Goal difference.** Some systems scale K upward for larger margins, so a 4-0 win moves ratings more than a 1-0 win.
 
 ## Why Elo is useful for predictions

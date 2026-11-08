@@ -25,7 +25,7 @@ An Elo rating is a number that learns. It begins with a guess, then adjusts afte
 
 The rating system on this site gives every club a starting value of 1500 and then updates it after each result. A newly promoted side, a newcomer to a competition or a club that has only just entered the data therefore starts on the same rating as a champion. That starting value carries no information about strength, so the model has to find the truth from results.
 
-The update itself follows the logic in the [Elo ratings guide](/guides/elo-ratings-in-football-explained): the points won or lost depend on the surprise in the result, scaled by a constant. Here the constant is 20, and the change grows with the goal margin, so a big win moves a rating more than a narrow one.
+The update itself follows the logic in the [Elo ratings guide](/guides/elo-ratings-in-soccer-explained): the points won or lost depend on the surprise in the result, scaled by a constant. Here the constant is 20, and the change grows with the goal margin, so a big win moves a rating more than a narrow one.
 
 ## A thought experiment: a strong team from a flat start
 
@@ -50,7 +50,7 @@ After a full 38-match league season the rating would still be well short of 1700
 
 ## Noise on top of slowness
 
-Real teams do not win exactly 76% of the time in a neat sequence. Results arrive in streaks, and the [Poisson model](/guides/poisson-distribution-football-goals-explained) shows how much random variation there is in scores. A new team may lose its first three matches by bad luck and look weak, or win its first three and look strong. Both are small samples, a theme covered in the guide to [form and luck](/guides/small-samples-and-football-form-luck-or-skill).
+Real teams do not win exactly 76% of the time in a neat sequence. Results arrive in streaks, and the [Poisson model](/guides/poisson-distribution-soccer-goals-explained) shows how much random variation there is in scores. A new team may lose its first three matches by bad luck and look weak, or win its first three and look strong. Both are small samples, a theme covered in the guide to [form and luck](/guides/small-samples-and-soccer-form-luck-or-skill).
 
 ## The trade-off in the update size
 

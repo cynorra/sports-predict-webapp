@@ -5,7 +5,7 @@ answer: "The Poisson distribution in soccer gives the chance of exactly 0, 1, 2 
 publishedAt: 2026-11-09T21:43:00.000Z
 sport: football
 image:
-  src: "/images/poisson-distribution-football-goals-explained.svg"
+  src: "/images/poisson-distribution-soccer-goals-explained.svg"
   alt: "Soccer Games Today cover with a bar chart of goal probabilities for a team that averages 1.4 goals, with one goal and zero goals the most likely counts"
 keywords: ["poisson distribution in soccer", "poisson model soccer goals", "soccer goal probability", "expected goals to scoreline"]
 faq:
@@ -45,7 +45,7 @@ Suppose a team is expected to score 1.4 goals. The formula gives these chances o
 | 5 or more | about 1% |
 
 <figure>
-<img src="/images/poisson-distribution-football-goals-explained-bars.svg" alt="Bar chart of the chance of scoring 0 to 6 goals for a team averaging 1.4 goals per match, peaking at one goal with about 35%" width="1200" height="542" loading="lazy" decoding="async">
+<img src="/images/poisson-distribution-soccer-goals-explained-bars.svg" alt="Bar chart of the chance of scoring 0 to 6 goals for a team averaging 1.4 goals per match, peaking at one goal with about 35%" width="1200" height="542" loading="lazy" decoding="async">
 <figcaption>The Poisson shape for an average of 1.4 goals. Zero goals is almost as likely as two.</figcaption>
 </figure>
 
@@ -61,11 +61,11 @@ Adding up cells gives the outcome probabilities:
 - Every cell on the diagonal is a draw.
 - Every cell where the away number is larger is an away win.
 
-This is exactly what the grid in the [score prediction guide](/guides/how-to-predict-football-scores) shows, and it is how the [methodology](/methodology) page describes the site's own forecasts.
+This is exactly what the grid in the [score prediction guide](/guides/how-to-predict-soccer-scores) shows, and it is how the [methodology](/methodology) page describes the site's own forecasts.
 
 ## Where the goal averages come from
 
-The distribution is only as good as the two averages you feed in. A common route is to start from a rating, such as the [Elo ratings](/guides/elo-ratings-in-football-explained) of both clubs, convert the rating gap into a share of the league's typical goals, and add a [home advantage](/guides/home-advantage-in-football-how-big-is-it) bonus. Alternatives use shot quality, so see the explanation of [expected goals](/guides/what-is-xg-expected-goals-explained). Whichever input you choose, the Poisson step stays the same.
+The distribution is only as good as the two averages you feed in. A common route is to start from a rating, such as the [Elo ratings](/guides/elo-ratings-in-soccer-explained) of both clubs, convert the rating gap into a share of the league's typical goals, and add a [home advantage](/guides/home-advantage-in-soccer-how-big-is-it) bonus. Alternatives use shot quality, so see the explanation of [expected goals](/guides/what-is-xg-expected-goals-explained). Whichever input you choose, the Poisson step stays the same.
 
 ## Known weaknesses
 

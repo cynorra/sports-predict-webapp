@@ -5,7 +5,7 @@ answer: "Clean sheets in soccer mean conceding no goals. When the opponent is ex
 publishedAt: 2026-11-19T18:31:00.000Z
 sport: football
 image:
-  src: "/images/clean-sheets-in-football-how-often-teams-keep-one.svg"
+  src: "/images/clean-sheets-in-soccer-how-often-teams-keep-one.svg"
   alt: "Soccer Games Today cover with a falling curve showing the chance of a clean sheet shrinking as the opponent's expected goals rises"
 keywords: ["clean sheets in soccer", "clean sheet probability", "how often clean sheets happen", "goalkeeper clean sheet stat"]
 faq:
@@ -23,7 +23,7 @@ A clean sheet, a match in which a team concedes no goals, is one of the most quo
 
 ## The formula
 
-If a team's opponent is expected to score m goals, the chance of the opponent scoring none is, under the [Poisson model](/guides/poisson-distribution-football-goals-explained), simply e raised to the power of minus m. No other information is needed. For a few values of the opponent's expected goals:
+If a team's opponent is expected to score m goals, the chance of the opponent scoring none is, under the [Poisson model](/guides/poisson-distribution-soccer-goals-explained), simply e raised to the power of minus m. No other information is needed. For a few values of the opponent's expected goals:
 
 | Opponent's expected goals | Chance of a clean sheet |
 | --- | --- |
@@ -37,7 +37,7 @@ If a team's opponent is expected to score m goals, the chance of the opponent sc
 An average top-flight attack is expected to score around 1.3 to 1.4 goals, which makes a clean sheet about a one-in-four event for an average team. Strong defences facing weak attacks push the figure toward half.
 
 <figure>
-<img src="/images/clean-sheets-in-football-how-often-teams-keep-one-curve.svg" alt="Curve of the chance of a clean sheet falling from about 55% when the opponent is expected to score 0.6 goals to about 14% at 2.0 goals" width="1200" height="632" loading="lazy" decoding="async">
+<img src="/images/clean-sheets-in-soccer-how-often-teams-keep-one-curve.svg" alt="Curve of the chance of a clean sheet falling from about 55% when the opponent is expected to score 0.6 goals to about 14% at 2.0 goals" width="1200" height="632" loading="lazy" decoding="async">
 <figcaption>The chance of keeping a clean sheet as the opponent's expected goals rise. Computed with the Poisson formula.</figcaption>
 </figure>
 
@@ -63,13 +63,13 @@ To separate the keeper from the team, analysts compare goals conceded with the e
 ## Using clean sheets in predictions
 
 1. **Start from the opponent's expected goals, not the defender's reputation.** The formula above gives a baseline.
-2. **Remember it is paired with a scoring chance.** A side with a 40% clean sheet chance and a decent attack often wins 1-0 or 2-0, which are common scorelines. The grid in the [score prediction guide](/guides/how-to-predict-football-scores) shows how.
-3. **Do not read too much into a short run.** Four clean sheets in a row is less informative than it feels, for the reasons in the article on [form and luck](/guides/small-samples-and-football-form-luck-or-skill).
+2. **Remember it is paired with a scoring chance.** A side with a 40% clean sheet chance and a decent attack often wins 1-0 or 2-0, which are common scorelines. The grid in the [score prediction guide](/guides/how-to-predict-soccer-scores) shows how.
+3. **Do not read too much into a short run.** Four clean sheets in a row is less informative than it feels, for the reasons in the article on [form and luck](/guides/small-samples-and-soccer-form-luck-or-skill).
 4. **Adjust for lineups.** A missing first-choice centre-back or goalkeeper changes the opponent's expected goals, and therefore the clean sheet chance.
 
 ## Home and away clean sheets
 
-Home teams keep clean sheets more often than visitors, for the simple reason that the visitors are expected to score a little less. With the typical split of about 1.5 goals for the hosts and 1.2 for the visitors, the formula gives the home side a clean sheet chance of roughly three in ten and the visitors one in five. The gap is modest, but it adds up across a season and mirrors the [home advantage](/guides/home-advantage-in-football-how-big-is-it) effect in scoring.
+Home teams keep clean sheets more often than visitors, for the simple reason that the visitors are expected to score a little less. With the typical split of about 1.5 goals for the hosts and 1.2 for the visitors, the formula gives the home side a clean sheet chance of roughly three in ten and the visitors one in five. The gap is modest, but it adds up across a season and mirrors the [home advantage](/guides/home-advantage-in-soccer-how-big-is-it) effect in scoring.
 
 ## Clean sheets and the table
 

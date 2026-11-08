@@ -5,7 +5,7 @@ answer: "Home advantage in soccer is real but modest: hosts win clearly more oft
 publishedAt: 2026-11-02T15:07:00.000Z
 sport: football
 image:
-  src: "/images/home-advantage-in-football-how-big-is-it.svg"
+  src: "/images/home-advantage-in-soccer-how-big-is-it.svg"
   alt: "Soccer Games Today cover with three bars showing typical top-league results: home win 45%, draw 25% and away win 30%"
 keywords: ["home advantage in soccer", "home field advantage soccer", "home win percentage", "empty stadium home advantage"]
 faq:
@@ -26,7 +26,7 @@ Every fan knows the feeling: a visiting team looks nervous in a loud stadium, a 
 Across the major European leagues, home teams have historically won roughly 45% of matches, drawn about 25% and lost about 30%. Put in goals, hosts score around 0.3 to 0.5 goals more per match than they would on neutral ground, which is why the average home team scores about 1.5 and the average visitor about 1.2.
 
 <figure>
-<img src="/images/home-advantage-in-football-how-big-is-it-split.svg" alt="Stacked bar of typical top-league results: home win 45%, draw 25%, away win 30%" width="1200" height="402" loading="lazy" decoding="async">
+<img src="/images/home-advantage-in-soccer-how-big-is-it-split.svg" alt="Stacked bar of typical top-league results: home win 45%, draw 25%, away win 30%" width="1200" height="402" loading="lazy" decoding="async">
 <figcaption>Roughly how matches in the major European leagues have ended over the long run.</figcaption>
 </figure>
 
@@ -63,13 +63,13 @@ Some stadiums are more intimidating, some clubs travel across several time zones
 Take two evenly matched clubs. On a neutral pitch each would be expected to score about 1.3 goals, and the most likely result would be a 1-1 draw. Give the hosts an extra third of a goal and shave the visitors' total by a tenth. The hosts now average about 1.6 and the visitors about 1.2. A home win becomes the single most likely outcome at about 47%, a draw stays near 25% and an away win falls to about 29%. The bonus did not make the home side a certainty. It moved the balance of probabilities by a few points each way, and that is the right way to think about it.
 
 <figure>
-<img src="/images/home-advantage-in-football-how-big-is-it-example.svg" alt="Two stacked bars: on a neutral pitch the result chances are 37% home, 26% draw, 37% away; with a home bonus 47%, 25% and 29%" width="1200" height="542" loading="lazy" decoding="async">
+<img src="/images/home-advantage-in-soccer-how-big-is-it-example.svg" alt="Two stacked bars: on a neutral pitch the result chances are 37% home, 26% draw, 37% away; with a home bonus 47%, 25% and 29%" width="1200" height="542" loading="lazy" decoding="async">
 <figcaption>The same two clubs with and without the home bonus, calculated with independent Poisson goals.</figcaption>
 </figure>
 
 ## How to use it in predictions
 
-1. Start from the quality gap between the two teams, using a rating system such as [Elo](/guides/elo-ratings-in-football-explained).
+1. Start from the quality gap between the two teams, using a rating system such as [Elo](/guides/elo-ratings-in-soccer-explained).
 2. Add a home bonus, equal to about a third of a goal in expected goals or about 65 to 100 rating points.
 3. Reduce the bonus for neutral venues, such as many cup finals, and consider an increase for clubs with an unusually strong record.
 4. Keep draws in mind: even with a home boost, the single most likely result between close teams is often a one-goal margin or a draw. See our [Barcelona vs Aston Villa prediction](/analysis/barcelona-vs-aston-villa-prediction) for how this applies in upcoming European fixtures.

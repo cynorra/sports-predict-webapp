@@ -89,7 +89,7 @@ The first Premier League goal was scored by Brian Deane for Sheffield United aga
 
 ## Using records without being misled
 
-Records are the extremes of a distribution, so they are poor guides to the next match. A typical team scores one or two goals, and the likeliest scorelines are narrow, as the guide to the [Poisson distribution](/guides/poisson-distribution-football-goals-explained) shows. Treat a record as context, and use the strength gap, home advantage and expected goals, covered in the guide to [expected goals](/guides/what-is-xg-expected-goals-explained), when you make a pick.
+Records are the extremes of a distribution, so they are poor guides to the next match. A typical team scores one or two goals, and the likeliest scorelines are narrow, as the guide to the [Poisson distribution](/guides/poisson-distribution-soccer-goals-explained) shows. Treat a record as context, and use the strength gap, home advantage and expected goals, covered in the guide to [expected goals](/guides/what-is-xg-expected-goals-explained), when you make a pick.
 
 You can test your own picks against our model in the free [score predictor](/predict).
 
