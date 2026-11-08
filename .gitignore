@@ -18,7 +18,7 @@ pnpm-debug.log*
 *.key
 *.p12
 service-account*.json
-firebase-adminsdk*.json
+*firebase-adminsdk*.json
 
 # local caches
 scripts/.cache/
