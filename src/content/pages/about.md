@@ -1,14 +1,14 @@
 ---
-title: "About World Sport Scores"
-description: "World Sport Scores publishes data-driven football predictions, match analysis and guides, and runs a free score-prediction game for fans."
+title: "About Soccer Scores Today"
+description: "Soccer Scores Today publishes data-driven football predictions, match analysis and guides, and runs a free score-prediction game for fans."
 updatedAt: 2026-10-31
 ---
 
-World Sport Scores is an independent football and sports website with two jobs: explain matches with data, and let fans test their own judgement against a statistical model.
+Soccer Scores Today is an independent football and sports website with two jobs: explain matches with data, and let fans test their own judgement against a statistical model.
 
 ## Who we are
 
-World Sport Scores was founded and is maintained by software engineer and editor [Eren Şimşir](/author). The site combines mathematical forecasting models with plain explanations, and it carries no betting promotions or tips.
+Soccer Scores Today was founded and is maintained by software engineer and editor [Eren Şimşir](/author). The site combines mathematical forecasting models with plain explanations, and it carries no betting promotions or tips.
 
 ## What we publish
 

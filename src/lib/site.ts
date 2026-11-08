@@ -1,8 +1,8 @@
 import { getCollection } from 'astro:content';
 import { SECTIONS, isLive, type Section } from './sections';
 
-export const SITE_NAME = 'World Sport Scores';
-export const SITE_TAGLINE = 'Football scores, results, predictions and guides';
+export const SITE_NAME = 'Soccer Scores Today';
+export const SITE_TAGLINE = 'Soccer scores, results, predictions and guides';
 
 export async function allPosts() {
   const out = [];

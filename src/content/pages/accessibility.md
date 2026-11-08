@@ -1,6 +1,6 @@
 ---
 title: "Accessibility Statement"
-description: "World Sport Scores aims to meet WCAG 2.1 Level AA. Read what we have done, known limitations and how to report an accessibility problem."
+description: "Soccer Scores Today aims to meet WCAG 2.1 Level AA. Read what we have done, known limitations and how to report an accessibility problem."
 updatedAt: 2026-10-29
 ---
 

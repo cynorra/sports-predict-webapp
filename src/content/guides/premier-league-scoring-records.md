@@ -6,7 +6,7 @@ publishedAt: 2026-12-03T21:28:00.000Z
 sport: football
 image:
   src: "/images/premier-league-scoring-records.svg"
-  alt: "World Sport Scores cover with four Premier League records: 260 career goals, 213 goals at one club, 36 goals in a season and a fastest goal of 7.69 seconds"
+  alt: "Soccer Scores Today cover with four Premier League records: 260 career goals, 213 goals at one club, 36 goals in a season and a fastest goal of 7.69 seconds"
 keywords: ["premier league scoring records", "premier league top scorers", "most premier league goals", "fastest premier league hat-trick", "premier league own goals record"]
 faq:
   - q: "Who is the Premier League's all-time top scorer?"

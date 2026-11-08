@@ -10,7 +10,7 @@ const cfg = {
 };
 
 export const firebaseConfigured = Boolean(cfg.apiKey && cfg.projectId && cfg.authDomain && cfg.appId);
-const SESSION_FLAG = 'wss-auth';
+const SESSION_FLAG = 'sst-auth';
 export const hadSession = () => { try { return localStorage.getItem(SESSION_FLAG) === '1'; } catch { return false; } };
 const setSessionFlag = (on: boolean) => { try { on ? localStorage.setItem(SESSION_FLAG, '1') : localStorage.removeItem(SESSION_FLAG); } catch {} };
 

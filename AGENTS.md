@@ -1,4 +1,4 @@
-# World Sport Scores - project rules
+# Soccer Scores Today - project rules
 
 English-language (en-US) football prediction + editorial site. Astro 5 (static) + React island for `/predict`, `/leaderboard`, and `/profile`. Firebase (Auth + client Firestore + admin Firestore REST scoring in GitHub Actions) is live and operational.
 Rules below are adapted from `D:\android-projeler\yukle-next\universal-adsense-site-standard.md` (read it for the reasoning).

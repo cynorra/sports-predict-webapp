@@ -15,7 +15,7 @@ interface Props {
 const { title, description, canonical, ogType = 'website', jsonLd, noindex = false, image } = Astro.props;
 const ogImage = image ? new URL(image.url, Astro.site).href : new URL('/og-default.png', Astro.site).href;
 const url = canonical ?? new URL(Astro.url.pathname, Astro.site).href;
-const SITE_NAME = 'World Sport Scores';
+const SITE_NAME = 'Soccer Scores Today';
 // Append the brand only if the full <title> stays within ~60 chars (Google truncates longer titles)
 const fullTitle = title.includes(SITE_NAME) || `${title} | ${SITE_NAME}`.length > 60 ? title : `${title} | ${SITE_NAME}`;
 const ld = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
@@ -58,7 +58,7 @@ const here = Astro.url.pathname.replace(/\/$/, '');
     {image && <meta property="og:image:height" content="630" />}
     {image && <meta property="og:image:alt" content={image.alt} />}
     <meta name="twitter:image" content={ogImage} />
-    <link rel="alternate" type="application/rss+xml" title="World Sport Scores" href="/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Soccer Scores Today" href="/rss.xml" />
     <link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt" />
     {ld.map((o) => <script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', ...o })} />)}
     {import.meta.env.PUBLIC_ADSENSE_CLIENT && <meta name="google-adsense-account" content={import.meta.env.PUBLIC_ADSENSE_CLIENT} />}
@@ -67,7 +67,7 @@ const here = Astro.url.pathname.replace(/\/$/, '');
     <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:rounded focus:bg-white focus:px-3 focus:py-2 focus:text-ink">Skip to content</a>
     <header class="sticky top-0 z-40 bg-ink text-white">
       <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-2.5">
-        <a href="/" class="flex items-center gap-2.5" aria-label="World Sport Scores home">
+        <a href="/" class="flex items-center gap-2.5" aria-label="Soccer Scores Today home">
           <img src="/logo.png" alt="" width="30" height="30" class="rounded-[5px]" />
           <span class="display text-[1.7rem] font-extrabold uppercase leading-none tracking-wide">Score<span class="text-gold">Radar</span></span>
         </a>
@@ -84,7 +84,7 @@ const here = Astro.url.pathname.replace(/\/$/, '');
       <div class="mx-auto max-w-6xl px-4 py-8 grid gap-6 sm:grid-cols-3">
         <div>
           <p class="display text-2xl font-extrabold uppercase tracking-wide text-white">Score<span class="text-gold">Radar</span></p>
-          <p class="mt-2">Football scores and results, data-driven predictions, match analysis and guides, plus a free score-prediction game.</p>
+          <p class="mt-2">Soccer scores and results, data-driven predictions, match analysis and guides, plus a free score-prediction game.</p>
         </div>
         <ul class="space-y-1">
           <li><a href="/about" class="hover:text-white">About Us</a></li>

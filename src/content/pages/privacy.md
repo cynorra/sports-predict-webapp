@@ -1,10 +1,10 @@
 ---
 title: "Privacy Policy"
-description: "What data World Sport Scores collects, how Google AdSense and Firebase use it, your choices and how to contact us about your personal data."
+description: "What data Soccer Scores Today collects, how Google AdSense and Firebase use it, your choices and how to contact us about your personal data."
 updatedAt: 2026-10-29
 ---
 
-This policy explains what information World Sport Scores collects when you use the site and the prediction game.
+This policy explains what information Soccer Scores Today collects when you use the site and the prediction game.
 
 ## Information we collect
 

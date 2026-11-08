@@ -346,7 +346,7 @@ function figLadder() {
 }
 
 function figTiers() {
-  const w = 1200, note = 'World Sport Scores scoring: exact score 10, correct result and goal difference 5, correct result 3. Scored on the result after 90 minutes plus stoppage time.';
+  const w = 1200, note = 'Soccer Scores Today scoring: exact score 10, correct result and goal difference 5, correct result 3. Scored on the result after 90 minutes plus stoppage time.';
   const h = 480 + noteH(note);
   const rows = [['Exact score', 10, GOLD, INK], ['Right result + goal difference', 5, PITCH, '#fff'], ['Right result only', 3, '#64748b', '#fff']];
   let g = '';
@@ -705,7 +705,7 @@ for (const p of POSTS) {
   g += t(80, 300, 'SCORE', { size: 150, weight: 800, fill: '#fff' }) + t(80 + textWidth('SCORE', 150, 800) + 6, 300, 'RADAR', { size: 150, weight: 800, fill: GOLD });
   g += t(80, 380, 'Football predictions, match analysis and guides', { size: 42, weight: 700, fill: '#d6dbd8' });
   g += t(80, 540, 'FREE SCORE PREDICTOR  ·  ELO + POISSON MODEL', { size: 28, weight: 700, fill: GOLD });
-  const svg = svgDoc(1200, 630, 'World Sport Scores', g);
+  const svg = svgDoc(1200, 630, 'Soccer Scores Today', g);
   await sharp(Buffer.from(svg), { density: 96 }).resize(1200, 630).png({ compressionLevel: 9 }).toFile(join(ROOT, 'public', 'og-default.png'));
   console.log('og-default.png');
 }

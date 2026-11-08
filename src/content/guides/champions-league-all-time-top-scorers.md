@@ -6,7 +6,7 @@ publishedAt: 2026-12-02T17:53:00.000Z
 sport: football
 image:
   src: "/images/champions-league-all-time-top-scorers.svg"
-  alt: "World Sport Scores cover with bars for the Champions League all-time top scorers: Ronaldo 140, Messi 129, Lewandowski 109, Benzema 90 and Mbappé 74"
+  alt: "Soccer Scores Today cover with bars for the Champions League all-time top scorers: Ronaldo 140, Messi 129, Lewandowski 109, Benzema 90 and Mbappé 74"
 keywords: ["champions league top scorers", "ucl top scorers", "most champions league goals", "champions league all-time top scorers", "champions league goals record"]
 faq:
   - q: "Who is the all-time top scorer in the Champions League?"

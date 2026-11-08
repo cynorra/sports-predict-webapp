@@ -6,7 +6,7 @@ publishedAt: 2026-11-26T17:51:00.000Z
 sport: football
 image:
   src: "/images/how-the-48-team-world-cup-format-works.svg"
-  alt: "World Sport Scores cover with a funnel narrowing from 48 teams to 32, 16, 8, 4, 2 and one champion"
+  alt: "Soccer Scores Today cover with a funnel narrowing from 48 teams to 32, 16, 8, 4, 2 and one champion"
 keywords: ["world cup format", "world cup round of 32", "best third-placed teams world cup", "world cup group stage explained"]
 faq:
   - q: "How many teams play in the expanded World Cup?"

@@ -6,7 +6,7 @@ publishedAt: 2026-11-13T20:22:00.000Z
 sport: football
 image:
   src: "/images/expected-points-xpts-football-explained.svg"
-  alt: "World Sport Scores cover with two bars comparing expected points and actual points for a football match with a home-win chance near fifty percent"
+  alt: "Soccer Scores Today cover with two bars comparing expected points and actual points for a football match with a home-win chance near fifty percent"
 keywords: ["expected points in football", "xpts football", "expected points explained", "xpts vs actual points"]
 faq:
   - q: "What does xPts mean?"

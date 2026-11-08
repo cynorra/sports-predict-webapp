@@ -28,19 +28,19 @@ const blocks = [
   { label: 'News', href: '/news', sec: 'news', blurb: SECTIONS.news.blurb, items: await latest('news', 3) },
 ];
 const site = [
-  { '@type': 'WebSite', name: 'World Sport Scores', url: Astro.site?.href, inLanguage: 'en' },
-  { '@type': 'Organization', name: 'World Sport Scores', url: Astro.site?.href, logo: new URL('/logo.png', Astro.site).href },
+  { '@type': 'WebSite', name: 'Soccer Scores Today', url: Astro.site?.href, inLanguage: 'en' },
+  { '@type': 'Organization', name: 'Soccer Scores Today', url: Astro.site?.href, logo: new URL('/logo.png', Astro.site).href },
 ];
 ---
 
 <Base
-  title="World Sport Scores | Football Predictions, Match Analysis & Guides"
-  description="Football scores and results, data-driven predictions, match analysis and guides. Predict scores, earn points and compete."
+  title="Soccer Scores Today: Results, Predictions & Match Analysis"
+  description="Soccer scores and results, data-driven predictions, match analysis and guides. Predict scores, earn points and compete."
   jsonLd={site}
 >
   <section class="border-b border-line pb-10">
     <p class="kicker">Football, explained</p>
-    <h1 class="hero-num mt-3 max-w-4xl">Football guides and match analysis, <span class="hl">built on data.</span></h1>
+    <h1 class="hero-num mt-3 max-w-4xl">Soccer scores, guides and match analysis, <span class="hl">built on data.</span></h1>
     <p class="mt-5 max-w-2xl text-lg leading-relaxed text-slate-700">
       Plain-language explainers on ratings, expected goals, rules and formats, plus model-based match previews. Every number is sourced or calculated openly, and the method is on our <a class="font-semibold underline underline-offset-4 hover:text-pitch" href="/methodology">methodology page</a>.
     </p>

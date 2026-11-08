@@ -7,7 +7,7 @@ updatedAt: 2026-11-07T20:30:00.000Z
 sport: football
 image:
   src: "/images/how-to-predict-football-scores.svg"
-  alt: "World Sport Scores cover with a grid of scoreline probabilities in which the single most likely result is highlighted in gold"
+  alt: "Soccer Scores Today cover with a grid of scoreline probabilities in which the single most likely result is highlighted in gold"
 keywords: ["predict football scores", "how to predict football scores", "football score prediction tips", "score predictor method", "predict match results", "soccer score predictions", "football match score predictions", "football score forecast", "premier league score predictions", "predict world cup scores"]
 faq:
   - q: "What is the most common football score?"

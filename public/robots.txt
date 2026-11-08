@@ -28,4 +28,4 @@ User-agent: Bingbot
 Allow: /
 
 # Production domain
-Sitemap: https://worldsportscores.com/sitemap-index.xml
+Sitemap: https://soccerscorestoday.com/sitemap-index.xml

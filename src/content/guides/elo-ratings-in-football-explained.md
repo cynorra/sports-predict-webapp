@@ -6,7 +6,7 @@ publishedAt: 2026-10-29T18:01:00.000Z
 sport: football
 image:
   src: "/images/elo-ratings-in-football-explained.svg"
-  alt: "World Sport Scores cover with an Elo curve: expected score rises from 50% at equal ratings to 76% at a 200-point gap"
+  alt: "Soccer Scores Today cover with an Elo curve: expected score rises from 50% at equal ratings to 76% at a 200-point gap"
 keywords: ["elo ratings in football", "football elo rating system", "elo rating formula", "team strength rating"]
 faq:
   - q: "What does a 100-point Elo gap mean in football?"
