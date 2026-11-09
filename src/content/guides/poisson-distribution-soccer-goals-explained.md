@@ -83,7 +83,7 @@ Pick two numbers, such as 1.5 and 1.0, and compute the chance of each team scori
 
 ## Why a modest model is still worth having
 
-A Poisson grid will not spot a hidden injury or a manager's tactical plan. What it does is keep your expectations honest. It reminds you that a heavy favourite still fails to score in a noticeable share of matches, and that no single scoreline is very likely. That discipline is what separates a considered pick on the [prediction page](/predict) from wishful thinking. Even extreme feats, such as the [most goals in a Premier League season](/guides/most-goals-in-a-premier-league-season), sit far in the tail of what a scoring model expects from one player in a match.
+A Poisson grid will not spot a hidden injury or a manager's tactical plan. What it does is keep your expectations honest. It reminds you that a heavy favourite still fails to score in a noticeable share of matches, and that no single scoreline is very likely. That discipline is what separates a considered pick on the [prediction page](/predict) from wishful thinking. The same logic explains why records such as the [most goals in a Premier League season](/guides/most-goals-in-a-premier-league-season) are so hard to reach: a scoring rate that looks small in one match has to hold up across dozens.
 
 ## Sources
 
