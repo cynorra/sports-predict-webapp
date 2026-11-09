@@ -1,22 +1,8 @@
 {
-  "generatedAt": "2026-11-08T22:16:58.231Z",
+  "generatedAt": "2026-11-09T13:04:53.326Z",
   "source": "SportAPI (sportapi.ai)",
   "days": 4,
   "matches": [
-    {
-      "id": 16210536,
-      "kickoff": "2026-11-09T00:00:00Z",
-      "league": "Liga MX",
-      "home": "Querétaro",
-      "away": "Puebla"
-    },
-    {
-      "id": 16210537,
-      "kickoff": "2026-11-09T02:10:00Z",
-      "league": "Liga MX",
-      "home": "León",
-      "away": "Chivas"
-    },
     {
       "id": 18295235,
       "kickoff": "2026-11-09T19:30:00Z",

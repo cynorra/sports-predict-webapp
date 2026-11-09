@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-08T22:16:57.008Z",
+  "generatedAt": "2026-11-09T13:04:52.485Z",
   "source": "SportAPI (sportapi.ai)",
   "days": 5,
   "matches": [
@@ -716,116 +716,6 @@
       "away": "Ararat-Armenia",
       "homeScore": 3,
       "awayScore": 2,
-      "status": "FT"
-    },
-    {
-      "id": 15868663,
-      "date": "2026-11-04",
-      "kickoff": "2026-11-04T17:45:00Z",
-      "league": "UEFA Champions League",
-      "home": "AEK Athens",
-      "away": "Real Madrid",
-      "homeScore": 2,
-      "awayScore": 3,
-      "status": "FT"
-    },
-    {
-      "id": 15868664,
-      "date": "2026-11-04",
-      "kickoff": "2026-11-04T17:45:00Z",
-      "league": "UEFA Champions League",
-      "home": "Fenerbahçe",
-      "away": "Liverpool",
-      "homeScore": 3,
-      "awayScore": 2,
-      "status": "FT"
-    },
-    {
-      "id": 15868665,
-      "date": "2026-11-04",
-      "kickoff": "2026-11-04T20:00:00Z",
-      "league": "UEFA Champions League",
-      "home": "Dortmund",
-      "away": "Betis",
-      "homeScore": 2,
-      "awayScore": 1,
-      "status": "FT"
-    },
-    {
-      "id": 15868666,
-      "date": "2026-11-04",
-      "kickoff": "2026-11-04T20:00:00Z",
-      "league": "UEFA Champions League",
-      "home": "Lens",
-      "away": "Como",
-      "homeScore": 1,
-      "awayScore": 9,
-      "status": "FT"
-    },
-    {
-      "id": 15868667,
-      "date": "2026-11-04",
-      "kickoff": "2026-11-04T20:00:00Z",
-      "league": "UEFA Champions League",
-      "home": "PSV",
-      "away": "Club Brugge",
-      "homeScore": 1,
-      "awayScore": 2,
-      "status": "FT"
-    },
-    {
-      "id": 15868668,
-      "date": "2026-11-04",
-      "kickoff": "2026-11-04T20:00:00Z",
-      "league": "UEFA Champions League",
-      "home": "Porto",
-      "away": "Napoli",
-      "homeScore": 4,
-      "awayScore": 1,
-      "status": "FT"
-    },
-    {
-      "id": 15868669,
-      "date": "2026-11-04",
-      "kickoff": "2026-11-04T20:00:00Z",
-      "league": "UEFA Champions League",
-      "home": "Leipzig",
-      "away": "Man City",
-      "homeScore": 2,
-      "awayScore": 3,
-      "status": "FT"
-    },
-    {
-      "id": 15868670,
-      "date": "2026-11-04",
-      "kickoff": "2026-11-04T20:00:00Z",
-      "league": "UEFA Champions League",
-      "home": "Slavia Prague",
-      "away": "Arsenal",
-      "homeScore": 1,
-      "awayScore": 2,
-      "status": "FT"
-    },
-    {
-      "id": 15868671,
-      "date": "2026-11-04",
-      "kickoff": "2026-11-04T20:00:00Z",
-      "league": "UEFA Champions League",
-      "home": "Viking",
-      "away": "Sabah FK",
-      "homeScore": 4,
-      "awayScore": 1,
-      "status": "FT"
-    },
-    {
-      "id": 15914724,
-      "date": "2026-11-04",
-      "kickoff": "2026-11-04T15:30:00Z",
-      "league": "UEFA Europa League",
-      "home": "Rennes",
-      "away": "Olympiakos",
-      "homeScore": 0,
-      "awayScore": 0,
       "status": "FT"
     }
   ]
