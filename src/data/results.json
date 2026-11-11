@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10T01:40:42.594Z",
+  "generatedAt": "2026-11-11T11:58:28.378Z",
   "source": "SportAPI (sportapi.ai)",
   "days": 5,
   "matches": [
@@ -474,61 +474,6 @@
       "away": "Real Madrid",
       "homeScore": 0,
       "awayScore": 3,
-      "status": "FT"
-    },
-    {
-      "id": 16053386,
-      "date": "2026-11-06",
-      "kickoff": "2026-11-06T19:30:00Z",
-      "league": "German Bundesliga",
-      "home": "Hamburg",
-      "away": "M'gladbach",
-      "homeScore": 3,
-      "awayScore": 1,
-      "status": "FT"
-    },
-    {
-      "id": 16053387,
-      "date": "2026-11-06",
-      "kickoff": "2026-11-06T19:45:00Z",
-      "league": "Italian Serie A",
-      "home": "Venezia",
-      "away": "Udinese",
-      "homeScore": 2,
-      "awayScore": 1,
-      "status": "FT"
-    },
-    {
-      "id": 16053388,
-      "date": "2026-11-06",
-      "kickoff": "2026-11-06T19:45:00Z",
-      "league": "French Ligue 1",
-      "home": "Toulouse",
-      "away": "Strasbourg",
-      "homeScore": 3,
-      "awayScore": 1,
-      "status": "FT"
-    },
-    {
-      "id": 16053396,
-      "date": "2026-11-06",
-      "kickoff": "2026-11-06T20:00:00Z",
-      "league": "Premier League",
-      "home": "Everton",
-      "away": "Coventry",
-      "homeScore": 3,
-      "awayScore": 1,
-      "status": "FT"
-    },
-    {
-      "id": 16122911,
-      "date": "2026-11-06",
-      "kickoff": "2026-11-06T20:00:00Z",
-      "league": "Spanish La Liga",
-      "home": "Sevilla",
-      "away": "Alavés",
-      "homeScore": 0,
-      "awayScore": 0,
       "status": "FT"
     }
   ]

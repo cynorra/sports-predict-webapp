@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-11-09T13:04:53.326Z",
+  "generatedAt": "2026-11-11T11:58:29.460Z",
   "source": "SportAPI (sportapi.ai)",
   "days": 4,
   "matches": [
     {
-      "id": 18295235,
-      "kickoff": "2026-11-09T19:30:00Z",
-      "league": "FA Cup",
-      "home": "Plymouth P",
-      "away": "Berkhamsted"
+      "id": 10655511,
+      "kickoff": "2026-11-14T23:00:00Z",
+      "league": "Liga MX",
+      "home": "Querétaro",
+      "away": "Monterrey"
     }
   ]
 }
