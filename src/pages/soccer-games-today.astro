@@ -35,8 +35,8 @@ const total = days.reduce((n, d) => n + d.matches.length, 0);
 
   {days.length === 0 ? (
     <div class="card mt-8 p-6">
-      <p class="font-semibold">No scheduled games are loaded right now.</p>
-      <p class="mt-1 text-slate-600">The schedule appears here when the data is refreshed. In the meantime, see the <a class="text-pitch underline" href="/results">latest soccer scores</a> or try the <a class="text-pitch underline" href="/predict">score predictor</a>.</p>
+      <p class="font-semibold">No scheduled games from these competitions in the next few days.</p>
+      <p class="mt-1 text-slate-600">This happens during international breaks and other pauses. The schedule appears here again as soon as games are listed. In the meantime, see the <a class="text-pitch underline" href="/results">latest soccer scores</a> or try the <a class="text-pitch underline" href="/predict">score predictor</a>.</p>
     </div>
   ) : (
     <>

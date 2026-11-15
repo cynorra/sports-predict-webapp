@@ -30,11 +30,12 @@ for (const date of nextDates(DAYS)) {
 
 // A fixture can appear under two dates around midnight: keep one row per id.
 const matches = [...new Map(all.map((m) => [m.id, m])).values()].sort((a, b) => a.kickoff.localeCompare(b.kickoff) || a.id - b.id);
-if (!matches.length) { console.error('No scheduled matches in the window - leaving the schedule untouched.'); process.exit(1); }
+// Nothing scheduled (e.g. an international break): not an error. Past games must not stay listed, so an empty schedule is written.
 
 let previous = null;
 try { previous = JSON.parse(readFileSync(FILE, 'utf8')).matches; } catch {}
 if (previous && JSON.stringify(previous) === JSON.stringify(matches)) { console.log('schedule unchanged - nothing written'); process.exit(0); }
+if (!matches.length) console.log('No scheduled matches from the wanted competitions in the window - writing an empty schedule.');
 
 mkdirSync('src/data', { recursive: true });
 writeFileSync(FILE, JSON.stringify({ generatedAt: new Date().toISOString(), source: 'SportAPI (sportapi.ai)', days: DAYS, matches }, null, 2));

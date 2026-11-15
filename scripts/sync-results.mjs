@@ -29,7 +29,8 @@ for (const date of lastDates(DAYS)) {
 
 // A fixture can appear under two dates around midnight: keep one row per id.
 const matches = [...new Map(all.map((m) => [m.id, m])).values()].sort((a, b) => b.date.localeCompare(a.date) || a.id - b.id);
-if (!matches.length) { console.error('No finished matches in the window - leaving results untouched.'); process.exit(1); }
+// Nothing finished in the window (e.g. an international break): not an error. Keep the last real results, which carry their own dates.
+if (!matches.length) { console.log('No finished matches from the wanted competitions in the window - keeping the existing results.'); process.exit(0); }
 
 let previous = null;
 try { previous = JSON.parse(readFileSync(FILE, 'utf8')).matches; } catch {}

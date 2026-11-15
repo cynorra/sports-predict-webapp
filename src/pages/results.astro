@@ -9,6 +9,7 @@ const days = data?.matches?.length ? groupByDate(data.matches) : [];
 const updated = data?.generatedAt
   ? new Date(data.generatedAt).toLocaleString('en-US', { day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit', timeZone: 'UTC' }) + ' UTC'
   : null;
+const newest = data?.matches?.length ? [...data.matches].map((m: any) => m.date).sort().pop() : null;
 const heading = (d: string) => new Date(`${d}T12:00:00Z`).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', timeZone: 'UTC' });
 const note = (m: any) => (m.status === 'PENS' ? `Pens ${m.penHome ?? '?'}–${m.penAway ?? '?'}` : m.status === 'AET' ? 'AET' : 'FT');
 const byLeague = (matches: any[]) => {
@@ -31,6 +32,8 @@ const byLeague = (matches: any[]) => {
   <p class="mt-3 max-w-2xl text-lg text-slate-700">
     Final soccer scores from the Premier League, Champions League, Europa League, La Liga, Bundesliga, Serie A and Ligue 1 for the last few days. This is a results page, not a live scoreboard: it is refreshed a few times a day{updated && <>, last on {updated}</>}.
   </p>
+
+  {newest && <p class="mt-2 text-sm text-slate-600">Newest finished match in this list: {heading(newest)}. When none of these competitions has played, the last results stay up with their dates.</p>}
 
   {days.length === 0 ? (
     <div class="card mt-8 p-6">
