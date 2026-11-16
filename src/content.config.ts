@@ -33,6 +33,8 @@ const analysis = defineCollection({
     awayTeam: z.string(),
     homeCrest: z.string().url().optional(), // crest image URL (football-data.org), shown in the match box
     awayCrest: z.string().url().optional(),
+    homeElo: z.number().optional(), // club Elo at publish time; scripts/images builds the cover and scoreline figure from these
+    awayElo: z.number().optional(),
     competition: z.string(),
     kickoff: z.coerce.date(),
     prediction: z.object({

@@ -121,7 +121,7 @@ if (process.argv.includes('--freshness')) {
 
 // Orphan pages (standard 3.8): once there are 3+ posts, every post must be linked from the body of at least one other post.
 if (posts.length >= 3) {
-  for (const p of posts) {
+  for (const p of posts.filter((x) => x.section !== 'analysis')) { // match previews are reached from the /analysis hub and the predictor, and a new one cannot be linked by older posts
     const url = `/${p.section}/${p.id.split('/')[1].replace(/\.md$/, '')}`;
     const inbound = posts.filter((o) => o !== p && o.body.includes(`](${url})`)).length;
     if (inbound === 0) fail(p.id, `orphan: no other post links to ${url} - add a natural contextual link from a related post`);
@@ -134,10 +134,12 @@ const dup = (key) => {
 };
 dup('title'); dup('description'); dup('answer');
 
+// A reference list legitimately repeats the same primary sources (methodology, data provider) across posts, so it is left out of the overlap check.
+const noSources = (t) => t.replace(/^## Sources[\s\S]*$/m, ' ');
 for (let i = 0; i < posts.length; i++) {
-  const a = shingles(posts[i].body);
+  const a = shingles(noSources(posts[i].body));
   for (let j = i + 1; j < posts.length; j++) {
-    const sim = jaccard(a, shingles(posts[j].body));
+    const sim = jaccard(a, shingles(noSources(posts[j].body)));
     if (sim > SIM_MAX) fail(posts[i].id, `${(sim * 100).toFixed(0)}% text overlap with ${posts[j].id} (max ${SIM_MAX * 100}%) - rewrite, don't reuse templates`);
   }
 }

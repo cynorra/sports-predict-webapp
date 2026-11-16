@@ -1,0 +1,66 @@
+# Writes one match preview a day for the next Champions League fixture that has none yet (scripts/auto-analysis.mjs).
+# The numbers come from our own Elo/Poisson model; Gemini only writes prose around them, and code rejects any number or
+# name that is not in the supplied facts. The same audit as the build (npm run audit) runs before anything is committed.
+# When no fixture is due in the next 4 days the run does nothing (international breaks, off weeks).
+#
+# Security model
+#  - GEMINI_API_KEY is handed to ONE step. That step spawns the image build and the audit with the key removed from their environment.
+#  - npm ci runs in a separate step without secrets. Actions are pinned to commit SHAs; the job token is contents:write only.
+#
+# Setup: repository secret GEMINI_API_KEY (several keys may be separated by commas to rotate quota).
+name: auto-analysis
+on:
+  schedule:
+    - cron: '27 14 * * *'
+  workflow_dispatch: {}
+
+permissions: {}
+
+concurrency:
+  group: auto-analysis
+  cancel-in-progress: false
+
+jobs:
+  write:
+    if: github.repository == 'cynorra/sports-predict-webapp' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Self-test the gates and scan for leaked secrets
+        run: |
+          node --test scripts/lib/*.test.mjs
+          node scripts/check-secrets.mjs
+      - name: Write the next preview (model facts + Gemini prose, gated)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: node scripts/auto-analysis.mjs
+      - name: Commit the preview
+        id: commit
+        run: |
+          git add src/content/analysis public/images
+          if git diff --cached --quiet; then echo "changed=false" >> "$GITHUB_OUTPUT"; echo "nothing to publish"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "content: automatic match preview"
+          git pull --rebase origin main
+          git push origin main
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+  # Bot commits made with GITHUB_TOKEN do not trigger the push workflow, so call the deploy workflow directly.
+  deploy:
+    needs: write
+    if: needs.write.outputs.changed == 'true'
+    permissions:
+      contents: read
+    uses: ./.github/workflows/deploy.yml
+    secrets: inherit

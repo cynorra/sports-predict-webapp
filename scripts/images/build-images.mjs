@@ -5,7 +5,7 @@
 // All numbers come from the Elo formula, the Poisson maths (same as src/lib/model.ts) or the figures quoted in the
 // article itself. Illustrative examples are labelled as such inside the image.
 // Run: npm run images   (output is committed; the build only verifies it via `npm run audit`).
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import opentype from 'opentype.js';
 import { fileURLToPath } from 'node:url';
 import { join, dirname } from 'node:path';
@@ -680,6 +680,22 @@ const POSTS = [
     figs: { scorelines: () => heatFigure({ xgH: barca.xgHome, xgA: barca.xgAway, homeName: 'Barcelona', awayName: 'Aston Villa', title: 'Model chance of every scoreline', sub: `Expected goals: Barcelona ${barca.xgHome.toFixed(1)}, Aston Villa ${barca.xgAway.toFixed(1)}`, note: 'From club Elo ratings 1821 and 1654 with the model’s 65-point home bonus, converted to expected goals and an independent Poisson distribution. See the methodology page.' }) },
   },
 ];
+
+// Auto-written match previews (scripts/auto-analysis.mjs) carry homeElo/awayElo in the front matter: build their cover and figure the same way.
+for (const f of readdirSync(join(ROOT, 'src', 'content', 'analysis')).filter((x) => x.endsWith('.md'))) {
+  const slug = f.replace(/\.md$/, '');
+  if (POSTS.some((p) => p.section === 'analysis' && p.slug === slug)) continue;
+  const fm = frontmatter('analysis', slug);
+  const he = Number(field(fm, 'homeElo')), ae = Number(field(fm, 'awayElo'));
+  if (!he || !ae) continue;
+  const hn = field(fm, 'homeTeam'), an = field(fm, 'awayTeam'), comp = field(fm, 'competition');
+  const m = predictMatch({ elo: he }, { elo: ae });
+  POSTS.push({
+    section: 'analysis', slug, kicker: `Match analysis · ${comp.replace(/^UEFA /, '')}`, motif: 'analysis',
+    motifData: () => ({ home: hn, away: an, ph: m.mostLikely.home, pa: m.mostLikely.away, pHome: m.pHome, pDraw: m.pDraw, pAway: m.pAway }),
+    figs: { scorelines: () => heatFigure({ xgH: m.xgHome, xgA: m.xgAway, homeName: hn, awayName: an, title: 'Model chance of every scoreline', sub: `Expected goals: ${hn} ${m.xgHome.toFixed(1)}, ${an} ${m.xgAway.toFixed(1)}`, note: `From club Elo ratings ${he} and ${ae} with the model’s 65-point home bonus, converted to expected goals and an independent Poisson distribution. See the methodology page.` }) },
+  });
+}
 
 for (const p of POSTS) {
   const fm = frontmatter(p.section, p.slug);

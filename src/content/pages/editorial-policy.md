@@ -1,7 +1,7 @@
 ---
 title: "Editorial Policy"
 description: "How Soccer Games Today sources facts, labels predictions and corrects mistakes in its guides and match analysis."
-updatedAt: 2026-11-07
+updatedAt: 2026-11-16
 ---
 
 ## Who writes Soccer Games Today
@@ -15,6 +15,10 @@ Rules come from the Laws of the Game published by IFAB and from official competi
 ## Predictions and opinion
 
 The scores and probabilities on the site come from the model described on the [methodology page](/methodology). They are estimates, not promises, and they are labelled that way. Opinion is kept apart from fact, and nothing on the site is betting advice.
+
+## Automatic match previews
+
+Most match previews in the analysis section are written automatically. Every number in them comes from the model described on the [methodology page](/methodology) and the fixture list from football-data.org. A language model only writes the wording around those numbers, and software checks that no other figures or names appear. The previews do not use team news, injuries or form, and they say so. They go live without a manual read; the author reviews them afterwards and corrects mistakes as described below. Guides are written and read by the author before publication.
 
 ## Originality
 
