@@ -1,6 +1,42 @@
 {
-  "generatedAt": "2026-11-15T07:13:05.261Z",
+  "generatedAt": "2026-11-17T01:54:42.989Z",
   "source": "SportAPI (sportapi.ai)",
   "days": 4,
-  "matches": []
+  "matches": [
+    {
+      "id": 18991883,
+      "kickoff": "2026-11-20T00:30:00Z",
+      "league": "US Major League Soccer",
+      "home": "Orlando",
+      "away": "Cincinnati"
+    },
+    {
+      "id": 18991884,
+      "kickoff": "2026-11-20T03:00:00Z",
+      "league": "US Major League Soccer",
+      "home": "Sounders",
+      "away": "Salt Lake"
+    },
+    {
+      "id": 18399052,
+      "kickoff": "2026-11-20T19:30:00Z",
+      "league": "German Bundesliga",
+      "home": "Bayern Munich",
+      "away": "Köln"
+    },
+    {
+      "id": 18399053,
+      "kickoff": "2026-11-20T19:45:00Z",
+      "league": "French Ligue 1",
+      "home": "Troyes",
+      "away": "Le Havre"
+    },
+    {
+      "id": 18454110,
+      "kickoff": "2026-11-20T20:00:00Z",
+      "league": "Spanish La Liga",
+      "home": "Athletic",
+      "away": "Espanyol"
+    }
+  ]
 }
