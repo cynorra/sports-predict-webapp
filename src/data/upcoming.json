@@ -1,15 +1,8 @@
 {
-  "generatedAt": "2026-11-19T00:32:45.815Z",
+  "generatedAt": "2026-11-20T00:42:43.500Z",
   "source": "SportAPI (sportapi.ai)",
   "days": 4,
   "matches": [
-    {
-      "id": 18991883,
-      "kickoff": "2026-11-20T00:30:00Z",
-      "league": "US Major League Soccer",
-      "home": "Orlando",
-      "away": "Cincinnati"
-    },
     {
       "id": 18991884,
       "kickoff": "2026-11-20T03:00:00Z",
@@ -520,6 +513,34 @@
       "league": "US Major League Soccer",
       "home": "Chicago",
       "away": "Charlotte"
+    },
+    {
+      "id": 18499020,
+      "kickoff": "2026-11-23T01:10:00Z",
+      "league": "Liga MX",
+      "home": "Querétaro",
+      "away": "Necaxa"
+    },
+    {
+      "id": 18499005,
+      "kickoff": "2026-11-23T19:45:00Z",
+      "league": "Italian Serie A",
+      "home": "Monza",
+      "away": "Fiorentina"
+    },
+    {
+      "id": 18499004,
+      "kickoff": "2026-11-23T20:00:00Z",
+      "league": "Spanish La Liga",
+      "home": "Levante",
+      "away": "Elche"
+    },
+    {
+      "id": 18499012,
+      "kickoff": "2026-11-23T20:00:00Z",
+      "league": "Premier League",
+      "home": "Brentford",
+      "away": "Everton"
     }
   ]
 }
