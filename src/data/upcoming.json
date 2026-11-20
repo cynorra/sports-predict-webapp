@@ -1,15 +1,8 @@
 {
-  "generatedAt": "2026-11-20T00:42:43.500Z",
+  "generatedAt": "2026-11-20T13:13:20.654Z",
   "source": "SportAPI (sportapi.ai)",
   "days": 4,
   "matches": [
-    {
-      "id": 18991884,
-      "kickoff": "2026-11-20T03:00:00Z",
-      "league": "US Major League Soccer",
-      "home": "Sounders",
-      "away": "Salt Lake"
-    },
     {
       "id": 18399052,
       "kickoff": "2026-11-20T19:30:00Z",
