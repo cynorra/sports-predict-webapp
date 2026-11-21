@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-11-09T13:04:51.319Z",
+  "generatedAt": "2026-11-21T12:50:32.522Z",
   "sources": [
     "football-data.org (results and fixtures)"
   ],
-  "ratingMatches": 5881,
+  "ratingMatches": 5884,
   "fixtures": [
     {
       "id": "575395",
@@ -133,7 +133,7 @@
       "away": "Bayern",
       "kickoff": "2026-11-25T20:00:00Z",
       "homeElo": 1595,
-      "awayElo": 1891,
+      "awayElo": 1882,
       "homeCrest": "https://crests.football-data.org/521.png",
       "awayCrest": "https://crests.football-data.org/5.png"
     }

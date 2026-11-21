@@ -1,36 +1,8 @@
 {
-  "generatedAt": "2026-11-21T00:02:30.739Z",
+  "generatedAt": "2026-11-21T12:50:34.956Z",
   "source": "SportAPI (sportapi.ai)",
   "days": 4,
   "matches": [
-    {
-      "id": 18454482,
-      "kickoff": "2026-11-21T01:00:00Z",
-      "league": "Liga MX",
-      "home": "Puebla",
-      "away": "San Luis"
-    },
-    {
-      "id": 18454483,
-      "kickoff": "2026-11-21T03:00:00Z",
-      "league": "Liga MX",
-      "home": "Juárez",
-      "away": "Atlas"
-    },
-    {
-      "id": 18454484,
-      "kickoff": "2026-11-21T03:10:00Z",
-      "league": "Liga MX",
-      "home": "Tijuana",
-      "away": "Atlante"
-    },
-    {
-      "id": 18454228,
-      "kickoff": "2026-11-21T12:30:00Z",
-      "league": "Premier League",
-      "home": "Man City",
-      "away": "Fulham"
-    },
     {
       "id": 18454155,
       "kickoff": "2026-11-21T13:00:00Z",
@@ -473,6 +445,13 @@
       "away": "Atlético"
     },
     {
+      "id": 19011474,
+      "kickoff": "2026-11-22T21:00:00Z",
+      "league": "US Major League Soccer",
+      "home": "Nashville",
+      "away": "Cincinnati"
+    },
+    {
       "id": 18478418,
       "kickoff": "2026-11-22T23:07:00Z",
       "league": "Liga MX",
@@ -492,6 +471,13 @@
       "league": "Liga MX",
       "home": "Querétaro",
       "away": "Necaxa"
+    },
+    {
+      "id": 19011525,
+      "kickoff": "2026-11-23T01:30:00Z",
+      "league": "US Major League Soccer",
+      "home": "Whitecaps",
+      "away": "Salt Lake"
     },
     {
       "id": 18499005,
