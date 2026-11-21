@@ -1,29 +1,8 @@
 {
-  "generatedAt": "2026-11-20T13:13:20.654Z",
+  "generatedAt": "2026-11-21T00:02:30.739Z",
   "source": "SportAPI (sportapi.ai)",
   "days": 4,
   "matches": [
-    {
-      "id": 18399052,
-      "kickoff": "2026-11-20T19:30:00Z",
-      "league": "German Bundesliga",
-      "home": "Bayern Munich",
-      "away": "Köln"
-    },
-    {
-      "id": 18399053,
-      "kickoff": "2026-11-20T19:45:00Z",
-      "league": "French Ligue 1",
-      "home": "Troyes",
-      "away": "Le Havre"
-    },
-    {
-      "id": 18454110,
-      "kickoff": "2026-11-20T20:00:00Z",
-      "league": "Spanish La Liga",
-      "home": "Athletic",
-      "away": "Espanyol"
-    },
     {
       "id": 18454482,
       "kickoff": "2026-11-21T01:00:00Z",
@@ -534,6 +513,90 @@
       "league": "Premier League",
       "home": "Brentford",
       "away": "Everton"
+    },
+    {
+      "id": 19011672,
+      "kickoff": "2026-11-24T01:00:00Z",
+      "league": "US Major League Soccer",
+      "home": "St. Louis",
+      "away": "LAFC"
+    },
+    {
+      "id": 18537263,
+      "kickoff": "2026-11-24T17:45:00Z",
+      "league": "UEFA Champions League",
+      "home": "Bodø/Glimt",
+      "away": "LASK"
+    },
+    {
+      "id": 18537264,
+      "kickoff": "2026-11-24T17:45:00Z",
+      "league": "UEFA Champions League",
+      "home": "Galatasaray",
+      "away": "Aston Villa"
+    },
+    {
+      "id": 18537331,
+      "kickoff": "2026-11-24T19:45:00Z",
+      "league": "Scottish Premiership",
+      "home": "Hibernian",
+      "away": "Dundee"
+    },
+    {
+      "id": 18537265,
+      "kickoff": "2026-11-24T20:00:00Z",
+      "league": "UEFA Champions League",
+      "home": "Arsenal",
+      "away": "Dortmund"
+    },
+    {
+      "id": 18537266,
+      "kickoff": "2026-11-24T20:00:00Z",
+      "league": "UEFA Champions League",
+      "home": "Como",
+      "away": "AEK Athens"
+    },
+    {
+      "id": 18537267,
+      "kickoff": "2026-11-24T20:00:00Z",
+      "league": "UEFA Champions League",
+      "home": "Feyenoord",
+      "away": "Porto"
+    },
+    {
+      "id": 18537268,
+      "kickoff": "2026-11-24T20:00:00Z",
+      "league": "UEFA Champions League",
+      "home": "Man City",
+      "away": "Napoli"
+    },
+    {
+      "id": 18537269,
+      "kickoff": "2026-11-24T20:00:00Z",
+      "league": "UEFA Champions League",
+      "home": "Leipzig",
+      "away": "Lens"
+    },
+    {
+      "id": 18537270,
+      "kickoff": "2026-11-24T20:00:00Z",
+      "league": "UEFA Champions League",
+      "home": "Real Madrid",
+      "away": "PSV"
+    },
+    {
+      "id": 18537271,
+      "kickoff": "2026-11-24T20:00:00Z",
+      "league": "UEFA Champions League",
+      "home": "Slovan",
+      "away": "Betis"
+    },
+    {
+      "id": 18537332,
+      "kickoff": "2026-11-24T20:00:00Z",
+      "league": "Scottish Premiership",
+      "home": "Rangers",
+      "away": "Aberdeen"
     }
   ]
 }
