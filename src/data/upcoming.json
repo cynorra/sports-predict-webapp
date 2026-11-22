@@ -1,36 +1,8 @@
 {
-  "generatedAt": "2026-11-21T23:28:28.475Z",
+  "generatedAt": "2026-11-22T12:43:39.136Z",
   "source": "SportAPI (sportapi.ai)",
   "days": 4,
   "matches": [
-    {
-      "id": 18478416,
-      "kickoff": "2026-11-22T01:00:00Z",
-      "league": "Liga MX",
-      "home": "Pumas",
-      "away": "Monterrey"
-    },
-    {
-      "id": 18478417,
-      "kickoff": "2026-11-22T03:00:00Z",
-      "league": "Liga MX",
-      "home": "Tigres",
-      "away": "Club América"
-    },
-    {
-      "id": 18478309,
-      "kickoff": "2026-11-22T11:15:00Z",
-      "league": "Dutch Eredivisie",
-      "home": "Twente",
-      "away": "Willem II"
-    },
-    {
-      "id": 18478287,
-      "kickoff": "2026-11-22T11:30:00Z",
-      "league": "Italian Serie A",
-      "home": "Juventus",
-      "away": "Venezia"
-    },
     {
       "id": 18478281,
       "kickoff": "2026-11-22T13:00:00Z",
@@ -296,6 +268,76 @@
       "league": "Scottish Premiership",
       "home": "Rangers",
       "away": "Aberdeen"
+    },
+    {
+      "id": 19011720,
+      "kickoff": "2026-11-25T03:00:00Z",
+      "league": "US Major League Soccer",
+      "home": "Earthquakes",
+      "away": "Houston"
+    },
+    {
+      "id": 18572762,
+      "kickoff": "2026-11-25T17:45:00Z",
+      "league": "UEFA Champions League",
+      "home": "Sabah FK",
+      "away": "Barcelona"
+    },
+    {
+      "id": 18572763,
+      "kickoff": "2026-11-25T17:45:00Z",
+      "league": "UEFA Champions League",
+      "home": "Slavia Prague",
+      "away": "Villarreal"
+    },
+    {
+      "id": 18572764,
+      "kickoff": "2026-11-25T20:00:00Z",
+      "league": "UEFA Champions League",
+      "home": "Atlético",
+      "away": "Viking"
+    },
+    {
+      "id": 18572765,
+      "kickoff": "2026-11-25T20:00:00Z",
+      "league": "UEFA Champions League",
+      "home": "Club Brugge",
+      "away": "Liverpool"
+    },
+    {
+      "id": 18572766,
+      "kickoff": "2026-11-25T20:00:00Z",
+      "league": "UEFA Champions League",
+      "home": "Inter Milan",
+      "away": "Stuttgart"
+    },
+    {
+      "id": 18572767,
+      "kickoff": "2026-11-25T20:00:00Z",
+      "league": "UEFA Champions League",
+      "home": "Lille",
+      "away": "Bayern Munich"
+    },
+    {
+      "id": 18572768,
+      "kickoff": "2026-11-25T20:00:00Z",
+      "league": "UEFA Champions League",
+      "home": "PSG",
+      "away": "Roma"
+    },
+    {
+      "id": 18572769,
+      "kickoff": "2026-11-25T20:00:00Z",
+      "league": "UEFA Champions League",
+      "home": "Shakhtar D",
+      "away": "Fenerbahçe"
+    },
+    {
+      "id": 18572770,
+      "kickoff": "2026-11-25T20:00:00Z",
+      "league": "UEFA Champions League",
+      "home": "Sporting",
+      "away": "Man Utd"
     }
   ]
 }
