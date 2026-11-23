@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-11-22T12:43:36.168Z",
+  "generatedAt": "2026-11-23T14:57:58.110Z",
   "sources": [
     "football-data.org (results and fixtures)"
   ],
-  "ratingMatches": 5915,
+  "ratingMatches": 5935,
   "fixtures": [
     {
       "id": "575395",
@@ -89,7 +89,7 @@
       "away": "Villarreal",
       "kickoff": "2026-11-25T17:45:00Z",
       "homeElo": 1415,
-      "awayElo": 1551,
+      "awayElo": 1549,
       "homeCrest": "https://crests.football-data.org/930.png",
       "awayCrest": "https://crests.football-data.org/94.png"
     },
@@ -99,7 +99,7 @@
       "home": "Inter",
       "away": "Stuttgart",
       "kickoff": "2026-11-25T20:00:00Z",
-      "homeElo": 1759,
+      "homeElo": 1755,
       "awayElo": 1600,
       "homeCrest": "https://crests.football-data.org/108.png",
       "awayCrest": "https://crests.football-data.org/10.png"
@@ -122,7 +122,7 @@
       "away": "Liverpool",
       "kickoff": "2026-11-25T20:00:00Z",
       "homeElo": 1600,
-      "awayElo": 1671,
+      "awayElo": 1681,
       "homeCrest": "https://crests.football-data.org/851.png",
       "awayCrest": "https://crests.football-data.org/64.png"
     },
