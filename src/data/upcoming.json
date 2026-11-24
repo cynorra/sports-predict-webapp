@@ -1,36 +1,8 @@
 {
-  "generatedAt": "2026-11-23T14:58:00.726Z",
+  "generatedAt": "2026-11-24T04:00:23.384Z",
   "source": "SportAPI (sportapi.ai)",
   "days": 4,
   "matches": [
-    {
-      "id": 18499005,
-      "kickoff": "2026-11-23T19:45:00Z",
-      "league": "Italian Serie A",
-      "home": "Monza",
-      "away": "Fiorentina"
-    },
-    {
-      "id": 18499004,
-      "kickoff": "2026-11-23T20:00:00Z",
-      "league": "Spanish La Liga",
-      "home": "Levante",
-      "away": "Elche"
-    },
-    {
-      "id": 18499012,
-      "kickoff": "2026-11-23T20:00:00Z",
-      "league": "Premier League",
-      "home": "Brentford",
-      "away": "Everton"
-    },
-    {
-      "id": 19011672,
-      "kickoff": "2026-11-24T01:00:00Z",
-      "league": "US Major League Soccer",
-      "home": "St. Louis",
-      "away": "LAFC"
-    },
     {
       "id": 18537263,
       "kickoff": "2026-11-24T17:45:00Z",
@@ -109,13 +81,6 @@
       "away": "Aberdeen"
     },
     {
-      "id": 18622596,
-      "kickoff": "2026-11-25T00:00:00Z",
-      "league": "Liga MX",
-      "home": "Toluca",
-      "away": "Atlas"
-    },
-    {
       "id": 19011720,
       "kickoff": "2026-11-25T03:00:00Z",
       "league": "US Major League Soccer",
@@ -184,6 +149,20 @@
       "league": "UEFA Champions League",
       "home": "Sporting",
       "away": "Man Utd"
+    },
+    {
+      "id": 18622596,
+      "kickoff": "2026-11-26T01:00:00Z",
+      "league": "Liga MX",
+      "home": "Toluca",
+      "away": "Atlas"
+    },
+    {
+      "id": 18622597,
+      "kickoff": "2026-11-26T03:10:00Z",
+      "league": "Liga MX",
+      "home": "Monterrey",
+      "away": "Club América"
     },
     {
       "id": 18597832,
@@ -310,6 +289,69 @@
       "league": "UEFA Europa League",
       "home": "Torreense",
       "away": "Celtic"
+    },
+    {
+      "id": 18622599,
+      "kickoff": "2026-11-27T01:00:00Z",
+      "league": "Liga MX",
+      "home": "Pachuca",
+      "away": "Chivas"
+    },
+    {
+      "id": 18622598,
+      "kickoff": "2026-11-27T03:10:00Z",
+      "league": "Liga MX",
+      "home": "León",
+      "away": "Cruz Azul"
+    },
+    {
+      "id": 18622692,
+      "kickoff": "2026-11-27T19:00:00Z",
+      "league": "Dutch Eredivisie",
+      "home": "Groningen",
+      "away": "Willem II"
+    },
+    {
+      "id": 18622685,
+      "kickoff": "2026-11-27T19:30:00Z",
+      "league": "German Bundesliga",
+      "home": "Bremen",
+      "away": "M'gladbach"
+    },
+    {
+      "id": 18622686,
+      "kickoff": "2026-11-27T19:45:00Z",
+      "league": "Italian Serie A",
+      "home": "Venezia",
+      "away": "Bologna"
+    },
+    {
+      "id": 18622687,
+      "kickoff": "2026-11-27T19:45:00Z",
+      "league": "French Ligue 1",
+      "home": "Brest",
+      "away": "Paris FC"
+    },
+    {
+      "id": 18622696,
+      "kickoff": "2026-11-27T20:00:00Z",
+      "league": "Premier League",
+      "home": "Nottm Forest",
+      "away": "Chelsea"
+    },
+    {
+      "id": 18680754,
+      "kickoff": "2026-11-27T20:00:00Z",
+      "league": "Spanish La Liga",
+      "home": "Levante",
+      "away": "Santander"
+    },
+    {
+      "id": 18622693,
+      "kickoff": "2026-11-27T20:15:00Z",
+      "league": "Portuguese Primeira Liga",
+      "home": "Marítimo",
+      "away": "Nacional"
     }
   ]
 }
