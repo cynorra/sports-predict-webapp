@@ -1,8 +1,107 @@
 {
-  "generatedAt": "2026-11-24T04:00:22.603Z",
+  "generatedAt": "2026-11-25T02:38:00.369Z",
   "source": "SportAPI (sportapi.ai)",
   "days": 5,
   "matches": [
+    {
+      "id": 18537263,
+      "date": "2026-11-24",
+      "kickoff": "2026-11-24T17:45:00Z",
+      "league": "UEFA Champions League",
+      "home": "Bodø/Glimt",
+      "away": "LASK",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "FT"
+    },
+    {
+      "id": 18537264,
+      "date": "2026-11-24",
+      "kickoff": "2026-11-24T17:45:00Z",
+      "league": "UEFA Champions League",
+      "home": "Galatasaray",
+      "away": "Aston Villa",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "FT"
+    },
+    {
+      "id": 18537265,
+      "date": "2026-11-24",
+      "kickoff": "2026-11-24T20:00:00Z",
+      "league": "UEFA Champions League",
+      "home": "Arsenal",
+      "away": "Dortmund",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "FT"
+    },
+    {
+      "id": 18537266,
+      "date": "2026-11-24",
+      "kickoff": "2026-11-24T20:00:00Z",
+      "league": "UEFA Champions League",
+      "home": "Como",
+      "away": "AEK Athens",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "FT"
+    },
+    {
+      "id": 18537267,
+      "date": "2026-11-24",
+      "kickoff": "2026-11-24T20:00:00Z",
+      "league": "UEFA Champions League",
+      "home": "Feyenoord",
+      "away": "Porto",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "FT"
+    },
+    {
+      "id": 18537268,
+      "date": "2026-11-24",
+      "kickoff": "2026-11-24T20:00:00Z",
+      "league": "UEFA Champions League",
+      "home": "Man City",
+      "away": "Napoli",
+      "homeScore": 2,
+      "awayScore": 2,
+      "status": "FT"
+    },
+    {
+      "id": 18537269,
+      "date": "2026-11-24",
+      "kickoff": "2026-11-24T20:00:00Z",
+      "league": "UEFA Champions League",
+      "home": "Leipzig",
+      "away": "Lens",
+      "homeScore": 3,
+      "awayScore": 1,
+      "status": "FT"
+    },
+    {
+      "id": 18537270,
+      "date": "2026-11-24",
+      "kickoff": "2026-11-24T20:00:00Z",
+      "league": "UEFA Champions League",
+      "home": "Real Madrid",
+      "away": "PSV",
+      "homeScore": 5,
+      "awayScore": 1,
+      "status": "FT"
+    },
+    {
+      "id": 18537271,
+      "date": "2026-11-24",
+      "kickoff": "2026-11-24T20:00:00Z",
+      "league": "UEFA Champions League",
+      "home": "Slovan",
+      "away": "Betis",
+      "homeScore": 0,
+      "awayScore": 2,
+      "status": "FT"
+    },
     {
       "id": 18499004,
       "date": "2026-11-23",
@@ -496,39 +595,6 @@
       "away": "Arsenal",
       "homeScore": 2,
       "awayScore": 2,
-      "status": "FT"
-    },
-    {
-      "id": 18399052,
-      "date": "2026-11-20",
-      "kickoff": "2026-11-20T19:30:00Z",
-      "league": "German Bundesliga",
-      "home": "Bayern Munich",
-      "away": "Köln",
-      "homeScore": 1,
-      "awayScore": 1,
-      "status": "FT"
-    },
-    {
-      "id": 18399053,
-      "date": "2026-11-20",
-      "kickoff": "2026-11-20T19:45:00Z",
-      "league": "French Ligue 1",
-      "home": "Troyes",
-      "away": "Le Havre",
-      "homeScore": 3,
-      "awayScore": 1,
-      "status": "FT"
-    },
-    {
-      "id": 18454110,
-      "date": "2026-11-20",
-      "kickoff": "2026-11-20T20:00:00Z",
-      "league": "Spanish La Liga",
-      "home": "Athletic",
-      "away": "Espanyol",
-      "homeScore": 0,
-      "awayScore": 1,
       "status": "FT"
     }
   ]

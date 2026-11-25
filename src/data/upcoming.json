@@ -1,85 +1,8 @@
 {
-  "generatedAt": "2026-11-24T04:00:23.384Z",
+  "generatedAt": "2026-11-25T02:38:01.856Z",
   "source": "SportAPI (sportapi.ai)",
   "days": 4,
   "matches": [
-    {
-      "id": 18537263,
-      "kickoff": "2026-11-24T17:45:00Z",
-      "league": "UEFA Champions League",
-      "home": "Bodø/Glimt",
-      "away": "LASK"
-    },
-    {
-      "id": 18537264,
-      "kickoff": "2026-11-24T17:45:00Z",
-      "league": "UEFA Champions League",
-      "home": "Galatasaray",
-      "away": "Aston Villa"
-    },
-    {
-      "id": 18537331,
-      "kickoff": "2026-11-24T19:45:00Z",
-      "league": "Scottish Premiership",
-      "home": "Hibernian",
-      "away": "Dundee"
-    },
-    {
-      "id": 18537265,
-      "kickoff": "2026-11-24T20:00:00Z",
-      "league": "UEFA Champions League",
-      "home": "Arsenal",
-      "away": "Dortmund"
-    },
-    {
-      "id": 18537266,
-      "kickoff": "2026-11-24T20:00:00Z",
-      "league": "UEFA Champions League",
-      "home": "Como",
-      "away": "AEK Athens"
-    },
-    {
-      "id": 18537267,
-      "kickoff": "2026-11-24T20:00:00Z",
-      "league": "UEFA Champions League",
-      "home": "Feyenoord",
-      "away": "Porto"
-    },
-    {
-      "id": 18537268,
-      "kickoff": "2026-11-24T20:00:00Z",
-      "league": "UEFA Champions League",
-      "home": "Man City",
-      "away": "Napoli"
-    },
-    {
-      "id": 18537269,
-      "kickoff": "2026-11-24T20:00:00Z",
-      "league": "UEFA Champions League",
-      "home": "Leipzig",
-      "away": "Lens"
-    },
-    {
-      "id": 18537270,
-      "kickoff": "2026-11-24T20:00:00Z",
-      "league": "UEFA Champions League",
-      "home": "Real Madrid",
-      "away": "PSV"
-    },
-    {
-      "id": 18537271,
-      "kickoff": "2026-11-24T20:00:00Z",
-      "league": "UEFA Champions League",
-      "home": "Slovan",
-      "away": "Betis"
-    },
-    {
-      "id": 18537332,
-      "kickoff": "2026-11-24T20:00:00Z",
-      "league": "Scottish Premiership",
-      "home": "Rangers",
-      "away": "Aberdeen"
-    },
     {
       "id": 19011720,
       "kickoff": "2026-11-25T03:00:00Z",
@@ -352,6 +275,272 @@
       "league": "Portuguese Primeira Liga",
       "home": "Marítimo",
       "away": "Nacional"
+    },
+    {
+      "id": 19012156,
+      "kickoff": "2026-11-28T01:00:00Z",
+      "league": "US Major League Soccer",
+      "home": "Columbus",
+      "away": "Inter Miami"
+    },
+    {
+      "id": 19012157,
+      "kickoff": "2026-11-28T03:00:00Z",
+      "league": "US Major League Soccer",
+      "home": "Salt Lake",
+      "away": "Whitecaps"
+    },
+    {
+      "id": 18680756,
+      "kickoff": "2026-11-28T13:00:00Z",
+      "league": "Spanish La Liga",
+      "home": "Betis",
+      "away": "Rayo"
+    },
+    {
+      "id": 18656226,
+      "kickoff": "2026-11-28T14:00:00Z",
+      "league": "Italian Serie A",
+      "home": "Frosinone",
+      "away": "Parma"
+    },
+    {
+      "id": 18656221,
+      "kickoff": "2026-11-28T14:30:00Z",
+      "league": "German Bundesliga",
+      "home": "Hamburg",
+      "away": "Bayern Munich"
+    },
+    {
+      "id": 18656222,
+      "kickoff": "2026-11-28T14:30:00Z",
+      "league": "German Bundesliga",
+      "home": "Köln",
+      "away": "Elversberg"
+    },
+    {
+      "id": 18656223,
+      "kickoff": "2026-11-28T14:30:00Z",
+      "league": "German Bundesliga",
+      "home": "Mainz 05",
+      "away": "Union Berlin"
+    },
+    {
+      "id": 18656224,
+      "kickoff": "2026-11-28T14:30:00Z",
+      "league": "German Bundesliga",
+      "home": "Paderborn",
+      "away": "Schalke 04"
+    },
+    {
+      "id": 18656289,
+      "kickoff": "2026-11-28T15:00:00Z",
+      "league": "Premier League",
+      "home": "Leeds",
+      "away": "Coventry"
+    },
+    {
+      "id": 18656290,
+      "kickoff": "2026-11-28T15:00:00Z",
+      "league": "Premier League",
+      "home": "Man Utd",
+      "away": "Brentford"
+    },
+    {
+      "id": 18656363,
+      "kickoff": "2026-11-28T15:00:00Z",
+      "league": "Scottish Premiership",
+      "home": "Aberdeen",
+      "away": "Dundee"
+    },
+    {
+      "id": 18656364,
+      "kickoff": "2026-11-28T15:00:00Z",
+      "league": "Scottish Premiership",
+      "home": "Dundee Utd",
+      "away": "St. Johnstone"
+    },
+    {
+      "id": 18656365,
+      "kickoff": "2026-11-28T15:00:00Z",
+      "league": "Scottish Premiership",
+      "home": "Rangers",
+      "away": "Falkirk"
+    },
+    {
+      "id": 18656366,
+      "kickoff": "2026-11-28T15:00:00Z",
+      "league": "Scottish Premiership",
+      "home": "St. Mirren",
+      "away": "Kilmarnock"
+    },
+    {
+      "id": 18680755,
+      "kickoff": "2026-11-28T15:15:00Z",
+      "league": "Spanish La Liga",
+      "home": "Málaga",
+      "away": "Athletic"
+    },
+    {
+      "id": 18656248,
+      "kickoff": "2026-11-28T15:30:00Z",
+      "league": "Dutch Eredivisie",
+      "home": "Excelsior",
+      "away": "Telstar"
+    },
+    {
+      "id": 18656265,
+      "kickoff": "2026-11-28T15:30:00Z",
+      "league": "Portuguese Primeira Liga",
+      "home": "Arouca",
+      "away": "Rio Ave"
+    },
+    {
+      "id": 18656266,
+      "kickoff": "2026-11-28T15:30:00Z",
+      "league": "Portuguese Primeira Liga",
+      "home": "Moreirense",
+      "away": "Santa Clara"
+    },
+    {
+      "id": 18656229,
+      "kickoff": "2026-11-28T16:15:00Z",
+      "league": "French Ligue 1",
+      "home": "Angers",
+      "away": "Lens"
+    },
+    {
+      "id": 18656227,
+      "kickoff": "2026-11-28T17:00:00Z",
+      "league": "Italian Serie A",
+      "home": "Torino",
+      "away": "Lazio"
+    },
+    {
+      "id": 18656225,
+      "kickoff": "2026-11-28T17:30:00Z",
+      "league": "German Bundesliga",
+      "home": "Stuttgart",
+      "away": "Frankfurt"
+    },
+    {
+      "id": 18656291,
+      "kickoff": "2026-11-28T17:30:00Z",
+      "league": "Premier League",
+      "home": "Ipswich",
+      "away": "Aston Villa"
+    },
+    {
+      "id": 18680752,
+      "kickoff": "2026-11-28T17:30:00Z",
+      "league": "Spanish La Liga",
+      "home": "Elche",
+      "away": "Atlético"
+    },
+    {
+      "id": 19012158,
+      "kickoff": "2026-11-28T17:30:00Z",
+      "league": "US Major League Soccer",
+      "home": "Charlotte",
+      "away": "Chicago"
+    },
+    {
+      "id": 18656249,
+      "kickoff": "2026-11-28T17:45:00Z",
+      "league": "Dutch Eredivisie",
+      "home": "PSV",
+      "away": "Go Ahead"
+    },
+    {
+      "id": 18656367,
+      "kickoff": "2026-11-28T17:45:00Z",
+      "league": "Scottish Premiership",
+      "home": "Motherwell",
+      "away": "Hibernian"
+    },
+    {
+      "id": 18656267,
+      "kickoff": "2026-11-28T18:00:00Z",
+      "league": "Portuguese Primeira Liga",
+      "home": "Académico",
+      "away": "Alverca"
+    },
+    {
+      "id": 19012159,
+      "kickoff": "2026-11-28T19:30:00Z",
+      "league": "US Major League Soccer",
+      "home": "Houston",
+      "away": "Earthquakes"
+    },
+    {
+      "id": 18656228,
+      "kickoff": "2026-11-28T19:45:00Z",
+      "league": "Italian Serie A",
+      "home": "Inter Milan",
+      "away": "Genoa"
+    },
+    {
+      "id": 18656230,
+      "kickoff": "2026-11-28T19:45:00Z",
+      "league": "French Ligue 1",
+      "home": "Le Havre",
+      "away": "Strasbourg"
+    },
+    {
+      "id": 18656231,
+      "kickoff": "2026-11-28T19:45:00Z",
+      "league": "French Ligue 1",
+      "home": "Le Mans",
+      "away": "Lille"
+    },
+    {
+      "id": 18656232,
+      "kickoff": "2026-11-28T19:45:00Z",
+      "league": "French Ligue 1",
+      "home": "Nice",
+      "away": "Troyes"
+    },
+    {
+      "id": 18656233,
+      "kickoff": "2026-11-28T19:45:00Z",
+      "league": "French Ligue 1",
+      "home": "PSG",
+      "away": "Lorient"
+    },
+    {
+      "id": 18656250,
+      "kickoff": "2026-11-28T20:00:00Z",
+      "league": "Dutch Eredivisie",
+      "home": "Cambuur",
+      "away": "Sparta"
+    },
+    {
+      "id": 18680757,
+      "kickoff": "2026-11-28T20:00:00Z",
+      "league": "Spanish La Liga",
+      "home": "Real Madrid",
+      "away": "Alavés"
+    },
+    {
+      "id": 18656268,
+      "kickoff": "2026-11-28T20:30:00Z",
+      "league": "Portuguese Primeira Liga",
+      "home": "Vitória SC",
+      "away": "Estrela"
+    },
+    {
+      "id": 19012160,
+      "kickoff": "2026-11-28T21:30:00Z",
+      "league": "US Major League Soccer",
+      "home": "Philadelphia",
+      "away": "New England"
+    },
+    {
+      "id": 19012161,
+      "kickoff": "2026-11-28T23:30:00Z",
+      "league": "US Major League Soccer",
+      "home": "Cincinnati",
+      "away": "Nashville"
     }
   ]
 }
