@@ -1,76 +1,10 @@
 {
-  "generatedAt": "2026-11-25T02:37:57.859Z",
+  "generatedAt": "2026-11-26T01:51:42.085Z",
   "sources": [
     "football-data.org (results and fixtures)"
   ],
   "ratingMatches": 5947,
   "fixtures": [
-    {
-      "id": "575405",
-      "competition": "UEFA Champions League",
-      "home": "Slavia Praha",
-      "away": "Villarreal",
-      "kickoff": "2026-11-25T17:45:00Z",
-      "homeElo": 1415,
-      "awayElo": 1549,
-      "homeCrest": "https://crests.football-data.org/930.png",
-      "awayCrest": "https://crests.football-data.org/94.png"
-    },
-    {
-      "id": "575406",
-      "competition": "UEFA Champions League",
-      "home": "Inter",
-      "away": "Stuttgart",
-      "kickoff": "2026-11-25T20:00:00Z",
-      "homeElo": 1755,
-      "awayElo": 1600,
-      "homeCrest": "https://crests.football-data.org/108.png",
-      "awayCrest": "https://crests.football-data.org/10.png"
-    },
-    {
-      "id": "575408",
-      "competition": "UEFA Champions League",
-      "home": "PSG",
-      "away": "Roma",
-      "kickoff": "2026-11-25T20:00:00Z",
-      "homeElo": 1902,
-      "awayElo": 1696,
-      "homeCrest": "https://crests.football-data.org/524.png",
-      "awayCrest": "https://crests.football-data.org/100.png"
-    },
-    {
-      "id": "575409",
-      "competition": "UEFA Champions League",
-      "home": "Club Brugge",
-      "away": "Liverpool",
-      "kickoff": "2026-11-25T20:00:00Z",
-      "homeElo": 1600,
-      "awayElo": 1681,
-      "homeCrest": "https://crests.football-data.org/851.png",
-      "awayCrest": "https://crests.football-data.org/64.png"
-    },
-    {
-      "id": "575410",
-      "competition": "UEFA Champions League",
-      "home": "Lille",
-      "away": "Bayern",
-      "kickoff": "2026-11-25T20:00:00Z",
-      "homeElo": 1583,
-      "awayElo": 1882,
-      "homeCrest": "https://crests.football-data.org/521.png",
-      "awayCrest": "https://crests.football-data.org/5.png"
-    },
-    {
-      "id": "575411",
-      "competition": "UEFA Champions League",
-      "home": "Sporting CP",
-      "away": "Man United",
-      "kickoff": "2026-11-25T20:00:00Z",
-      "homeElo": 1754,
-      "awayElo": 1563,
-      "homeCrest": "https://crests.football-data.org/498.png",
-      "awayCrest": "https://crests.football-data.org/66.png"
-    },
     {
       "id": "575415",
       "competition": "UEFA Champions League",
@@ -136,6 +70,72 @@
       "awayElo": 1625,
       "homeCrest": "https://crests.football-data.org/66.png",
       "awayCrest": "https://crests.football-data.org/721.png"
+    },
+    {
+      "id": "575422",
+      "competition": "UEFA Champions League",
+      "home": "Real Betis",
+      "away": "Como 1907",
+      "kickoff": "2026-12-09T17:45:00Z",
+      "homeElo": 1654,
+      "awayElo": 1725,
+      "homeCrest": "https://crests.football-data.org/90.png",
+      "awayCrest": "https://crests.football-data.org/7397.png"
+    },
+    {
+      "id": "575423",
+      "competition": "UEFA Champions League",
+      "home": "Sl. Bratislava",
+      "away": "Shaktar",
+      "kickoff": "2026-12-09T17:45:00Z",
+      "homeElo": 1322,
+      "awayElo": 1477,
+      "homeCrest": "https://crests.football-data.org/7509.png",
+      "awayCrest": "https://crests.football-data.org/1887.png"
+    },
+    {
+      "id": "575280",
+      "competition": "UEFA Champions League",
+      "home": "Arsenal",
+      "away": "Real Madrid",
+      "kickoff": "2026-12-09T20:00:00Z",
+      "homeElo": 1848,
+      "awayElo": 1837,
+      "homeCrest": "https://crests.football-data.org/57.png",
+      "awayCrest": "https://crests.football-data.org/86.png"
+    },
+    {
+      "id": "575286",
+      "competition": "UEFA Champions League",
+      "home": "Dortmund",
+      "away": "Inter",
+      "kickoff": "2026-12-09T20:00:00Z",
+      "homeElo": 1722,
+      "awayElo": 1755,
+      "homeCrest": "https://crests.football-data.org/4.png",
+      "awayCrest": "https://crests.football-data.org/108.png"
+    },
+    {
+      "id": "575290",
+      "competition": "UEFA Champions League",
+      "home": "PSV",
+      "away": "Atleti",
+      "kickoff": "2026-12-09T20:00:00Z",
+      "homeElo": 1709,
+      "awayElo": 1678,
+      "homeCrest": "https://crests.football-data.org/674.png",
+      "awayCrest": "https://crests.football-data.org/78.png"
+    },
+    {
+      "id": "575295",
+      "competition": "UEFA Champions League",
+      "home": "Liverpool",
+      "away": "Porto",
+      "kickoff": "2026-12-09T20:00:00Z",
+      "homeElo": 1681,
+      "awayElo": 1753,
+      "homeCrest": "https://crests.football-data.org/64.png",
+      "awayCrest": "https://crests.football-data.org/503.png"
     }
   ]
 }
