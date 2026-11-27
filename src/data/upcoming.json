@@ -1,15 +1,8 @@
 {
-  "generatedAt": "2026-11-27T01:48:58.854Z",
+  "generatedAt": "2026-11-27T14:01:12.976Z",
   "source": "SportAPI (sportapi.ai)",
   "days": 4,
   "matches": [
-    {
-      "id": 18622598,
-      "kickoff": "2026-11-27T03:10:00Z",
-      "league": "Liga MX",
-      "home": "León",
-      "away": "Cruz Azul"
-    },
     {
       "id": 18622692,
       "kickoff": "2026-11-27T19:00:00Z",
