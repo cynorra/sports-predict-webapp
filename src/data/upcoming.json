@@ -1,141 +1,8 @@
 {
-  "generatedAt": "2026-11-26T14:02:55.378Z",
+  "generatedAt": "2026-11-27T01:48:58.854Z",
   "source": "SportAPI (sportapi.ai)",
   "days": 4,
   "matches": [
-    {
-      "id": 18597832,
-      "kickoff": "2026-11-26T17:45:00Z",
-      "league": "UEFA Europa League",
-      "home": "Beşiktaş",
-      "away": "H Be'er Sheva"
-    },
-    {
-      "id": 18597833,
-      "kickoff": "2026-11-26T17:45:00Z",
-      "league": "UEFA Europa League",
-      "home": "Celta Vigo",
-      "away": "Bournemouth"
-    },
-    {
-      "id": 18597834,
-      "kickoff": "2026-11-26T17:45:00Z",
-      "league": "UEFA Europa League",
-      "home": "Dinamo Zagreb",
-      "away": "Leverkusen"
-    },
-    {
-      "id": 18597835,
-      "kickoff": "2026-11-26T17:45:00Z",
-      "league": "UEFA Europa League",
-      "home": "Marseille",
-      "away": "Levski Sofia"
-    },
-    {
-      "id": 18597836,
-      "kickoff": "2026-11-26T17:45:00Z",
-      "league": "UEFA Europa League",
-      "home": "Olympiakos",
-      "away": "AC Milan"
-    },
-    {
-      "id": 18597837,
-      "kickoff": "2026-11-26T17:45:00Z",
-      "league": "UEFA Europa League",
-      "home": "RB Salzburg",
-      "away": "Ararat-Armenia"
-    },
-    {
-      "id": 18597838,
-      "kickoff": "2026-11-26T17:45:00Z",
-      "league": "UEFA Europa League",
-      "home": "R. Union SG",
-      "away": "Lech"
-    },
-    {
-      "id": 18597839,
-      "kickoff": "2026-11-26T17:45:00Z",
-      "league": "UEFA Europa League",
-      "home": "Plzeň",
-      "away": "Benfica"
-    },
-    {
-      "id": 18597840,
-      "kickoff": "2026-11-26T20:00:00Z",
-      "league": "UEFA Europa League",
-      "home": "Crystal Palace",
-      "away": "Real Sociedad"
-    },
-    {
-      "id": 18597841,
-      "kickoff": "2026-11-26T20:00:00Z",
-      "league": "UEFA Europa League",
-      "home": "Ferencváros",
-      "away": "Celje"
-    },
-    {
-      "id": 18597842,
-      "kickoff": "2026-11-26T20:00:00Z",
-      "league": "UEFA Europa League",
-      "home": "Hoffenheim",
-      "away": "Sturm"
-    },
-    {
-      "id": 18597843,
-      "kickoff": "2026-11-26T20:00:00Z",
-      "league": "UEFA Europa League",
-      "home": "Juventus",
-      "away": "Omonia"
-    },
-    {
-      "id": 18597844,
-      "kickoff": "2026-11-26T20:00:00Z",
-      "league": "UEFA Europa League",
-      "home": "NEC",
-      "away": "Rennes"
-    },
-    {
-      "id": 18597845,
-      "kickoff": "2026-11-26T20:00:00Z",
-      "league": "UEFA Europa League",
-      "home": "OFI",
-      "away": "Anderlecht"
-    },
-    {
-      "id": 18597846,
-      "kickoff": "2026-11-26T20:00:00Z",
-      "league": "UEFA Europa League",
-      "home": "Lyon",
-      "away": "Lillestrøm"
-    },
-    {
-      "id": 18597847,
-      "kickoff": "2026-11-26T20:00:00Z",
-      "league": "UEFA Europa League",
-      "home": "Sparta Prague",
-      "away": "AZ"
-    },
-    {
-      "id": 18597848,
-      "kickoff": "2026-11-26T20:00:00Z",
-      "league": "UEFA Europa League",
-      "home": "Sunderland",
-      "away": "Jagiellonia"
-    },
-    {
-      "id": 18597849,
-      "kickoff": "2026-11-26T20:00:00Z",
-      "league": "UEFA Europa League",
-      "home": "Torreense",
-      "away": "Celtic"
-    },
-    {
-      "id": 18622599,
-      "kickoff": "2026-11-27T01:00:00Z",
-      "league": "Liga MX",
-      "home": "Pachuca",
-      "away": "Chivas"
-    },
     {
       "id": 18622598,
       "kickoff": "2026-11-27T03:10:00Z",
@@ -681,6 +548,55 @@
       "league": "Portuguese Primeira Liga",
       "home": "Porto",
       "away": "Sporting"
+    },
+    {
+      "id": 18656521,
+      "kickoff": "2026-11-30T01:07:00Z",
+      "league": "Liga MX",
+      "home": "Chivas",
+      "away": "Pachuca"
+    },
+    {
+      "id": 18656522,
+      "kickoff": "2026-11-30T03:00:00Z",
+      "league": "Liga MX",
+      "home": "Cruz Azul",
+      "away": "León"
+    },
+    {
+      "id": 18705440,
+      "kickoff": "2026-11-30T17:30:00Z",
+      "league": "Italian Serie A",
+      "home": "Lecce",
+      "away": "Atalanta"
+    },
+    {
+      "id": 18705441,
+      "kickoff": "2026-11-30T19:45:00Z",
+      "league": "Italian Serie A",
+      "home": "Cagliari",
+      "away": "AC Milan"
+    },
+    {
+      "id": 18680753,
+      "kickoff": "2026-11-30T20:00:00Z",
+      "league": "Spanish La Liga",
+      "home": "Espanyol",
+      "away": "Getafe"
+    },
+    {
+      "id": 18705444,
+      "kickoff": "2026-11-30T20:15:00Z",
+      "league": "Portuguese Primeira Liga",
+      "home": "Benfica",
+      "away": "Famalicão"
+    },
+    {
+      "id": 18705445,
+      "kickoff": "2026-11-30T20:15:00Z",
+      "league": "Portuguese Primeira Liga",
+      "home": "Casa Pia",
+      "away": "Braga"
     }
   ]
 }
