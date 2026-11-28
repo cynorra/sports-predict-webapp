@@ -1,8 +1,63 @@
 {
-  "generatedAt": "2026-11-27T01:48:57.953Z",
+  "generatedAt": "2026-11-28T01:30:19.230Z",
   "source": "SportAPI (sportapi.ai)",
   "days": 5,
   "matches": [
+    {
+      "id": 18622685,
+      "date": "2026-11-27",
+      "kickoff": "2026-11-27T19:30:00Z",
+      "league": "German Bundesliga",
+      "home": "Bremen",
+      "away": "M'gladbach",
+      "homeScore": 3,
+      "awayScore": 3,
+      "status": "FT"
+    },
+    {
+      "id": 18622686,
+      "date": "2026-11-27",
+      "kickoff": "2026-11-27T19:45:00Z",
+      "league": "Italian Serie A",
+      "home": "Venezia",
+      "away": "Bologna",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "FT"
+    },
+    {
+      "id": 18622687,
+      "date": "2026-11-27",
+      "kickoff": "2026-11-27T19:45:00Z",
+      "league": "French Ligue 1",
+      "home": "Brest",
+      "away": "Paris FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "FT"
+    },
+    {
+      "id": 18622696,
+      "date": "2026-11-27",
+      "kickoff": "2026-11-27T20:00:00Z",
+      "league": "Premier League",
+      "home": "Nottm Forest",
+      "away": "Chelsea",
+      "homeScore": 3,
+      "awayScore": 2,
+      "status": "FT"
+    },
+    {
+      "id": 18680754,
+      "date": "2026-11-27",
+      "kickoff": "2026-11-27T20:00:00Z",
+      "league": "Spanish La Liga",
+      "home": "Levante",
+      "away": "Santander",
+      "homeScore": 1,
+      "awayScore": 3,
+      "status": "FT"
+    },
     {
       "id": 18597832,
       "date": "2026-11-26",
@@ -397,39 +452,6 @@
       "away": "Betis",
       "homeScore": 0,
       "awayScore": 2,
-      "status": "FT"
-    },
-    {
-      "id": 18499004,
-      "date": "2026-11-23",
-      "kickoff": "2026-11-23T20:00:00Z",
-      "league": "Spanish La Liga",
-      "home": "Levante",
-      "away": "Elche",
-      "homeScore": 1,
-      "awayScore": 1,
-      "status": "FT"
-    },
-    {
-      "id": 18499005,
-      "date": "2026-11-23",
-      "kickoff": "2026-11-23T19:45:00Z",
-      "league": "Italian Serie A",
-      "home": "Monza",
-      "away": "Fiorentina",
-      "homeScore": 3,
-      "awayScore": 0,
-      "status": "FT"
-    },
-    {
-      "id": 18499012,
-      "date": "2026-11-23",
-      "kickoff": "2026-11-23T20:00:00Z",
-      "league": "Premier League",
-      "home": "Brentford",
-      "away": "Everton",
-      "homeScore": 4,
-      "awayScore": 0,
       "status": "FT"
     }
   ]

@@ -1,64 +1,8 @@
 {
-  "generatedAt": "2026-11-27T14:01:12.976Z",
+  "generatedAt": "2026-11-28T01:30:20.136Z",
   "source": "SportAPI (sportapi.ai)",
   "days": 4,
   "matches": [
-    {
-      "id": 18622692,
-      "kickoff": "2026-11-27T19:00:00Z",
-      "league": "Dutch Eredivisie",
-      "home": "Groningen",
-      "away": "Willem II"
-    },
-    {
-      "id": 18622685,
-      "kickoff": "2026-11-27T19:30:00Z",
-      "league": "German Bundesliga",
-      "home": "Bremen",
-      "away": "M'gladbach"
-    },
-    {
-      "id": 18622686,
-      "kickoff": "2026-11-27T19:45:00Z",
-      "league": "Italian Serie A",
-      "home": "Venezia",
-      "away": "Bologna"
-    },
-    {
-      "id": 18622687,
-      "kickoff": "2026-11-27T19:45:00Z",
-      "league": "French Ligue 1",
-      "home": "Brest",
-      "away": "Paris FC"
-    },
-    {
-      "id": 18622696,
-      "kickoff": "2026-11-27T20:00:00Z",
-      "league": "Premier League",
-      "home": "Nottm Forest",
-      "away": "Chelsea"
-    },
-    {
-      "id": 18680754,
-      "kickoff": "2026-11-27T20:00:00Z",
-      "league": "Spanish La Liga",
-      "home": "Levante",
-      "away": "Santander"
-    },
-    {
-      "id": 18622693,
-      "kickoff": "2026-11-27T20:15:00Z",
-      "league": "Portuguese Primeira Liga",
-      "home": "Marítimo",
-      "away": "Nacional"
-    },
-    {
-      "id": 19012156,
-      "kickoff": "2026-11-28T01:00:00Z",
-      "league": "US Major League Soccer",
-      "home": "Columbus",
-      "away": "Inter Miami"
-    },
     {
       "id": 19012157,
       "kickoff": "2026-11-28T03:00:00Z",
@@ -590,6 +534,13 @@
       "league": "Portuguese Primeira Liga",
       "home": "Casa Pia",
       "away": "Braga"
+    },
+    {
+      "id": 18751037,
+      "kickoff": "2026-12-01T20:00:00Z",
+      "league": "Premier League",
+      "home": "Coventry",
+      "away": "Ipswich"
     }
   ]
 }
